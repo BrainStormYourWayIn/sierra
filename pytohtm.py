@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jun  8 09:32:38 2021
-
-"""
 #from flask import Flask
-
 from bs4 import BeautifulSoup
 import warnings
 
@@ -16,10 +10,8 @@ def title(Title, icon=None, css_bool=True):
         css_bool(bool, optional) : Do you want CSS in your HTML code? (True or False)
     """
 
-
-
     if icon == None or icon.split('.')[-1] != '.ico':
-        with open('nameofhtm.html', 'w+') as f:
+        with open('index.html', 'w+') as f:
                 f.write(f"""<!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
@@ -27,7 +19,7 @@ def title(Title, icon=None, css_bool=True):
 <title>{Title}</title>
 <link rel="shortcut icon" href={icon}>\n""")
     else:
-        with open('nameofhtm.html', 'w+') as f:
+        with open('index.html', 'w+') as f:
                 f.write(f"""<!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
@@ -35,54 +27,35 @@ def title(Title, icon=None, css_bool=True):
 <title>{Title}</title>""")
     
     if css_bool == True:
-        with open('nameofhtm.html', 'a') as f:
-            f.write(f'<link rel = "stylesheet" href = "style.css">\n')
+        with open('index.html', 'a+') as f:
+            f.write(f'<link rel="stylesheet" href="style.css">\n')
         with open('style.css', 'w') as f:
             f.write('')
     elif css_bool == False:
         pass
     else:
         print('arg css_bool only takes value False (default) or True')
-    #TODO: add link rel = style.css in html code, get clothes first
 
-
-def head(Head, font_size, font_family, type='h2', color='black', text_align='left'):
-    font_family = font_family.replace(";", "")
-    """Head:
-        head type is h1 to h6
-        size in any valid measure
-        text-align: left|right|center|justify|initial|inherit
-
-
+def head(Head, font_size, font_family, type='header', color='#000000', text_align='left'):
+    """
     Args:
-        Head (str, compulsory)        : Caption header
+        Head (str, compulsory)        : Header Size. Anything from h1 to h6.
         font_size (str, compulsory)   : Font size in any valid measure.
         font_family (str, compulsory) : any possible Font family
-        type (str, optional)          : Header Size. Anything from h1 to h6.
-        color (str, optional)         : Color of Font. Defaults to 'black'. HEX value not supported.
+        type (str, optional)          : Defaults to 'header'.
+        color (str, optional)         : Color of Font in hex code. Defaults to '#000000'.
         text_align (str, optional)    : left|right|center|justify|initial|inherit. Defaults to 'left'.
     """
 
-    with open('nameofhtm.html', 'a') as f:
-        if font_size:
-            f.write(f'''<header>{Head}</header>\n''')
-            with open('style.css', 'a') as s:
-                s.write(f'''header {{
-    color: {color};
-    font-family: {font_family};
-    background-color: {bg_color};
-    text-align: {text_align};
-    font-size: {font_size};
-}}''')
-            
-        elif type:
-            f.write(f'''<{type}>{Head}</{type}>\n''')
-            with open('style.css', 'a') as s:
+    with open('index.html', 'a+') as f:
+        f.write(f'''<{type}>{Head}</{type}>
+</head>\n''')
+        with open('style.css', 'a') as s:
                 s.write(f'''{type} {{
     color: {color};
-    background-color: {bg_color};
     font-family: {font_family};
     text-align: {text_align};
+    font-size: {font_size};
 }}''')
 
 def open_tags(any_tag, *args):
@@ -145,11 +118,16 @@ def auto_close_tags():
 # # a single quote. Hence, they must always enter it in double quotes. 
 # check soup.a.prettify()
 
+def WriteToHTML(text):
+    open('index.html', 'a+').write(text)
+
+def WriteToCSS(text):
+    open('style.css', 'a+').write(text)
+
 def end():
     with open('nameofhtm.html', 'a+') as f:
         f.write('</html>')
         
-
 if __name__ == "__main__":
     title('Test')
     head('This is the header', '20px', 'Arial')
