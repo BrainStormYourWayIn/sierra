@@ -9,6 +9,9 @@ Created on Tue Jun  8 09:32:38 2021
 
 # icon argument must be a .ico file
 
+#def check_tag_open(tag):
+
+
 def title(Title, icon, css_bool):
     with open('nameofhtm.html', 'w') as f:
         
@@ -88,4 +91,38 @@ head('nothing more', None, '35px', '#3455eb', 'Arial', None, 'center')
 # font-family: 'Roboto', sans-serif; in CSS. But when the user is entering the value of
 # font_family as ''Roboto', sans-serif' there's a SyntaxError, since there is a single quote within
 # # a single quote. Hence, they must always enter it in double quotes. 
+# check soup.a.prettify()
 
+
+def open_tags(any_tag, *args):
+    with open('nameofhtm.html', 'a') as f:
+        f.write(f'''<{any_tag}>\n''')
+        for arg in args:
+            f.write(f'''<{arg}>\n''')
+
+open_tags('tag3', 'tag1', 'tag2')
+
+def close_tags(any_tag, *args):
+    with open('nameofhtm.html', 'a') as f:
+        f.write(f'''</{any_tag}>\n''')
+        for arg in args:
+            f.write(f'''</{arg}>\n''')
+
+#close_tags('tag1', 'tag2')
+
+def close_tag_before(tag_to_close, tag_to_close_before):
+    with open('nameofhtm.html', 'r') as f:
+        tag_to_close_before = "<" + tag_to_close_before + ">"
+        tag_to_close = "</" + tag_to_close + ">"
+        closed_tag = tag_to_close + tag_to_close_before
+        f = f.read()
+        now_closed = f.replace(tag_to_close_before, closed_tag)
+        with open('nameofhtm.html', 'w') as f:
+            f.write(f'''{now_closed}''')
+
+close_tag_before('tag3', 'tag2')
+
+# with open('nameofhtm.html', 'r') as f:
+#     newlines = f.read()
+#     newlines = newlines.replace('<tag1>', '<tag4>')
+#     print(newlines)
