@@ -11,6 +11,8 @@ Created on Tue Jun  8 09:32:38 2021
 
 #def check_tag_open(tag):
 
+from bs4 import BeautifulSoup
+import warnings
 
 def title(Title, icon, css_bool):
     with open('nameofhtm.html', 'w') as f:
@@ -112,8 +114,8 @@ def close_tags(any_tag, *args):
 
 def close_tag_before(tag_to_close, tag_to_close_before):
     with open('nameofhtm.html', 'r') as f:
-        tag_to_close_before = "<" + tag_to_close_before + ">"
-        tag_to_close = "</" + tag_to_close + ">"
+        tag_to_close_before = f"<{tag_to_close_before}>"
+        tag_to_close = f"</{tag_to_close}>"
         closed_tag = tag_to_close + tag_to_close_before
         f = f.read()
         now_closed = f.replace(tag_to_close_before, closed_tag)
@@ -126,3 +128,16 @@ close_tag_before('tag3', 'tag2')
 #     newlines = f.read()
 #     newlines = newlines.replace('<tag1>', '<tag4>')
 #     print(newlines)
+
+# Close all tags automatically
+def auto_close_tags():
+    warnings.warn(f'''Auto closing HTML tags may not be accurate and are not recommended. Further 
+    development may run into issues. Please close tags manually if unsure. 
+    See "bs4 auto closing" for more info.''')
+    with open('nameofhtm.html', 'r') as f:
+        soup = BeautifulSoup(f, 'html.parser')
+        auto_close_all_tags = soup.prettify()
+        with open('nameofhtm.html', 'w') as f:
+            f.write(f'''{auto_close_all_tags}''') 
+
+#auto_close_tags() 
