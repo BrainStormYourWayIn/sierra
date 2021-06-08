@@ -28,7 +28,7 @@ def title(Title, icon, css_bool):
         pass
     else:
         print('css_bool only takes value None (default) or "y"')
-# add link rel = style.css in html code
+# add link rel = style.css in html code, get clothes first
 
 #Head:
 # head type is h1 to h6
@@ -49,10 +49,17 @@ def head(Head, type, font_size, in_hex, font_family, text_align):
             
         elif type:
             f.write(f'''<{type}>{Head}</{type}>''')
-        elif type and size:
-            return 'Only type or font_size accepted'
+            with open('style.css', 'a') as s:
+                s.write(f'''{type} {{
+    color: {in_hex};
+    font-family: {font_family};
+    text-align: {text_align};
+}}''')
+        #elif type and font_size:
+            #print("Only type or font_size accepted in head()")
         
 title('nothing', None, 'y')
-head('nothing more', None, '35px', '#3455eb', 'Arial', 'right')
-
-
+#head('nothing more', None, '35px', '#3455eb', 'Arial', 'center')
+head('nothing more', 'h5', None, 'rgb(50, 168, 82)', 'Arial', 'center')
+# No hex accepted for type in head(). RGB and normal eng works.
+# If arguments font_size and type are passed, font_size seems to be given more preference CSS
