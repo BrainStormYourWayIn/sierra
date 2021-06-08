@@ -9,23 +9,48 @@ Created on Tue Jun  8 09:32:38 2021
 
 # icon argument must be a .ico file
 
-def title(Title, icon):
+def title(Title, icon, css_bool):
     with open('nameofhtm.html', 'w') as f:
         
-        f.write(f'''<html>
+            f.write(f'''<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
 <title>{Title}</title>
 <link rel="shortcut icon" href={icon}>\n''')
+    
+    if css_bool == 'y':
+        with open('nameofhtm.html', 'a') as f:
+            f.write(f'''<link rel = "stylesheet" href = "style.css">\n''')
+        with open('style.css', 'w') as s:
+            s.write('')
+    elif css_bool == None:
+        pass
+    else:
+        print('css_bool only takes value None (default) or "y"')
+# add link rel = style.css in html code, get clothes first
 
-def head(Head, type, size):
+# head type is h1 to h6
+# size in any valid measure
+
+def head(Head, type, font_size, in_hex, font_family, text_align):
     with open('nameofhtm.html', 'a') as f:
-        if size:
-            print('CSS')
+        if font_size:
+            f.write(f'''<header>{Head}</header>''')
+            with open('style.css', 'a') as s:
+                s.write(f'''header {{
+    color: {in_hex};
+    font-family: {font_family};
+    text-align: {text_align};
+    font-size: {font_size};
+}}''')
+            
         elif type:
             f.write(f'''<{type}>{Head}</{type}>''')
         elif type and size:
-            print('Invalid')
+            return 'Only type or font_size accepted'
         
-title('nothing', None)
-head('nothing more', 'h3', None)
+title('nothing', None, 'y')
+head('nothing more', None, '35px', '#3455eb', 'Arial', 'right')
 
 
