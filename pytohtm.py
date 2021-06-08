@@ -59,7 +59,7 @@ def head(Head, font_size, font_family, type='header', color='#000000', text_alig
 }}''')
 
 def open_tags(any_tag, *args):
-    with open('nameofhtm.html', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''<{any_tag}>\n''')
         for arg in args:
             f.write(f'''<{arg}>\n''')
@@ -67,7 +67,7 @@ def open_tags(any_tag, *args):
 #open_tags('tag3', 'tag1', 'tag2')
 
 def close_tags(any_tag, *args):
-    with open('nameofhtm.html', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''</{any_tag}>\n''')
         for arg in args:
             f.write(f'''</{arg}>\n''')
@@ -75,13 +75,13 @@ def close_tags(any_tag, *args):
 #close_tags('tag1', 'tag2')
 
 def close_tag_before(tag_to_close, tag_to_close_before):
-    with open('nameofhtm.html', 'r') as f:
+    with open('index.html', 'r') as f:
         tag_to_close_before = f"<{tag_to_close_before}>"
         tag_to_close = f"</{tag_to_close}>"
         closed_tag = tag_to_close + tag_to_close_before
         f = f.read()
         now_closed = f.replace(tag_to_close_before, closed_tag)
-        with open('nameofhtm.html', 'w') as f:
+        with open('index.html', 'w') as f:
             f.write(f'''{now_closed}''')
 
 #close_tag_before('tag3', 'tag2')
@@ -96,10 +96,10 @@ def auto_close_tags():
     warnings.warn(f'''Auto closing HTML tags may not be accurate and are not recommended. Further 
     development may run into issues. Please close tags manually if unsure. 
     See "bs4 auto closing tags" for more info.''')
-    with open('nameofhtm.html', 'r') as f:
+    with open('index.html', 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
-        with open('nameofhtm.html', 'w') as f:
+        with open('index.html', 'w') as f:
             f.write(f'''{auto_close_all_tags}''') 
 
 #auto_close_tags() 
@@ -118,10 +118,10 @@ def auto_close_tags():
 # # a single quote. Hence, they must always enter it in double quotes. 
 # check soup.a.prettify()
 
-def WriteToHTML(text):
+def WriteHTML(text):
     open('index.html', 'a+').write(text)
 
-def WriteToCSS(text):
+def WriteCSS(text):
     open('style.css', 'a+').write(text)
 
 def end():
