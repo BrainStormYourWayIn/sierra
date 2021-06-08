@@ -92,8 +92,10 @@ def close_tag_before(tag_to_close, tag_to_close_before):
 #     print(newlines)
 
 # Close all tags automatically
-def auto_close_tags():
-    warnings.warn(f'''Auto closing HTML tags may not be accurate and are not recommended. Further 
+def AutoCloseTags():
+    """Closes the HTML Tags that ar open."""
+
+    warnings.warn(r'''Auto closing HTML tags may not be accurate and are not recommended. Further 
     development may run into issues. Please close tags manually if unsure. 
     See "bs4 auto closing tags" for more info.''')
     with open('index.html', 'r') as f:
@@ -102,33 +104,32 @@ def auto_close_tags():
         with open('index.html', 'w') as f:
             f.write(f'''{auto_close_all_tags}''') 
 
-#auto_close_tags() 
-                
+#auto_close_tags()                 
 #title('nothing', None, 'y')
 #head('nothing more', None, '35px', '#3455eb', 'Arial', 'center')
 #head('nothing more', 'h5', None, 'rgb(50, 168, 82)', 'Arial', 'center')
 #head('nothing more', None, None, None, None, None)
+
 # No hex accepted for color in head(). RGB and normal eng works.
 # If arguments font_size and type are passed, font_size seems to be given preference CSS
-
-# In head() in the argument font_family, the users MUST enter it in double quotes. Typically, it can be 
-# something like
+# In head() in the argument font_family, the users MUST enter it in double-quotes. Typically, it can be something like
 # font-family: 'Roboto', sans-serif; in CSS. But when the user is entering the value of
 # font_family as ''Roboto', sans-serif' there's a SyntaxError, since there is a single quote within
-# # a single quote. Hence, they must always enter it in double quotes. 
+# a single quote. Hence, they must always enter it in double-quotes. 
+
 # check soup.a.prettify()
 
 def WriteHTML(text):
+    """Writes the given code to the HTML file."""
+    
     open('index.html', 'a+').write(text)
 
 def WriteCSS(text):
-    open('style.css', 'a+').write(text)
+    """Writes the given code to the CSS file."""
 
-def end():
-    with open('nameofhtm.html', 'a+') as f:
-        f.write('</html>')
+    open('style.css', 'a+').write(text)
         
 if __name__ == "__main__":
     title('Test')
     head('This is the header', '20px', 'Arial')
-    end()
+    AutoCLoseTags()
