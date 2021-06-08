@@ -73,3 +73,4 @@ head('nothing more', None, '35px', '#3455eb', 'Arial', 'center')
 # No hex accepted for color in head() iff type is mentioned. RGB and normal eng works. Haven't tested
 # other mediums.
 # In title(), default value of ico and css_bool are None. 
+# Also in title(), icon argument MUST be a .ico file. Check if the last 4 letters are '.ico'
