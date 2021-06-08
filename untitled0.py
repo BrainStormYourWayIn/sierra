@@ -35,13 +35,13 @@ def title(Title, icon, css_bool):
 # size in any valid measure
 # text-align: left|right|center|justify|initial|inherit
 
-def head(Head, type, font_size, in_hex, font_family, text_align):
+def head(Head, type, font_size, color, font_family, text_align):
     with open('nameofhtm.html', 'a') as f:
         if font_size:
             f.write(f'''<header>{Head}</header>''')
             with open('style.css', 'a') as s:
                 s.write(f'''header {{
-    color: {in_hex};
+    color: {color};
     font-family: {font_family};
     text-align: {text_align};
     font-size: {font_size};
@@ -51,7 +51,7 @@ def head(Head, type, font_size, in_hex, font_family, text_align):
             f.write(f'''<{type}>{Head}</{type}>''')
             with open('style.css', 'a') as s:
                 s.write(f'''{type} {{
-    color: {in_hex};
+    color: {color};
     font-family: {font_family};
     text-align: {text_align};
 }}''')
@@ -59,7 +59,17 @@ def head(Head, type, font_size, in_hex, font_family, text_align):
             #print("Only type or font_size accepted in head()")
         
 title('nothing', None, 'y')
-#head('nothing more', None, '35px', '#3455eb', 'Arial', 'center')
-head('nothing more', 'h5', None, 'rgb(50, 168, 82)', 'Arial', 'center')
-# No hex accepted for type in head(). RGB and normal eng works.
-# If arguments font_size and type are passed, font_size seems to be given more preference CSS
+head('nothing more', None, '35px', '#3455eb', 'Arial', 'center')
+#head('nothing more', 'h5', None, 'rgb(50, 168, 82)', 'Arial', 'center')
+#head('nothing more', None, None, None, None, None)
+# No hex accepted for color in head(). RGB and normal eng works.
+# If arguments font_size and type are passed, font_size seems to be given preference CSS
+
+
+# In head(), color must have black as default. 
+# In head(), type OR font_size are required arguments. At least one of them must be passed. 
+# Warn the users that if arguments font_size and type, both are passed, font_size seems to be given preference 
+# by CSS. But, at least one argument MUST be passed.
+# No hex accepted for color in head() iff type is mentioned. RGB and normal eng works. Haven't tested
+# other mediums.
+# In title(), default value of ico and css_bool are None. 
