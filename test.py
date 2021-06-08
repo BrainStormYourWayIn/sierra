@@ -43,7 +43,7 @@ def title(Title, icon=None, css_bool=True):
     #TODO: add link rel = style.css in html code, get clothes first
 
 
-def head(Head, font_size, font_family, type='header', color='#000000', text_align='left'):
+def head(Head, font_size, font_family, type='header', color='black', text_align='left'):
     """Head:
         head type is h1 to h6
         size in any valid measure
@@ -51,11 +51,11 @@ def head(Head, font_size, font_family, type='header', color='#000000', text_alig
 
 
     Args:
-        Head (str, compulsory)        : Header Size. Anything from h1 to h6.
+        Head (str, compulsory)        : Caption header
         font_size (str, compulsory)   : Font size in any valid measure.
         font_family (str, compulsory) : any possible Font family
-        type (str, optional)          : Defaults to 'header'.
-        color (str, optional)         : Color of Font. Defaults to '#000000'.
+        type (str, optional)          : Header Size. Anything from h1 to h6.
+        color (str, optional)         : Color of Font. Defaults to 'black'. HEX value not supported.
         text_align (str, optional)    : left|right|center|justify|initial|inherit. Defaults to 'left'.
     """
 
@@ -81,5 +81,5 @@ def end():
 
 if __name__ == "__main__":
     title('Test')
-    head('h1', '20px', 'Arial')
+    head('This is the header', '20px', 'Arial')
     end()
