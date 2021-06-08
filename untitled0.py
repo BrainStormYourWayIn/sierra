@@ -133,7 +133,7 @@ close_tag_before('tag3', 'tag2')
 def auto_close_tags():
     warnings.warn(f'''Auto closing HTML tags may not be accurate and are not recommended. Further 
     development may run into issues. Please close tags manually if unsure. 
-    See "bs4 auto closing" for more info.''')
+    See "bs4 auto closing tags" for more info.''')
     with open('nameofhtm.html', 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
