@@ -28,10 +28,12 @@ def title(Title, icon, css_bool):
         pass
     else:
         print('css_bool only takes value None (default) or "y"')
-# add link rel = style.css in html code, get clothes first
+# add link rel = style.css in html code
 
+#Head:
 # head type is h1 to h6
 # size in any valid measure
+# text-align: left|right|center|justify|initial|inherit
 
 def head(Head, type, font_size, in_hex, font_family, text_align):
     with open('nameofhtm.html', 'a') as f:
