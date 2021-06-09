@@ -48,17 +48,12 @@ def head(Head, font_size=None, font_family='Arial', type='header', color='black'
     """
     if len(type) == 2:
         font_size = None
-    elif type == None:
-        type = 'header'
     elif font_size and type:
         type = 'header'
         warnings.warn('Both font_size and type are given. Please rectify or only font_size is considered')
-    elif font_size == None and type == None:
-        type = 'h2'
-        warnings.warn('type is None. Defaults to h2')
-    elif len(type) != 2 and type != None:
+    elif len(type) != 2 and font_size == None:
         type = 'h3'
-        warnings.warn("Argument 'type' only takes in None or a value from h1 to h6. Please rectify ot type defaults to 'h3'")
+        warnings.warn("Argument 'type' only takes in None or a value from h1 to h6. Please rectify with a valid font_size or type defaults to 'h3'")
 
     with open('index.html', 'a+') as f:
         f.write(f'''<{type}>{Head}</{type}>
