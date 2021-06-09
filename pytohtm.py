@@ -152,6 +152,38 @@ def AutoCloseTags():
 
 # check soup.a.prettify()
 
+class cTags():
+    def __init__(self, tag):
+        self.tag = tag
+
+    def css(self, color=None, font_family=None, font_weight=None, text_align=None, font_size=None, bg_color=None, margin_top=None, margin_bottom=None, margin_left=None, margin_right=None, border=None, display=None, padding=None, height=None, width=None, *args):
+        with open('style.css', 'a') as s:
+            s.write(f'''\n{str(self.tag)} {{
+    color: {color};
+    font-family: {font_family};
+    font-weight: {font_weight};
+    text-align: {text_align};
+    font-size: {font_size};
+    background-color: {bg_color};
+    margin-top: {margin_top};
+    margin-bottom: {margin_bottom};
+    margin-left: {margin_left};
+    margin-right: {margin_right};
+    border: {border};
+    display: {display};
+    padding: {padding};
+}}''')
+        for arg in args:
+            s.write(f'''\n{str(self.tag)} {{
+    {arg};
+}}''')
+
+x = tags()
+x.open_tags('tag1')
+y = cTags('tag1')
+y.css(color='blue')
+
+
 def WriteHTML(text):
     """Writes the given code to the HTML file."""
     
