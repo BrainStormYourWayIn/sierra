@@ -36,14 +36,14 @@ def title(Title, icon=None, css_bool=True):
     else:
         print('arg css_bool only takes value False (default) or True')
 
-def head(Head, font_size, font_family, type='header', color='#000000', text_align='left'):
+def head(Head, font_size, font_family, type='header', color='black', text_align='left'):
     """
     Args:
-        Head (str, compulsory)        : Header Size. Anything from h1 to h6.
+        Head (str, compulsory)        : Caption header
         font_size (str, compulsory)   : Font size in any valid measure.
         font_family (str, compulsory) : any possible Font family
-        type (str, optional)          : Defaults to 'header'.
-        color (str, optional)         : Color of Font in hex code. Defaults to '#000000'.
+        type (str, optional)          : Header Size. Anything from h1 to h6.
+        color (str, optional)         : Color of Font. Does not take in HEX values  
         text_align (str, optional)    : left|right|center|justify|initial|inherit. Defaults to 'left'.
     """
 
