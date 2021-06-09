@@ -1,31 +1,24 @@
 from bs4 import BeautifulSoup
 import warnings
 
+
 def title(Title, icon=None):
-    with open('nameofhtm.html', 'w') as f:
+    with open('nameofhtm.html', 'a') as f:
+        f.write(f'''<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+<title>{Title}</title>''')
         if icon == None or icon.split('.')[-1] != '.ico':
-            icon = None
-        
-            f.write(f'''<!doctype html>
-<html lang="en">
-<meta charset="utf-8">
-<head>
-<title>{Title}</title>
-<link rel="shortcut icon" href={icon}>
-<link rel="stylesheet" href="style.css">\n''')
-
+            f.write('<link rel="stylesheet" href="style.css">\n')
         else:
-
-            f.write(f'''<!doctype html>
-<html lang="en">
-<meta charset="utf-8">
-<head>
-<title>{Title}</title>
-<link rel="shortcut icon" href={icon}>
+            f.write(f'''<link rel="shortcut icon" href={icon}>
 <link rel="stylesheet" href="style.css">\n''')
+            
     with open('style.css', 'w') as f:
             f.write('')
 
+            
 def add_font(font_link):
     with open('nameofhtm.html', 'a') as f:
         f.write(f'''<link href={font_link} rel="stylesheet">\n''')
