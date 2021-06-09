@@ -14,6 +14,8 @@ Created on Tue Jun  8 09:32:38 2021
 from bs4 import BeautifulSoup
 import warnings
 
+b = ' <br> '
+
 def title(Title, icon=None):
     with open('nameofhtm.html', 'w') as f:
         if icon == None or icon.split('.')[-1] != '.ico':
@@ -25,7 +27,7 @@ def title(Title, icon=None):
 <head>
 <title>{Title}</title>
 <link rel="shortcut icon" href={icon}>
-<link rel="stylesheet" href="style.css">\n''')
+<link rel="stylesheet" href="style.css">''')
 
         else:
 
@@ -35,13 +37,13 @@ def title(Title, icon=None):
 <head>
 <title>{Title}</title>
 <link rel="shortcut icon" href={icon}>
-<link rel="stylesheet" href="style.css">\n''')
+<link rel="stylesheet" href="style.css">''')
     with open('style.css', 'w') as f:
             f.write('')
 
 def add_font(font_link):
     with open('nameofhtm.html', 'a') as f:
-        f.write(f'''<link href={font_link} rel="stylesheet">\n''')
+        f.write(f'''\n<link href={font_link} rel="stylesheet">''')
 
 #Head:
 # head type is h1 to h6
@@ -79,7 +81,7 @@ def head(Head, font_size=None, font_family="Arial", type='h3', color='black', te
         #elif type and font_size:
             #print("Only type or font_size accepted in head()")
         
-title('nothing', 'y')
+title('nothing')
 # head('nothing more', font_size=None, font_family='Arial', type='header', color='black', text_align='left', background_color='None')
 head('nothing more', font_size='2px', type='h1', color='blue', text_align='center', background_color='orange')
 
@@ -104,22 +106,29 @@ head('nothing more', font_size='2px', type='h1', color='blue', text_align='cente
 # # a single quote. Hence, they must always enter it in double quotes. 
 # check soup.a.prettify()
 
+# def tags(open_tags=False, close_tags=False, *args):
+#     if open_tags == False and close_tags == False:
+#         pass
+#     elif open_tags == False and close_tags == True:
+#         for arg in args:
+#             with open('nameofhtm.html', 'a') as f
+
 
 def open_tags(any_tag, *args):
     with open('nameofhtm.html', 'a') as f:
-        f.write(f'''<{any_tag}>\n''')
+        f.write(f'''\n<{any_tag}>''')
         for arg in args:
-            f.write(f'''<{arg}>\n''')
+            f.write(f'''\n<{arg}>''')
 def close_tags(any_tag, *args):
     with open('nameofhtm.html', 'a') as f:
-        f.write(f'''</{any_tag}>\n''')
+        f.write(f'''\n</{any_tag}>''')
         for arg in args:
-            f.write(f'''</{arg}>\n''')
+            f.write(f'''\n</{arg}>''')
 def close_tag_before(tag_to_close, tag_to_close_before):
     with open('nameofhtm.html', 'r') as f:
         tag_to_close_before = f"<{tag_to_close_before}>"
         tag_to_close = f"</{tag_to_close}>"
-        closed_tag = tag_to_close + tag_to_close_before
+        closed_tag = tag_to_close + f"\n{tag_to_close_before}"
         f = f.read()
         now_closed = f.replace(tag_to_close_before, closed_tag)
         with open('nameofhtm.html', 'w') as f:
@@ -202,18 +211,19 @@ class tTags():
 
     def start_p(self, p_text):
         with open('nameofhtm.html', 'a') as f:
-            f.write(f'''<p> {p_text} \n</p>''')
+            f.write(f'''<p> \n{p_text} \n</p>''')
 
+    #d_class = 'dummy_var'
     def start_div(self, d_class):
         with open('nameofhtm.html', 'a') as f:
-            f.write(f'''\n<div class="{d_class}">
-''')
-
+            f.write(f'''\n<div class="{d_class}">''')
+            #f.write(f'''<div class="{d_class}">''')
+    
+    #s_class = 'dummy_var'
     def start_sec(self, s_class):
         with open('nameofhtm.html', 'a') as f:
-            f.write(f'''<section class="section {s_class}">
-''')
-
+            f.write(f'''\n<section class="section {s_class}">''')
+            
     def css(self, color=None, font_family=None, font_weight=None, text_align=None, font_size=None, background_color=None, background=None, margin_top=None, margin_bottom=None, margin_left=None, margin_right=None, border=None, display='block', padding=None, height=None, width=None):
         if background_color != None:
             background = ''
@@ -272,30 +282,8 @@ class tTags():
 
 def add_text(text):
     with open('nameofhtm.html', 'a') as f:
-        f.write(f'''{text}''')
+        f.write(f'''\n{text}''')
 
-b = '<br>'
-
-p_text = "I'm sure about this man"
-x = tTags(True)
-x.start_p(p_text)
-x.css(color='green')
-
-d_class = 'newClass'
-x = tTags(div_class=True)
-x.start_div(d_class)
-x.css(color='yellow', font_family='Times New Roman', background_color='blue')
-
-add_text("I'm REALLY" + b + "sure of this")
-close_tags('div')
-
-s_class = 'anotherClass'
-x = tTags(sec_class=True)
-x.start_sec('anotherClass')
-x.css(color='purle', background_color='green')
-
-add_text("I'm defo" + b + "sure of this")
-close_tags('section')
 
 
 
@@ -310,6 +298,31 @@ def WriteCSS(text):
     open('style.css', 'a+').write(text)
         
 if __name__ == "__main__":
-    title('Test')
-    head('This is the header', '20px', 'Arial')
+    #title('Test')
+    #head('This is the header', '20px', 'Arial')
+    #AutoCloseTags()
+    title('nothing')
+    head('nothing more', font_size='30px', type=None, color='blue', text_align='center', background_color='orange')
+    
+    x = tTags(True)
+    x.start_p("I'm sure about this man")
+    x.css(color='green')
+
+    d_class = 'newClass'
+    x = tTags(div_class=True)
+    x.start_div(d_class)
+    x.css(color='yellow', font_family='Times New Roman', background_color='blue')
+
+    add_text("I'm REALLY" + b + "sure of this")
+    close_tags('div')
+
+    s_class = 'anotherClass'
+    x = tTags(sec_class=True)
+    x.start_sec(s_class)
+    x.css(color='purple', background_color='green')
+
+    add_text("I'm defo" + b + "sure of this")
+    close_tags('section')
+    
+    
     AutoCloseTags()
