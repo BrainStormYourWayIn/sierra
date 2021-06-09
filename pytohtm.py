@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Jun  8 09:32:38 2021
-
 """
 #from flask import Flask
 
@@ -50,25 +49,27 @@ def add_font(font_link):
 # size in any valid measure
 # text-align: left|right|center|justify|initial|inherit
 
-def head(Head, font_size=None, font_family="Arial", type='h3', color='black', text_align='left', background_color='None'):
+def head(Head, font_size=None, font_family="Arial", type='header', color='black', text_align='left', background_color='None', padding='None', height='None', width='None', line_break='None', line_height='None'):
     """
     Args:
         Head (str, compulsory)        : Caption header;
-        font_size (str, optional)     : Font size in any valid measure;
+        font_size (str, optional)     : Font size in any valid measure. Leave blank, if not valid;
         font_family (str, optional)   : any possible Font family. Must be entered only in double quotes;
-        type (str, optional)          : Header Size. Anything from h1 to h6. None is accepted; 
+        type (str, optional)          : Header Size. Anything from h1 to h6. Leave blank, if not valid.; 
         color (str, optional)         : Color of Font. Does not take in HEX values;  
         text_align (str, optional)    : left|right|center|justify|initial|inherit. Defaults to 'left'.
     """
-    if type == None and font_size == None:
-        type = 'header'
-    elif type != None and len(type) != 2:
-        type = 'header'
-    elif font_size and type:
-        warnings.showwarning("agrs 'type' and 'font_size' have been entered in head(). It is recommended to rectify or only font_size is considered", UserWarning, str(bytes), int(1))
-    
+    # if type == False and font_size == False:
+    #     type = 'header'
+    # elif type != False and len(type) != 2:
+    #     type = 'header'
+    # elif font_size and type:
+    #     warnings.showwarning("agrs 'type' and 'font_size' have been entered in head(). It is recommended to rectify or only font_size is considered", UserWarning, str(bytes), int(1))
+    # elif type == False:
+    #     type == 'header'
+
     with open('nameofhtm.html', 'a') as f:
-        f.write(f'''<{type}>{Head}</{type}>
+        f.write(f'''\n<{type}>{Head}</{type}>
 </head>\n''')
         with open('style.css', 'a') as s:
                 s.write(f'''{type} {{
@@ -77,13 +78,15 @@ def head(Head, font_size=None, font_family="Arial", type='h3', color='black', te
     text-align: {text_align};
     font-size: {font_size};
     background-color: {background_color};
+    padding: {padding};
+    height: {height};
+    width: {width};
+    line-break: {line_break};
+    line-height: {line_height};
 }}''')
         #elif type and font_size:
             #print("Only type or font_size accepted in head()")
         
-title('nothing')
-# head('nothing more', font_size=None, font_family='Arial', type='header', color='black', text_align='left', background_color='None')
-head('nothing more', font_size='2px', type='h1', color='blue', text_align='center', background_color='orange')
 
 #head('nothing more', 'h5', None, 'rgb(50, 168, 82)', 'Arial', 'center')
 #head('nothing more', None, None, None, None, None)
@@ -171,7 +174,7 @@ class cTags():
     def __init__(self, tag):
         self.tag = tag
 
-    def css(self, color=None, font_family=None, font_weight=None, text_align=None, font_size=None, background_color=None, background=None, margin_top=None, margin_bottom=None, margin_left=None, margin_right=None, border=None, display=None, padding=None, height=None, width=None, *args):
+    def css(self, color='black', font_family='Arial', font_weight=None, text_align=None, font_size=None, background_color=None, background=None, margin_top=None, margin_bottom=None, margin_left=None, margin_right=None, border=None, display='block', padding=None, height=None, width=None, line_break='None', line_height='None'):
         if background_color != None:
             background = ''
         with open('style.css', 'a') as s:
@@ -190,10 +193,10 @@ class cTags():
     border: {border};
     display: {display};
     padding: {padding};
-}}''')
-        for arg in args:
-            s.write(f'''\n{str(self.tag)} {{
-    {arg};
+    height: {height};
+    width: {width};
+    line-break: {line_break};
+    line-height: {line_height};
 }}''')
 
 # x = tags()
@@ -224,7 +227,7 @@ class tTags():
         with open('nameofhtm.html', 'a') as f:
             f.write(f'''\n<section class="section {s_class}">''')
             
-    def css(self, color=None, font_family=None, font_weight=None, text_align=None, font_size=None, background_color=None, background=None, margin_top=None, margin_bottom=None, margin_left=None, margin_right=None, border=None, display='block', padding=None, height=None, width=None):
+    def css(self, color='black', font_family='Arial', font_weight=None, text_align=None, font_size=None, background_color=None, background=None, margin_top=None, margin_bottom=None, margin_left=None, margin_right=None, border=None, display='block', padding=None, height=None, width=None, line_break='None', line_height='None'):
         if background_color != None:
             background = ''
         with open('style.css', 'a') as s:
@@ -244,6 +247,10 @@ class tTags():
     border: {border};
     display: {display};
     padding: {padding};
+    height: {height};
+    width: {width};
+    line-break: {line_break};
+    line-height: {line_height};
 }}''')
             elif self.div_class == True:
                 s.write(f'''\n.{str(d_class)} {{
@@ -261,6 +268,10 @@ class tTags():
     border: {border};
     display: {display};
     padding: {padding};
+    height: {height};
+    width: {width};
+    line-break: {line_break};
+    line-height: {line_height};
 }}''')
             elif self.sec_class == True:
                 s.write(f'''\n.{str(s_class)} {{
@@ -278,6 +289,10 @@ class tTags():
     border: {border};
     display: {display};
     padding: {padding};
+    height: {height};
+    width: {width};
+    line-break: {line_break};
+    line-height: {line_height};
 }}''')
 
 def add_text(text):
@@ -290,19 +305,19 @@ def add_text(text):
 def WriteHTML(text):
     """Writes the given code to the HTML file."""
     
-    open('index.html', 'a+').write(text)
+    open('nameofhtm.html', 'a').write(text)
 
 def WriteCSS(text):
     """Writes the given code to the CSS file."""
 
-    open('style.css', 'a+').write(text)
+    open('style.css', 'a').write(text)
         
 if __name__ == "__main__":
     #title('Test')
     #head('This is the header', '20px', 'Arial')
     #AutoCloseTags()
     title('nothing')
-    head('nothing more', font_size='30px', type=None, color='blue', text_align='center', background_color='orange')
+    head('nothing more', font_size='90px', color='blue', text_align='center', background_color='orange')
     
     x = tTags(True)
     x.start_p("I'm sure about this man")
@@ -323,6 +338,5 @@ if __name__ == "__main__":
 
     add_text("I'm defo" + b + "sure of this")
     close_tags('section')
-    
     
     AutoCloseTags()
