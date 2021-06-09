@@ -184,6 +184,7 @@ y = cTags('tag1')
 y.css(color='blue')
 
 
+
 def WriteHTML(text):
     """Writes the given code to the HTML file."""
     
