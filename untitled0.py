@@ -39,21 +39,17 @@ def title(Title, icon=None, css_bool=True):
 def head(Head, font_size=None, font_family='Arial', type='header', color='black', text_align='left', bg_color='None'):
     """
     Args:
-        Head (str, compulsory)        : Caption header
-        font_size (str, optional)     : Font size in any valid measure. 
-        font_family (str, compulsory) : any possible Font family. Must be entered only in double quotes
-        type (str, optional)          : Header Size. Anything from h1 to h6. None is accepted. 
-        color (str, optional)         : Color of Font. Does not take in HEX values  
+        Head (str, compulsory)        : Caption header;
+        font_size (str, optional)     : Font size in any valid measure;
+        font_family (str, optional)   : any possible Font family. Must be entered only in double quotes;
+        type (str, optional)          : Header Size. Anything from h1 to h6. None is accepted; 
+        color (str, optional)         : Color of Font. Does not take in HEX values;  
         text_align (str, optional)    : left|right|center|justify|initial|inherit. Defaults to 'left'.
     """
-    if len(type) == 2:
-        font_size = None
-    elif font_size and type:
+    if type == None and font_size == None:
         type = 'header'
-        warnings.warn('Both font_size and type are given. Please rectify or only font_size is considered')
-    elif len(type) != 2 and font_size == None:
-        type = 'h3'
-        warnings.warn("Argument 'type' only takes in None or a value from h1 to h6. Please rectify with a valid font_size or type defaults to 'h3'")
+    elif type != None and len(type) != 2:
+        type = 'header'
 
     with open('index.html', 'a+') as f:
         f.write(f'''<{type}>{Head}</{type}>
