@@ -1,53 +1,58 @@
-#from flask import Flask
 from bs4 import BeautifulSoup
 import warnings
 
-def title(Title, icon=None, css_bool=True):
-    """
-    Args:
-        Title(str, compulsory)   : Title of the HTML file.
-        icon(str, optional)      : Icon to be displayed. Should be a .ico file. Defaults to no icon.
-        css_bool(bool, optional) : Do you want CSS in your HTML code? (True or False)
-    """
-
-    if icon == None or icon.split('.')[-1] != '.ico':
-        with open('index.html', 'w+') as f:
-                f.write(f"""<!DOCTYPE html>
+def title(Title, icon=None):
+    with open('nameofhtm.html', 'w') as f:
+        if icon == None or icon.split('.')[-1] != '.ico':
+            icon = None
+        
+            f.write(f'''<!doctype html>
 <html lang="en">
 <meta charset="utf-8">
 <head>
 <title>{Title}</title>
-<link rel="shortcut icon" href={icon}>\n""")
-    else:
-        with open('index.html', 'w+') as f:
-                f.write(f"""<!DOCTYPE html>
+<link rel="shortcut icon" href={icon}>
+<link rel="stylesheet" href="style.css">\n''')
+
+        else:
+
+            f.write(f'''<!doctype html>
 <html lang="en">
 <meta charset="utf-8">
 <head>
-<title>{Title}</title>""")
-    
-    if css_bool == True:
-        with open('index.html', 'a+') as f:
-            f.write(f'<link rel="stylesheet" href="style.css">\n')
-        with open('style.css', 'w') as f:
+<title>{Title}</title>
+<link rel="shortcut icon" href={icon}>
+<link rel="stylesheet" href="style.css">\n''')
+    with open('style.css', 'w') as f:
             f.write('')
-    elif css_bool == False:
-        pass
-    else:
-        print('arg css_bool only takes value False (default) or True')
 
-def head(Head, font_size, font_family, type='header', color='black', text_align='left'):
+def add_font(font_link):
+    with open('nameofhtm.html', 'a') as f:
+        f.write(f'''<link href={font_link} rel="stylesheet">\n''')
+
+#Head:
+# head type is h1 to h6
+# size in any valid measure
+# text-align: left|right|center|justify|initial|inherit
+
+def head(Head, font_size=None, font_family="Arial", type='h3', color='black', text_align='left', bg_color='None'):
     """
     Args:
-        Head (str, compulsory)        : Caption header
-        font_size (str, compulsory)   : Font size in any valid measure.
-        font_family (str, compulsory) : any possible Font family
-        type (str, optional)          : Header Size. Anything from h1 to h6.
-        color (str, optional)         : Color of Font. Does not take in HEX values  
+        Head (str, compulsory)        : Caption header;
+        font_size (str, optional)     : Font size in any valid measure;
+        font_family (str, optional)   : any possible Font family. Must be entered only in double quotes;
+        type (str, optional)          : Header Size. Anything from h1 to h6. None is accepted; 
+        color (str, optional)         : Color of Font. Does not take in HEX values;  
         text_align (str, optional)    : left|right|center|justify|initial|inherit. Defaults to 'left'.
     """
-
-    with open('index.html', 'a+') as f:
+    if type == None and font_size == None:
+        type = 'header'
+    elif type != None and len(type) != 2:
+        type = 'header'
+    elif font_size and type:
+        warnings.showwarning("agrs 'type' and 'font_size' have been entered. It is recommended to rectify or only font_size is considered", UserWarning, str(bytes), int(1))
+    
+    with open('nameofhtm.html', 'a') as f:
         f.write(f'''<{type}>{Head}</{type}>
 </head>\n''')
         with open('style.css', 'a') as s:
@@ -56,35 +61,71 @@ def head(Head, font_size, font_family, type='header', color='black', text_align=
     font-family: {font_family};
     text-align: {text_align};
     font-size: {font_size};
+    background-color: {bg_color};
 }}''')
+        #elif type and font_size:
+            #print("Only type or font_size accepted in head()")
+        
+title('nothing', 'y')
+# head('nothing more', font_size=None, font_family='Arial', type='header', color='black', text_align='left', bg_color='None')
+head('nothing more', font_size='2px', type='h1', color='blue', text_align='center', bg_color='orange')
 
-def open_tags(any_tag, *args):
-    with open('index.html', 'a') as f:
-        f.write(f'''<{any_tag}>\n''')
-        for arg in args:
-            f.write(f'''<{arg}>\n''')
+#head('nothing more', 'h5', None, 'rgb(50, 168, 82)', 'Arial', 'center')
+#head('nothing more', None, None, None, None, None)
+# No hex accepted for color in head(). RGB and normal eng works.
+# If arguments font_size and type are passed, font_size seems to be given preference CSS
 
-#open_tags('tag3', 'tag1', 'tag2')
 
-def close_tags(any_tag, *args):
-    with open('index.html', 'a') as f:
-        f.write(f'''</{any_tag}>\n''')
-        for arg in args:
-            f.write(f'''</{arg}>\n''')
+# In head(), color must have black as default. 
+# In head(), type OR font_size are required arguments. At least one of them must be passed. 
+# Warn the users that if arguments font_size and type, both are passed, font_size seems to be given preference 
+# by CSS. But, at least one argument MUST be passed.
+# No hex accepted for color in head() iff type is mentioned. RGB and normal eng works. Haven't tested
+# other mediums.
+# In title(), default value of ico and css_bool are None. 
+# Also in title(), icon argument MUST be a .ico file. Check if the last 4 letters are '.ico'
+# In head() in the argument font_family, the users MUST enter it in double quotes. Typically, it can be 
+# something like
+# font-family: 'Roboto', sans-serif; in CSS. But when the user is entering the value of
+# font_family as ''Roboto', sans-serif' there's a SyntaxError, since there is a single quote within
+# # a single quote. Hence, they must always enter it in double quotes. 
+# check soup.a.prettify()
 
-#close_tags('tag1', 'tag2')
+class tags:
+    def open_tags(self, any_tag, *args):
+        with open('nameofhtm.html', 'a') as f:
+            f.write(f'''<{any_tag}>\n''')
+            for arg in args:
+                f.write(f'''<{arg}>\n''')
 
-def close_tag_before(tag_to_close, tag_to_close_before):
-    with open('index.html', 'r') as f:
-        tag_to_close_before = f"<{tag_to_close_before}>"
-        tag_to_close = f"</{tag_to_close}>"
-        closed_tag = tag_to_close + tag_to_close_before
-        f = f.read()
-        now_closed = f.replace(tag_to_close_before, closed_tag)
-        with open('index.html', 'w') as f:
-            f.write(f'''{now_closed}''')
+    def close_tags(self, any_tag, *args):
+        with open('nameofhtm.html', 'a') as f:
+            f.write(f'''</{any_tag}>\n''')
+            for arg in args:
+                f.write(f'''</{arg}>\n''')
 
-#close_tag_before('tag3', 'tag2')
+
+    def close_tag_before(self, tag_to_close, tag_to_close_before):
+        with open('nameofhtm.html', 'r') as f:
+            tag_to_close_before = f"<{tag_to_close_before}>"
+            tag_to_close = f"</{tag_to_close}>"
+            closed_tag = tag_to_close + tag_to_close_before
+            f = f.read()
+            now_closed = f.replace(tag_to_close_before, closed_tag)
+            with open('nameofhtm.html', 'w') as f:
+                f.write(f'''{now_closed}''')
+
+    # def css(self, tag_to_style, *args):
+    #     var = tag_to_style, *args
+    #     def css_att(lol):
+    #         print(var, lol)
+            
+
+
+# x = tags()
+# x.open_tags('tag3', 'tag1', 'tag2')
+# x.close_tags('tag1', 'tag2')
+# x.close_tag_before('tag3', 'tag2')
 
 # with open('nameofhtm.html', 'r') as f:
 #     newlines = f.read()
@@ -93,15 +134,14 @@ def close_tag_before(tag_to_close, tag_to_close_before):
 
 # Close all tags automatically
 def AutoCloseTags():
-    """Closes the HTML Tags that ar open."""
 
-    warnings.warn(r'''Auto closing HTML tags may not be accurate and are not recommended. Further 
-    development may run into issues. Please close tags manually if unsure. 
-    See "bs4 auto closing tags" for more info.''')
-    with open('index.html', 'r') as f:
+    warnings.showwarning(f'''Auto closing HTML tags may not be accurate and are not recommended. Further 
+    development may run into issues. Please close tags manually if unsure. It is recommended to use after all development. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
+    
+    with open('nameofhtm.html', 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
-        with open('index.html', 'w') as f:
+        with open('nameofhtm.html', 'w') as f:
             f.write(f'''{auto_close_all_tags}''') 
 
 #auto_close_tags()                 
@@ -132,4 +172,4 @@ def WriteCSS(text):
 if __name__ == "__main__":
     title('Test')
     head('This is the header', '20px', 'Arial')
-    AutoCLoseTags()
+    AutoCloseTags()
