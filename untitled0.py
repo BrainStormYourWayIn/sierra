@@ -60,11 +60,11 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
         color (str, optional)            : Color of Font in hex code. Defaults to 'black'.
         text_align (str, optional)       : left|right|center|justify|initial|inherit. Defaults to 'left'.
         background_color (str, optional) : Background color. Defaults to 'white'.
-        padding (str, optional)          : Padding. Defaults to None.
-        height (str, optional)           : Height of text. Defaults to None.
-        width (str, optional)            : Width of text. Defaults to None.
-        line_break (str, optional)       : Line break. Defaults to None.
-        line_height (str, optional)      : Line height. Defaults to None. 
+        padding (str, optional)          : Padding. Defaults to False.
+        height (str, optional)           : Height of text. Defaults to False.
+        width (str, optional)            : Width of text. Defaults to False.
+        line_break (str, optional)       : Line break. Defaults to False.
+        line_height (str, optional)      : Line height. Defaults to False. 
     """
     # if type == False and font_size == False:
     #     type = 'header'
@@ -187,25 +187,25 @@ class cTags():
         Args:
             color (str, optional)            : CSS Color parameter. Defaults to 'black'.
             font_family (str, optional)      : CSS Font-Family parameter. Defaults to 'Arial'.
-            font_weight (str, optional)      : CSS Font-weight parameter. Defaults to None.
-            text_align (str, optional)       : CSS Text-align parameter. Defaults to None.
-            font_size (str, optional)        : CSS Font-size parameter. Defaults to None.
+            font_weight (str, optional)      : CSS Font-weight parameter. Defaults to False.
+            text_align (str, optional)       : CSS Text-align parameter. Defaults to False.
+            font_size (str, optional)        : CSS Font-size parameter. Defaults to False.
             background_color (str, optional) : CSS background-color parameter. Defaults to 'white'.
-            background (str, optional)       : CSS background parameter. Defaults to None.
+            background (str, optional)       : CSS background parameter. Defaults to False.
             margin_top (str, optional)       : CSS margin-top parameter. Defaults to '0px'.
             margin_bottom (str, optional)    : CSS margin-bottom parameter. Defaults to '0px'.
             margin_left (str, optional)      : CSS margin-left parameter. Defaults to '0px'.
             margin_right (str, optional)     : CSS margin-right parameter. Defaults to '0px'.
             border (str, optional)           : CSS border parameter. Defaults to '0px'.
             display (str, optional)          : CSS display parameter. Defaults to 'block'.
-            padding (str, optional)          : CSS padding parameter. Defaults to ''None.
-            height (str, optional)           : CSS height parameter. Defaults to None.
-            width (str, optional)            : CSS width parameter. Defaults to None.
-            line_break (str, optional)       : CSS line-break parameter. Defaults to None.
-            line_height (str, optional)      : CSS line-height parameter. Defaults to None.
-            overflow (str, optional)         : CSS overflow parameter. Defaults to None.
-            margin (str, optional)           : CSS margin parameter. Defaults to None.
-            box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to None.
+            padding (str, optional)          : CSS padding parameter. Defaults to ''False.
+            height (str, optional)           : CSS height parameter. Defaults to False.
+            width (str, optional)            : CSS width parameter. Defaults to False.
+            line_break (str, optional)       : CSS line-break parameter. Defaults to False.
+            line_height (str, optional)      : CSS line-height parameter. Defaults to False.
+            overflow (str, optional)         : CSS overflow parameter. Defaults to False.
+            margin (str, optional)           : CSS margin parameter. Defaults to False.
+            box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to False.
         """
 
         with open('style.css', 'a') as s:
