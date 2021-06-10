@@ -9,6 +9,6 @@ Automatic support for parallax
 
 Integration with Flask
 
-Official support for brython over [JS](https://brython.info/static_tutorial/en/index.html)
+Official support for [brython over JS](https://brython.info/static_tutorial/en/index.html)
 
 
