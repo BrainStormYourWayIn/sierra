@@ -13,10 +13,19 @@ Created on Tue Jun  8 09:32:38 2021
 from bs4 import BeautifulSoup
 import warnings
 
+# {index} = input('Enter the name of your HTML file')
+index = 'index'
+
 b = ' <br> '
 
 def title(Title, icon=False):
-    with open('nameofhtm.html', 'w') as f:
+    """
+    Args:
+        Title(str, compulsory)   : Title of the HTML file.
+        icon(str, optional)      : Icon to be displayed. Should be a .ico file. Defaults to no icon.
+    """
+
+    with open('index.html', 'w') as f:
         
         f.write(f'''<!doctype html>
 <html lang="en">
@@ -33,7 +42,7 @@ def title(Title, icon=False):
             f.write('')
 
 def add_font(font_link):
-    with open('nameofhtm.html', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n<link href={font_link} rel="stylesheet">''')
 
 #Head:
@@ -44,12 +53,18 @@ def add_font(font_link):
 def head(Head, font_size=False, font_family="Arial", type='header', color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False):
     """
     Args:
-        Head (str, compulsory)        : Caption header;
-        font_size (str, optional)     : Font size in any valid measure. Leave blank, if not valid;
-        font_family (str, optional)   : any possible Font family. Must be entered only in double quotes;
-        type (str, optional)          : Header Size. Anything from h1 to h6. Leave blank, if not valid.; 
-        color (str, optional)         : Color of Font. Does not take in HEX values;  
-        text_align (str, optional)    : left|right|center|justify|initial|inherit. Defaults to 'left'.
+        Head (str, compulsory)           : Caption header.
+        font_size (str, compulsory)      : Font size in any valid measure. Leave blank, if not valid.
+        font_family (str, compulsory)    : any possible Font family. Defaults to Arial.
+        type (str, optional)             : Header Size. Anything from h1 to h6. Leave blank, if not valid. Defaults to 'header'.
+        color (str, optional)            : Color of Font in hex code. Defaults to 'black'.
+        text_align (str, optional)       : left|right|center|justify|initial|inherit. Defaults to 'left'.
+        background_color (str, optional) : Background color. Defaults to 'white'.
+        padding (str, optional)          : Padding. Defaults to None.
+        height (str, optional)           : Height of text. Defaults to None.
+        width (str, optional)            : Width of text. Defaults to None.
+        line_break (str, optional)       : Line break. Defaults to None.
+        line_height (str, optional)      : Line height. Defaults to None. 
     """
     # if type == False and font_size == False:
     #     type = 'header'
@@ -60,11 +75,11 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
     # elif type == False:
     #     type == 'header'
 
-    with open('nameofhtm.html', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n<{type}>{Head}</{type}>
 </head>''')
         with open('style.css', 'a') as s:
-                s.write(f'''{type} {{
+                s.write(f'''\n{type} {{
     color: {color};
     font-family: {font_family};
     text-align: {text_align};
@@ -106,27 +121,27 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 #         pass
 #     elif open_tags == False and close_tags == True:
 #         for arg in args:
-#             with open('nameofhtm.html', 'a') as f
+#             with open('index.html', 'a') as f
 
 
 def open_tags(any_tag, *args):
-    with open('nameofhtm.html', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n<{any_tag}>''')
         for arg in args:
             f.write(f'''\n<{arg}>''')
 def close_tags(any_tag, *args):
-    with open('nameofhtm.html', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n</{any_tag}>''')
         for arg in args:
             f.write(f'''\n</{arg}>''')
 def close_tag_before(tag_to_close, tag_to_close_before):
-    with open('nameofhtm.html', 'r') as f:
+    with open('index.html', 'r') as f:
         tag_to_close_before = f"<{tag_to_close_before}>"
         tag_to_close = f"</{tag_to_close}>"
         closed_tag = tag_to_close + f"\n{tag_to_close_before}"
         f = f.read()
         now_closed = f.replace(tag_to_close_before, closed_tag)
-        with open('nameofhtm.html', 'w') as f:
+        with open('index.html', 'w') as f:
             f.write(f'''{now_closed}''')
 
     # def css(self, tag_to_style, *args):
@@ -141,7 +156,7 @@ def close_tag_before(tag_to_close, tag_to_close_before):
 # x.close_tags('tag1', 'tag2')
 # x.close_tag_before('tag3', 'tag2')
 
-# with open('nameofhtm.html', 'r') as f:
+# with open('index.html', 'r') as f:
 #     newlines = f.read()
 #     newlines = newlines.replace('<tag1>', '<tag4>')
 #     print(newlines)
@@ -152,10 +167,10 @@ def AutoCloseTags():
     warnings.showwarning(f'''Auto closing HTML tags may not be accurate and are not recommended. Further 
     development may run into issues. Please close tags manually if unsure. It is recommended to use after all development. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
     
-    with open('nameofhtm.html', 'r') as f:
+    with open('index.html', 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
-        with open('nameofhtm.html', 'w') as f:
+        with open('index.html', 'w') as f:
             f.write(f'''{auto_close_all_tags}''') 
 
 #auto_close_tags() 
@@ -167,6 +182,32 @@ class cTags():
         self.tag = tag
 
     def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
+
+        """
+        Args:
+            color (str, optional)            : CSS Color parameter. Defaults to 'black'.
+            font_family (str, optional)      : CSS Font-Family parameter. Defaults to 'Arial'.
+            font_weight (str, optional)      : CSS Font-weight parameter. Defaults to None.
+            text_align (str, optional)       : CSS Text-align parameter. Defaults to None.
+            font_size (str, optional)        : CSS Font-size parameter. Defaults to None.
+            background_color (str, optional) : CSS background-color parameter. Defaults to 'white'.
+            background (str, optional)       : CSS background parameter. Defaults to None.
+            margin_top (str, optional)       : CSS margin-top parameter. Defaults to '0px'.
+            margin_bottom (str, optional)    : CSS margin-bottom parameter. Defaults to '0px'.
+            margin_left (str, optional)      : CSS margin-left parameter. Defaults to '0px'.
+            margin_right (str, optional)     : CSS margin-right parameter. Defaults to '0px'.
+            border (str, optional)           : CSS border parameter. Defaults to '0px'.
+            display (str, optional)          : CSS display parameter. Defaults to 'block'.
+            padding (str, optional)          : CSS padding parameter. Defaults to ''None.
+            height (str, optional)           : CSS height parameter. Defaults to None.
+            width (str, optional)            : CSS width parameter. Defaults to None.
+            line_break (str, optional)       : CSS line-break parameter. Defaults to None.
+            line_height (str, optional)      : CSS line-height parameter. Defaults to None.
+            overflow (str, optional)         : CSS overflow parameter. Defaults to None.
+            margin (str, optional)           : CSS margin parameter. Defaults to None.
+            box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to None.
+        """
+
         with open('style.css', 'a') as s:
             s.write(f'''\n{str(self.tag)} {{
     color: {color};
@@ -206,18 +247,18 @@ class tTags():
         self.sec_class = sec_class
 
     def start_p(self, p_text):
-        with open('nameofhtm.html', 'a') as f:
-            f.write(f'''\n<p> \n{p_text} \n</p>''')
+        with open('index.html', 'a') as f:
+            f.write(f'''\n<p> \n{p_text}''')
 
     #d_class = 'dummy_var'
     def start_div(self, d_class):
-        with open('nameofhtm.html', 'a') as f:
+        with open('index.html', 'a') as f:
             f.write(f'''\n<div class="{d_class}">''')
             #f.write(f'''<div class="{d_class}">''')
     
     #s_class = 'dummy_var'
     def start_sec(self, s_class):
-        with open('nameofhtm.html', 'a') as f:
+        with open('index.html', 'a') as f:
             f.write(f'''\n<section class="section {s_class}">''')
             
     def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background='False', margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
@@ -295,13 +336,16 @@ class tTags():
     box-shadow: {box_shadow};
 }}''')
 
-def add_text(text):
-    with open('nameofhtm.html', 'a') as f:
+def writeHtm(text):
+
+    """Writes the given text to the html file."""
+
+    with open('index.html', 'a') as f:
         f.write(f'''\n{text}''')
 
 
 def startBody(background='False', background_color='white', background_image=False, opacity=False, background_size='cover', background_attachment='fixed', background_position=False, background_repeat=False):
-    with open('nameofhtm.html', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n<body>''')
     with open('style.css', 'a') as s:
         s.write(f'''\nbody {{
@@ -315,7 +359,7 @@ background-repeat: {background_repeat};
 }}''')
 
 def endBody():
-    with open('nameofhtm.html', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n</body>''')
 
 # Initc() if used, must always come after title()
@@ -327,7 +371,7 @@ def addInitc(box_sizing='False', margin=0, padding=0, border=0, position='relati
 # def WriteHTML(text):
 #     """Writes the given code to the HTML file."""
     
-#     open('nameofhtm.html', 'a').write(text)
+#     open('index.html', 'a').write(text)
 
 # def WriteCSS(text):
 #     """Writes the given code to the CSS file."""
@@ -341,26 +385,27 @@ if __name__ == "__main__":
     title('nothing')
     addInitc()
     head('nothing more', font_size='90px', color='blue', text_align='center', background_color='orange')
-    startBody(background_color='green', opacity=0.5)
+    startBody(background_color='green', opacity=0.8)
     
     x = tTags(True)
     x.start_p("I'm sure about this man")
     x.css(color='green')
+    close_tags('p')
 
     d_class = 'newClass'
     x = tTags(div_class=True)
     x.start_div(d_class)
     x.css(color='yellow', font_family='Times New Roman', background_color='blue')
 
-    add_text("I'm REALLY" + b + "sure of this")
+    writeHtm("I'm REALLY" + b + "sure of this")
     close_tags('div')
 
     s_class = 'anotherClass'
     x = tTags(sec_class=True)
     x.start_sec(s_class)
-    x.css(color='purple', background_color='green')
+    x.css(color='whitesmoke', background_color='rgb(35, 51, 89)')
 
-    add_text("I'm defo" + b + "sure of this")
+    writeHtm("I'm defo" + b + "sure of this")
     close_tags('section')
 
     endBody()
