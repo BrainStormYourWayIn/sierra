@@ -21,20 +21,20 @@ def title(Title, icon=None):
         icon(str, optional)      : Icon to be displayed. Should be a .ico file. Defaults to no icon.
     """
 
-    with open('{index}.html', 'w+') as f:
+    with open(f'{index}.html', 'w+') as f:
         f.write(f"""<!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
 <head>
 <title>{Title}</title>\n""")
     if type(icon) == str and icon.split('.')[-1] != '.ico':
-        with open('{index}.html', 'a+') as f:
+        with open(f'{index}.html', 'a+') as f:
             f.write(f"""<link rel='shortcut icon' href={icon}>
 <link rel="stylesheet" href="style.css">\n""")
 
 
 def add_font(font_link):
-    with open('{index}.html', 'a+') as f:
+    with open(f'{index}.html', 'a+') as f:
         f.write(f'<link href={font_link} rel="stylesheet">')
 
 def head(Head, font_size=None, font_family="Arial", type='header', color='black', text_align='left', background_color='white', padding='None', height='None', width='None', line_break='None', line_height='None'):
@@ -63,7 +63,7 @@ def head(Head, font_size=None, font_family="Arial", type='header', color='black'
     # elif type == False:
     #     type == 'header'
 
-    with open('{index}.html', 'a+') as f:
+    with open(f'{index}.html', 'a+') as f:
         f.write(f'''\n<{type}>{Head}</{type}>
 </head>\n''')
         with open('style.css', 'a+') as s:
@@ -107,10 +107,10 @@ def head(Head, font_size=None, font_family="Arial", type='header', color='black'
 #         pass
 #     elif open_tags == False and close_tags == True:
 #         for arg in args:
-#             with open('{index}.html', 'a') as f
+#             with open(f'{index}.html', 'a') as f
 
 def open_tags(any_tag, *args):
-    with open('{index}.html', 'a+') as f:
+    with open(f'{index}.html', 'a+') as f:
         f.write(f'''\n<{any_tag}>''')
         for arg in args:
             f.write(f'''\n<{arg}>''')
@@ -118,7 +118,7 @@ def open_tags(any_tag, *args):
 
 
 def close_tags(any_tag, *args):
-    with open('{index}.html', 'a+') as f:
+    with open(f'{index}.html', 'a+') as f:
         f.write(f'''\n</{any_tag}>''')
         for arg in args:
             f.write(f'''\n</{arg}>''')
@@ -126,13 +126,13 @@ def close_tags(any_tag, *args):
 
 
 def close_tag_before(tag_to_close, tag_to_close_before):
-    with open('{index}.html', 'r+') as f:
+    with open(f'{index}.html', 'r+') as f:
         tag_to_close_before = f"<{tag_to_close_before}>"
         tag_to_close = f"</{tag_to_close}>"
         closed_tag = tag_to_close + f"\n{tag_to_close_before}"
         f = f.read()
         now_closed = f.replace(tag_to_close_before, closed_tag)
-        with open('{index}.html', 'w+') as f:
+        with open(f'{index}.html', 'w+') as f:
             f.write(f'''{now_closed}''')
 
 # def css(self, tag_to_style, *args):
@@ -145,7 +145,7 @@ def close_tag_before(tag_to_close, tag_to_close_before):
 # x.close_tags('tag1', 'tag2')
 # x.close_tag_before('tag3', 'tag2')
 
-# with open('{index}.html', 'r') as f:
+# with open(ff'{index}.html', 'r') as f:
 #     newlines = f.read()
 #     newlines = newlines.replace('<tag1>', '<tag4>')
 #     print(newlines)
@@ -155,10 +155,10 @@ def AutoCloseTags():
     warnings.showwarning(f'''Auto closing HTML tags may not be accurate and are not recommended. Further 
     development may run into issues. Please close tags manually if unsure. It is recommended to use after all development. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
     
-    with open('{index}.html', 'r+') as f:
+    with open(f'{index}.html', 'r+') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
-        with open('{index}.html', 'w+') as f:
+        with open(f'{index}.html', 'w+') as f:
             f.write(f'''{auto_close_all_tags}''')
 
 #auto_close_tags() 
@@ -228,18 +228,18 @@ class tTags():
         self.sec_class = sec_class
 
     def start_p(self, p_text):
-        with open('{index}.html', 'a+') as f:
+        with open(f'{index}.html', 'a+') as f:
             f.write(f'''\n<p> \n{p_text} \n</p>''')
 
     #d_class = 'dummy_var'
     def start_div(self, d_class):
-        with open('{index}.html', 'a+') as f:
+        with open(f'{index}.html', 'a+') as f:
             f.write(f'''\n<div class="{d_class}">''')
             #f.write(f'''<div class="{d_class}">''')
     
     #s_class = 'dummy_var'
     def start_sec(self, s_class):
-        with open('{index}.html', 'a+') as f:
+        with open(f'{index}.html', 'a+') as f:
             f.write(f'''\n<section class="section {s_class}">''')
             
     def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False):
@@ -275,7 +275,7 @@ class tTags():
 
 
 def startBody(background=None, background_color='white', background_image=None, opacity='1', background_size='cover', background_attachment='fixed', background_position=None, background_repeat=None):
-    with open('{index}.html', 'a') as f:
+    with open(f'{index}.html', 'a') as f:
         f.write(f'''\n<body>''')
     with open('style.css', 'a') as s:
         s.write(f'''\nbody {{
@@ -293,7 +293,7 @@ background-repeat: {background_repeat};
 def WriteHTML(text):
     """Writes the given text to the html file."""
 
-    open('{index}.html', 'a+').write(text)
+    open(f'{index}.html', 'a+').write(text)
 
 
 def WriteCSS(text):
