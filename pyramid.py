@@ -409,44 +409,4 @@ class startTable():
 #     """Writes the given code to the CSS file."""
 
 #     open('style.css', 'a').write(text)
-        
-if __name__ == "__main__":
-    #title('Test')
-    #head('This is the header', '20px', 'Arial')
-    #AutoCloseTags()
-    title('nothing')
-    #addInitc()
-    head('nothing more', font_size='90px', color='blue', text_align='center', background_color='orange')
-    startBody(background_color='green', opacity=0.8)
-    
-    x = tTags(True)
-    x.start_p("I'm sure about this man")
-    x.css(color='red', background_color='orange', line_height='25px')
-    close_tags('p')
-
-    d_class = 'newClass'
-    x = tTags(div_class=True)
-    x.start_div(d_class)
-    x.css(color='yellow', font_family='Times New Roman', background_color='blue')
-
-    writeHtm("I'm REALLY" + b + "sure of this")
-    close_tags('div')
-
-    s_class = 'anotherClass'
-    x = tTags(sec_class=True)
-    x.start_sec(s_class)
-    x.css(color='whitesmoke', background_color='rgb(35, 51, 89)')
-
-    writeHtm("I'm defo" + b + "sure of this")
-    close_tags('section')
-
-    endBody()
-
-    a = startTable()
-    tHead = ['one', 'two']
-    a.table(tHead)
-    a.close
-
-    closeHTML()
-    
-    AutoCloseTags()
+      
