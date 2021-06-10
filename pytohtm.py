@@ -23,11 +23,11 @@ def title(Title, icon=None):
 <html lang="en">
 <meta charset="utf-8">
 <head>
-<title>{Title}</title>\n""")
-    if type(icon) == str and icon.split('.')[-1] != '.ico':
-        with open(f'{index}.html', 'a+') as f:
-            f.write(f"""<link rel='shortcut icon' href={icon}>
+<title>{Title}</title>
 <link rel="stylesheet" href="style.css">\n""")
+    if type(icon) == str and icon.split('.')[-1] != '.ico':
+        with open(f'{index}.html', 'a+') as s:
+            s.write(f"<link rel='shortcut icon' href={icon}>")
 
 
 def add_font(font_link):
