@@ -18,6 +18,10 @@ index = 'index'
 
 b = ' <br> '
 
+def closeHTML():
+    with open('index.html', 'a') as f:
+        f.write(f'''\n</html>''')
+
 def title(Title, icon=False):
     """
     Args:
@@ -370,7 +374,33 @@ def addInitc(box_sizing='False', margin=0, padding=0, border=0, position='relati
     with open('style.css', 'a') as s:
         s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')
 
-# def WriteHTML(text):
+class startTable():
+    
+    with open('index.html', 'a') as f:
+        f.write(f'''\n<table>
+<tr>''')
+
+    # def __init__(self, rows:int, columns:int):
+    #     self.columns = columns
+    #     self.rows = rows
+    #     cList = [*range(1, 1+columns)]
+    #     rList = [*range(1, 1+rows)]
+    
+# tHead is always a list, and len(tHead) = columns
+
+    def table(self, tHead):
+        for header in tHead:
+            with open('index.html', 'a') as f:
+                f.write(f'''\n<th>{header}</th>''')
+        with open('index.html', 'a') as f:
+            f.write(f'''\n</tr>''')
+
+    def close():
+        with open('index.html', 'a') as f:
+            f.write(f'''\n</table>''')
+
+
+#  def WriteHTML(text):
 #     """Writes the given code to the HTML file."""
     
 #     open('index.html', 'a').write(text)
@@ -391,7 +421,7 @@ if __name__ == "__main__":
     
     x = tTags(True)
     x.start_p("I'm sure about this man")
-    x.css(color='violet')
+    x.css(color='red', background_color='orange', line_height='25px')
     close_tags('p')
 
     d_class = 'newClass'
@@ -411,5 +441,12 @@ if __name__ == "__main__":
     close_tags('section')
 
     endBody()
+
+    a = startTable()
+    tHead = ['one', 'two']
+    a.table(tHead)
+    a.close
+
+    closeHTML()
     
     AutoCloseTags()
