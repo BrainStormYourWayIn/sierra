@@ -161,7 +161,7 @@ body {{
 }}''')
 
 # Should be used after StartBody() and before EndBody()
-def AddPicture(src, alt=None, height=None, width=None):
+def AddImage(src, alt=None, height=None, width=None):
     open(f'{index}.html', 'a').write(f"""<img src="{src}" alt="{alt}" height={height} width={width}>""")
 
 def WriteHTML(text):
