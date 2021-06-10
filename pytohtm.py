@@ -254,14 +254,14 @@ class tTags():
     def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False):
         with open('style.css', 'a') as s:
             if self.p == True:
-                s.write("\np {{")
+                s.write(f"\np {{")
             elif self.div_class == True:
-                s.write(f".{self.div_class} {{")
+                s.write(f"\n.{self.div_class} {{")
             elif self.sec_class == True:
                 s.write(f"\n.{self.sec_class} {{")
 
-        with open('style.css', 'a') as f:
-            f.write(f'''
+        with open('style.css', 'a') as s:
+            s.write(f'''
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
