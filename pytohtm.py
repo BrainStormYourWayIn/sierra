@@ -6,6 +6,7 @@ Created on Tue Jun  8 09:32:38 2021
 #from flask import Flask
 from bs4 import BeautifulSoup
 import warnings
+import webbrowser
 
 # {index} = input('Enter the name of your HTML file')
 index = 'index'
@@ -25,10 +26,9 @@ def title(Title, icon=None):
 <head>
 <title>{Title}</title>
 <link rel="stylesheet" href="style.css">\n""")
-    if type(icon) == str and icon.split('.')[-1] != '.ico':
-        with open(f'{index}.html', 'a+') as s:
-            s.write(f"<link rel='shortcut icon' href={icon}>")
 
+    if type(icon) == str and icon.split('.')[-1] != '.ico':
+        open(f'{index}.html', 'a+').write(f"<link rel='shortcut icon' href={icon}>")
 
 def add_font(font_link):
     with open(f'{index}.html', 'a+') as f:
@@ -106,13 +106,11 @@ def open_tags(any_tag, *args):
         for arg in args:
             f.write(f'''\n<{arg}>''')
 
-
 def close_tags(any_tag, *args):
     with open(f'{index}.html', 'a+') as f:
         f.write(f'''\n</{any_tag}>''')
         for arg in args:
             f.write(f'''\n</{arg}>''')
-
 
 def close_tag_before(tag_to_close, tag_to_close_before):
     with open(f'{index}.html', 'r+') as f:
@@ -233,7 +231,7 @@ class tTags():
     def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False):
         with open('style.css', 'a+') as s:
             if self.p == True:
-                s.write("\np {{")
+                s.write("\np {")
             elif self.div_class == True:
                 s.write(f"\n.{self.div_class} {{")
             elif self.sec_class == True:
@@ -318,6 +316,8 @@ if __name__ == "__main__":
 
     WriteHTML("I'm defo" + b + "sure of this")
     close_tags('section')
+
+    webbrowser.open(f'{index}.html')
 
     #endBody()
     #AutoCloseTags()
