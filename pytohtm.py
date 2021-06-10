@@ -15,28 +15,20 @@ import warnings
 
 b = ' <br> '
 
-def title(Title, icon=None):
+def title(Title, icon=False):
     with open('nameofhtm.html', 'w') as f:
-        if icon == None or icon.split('.')[-1] != '.ico':
-            icon = None
         
-            f.write(f'''<!doctype html>
+        f.write(f'''<!doctype html>
 <html lang="en">
 <meta charset="utf-8">
 <head>
 <title>{Title}</title>
-<link rel="shortcut icon" href={icon}>
 <link rel="stylesheet" href="style.css">''')
 
+        if icon == False or icon.split('.')[-1] != '.ico':
+            pass
         else:
-
-            f.write(f'''<!doctype html>
-<html lang="en">
-<meta charset="utf-8">
-<head>
-<title>{Title}</title>
-<link rel="shortcut icon" href={icon}>
-<link rel="stylesheet" href="style.css">''')
+            f.write(f'''\n<link rel="shortcut icon" href={icon}>''')
     with open('style.css', 'w') as f:
             f.write('')
 
@@ -49,7 +41,7 @@ def add_font(font_link):
 # size in any valid measure
 # text-align: left|right|center|justify|initial|inherit
 
-def head(Head, font_size=None, font_family="Arial", type='header', color='black', text_align='left', background_color='None', padding='None', height='None', width='None', line_break='None', line_height='None'):
+def head(Head, font_size=False, font_family="Arial", type='header', color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False):
     """
     Args:
         Head (str, compulsory)        : Caption header;
@@ -70,7 +62,7 @@ def head(Head, font_size=None, font_family="Arial", type='header', color='black'
 
     with open('nameofhtm.html', 'a') as f:
         f.write(f'''\n<{type}>{Head}</{type}>
-</head>\n''')
+</head>''')
         with open('style.css', 'a') as s:
                 s.write(f'''{type} {{
     color: {color};
@@ -88,8 +80,8 @@ def head(Head, font_size=None, font_family="Arial", type='header', color='black'
             #print("Only type or font_size accepted in head()")
         
 
-#head('nothing more', 'h5', None, 'rgb(50, 168, 82)', 'Arial', 'center')
-#head('nothing more', None, None, None, None, None)
+#head('nothing more', 'h5', False, 'rgb(50, 168, 82)', 'Arial', 'center')
+#head('nothing more', False, False, False, False, False)
 # No hex accepted for color in head(). RGB and normal eng works.
 # If arguments font_size and type are passed, font_size seems to be given preference CSS
 
@@ -100,7 +92,7 @@ def head(Head, font_size=None, font_family="Arial", type='header', color='black'
 # by CSS. But, at least one argument MUST be passed.
 # No hex accepted for color in head() iff type is mentioned. RGB and normal eng works. Haven't tested
 # other mediums.
-# In title(), default value of ico and css_bool are None. 
+# In title(), default value of ico and css_bool are False. 
 # Also in title(), icon argument MUST be a .ico file. Check if the last 4 letters are '.ico'
 # In head() in the argument font_family, the users MUST enter it in double quotes. Typically, it can be 
 # something like
@@ -174,9 +166,7 @@ class cTags():
     def __init__(self, tag):
         self.tag = tag
 
-    def css(self, color='black', font_family='Arial', font_weight=None, text_align=None, font_size=None, background_color=None, background=None, margin_top=None, margin_bottom=None, margin_left=None, margin_right=None, border=None, display='block', padding=None, height=None, width=None, line_break='None', line_height='None'):
-        if background_color != None:
-            background = ''
+    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False):
         with open('style.css', 'a') as s:
             s.write(f'''\n{str(self.tag)} {{
     color: {color};
@@ -214,7 +204,7 @@ class tTags():
 
     def start_p(self, p_text):
         with open('nameofhtm.html', 'a') as f:
-            f.write(f'''<p> \n{p_text} \n</p>''')
+            f.write(f'''\n<p> \n{p_text} \n</p>''')
 
     #d_class = 'dummy_var'
     def start_div(self, d_class):
@@ -227,9 +217,7 @@ class tTags():
         with open('nameofhtm.html', 'a') as f:
             f.write(f'''\n<section class="section {s_class}">''')
             
-    def css(self, color='black', font_family='Arial', font_weight=None, text_align=None, font_size=None, background_color=None, background=None, margin_top=None, margin_bottom=None, margin_left=None, margin_right=None, border=None, display='block', padding=None, height=None, width=None, line_break='None', line_height='None'):
-        if background_color != None:
-            background = ''
+    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False):
         with open('style.css', 'a') as s:
             if self.p == True:
                 s.write(f'''\np {{
@@ -300,6 +288,24 @@ def add_text(text):
         f.write(f'''\n{text}''')
 
 
+def startBody(background=False, background_color='white', background_image=False, opacity=False, background_size='cover', background_attachment='fixed', background_position=False, background_repeat=False):
+    with open('nameofhtm.html', 'a') as f:
+        f.write(f'''\n<body>''')
+    with open('style.css', 'a') as s:
+        s.write(f'''\nbody {{
+background-color: {background_color};
+background-image: {background_image};
+opacity: {opacity};
+background-size: {background_size};
+background-attachment: {background_attachment};
+background-position: {background_position};
+background-repeat: {background_repeat};
+}}''')
+
+def endBody():
+    with open('nameofhtm.html', 'a') as f:
+        f.write(f'''\n</body>''')
+
 
 
 def WriteHTML(text):
@@ -318,6 +324,7 @@ if __name__ == "__main__":
     #AutoCloseTags()
     title('nothing')
     head('nothing more', font_size='90px', color='blue', text_align='center', background_color='orange')
+    startBody(background_color='green', opacity=0.5)
     
     x = tTags(True)
     x.start_p("I'm sure about this man")
@@ -338,5 +345,6 @@ if __name__ == "__main__":
 
     add_text("I'm defo" + b + "sure of this")
     close_tags('section')
-    
-    AutoCloseTags()
+
+    endBody()
+    #AutoCloseTags()
