@@ -95,7 +95,7 @@ def head(Head, font_size, type='header', font_family="Arial", color='black', tex
 #        pass
 #    elif open_tags == False and close_tags == True:
 #        for arg in args:
-#            ith open(f'{index}.html', 'a') as f
+#            with open(f'{index}.html', 'a') as f
 
 def open_tags(any_tag, *args):
     with open(f'{index}.html', 'a') as f:
@@ -142,6 +142,61 @@ def AutoCloseTags():
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
         open(f'{index}.html', 'w+').write(f'''{auto_close_all_tags}''')
+
+def startBody(background=None, background_color='white', background_image=None, opacity='1', background_size='cover', background_attachment='fixed', background_position=None, background_repeat=None):
+    """Opens the <body> tag and styles using CSS."""
+
+    open(f'{index}.html', 'a').write('\n<body>')
+    with open('style.css', 'a') as s:
+        s.write(f'''
+body {{
+    background: {background};
+    background-color: {background_color};
+    background-image: {background_image};
+    opacity: {opacity};
+    background-size: {background_size};
+    background-attachment: {background_attachment};
+    background-position: {background_position};
+    background-repeat: {background_repeat};
+}}''')
+
+# Should be used after StartBody() and before EndBody()
+def AddPicture(src, alt=None, height=None, width=None):
+    open(f'{index}.html', 'a').write(f"""<img src="{src}" alt="{alt}" height={height} width={width}>""")
+
+def WriteHTML(text):
+    """Writes the given text to the html file."""
+    open(f'{index}.html', 'a+').write(text)
+
+def WriteCSS(text):
+    """Writes the given code to the CSS file."""
+    open('style.css', 'a').write(text)
+
+def endBody():
+    """closes </body> tag."""
+    open(f'{index}.html', 'a').write(f'''\n</body>''')
+
+# Initc() if used, must always come after title()
+def addInitc(box_sizing='False', margin='0px', padding='0px', border='0px', position='relative'):
+    """
+    Args:
+        box_sizing (str, optional)  : CSS box-sizing parameter. Defaults to 'False'.
+        margin (str, optional)      : CSS margin parameter. Defaults to '0px'.
+        padding (str, optional)     : CSS padding parameter. Defaults to '0px'.
+        border (str, optional)      : CSS border parameter. Defaults to '0px'.
+        position (str, optional)    : CSS position parameter. Defaults to 'relative'.
+    """
+
+    with open('style.css', 'a') as s:
+        s.write(f'''*,*:before,*:after {{
+    box-sizing:{box_sizing};
+    margin:{margin};
+    padding:{padding};
+    border:{border};
+    position: {position};
+}}''')
+
+############################################################################################
 
 # Class cTags
 class cTags():
@@ -326,68 +381,31 @@ class tTags():
     box-shadow: {box_shadow};
 }}''')
 
+# Class startTable
+class startTable():
+    with open('index.html', 'a') as f:
+        f.write(f'''\n<table>
+<tr>''')
 
-def startBody(background=None, background_color='white', background_image=None, opacity='1', background_size='cover', background_attachment='fixed', background_position=None, background_repeat=None):
-    """Opens the <body> tag and styles using CSS."""
+    #def __init__(self, rows:int, columns:int):
+    #    self.columns = columns
+    #    self.rows = rows
+    #    cList = [*range(1, 1+columns)]
+    #    rList = [*range(1, 1+rows)]
+    
+    # tHead is always a list, and len(tHead) = columns
+    def table(self, tHead):
+        for header in tHead:
+            with open('index.html', 'a') as f:
+                f.write(f'''\n<th>{header}</th>''')
+        with open('index.html', 'a') as f:
+            f.write(f'''\n</tr>''')
 
-    open(f'{index}.html', 'a').write('\n<body>')
-    with open('style.css', 'a') as s:
-        s.write(f'''
-body {{
-    background: {background};
-    background-color: {background_color};
-    background-image: {background_image};
-    opacity: {opacity};
-    background-size: {background_size};
-    background-attachment: {background_attachment};
-    background-position: {background_position};
-    background-repeat: {background_repeat};
-}}''')
-
-
-def WriteHTML(text):
-    """Writes the given text to the html file."""
-
-    open(f'{index}.html', 'a+').write(text)
-
-
-def WriteCSS(text):
-    """Writes the given code to the CSS file."""
-
-    open('style.css', 'a').write(text)
-
-
-def endBody():
-    """closes </body> tag."""
-
-    open(f'{index}.html', 'a').write(f'''\n</body>''')
-
-
-# Initc() if used, must always come after title()
-def addInitc(box_sizing='False', margin='0px', padding='0px', border='0px', position='relative'):
-    """
-    Args:
-        box_sizing (str, optional)  : CSS box-sizing parameter. Defaults to 'False'.
-        margin (str, optional)      : CSS margin parameter. Defaults to '0px'.
-        padding (str, optional)     : CSS padding parameter. Defaults to '0px'.
-        border (str, optional)      : CSS border parameter. Defaults to '0px'.
-        position (str, optional)    : CSS position parameter. Defaults to 'relative'.
-    """
-
-    with open('style.css', 'a') as s:
-        s.write(f'''*,*:before,*:after {{
-    box-sizing:{box_sizing};
-    margin:{margin};
-    padding:{padding};
-    border:{border};
-    position: {position};
-}}''')
-
+    def close():
+        with open('index.html', 'a') as f:
+            f.write(f'''\n</table>''')
 
 if __name__ == "__main__":
-    #title('Test')
-    #head('This is the header', '20px', 'Arial')
-    #AutoCloseTags()
     title('nothing')
     addInitc()
     head('nothing more', font_size='90px', color='blue', text_align='center', background_color='orange')
