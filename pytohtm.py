@@ -2,36 +2,35 @@
 """
 Created on Tue Jun  8 09:32:38 2021
 """
+
 #from flask import Flask
-
-#nameofhtm = input('Enter the name of your HTML file')
-
-# icon argument must be a .ico file
-
-#def check_tag_open(tag):
-
 from bs4 import BeautifulSoup
 import warnings
 
+#nameofhtm = input('Enter the name of your HTML file')
+# icon argument must be a .ico file
+#def check_tag_open(tag):
 b = ' <br> '
 
-def title(Title, icon=False):
-    with open('nameofhtm.html', 'w') as f:
-        
-        f.write(f'''<!doctype html>
+def title(Title, icon=None):
+    """
+    Args:
+        Title(str, compulsory)   : Title of the HTML file.
+        icon(str, optional)      : Icon to be displayed. Should be a .ico file. Defaults to no icon.
+    """
+
+    with open('index.html', 'w+') as f:
+        f.write(f"""<!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
 <head>
-<title>{Title}</title>
-<link rel="stylesheet" href="style.css">''')
+<title>{Title}</title>\n""")
+    if type(icon) == str and icon.split('.')[-1] != '.ico':
+        with open('index.html', 'a+') as f:
+            f.write(f"""<link rel='shortcut icon' href={icon}>
+<link rel="stylesheet" href="style.css">\n""")
 
-        if icon == False or icon.split('.')[-1] != '.ico':
-            pass
-        else:
-            f.write(f'''\n<link rel="shortcut icon" href={icon}>''')
-    with open('style.css', 'w') as f:
-            f.write('')
-
+            
 def add_font(font_link):
     with open('nameofhtm.html', 'a') as f:
         f.write(f'''\n<link href={font_link} rel="stylesheet">''')
@@ -44,13 +43,20 @@ def add_font(font_link):
 def head(Head, font_size=False, font_family="Arial", type='header', color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False):
     """
     Args:
-        Head (str, compulsory)        : Caption header;
-        font_size (str, optional)     : Font size in any valid measure. Leave blank, if not valid;
-        font_family (str, optional)   : any possible Font family. Must be entered only in double quotes;
-        type (str, optional)          : Header Size. Anything from h1 to h6. Leave blank, if not valid.; 
-        color (str, optional)         : Color of Font. Does not take in HEX values;  
-        text_align (str, optional)    : left|right|center|justify|initial|inherit. Defaults to 'left'.
+        Head (str, compulsory)           : Caption header.
+        font_size (str, compulsory)      : Font size in any valid measure. Leave blank, if not valid.
+        font_family (str, compulsory)    : any possible Font family. Defaults to Arial.
+        type (str, optional)             : Header Size. Anything from h1 to h6. Leave blank, if not valid. Defaults to 'header'.
+        color (str, optional)            : Color of Font in hex code. Defaults to '#000000'.
+        text_align (str, optional)       : left|right|center|justify|initial|inherit. Defaults to 'left'.
+        background_color (str, optional) : Background color. Defaults to '#FFFFFF'.
+        padding (str, optional)          : Padding. Defaults to None.
+        height (str, optional)           : Height of text. Defaults to None.
+        width (str, optional)            : Width of text. Defaults to None.
+        line_break (str, optional)       : Line break. Defaults to None.
+        line_height (str, optional)      : Line height. Defaults to None. 
     """
+    
     # if type == False and font_size == False:
     #     type = 'header'
     # elif type != False and len(type) != 2:
@@ -114,11 +120,15 @@ def open_tags(any_tag, *args):
         f.write(f'''\n<{any_tag}>''')
         for arg in args:
             f.write(f'''\n<{arg}>''')
+  
+
 def close_tags(any_tag, *args):
     with open('nameofhtm.html', 'a') as f:
         f.write(f'''\n</{any_tag}>''')
         for arg in args:
             f.write(f'''\n</{arg}>''')
+ 
+
 def close_tag_before(tag_to_close, tag_to_close_before):
     with open('nameofhtm.html', 'r') as f:
         tag_to_close_before = f"<{tag_to_close_before}>"
@@ -283,6 +293,7 @@ class tTags():
     line-height: {line_height};
 }}''')
 
+                
 def add_text(text):
     with open('nameofhtm.html', 'a') as f:
         f.write(f'''\n{text}''')
@@ -302,21 +313,18 @@ background-position: {background_position};
 background-repeat: {background_repeat};
 }}''')
 
-def endBody():
-    with open('nameofhtm.html', 'a') as f:
-        f.write(f'''\n</body>''')
-
-
-
+        
 def WriteHTML(text):
     """Writes the given code to the HTML file."""
     
     open('nameofhtm.html', 'a').write(text)
 
+    
 def WriteCSS(text):
     """Writes the given code to the CSS file."""
 
     open('style.css', 'a').write(text)
+        
         
 if __name__ == "__main__":
     #title('Test')
