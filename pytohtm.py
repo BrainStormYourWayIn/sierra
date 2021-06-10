@@ -274,7 +274,7 @@ class tTags():
 }}''')
 
 
-def startBody(background=False, background_color='white', background_image=False, opacity=False, background_size='cover', background_attachment='fixed', background_position=False, background_repeat=False):
+def startBody(background=None, background_color='white', background_image=None, opacity='1', background_size='cover', background_attachment='fixed', background_position=None, background_repeat=None):
     with open('{index}.html', 'a') as f:
         f.write(f'''\n<body>''')
     with open('style.css', 'a') as s:
