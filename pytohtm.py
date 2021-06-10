@@ -9,9 +9,6 @@ import warnings
 
 # {index} = input('Enter the name of your HTML file')
 index = 'index'
-
-# icon argument must be a .ico file
-# def check_tag_open(tag):
 b = ' <br> '
 
 def title(Title, icon=None):
@@ -44,9 +41,9 @@ def head(Head, font_size=None, font_family="Arial", type='header', color='black'
         font_size (str, compulsory)      : Font size in any valid measure. Leave blank, if not valid.
         font_family (str, compulsory)    : any possible Font family. Defaults to Arial.
         type (str, optional)             : Header Size. Anything from h1 to h6. Leave blank, if not valid. Defaults to 'header'.
-        color (str, optional)            : Color of Font in hex code. Defaults to '#000000'.
+        color (str, optional)            : Color of Font in hex code. Defaults to 'black'.
         text_align (str, optional)       : left|right|center|justify|initial|inherit. Defaults to 'left'.
-        background_color (str, optional) : Background color. Defaults to '#FFFFFF'.
+        background_color (str, optional) : Background color. Defaults to 'white'.
         padding (str, optional)          : Padding. Defaults to None.
         height (str, optional)           : Height of text. Defaults to None.
         width (str, optional)            : Width of text. Defaults to None.
@@ -68,11 +65,11 @@ def head(Head, font_size=None, font_family="Arial", type='header', color='black'
 </head>\n''')
         with open('style.css', 'a+') as s:
                 s.write(f'''{type} {{
-    color: {color};
-    font-family: {font_family};
+    color: "{color}";
+    font-family: "{font_family}";
     text-align: {text_align};
     font-size: {font_size};
-    background-color: {background_color};
+    background-color: "{background_color}";
     padding: {padding};
     height: {height};
     width: {width};
@@ -93,13 +90,7 @@ def head(Head, font_size=None, font_family="Arial", type='header', color='black'
 # by CSS. But, at least one argument MUST be passed.
 # No hex accepted for color in head() iff type is mentioned. RGB and normal eng works. Haven't tested
 # other mediums.
-# In title(), default value of ico and css_bool are False. 
-# Also in title(), icon argument MUST be a .ico file. Check if the last 4 letters are '.ico'
-# In head() in the argument font_family, the users MUST enter it in double quotes. Typically, it can be 
-# something like
-# font-family: 'Roboto', sans-serif; in CSS. But when the user is entering the value of
-# font_family as ''Roboto', sans-serif' there's a SyntaxError, since there is a single quote within
-# # a single quote. Hence, they must always enter it in double quotes.
+
 
 # check soup.a.prettify()
 # def tags(open_tags=False, close_tags=False, *args):
@@ -116,13 +107,11 @@ def open_tags(any_tag, *args):
             f.write(f'''\n<{arg}>''')
 
 
-
 def close_tags(any_tag, *args):
     with open(f'{index}.html', 'a+') as f:
         f.write(f'''\n</{any_tag}>''')
         for arg in args:
             f.write(f'''\n</{arg}>''')
-
 
 
 def close_tag_before(tag_to_close, tag_to_close_before):
@@ -163,8 +152,8 @@ def AutoCloseTags():
 
 #auto_close_tags() 
 #AutoCloseTags()
-#def (close_tag, open_new)
 
+# Class cTags
 class cTags():
     def __init__(self, tag):
         self.tag = tag
@@ -219,8 +208,7 @@ class cTags():
 #y = cTags('tag1')
 #y.css(color='blue')
 
-# open class textTags()
-
+# Class tTags()
 class tTags():
     def __init__(self, p=False, div_class=False, sec_class=False):
         self.p = p
@@ -276,17 +264,18 @@ class tTags():
 
 def startBody(background=None, background_color='white', background_image=None, opacity='1', background_size='cover', background_attachment='fixed', background_position=None, background_repeat=None):
     with open(f'{index}.html', 'a') as f:
-        f.write(f'''\n<body>''')
+        f.write('\n<body>')
     with open('style.css', 'a') as s:
-        s.write(f'''\nbody {{
-background: {background};
-background-color: {background_color};
-background-image: {background_image};
-opacity: {opacity};
-background-size: {background_size};
-background-attachment: {background_attachment};
-background-position: {background_position};
-background-repeat: {background_repeat};
+        s.write(f'''
+body {{
+    background: {background};
+    background-color: {background_color};
+    background-image: {background_image};
+    opacity: {opacity};
+    background-size: {background_size};
+    background-attachment: {background_attachment};
+    background-position: {background_position};
+    background-repeat: {background_repeat};
 }}''')
 
 
