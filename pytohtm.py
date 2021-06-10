@@ -12,7 +12,7 @@ import webbrowser
 index = 'index'
 b = ' <br> '
 
-def title(Title, icon=None):
+def title(Title, icon=False):
     """
     Args:
         Title(str, compulsory)   : Title of the HTML file.
@@ -39,7 +39,7 @@ def add_font(font_link):
 # size in any valid measure
 # text-align: left|right|center|justify|initial|inherit
 
-def head(Head, font_size, type='header', font_family="Arial", color='black', text_align='left', background_color='white', padding='0px', height=None, width=None, line_break=None, line_height=None):
+def head(Head, font_size, type='header', font_family="Arial", color='black', text_align='left', background_color='white', padding='0px', height=False, width=False, line_break=False, line_height=False):
     """
     Args:
         Head (str, compulsory)           : Caption header.
@@ -50,10 +50,10 @@ def head(Head, font_size, type='header', font_family="Arial", color='black', tex
         text_align (str, optional)       : CSS text-align parameter. left|right|center|justify|initial|inherit. Defaults to 'left'.
         background_color (str, optional) : CSS Background-color parameter. Defaults to 'white'.
         padding (str, optional)          : CSS Padding parameter. Defaults to '0px'.
-        height (str, optional)           : CSS Height parameter. Defaults to None.
-        width (str, optional)            : CSS Width Parameter. Defaults to None.
-        line_break (str, optional)       : CSS Line-break parameter. Defaults to None.
-        line_height (str, optional)      : CSS line-height parameter. Defaults to None. 
+        height (str, optional)           : CSS Height parameter. Defaults to False.
+        width (str, optional)            : CSS Width Parameter. Defaults to False.
+        line_break (str, optional)       : CSS Line-break parameter. Defaults to False.
+        line_height (str, optional)      : CSS line-height parameter. Defaults to False. 
     """
 
     # if type == False and font_size == False:
@@ -158,30 +158,30 @@ class cTags():
     def __init__(self, tag):
         self.tag = tag
 
-    def css(self, color='black', font_family='Arial', font_weight=None, text_align=None, font_size=None, background_color=None, background='False', margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding='0px', height=None, width=None, line_break=None, line_height=None, overflow=None, margin='0px', box_shadow=None):
+    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background='False', margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding='0px', height=False, width=False, line_break=False, line_height=False, overflow=False, margin='0px', box_shadow=False):
         """
         Args:
             color (str, optional)            : CSS Color parameter. Defaults to 'black'.
             font_family (str, optional)      : CSS Font-Family parameter. Defaults to 'Arial'.
-            font_weight (str, optional)      : CSS Font-weight parameter. Defaults to None.
-            text_align (str, optional)       : CSS Text-align parameter. Defaults to None.
-            font_size (str, optional)        : CSS Font-size parameter. Defaults to None.
+            font_weight (str, optional)      : CSS Font-weight parameter. Defaults to False.
+            text_align (str, optional)       : CSS Text-align parameter. Defaults to False.
+            font_size (str, optional)        : CSS Font-size parameter. Defaults to False.
             background_color (str, optional) : CSS background-color parameter. Defaults to 'white'.
-            background (str, optional)       : CSS background parameter. Defaults to None.
+            background (str, optional)       : CSS background parameter. Defaults to False.
             margin_top (str, optional)       : CSS margin-top parameter. Defaults to '0px'.
             margin_bottom (str, optional)    : CSS margin-bottom parameter. Defaults to '0px'.
             margin_left (str, optional)      : CSS margin-left parameter. Defaults to '0px'.
             margin_right (str, optional)     : CSS margin-right parameter. Defaults to '0px'.
             border (str, optional)           : CSS border parameter. Defaults to '0px'.
             display (str, optional)          : CSS display parameter. Defaults to 'block'.
-            padding (str, optional)          : CSS padding parameter. Defaults to None.
-            height (str, optional)           : CSS height parameter. Defaults to None.
-            width (str, optional)            : CSS width parameter. Defaults to None.
-            line_break (str, optional)       : CSS line-break parameter. Defaults to None.
-            line_height (str, optional)      : CSS line-height parameter. Defaults to None.
-            overflow (str, optional)         : CSS overflow parameter. Defaults to None.
-            margin (str, optional)           : CSS margin parameter. Defaults to None.
-            box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to None.
+            padding (str, optional)          : CSS padding parameter. Defaults to False.
+            height (str, optional)           : CSS height parameter. Defaults to False.
+            width (str, optional)            : CSS width parameter. Defaults to False.
+            line_break (str, optional)       : CSS line-break parameter. Defaults to False.
+            line_height (str, optional)      : CSS line-height parameter. Defaults to False.
+            overflow (str, optional)         : CSS overflow parameter. Defaults to False.
+            margin (str, optional)           : CSS margin parameter. Defaults to False.
+            box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to False.
         """
 
         with open('style.css', 'a') as s:
@@ -216,7 +216,7 @@ class cTags():
 
 # Class tTags
 class tTags():
-    def __init__(self, p=None, div_class=None, sec_class=None):
+    def __init__(self, p=False, div_class=False, sec_class=False):
         self.p = p
         self.div_class = div_class
         self.sec_class = sec_class
@@ -234,7 +234,7 @@ class tTags():
     def start_sec(self, s_class):
         open(f'{index}.html', 'a').write(f'''\n<section class="section {s_class}">''')
             
-    def css(self, color='black', font_family='Arial', font_weight=None, text_align=None, font_size=None, background_color=None, background='False', margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding='0px', height=None, width=None, line_break=None, line_height=None, overflow=None, margin='0px', box_shadow=None):
+    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background='False', margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding='0px', height=False, width=False, line_break=False, line_height=False, overflow=False, margin='0px', box_shadow=False):
         with open('style.css', 'a') as s:
             if self.p == True:
                 s.write(f'''\np {{
@@ -311,14 +311,16 @@ class tTags():
 
 def WriteHTML(text):
     """Writes the given text to the html file."""
-    open(f'{index}.html', 'a+').write(text)
+    # open(f'{index}.html', 'a').write(text)
+    with open('main.html', 'a') as f:
+        f.write(f'''\n{text}''')
 
 def WriteCSS(text):
     """Writes the given code to the CSS file."""
     open('style.css', 'a').write(text)
 
 
-def startBody(background=None, background_color='white', background_image=None, opacity='1', background_size='cover', background_attachment='fixed', background_position=None, background_repeat=None):
+def startBody(background=False, background_color='white', background_image=False, opacity='1', background_size='cover', background_attachment='fixed', background_position=False, background_repeat=False):
     with open(f'{index}.html', 'a') as f:
         f.write(f'''\n<body>''')
     with open('style.css', 'a') as s:
