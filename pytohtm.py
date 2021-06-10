@@ -176,9 +176,31 @@ class cTags():
     def __init__(self, tag):
         self.tag = tag
 
-    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False):
-        with open('style.css', 'a') as s:
-            s.write(f'''\n{str(self.tag)} {{
+    def css(self, color='#000000', font_family='Arial', font_weight=None, text_align=None, font_size=None, background_color='#FFFFFF', background=None, margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding=None, height=None, width=None, line_break=None, line_height=None):
+        """
+        Args:
+            color (str, optional)            : CSS Color parameter. Defaults to '#000000'.
+            font_family (str, optional)      : CSS Font-Family parameter. Defaults to 'Arial'.
+            font_weight (str, optional)      : CSS Font-weight parameter. Defaults to None.
+            text_align (str, optional)       : CSS Text-align parameter. Defaults to None.
+            font_size (str, optional)        : CSS Font-size parameter. Defaults to None.
+            background_color (str, optional) : CSS Background-color parameter. Defaults to '#FFFFFF'.
+            background (str, optional)       : CSS Background parameter. Defaults to None.
+            margin_top (str, optional)       : CSS margin-top parameter. Defaults to '0px'.
+            margin_bottom (str, optional)    : CSS margin-bottom parameter. Defaults to '0px'.
+            margin_left (str, optional)      : CSS margin-left parameter. Defaults to '0px'.
+            margin_right (str, optional)     : CSS margin-right parameter. Defaults to '0px'.
+            border (str, optional)           : CSS border parameter. Defaults to '0px'.
+            display (str, optional)          : CSS display parameter. Defaults to 'block'.
+            padding (str, optional)          : CSS padding parameter. Defaults to ''None.
+            height (str, optional)           : CSS height parameter. Defaults to None.
+            width (str, optional)            : CSS width parameter. Defaults to None.
+            line_break (str, optional)       : CSS line-break parameter. Defaults to None.
+            line_height (str, optional)      : CSS line-height parameter. Defaults to None.
+        """
+        with open('style.css', 'a') as f:
+            f.write(f'''
+{self.tag} {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
@@ -198,6 +220,7 @@ class cTags():
     line-break: {line_break};
     line-height: {line_height};
 }}''')
+
 
 # x = tags()
 # x.open_tags('tag1')
