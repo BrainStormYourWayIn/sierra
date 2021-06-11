@@ -3,7 +3,7 @@ def writeCSS(tag, *args):
 
     with open('style.css', 'a+') as s:
         s.write(f"""\n{tag} {{""")
-        for parameter, value in args.items():
+        print(args)
+        for parameter, value in args[0].items():
             s.write(f"""\n\t{parameter}: {value};""")
         s.write("\n}")
-        
