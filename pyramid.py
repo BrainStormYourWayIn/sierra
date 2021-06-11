@@ -270,7 +270,7 @@ class tTags():
 
     def start_p(self, p_text):
         """Opens and closes the <p> tag."""
-        open(f'{index}.html', 'a+').write(f'''\n<p>\n{p_text}\n</p>''')
+        open(f'{index}.html', 'a').write(f'''\n<p>\n{p_text}\n</p>''')
 
     #d_class = 'dummy_var'
     def start_div(self, d_class):
@@ -282,7 +282,7 @@ class tTags():
     #s_class = 'dummy_var'
     def start_sec(self, s_class):
         """Opens the <section> tag."""
-        open(f'{index}.html', 'a+').write(f'''\n<section class="section {s_class}">''')
+        open(f'{index}.html', 'a').write(f'''\n<section class="section {s_class}">''')
             
     def css(self, color='black', font_family='Arial', font_weight='normal', text_align='left', font_size='16px', background_color='white', background='inherit', margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding='0px', height=None, width=None, line_break=None, line_height=None, overflow=None, margin='0px', box_shadow="none"):
         """
