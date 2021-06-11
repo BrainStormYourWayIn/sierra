@@ -12,7 +12,7 @@ import webbrowser
 index = 'index'
 b = ' <br> '
 
-def Title(Title, icon=None):
+def title(Title, icon=None):
     """
     Args:
         Title(str, compulsory)   : Title of the HTML file.
@@ -32,13 +32,13 @@ def Title(Title, icon=None):
     
     open('style.css', 'w').write('')
 
-def AddFont(font_link):
+def addFont(font_link):
     """Add font link"""
 
     with open(f'{index}.html', 'a') as f:
         f.write(f'\n<link href="{font_link}" rel="stylesheet">')
 
-def Head(Head, font_size, type='header', font_family="Arial", color='black', text_align='left', background_color='white', padding='0px', height=None, width=None, line_break=None, line_height=None, border=None, margin='0px'):
+def head(Head, font_size, type='header', font_family="Arial", color='black', text_align='left', background_color='white', padding='0px', height=None, width=None, line_break=None, line_height=None, border=None, margin='0px'):
     """
     Args:
         Head (str, compulsory)           : Caption header.
@@ -102,19 +102,19 @@ def Head(Head, font_size, type='header', font_family="Arial", color='black', tex
 #        for arg in args:
 #            with open(f'{index}.html', 'a') as f
 
-def OpenTags(any_tag, *args):
+def open_tags(any_tag, *args):
     with open(f'{index}.html', 'a') as f:
         f.write(f'''\n<{any_tag}>''')
         for arg in args:
             f.write(f'''\n<{arg}>''')
 
-def CloseTags(any_tag, *args):
+def close_tags(any_tag, *args):
     with open(f'{index}.html', 'a') as f:
         f.write(f'''\n</{any_tag}>''')
         for arg in args:
             f.write(f'''\n</{arg}>''')
 
-def CloseTagBefore(tag_to_close, tag_to_close_before):
+def closeTagBefore(tag_to_close, tag_to_close_before):
     with open(f'{index}.html', 'r') as f:
         tag_to_close_before = f"<{tag_to_close_before}>"
         tag_to_close = f"</{tag_to_close}>"
@@ -147,7 +147,7 @@ def AutoCloseTags():
         auto_close_all_tags = soup.prettify()
         open(f'{index}.html', 'w+').write(f'''{auto_close_all_tags}''')
 
-def StartBody(background=None, background_color='white', background_image=None, opacity='1', background_size='cover', background_attachment='fixed', background_position=None, background_repeat=None):
+def startBody(background=None, background_color='white', background_image=None, opacity='1', background_size='cover', background_attachment='fixed', background_position=None, background_repeat=None):
     """Opens the <body> tag and styles using CSS."""
 
     open(f'{index}.html', 'a').write('\n<body>')
@@ -165,23 +165,23 @@ body {{
 }}''')
 
 # Should be used after StartBody() and before EndBody()
-def AddPicture(src, alt=None, height=None, width=None):
+def addImg(src, alt=None, height=None, width=None):
     open(f'{index}.html', 'a').write(f"""<img src="{src}" alt="{alt}" height={height} width={width}>""")
 
-def WriteHTML(text):
+def writeHTML(text):
     """Writes the given text to the html file."""
     open(f'{index}.html', 'a+').write(text)
 
-def WriteCSS(text):
+def writeCSS(text):
     """Writes the given code to the CSS file."""
     open('style.css', 'a').write(text)
 
-def EndBody():
+def endBody():
     """closes </body> tag."""
     open(f'{index}.html', 'a').write(f'''\n</body>''')
 
 # Initc() if used, must always come after title()
-def AddInitc(box_sizing='False', margin='0px', padding='0px', border='0px', position='relative'):
+def addInitc(box_sizing='False', margin='0px', padding='0px', border='0px', position='relative'):
     """
     Args:
         box_sizing (str, optional)  : CSS box-sizing parameter. Defaults to 'False'.
@@ -205,7 +205,7 @@ class cTags():
     def __init__(self, tag):
         self.tag = tag
 
-    def CSS(self, color='black', font_family='Arial', font_weight='normal', text_align='left', font_size='16px', background_color='white', background='inherit', margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding='0px', height=None, width=None, line_break=None, line_height=None, overflow=None, margin='0px', box_shadow="none"):
+    def css(self, color='black', font_family='Arial', font_weight='normal', text_align='left', font_size='16px', background_color='white', background='inherit', margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding='0px', height=None, width=None, line_break=None, line_height=None, overflow=None, margin='0px', box_shadow="none"):
         """
         Args:
             color (str, optional)            : CSS color parameter. Defaults to 'black'.
@@ -284,7 +284,7 @@ class tTags():
         """Opens the <section> tag."""
         open(f'{index}.html', 'a+').write(f'''\n<section class="section {s_class}">''')
             
-    def CSS(self, color='black', font_family='Arial', font_weight='normal', text_align='left', font_size='16px', background_color='white', background='inherit', margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding='0px', height=None, width=None, line_break=None, line_height=None, overflow=None, margin='0px', box_shadow="none"):
+    def css(self, color='black', font_family='Arial', font_weight='normal', text_align='left', font_size='16px', background_color='white', background='inherit', margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding='0px', height=None, width=None, line_break=None, line_height=None, overflow=None, margin='0px', box_shadow="none"):
         """
         Args:
             color (str, optional)            : CSS color parameter. Defaults to 'black'.
@@ -399,13 +399,13 @@ class startTable():
     #    rList = [*range(1, 1+rows)]
     
     # tHead is always a list, and len(tHead) = columns
-    def Table(self, tHead):
+    def table(self, tHead):
         for header in tHead:
             with open('index.html', 'a') as f:
                 f.write(f'''\n<th>{header}</th>''')
         with open('index.html', 'a') as f:
             f.write(f'''\n</tr>''')
 
-    def Close():
+    def close():
         with open('index.html', 'a') as f:
             f.write(f'''\n</table>''')
