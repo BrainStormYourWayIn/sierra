@@ -12,6 +12,8 @@ Created on Tue Jun  8 09:32:38 2021
 
 from bs4 import BeautifulSoup
 import warnings
+import pandas as pd 
+import numpy as np
 
 # {index} = input('Enter the name of your HTML file')
 index = 'index'
@@ -19,7 +21,7 @@ index = 'index'
 b = ' <br> '
 
 def closeHTML():
-    with open(f'''{index}.html''', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n</html>''')
 
 def title(Title, icon=False):
@@ -29,7 +31,7 @@ def title(Title, icon=False):
         icon(str, optional)      : Icon to be displayed. Should be a .ico file. Defaults to no icon.
     """
 
-    with open(f'''{index}.html''', 'w') as f:
+    with open('index.html', 'w') as f:
         
         f.write(f'''<!doctype html>
 <html lang="en">
@@ -46,7 +48,7 @@ def title(Title, icon=False):
             f.write('')
 
 def add_font(font_link):
-    with open(f'''{index}.html''', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n<link href={font_link} rel="stylesheet">''')
 
 #Head:
@@ -79,7 +81,7 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
     # elif type == False:
     #     type == 'header'
 
-    with open(f'''{index}.html''', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n<{type}>{Head}</{type}>
 </head>''')
         with open('style.css', 'a') as s:
@@ -101,7 +103,7 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
             #print("Only type or font_size accepted in head()")
         
 
-#head('nothing more', 'h5', False, 'rgb(50, 168, 82)', 'Arial', 'center')
+#head('nothing more', 'h5', False, 'rgb(50, 168, 82)', "Arial", 'center')
 #head('nothing more', False, False, False, False, False)
 # No hex accepted for color in head(). RGB and normal eng works.
 # If arguments font_size and type are passed, font_size seems to be given preference CSS
@@ -127,27 +129,27 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 #         pass
 #     elif openTags == False and closeTags == True:
 #         for arg in args:
-#             with open(f'''{index}.html''', 'a') as f
+#             with open('index.html', 'a') as f
 
 
 def openTags(any_tag, *args):
-    with open(f'''{index}.html''', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n<{any_tag}>''')
         for arg in args:
             f.write(f'''\n<{arg}>''')
 def closeTags(any_tag, *args):
-    with open(f'''{index}.html''', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n</{any_tag}>''')
         for arg in args:
             f.write(f'''\n</{arg}>''')
 def closeTagBefore(tag_to_close, tag_to_close_before):
-    with open(f'''{index}.html''', 'r') as f:
+    with open('index.html', 'r') as f:
         tag_to_close_before = f"<{tag_to_close_before}>"
         tag_to_close = f"</{tag_to_close}>"
         closed_tag = tag_to_close + f"\n{tag_to_close_before}"
         f = f.read()
         now_closed = f.replace(tag_to_close_before, closed_tag)
-        with open(f'''{index}.html''', 'w') as f:
+        with open('index.html', 'w') as f:
             f.write(f'''{now_closed}''')
 
     # def css(self, tag_to_style, *args):
@@ -162,7 +164,7 @@ def closeTagBefore(tag_to_close, tag_to_close_before):
 # x.closeTags('tag1', 'tag2')
 # x.close_tag_before('tag3', 'tag2')
 
-# with open(f'''{index}.html''', 'r') as f:
+# with open('index.html', 'r') as f:
 #     newlines = f.read()
 #     newlines = newlines.replace('<tag1>', '<tag4>')
 #     print(newlines)
@@ -173,10 +175,10 @@ def AutoPrettify():
     warnings.showwarning(f'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further 
     development may run into issues. Please close tags manually if unsure. It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
     
-    with open(f'''{index}.html''', 'r') as f:
+    with open('index.html', 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
-        with open(f'''{index}.html''', 'w') as f:
+        with open('index.html', 'w') as f:
             f.write(f'''{auto_close_all_tags}''') 
 
 #auto_closeTags() 
@@ -187,12 +189,12 @@ class cTags():
     def __init__(self, tag):
         self.tag = tag
 
-    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
+    def css(self, color='black', font_family="Arial", font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
 
         """
         Args:
             color (str, optional)            : CSS Color parameter. Defaults to 'black'.
-            font_family (str, optional)      : CSS Font-Family parameter. Defaults to 'Arial'.
+            font_family (str, optional)      : CSS Font-Family parameter. Defaults to "Arial".
             font_weight (str, optional)      : CSS Font-weight parameter. Defaults to False.
             text_align (str, optional)       : CSS Text-align parameter. Defaults to False.
             font_size (str, optional)        : CSS Font-size parameter. Defaults to False.
@@ -253,21 +255,21 @@ class tTags():
         self.sec_class = sec_class
 
     def start_p(self, p_text):
-        with open(f'''{index}.html''', 'a') as f:
+        with open('index.html', 'a') as f:
             f.write(f'''\n<p> \n{p_text}''')
 
     #d_class = 'dummy_var'
     def start_div(self, d_class):
-        with open(f'''{index}.html''', 'a') as f:
+        with open('index.html', 'a') as f:
             f.write(f'''\n<div class="{d_class}">''')
             #f.write(f'''<div class="{d_class}">''')
     
     #s_class = 'dummy_var'
     def start_sec(self, s_class):
-        with open(f'''{index}.html''', 'a') as f:
+        with open('index.html', 'a') as f:
             f.write(f'''\n<section class="section {s_class}">''')
             
-    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background='False', margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
+    def css(self, color='black', font_family="Arial", font_weight=False, text_align=False, font_size=False, background_color=False, background='False', margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
         with open('style.css', 'a') as s:
             if self.p == True:
                 s.write(f'''\np {{
@@ -346,13 +348,13 @@ def writeHtm(text):
 
     """Writes the given text to the html file."""
 
-    with open(f'''{index}.html''', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n{text}''')
 
 def writeCSS(tag, *args):
     """Writes the given code to the CSS file."""
 
-    with open('style.css', 'a+') as s:
+    with open('style.css', 'a') as s:
         s.write(f"""\n{tag} {{""")
         print(args)
         for parameter, value in args[0].items():
@@ -360,7 +362,7 @@ def writeCSS(tag, *args):
         s.write("\n}")
 
 def startBody(background='False', background_color='white', background_image=False, opacity=False, background_size='cover', background_attachment='fixed', background_position=False, background_repeat=False):
-    with open(f'''{index}.html''', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n<body>''')
     with open('style.css', 'a') as s:
         s.write(f'''\nbody {{
@@ -374,7 +376,7 @@ background-repeat: {background_repeat};
 }}''')
 
 def endBody():
-    with open(f'''{index}.html''', 'a') as f:
+    with open('index.html', 'a') as f:
         f.write(f'''\n</body>''')
 
 # Initc() if used, must always come after title()
@@ -384,20 +386,89 @@ def addInitc(box_sizing='False', margin=False, padding=False, border=False, posi
         s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')
 
 class startTable():
-    def __init__(self, index="index"):
-        self.index = index
+    
+    def __init__(self, id='False'):
+        self.id = id
 
-    def createTable(self, cols, *args):
-        open(f'''{self.index}.html''', 'a').write(f'''\n<table>
-<tr>''')
-        for col in cols:
-            open(f'''{self.index}.html''', 'a').write(f'''\n<th>{col}</th>''')
-        open(f'''{self.index}.html''', 'a').write(f'''\n</tr>''')
-        for row in args:
-            open(f'''{self.index}.html''', 'a').write(f'''\n<tr>''')
-            for row_d in row:
-                open(f'''{self.index}.html''', 'a').write(f'''\n<td>{row_d}</td>''')
-            open(f'''{self.index}.html''', 'a').write(f'''\n</tr>''')
-        open(f'''{self.index}.html''', 'a').write(f'''\n</table>''')
+    # def __init__(self, rows:int, columns:int):
+    #     self.columns = columns
+    #     self.rows = rows
+    #     cList = [*range(1, 1+columns)]
+    #     rList = [*range(1, 1+rows)]
+    
+# tHead is always a list, and len(tHead) = columns
+
+    # def __init__(self, pd_df=False):
+    #     self.pd_df = pd_df
+    
+    # def table(self, tHead):
+    #     for header in tHead:
+    #         with open('index.html', 'a') as f:
+    #             f.write(f'''\n<th>{header}</th>''')
+    #     with open('index.html', 'a') as f:
+    #         f.write(f'''\n</tr>''')
+
+    # def close():
+    #     with open('index.html', 'a') as f:
+    #         f.write(f'''\n</table>''')
 
     
+    def createTable(self, cols:list, *args):
+        open('index.html', 'a').write(f'''\n<table>
+<tr>''')
+        for col in cols:
+            open('index.html', 'a').write(f'''\n<th>{col}</th>''')
+        open('index.html', 'a').write(f'''\n</tr>''')
+        for row in args:
+            open('index.html', 'a').write(f'''\n<tr>''')
+            for row_d in row:
+                open('index.html', 'a').write(f'''\n<td>{row_d}</td>''')
+            open('index.html', 'a').write(f'''\n</tr>''')
+        open('index.html', 'a').write(f'''\n</table>''')
+
+        
+    def getTable(self, dataframe:str):
+
+        df = df = pd.read_csv(dataframe)
+        cols = list(df.columns)
+        rows = df.values.tolist()
+
+        with open('index.html', 'a') as f:
+            f.write(f'''\n<table>
+<tr>''')
+        for col in cols:
+            with open('index.html', 'a') as f:
+                f.write(f'''\n<th>{col}</th>''')
+        with open('index.html', 'a') as f:
+            f.write(f'''\n</tr>''')
+        for row in rows:
+            with open('index.html', 'a') as f:
+                f.write(f'''\n<tr>''')
+            for row_d in row:
+                with open('index.html', 'a') as f:
+                    f.write(f'''\n<td>{row_d}</td>''')
+            with open('index.html', 'a') as f:
+                f.write(f'''\n</tr>''')
+        with open('index.html', 'a') as f:
+            f.write(f'''\n</table>''')
+
+    
+    def css(self, border=False, width=False, height=False, border_collapse=False, color='black', font_family="Arial", font_weight=False, text_align=False, font_size=False, margin=False, background_color='white'):
+        with open('style.css', 'a') as s:
+            if self.id == 'False':
+                s.write(f'''\ntable {{''')
+            else:
+                s.write(f'''\n#{str(self.id)} {{''')
+        s.write(f'''color: {color};
+font-family: {font_family};
+font-weight: {font_weight};
+text-align: {text_align};
+font-size: {font_size};
+background-color: {background_color};
+border: {border};
+height: {height};
+width: {width};
+margin: {margin};
+}}''')
+        
+        
