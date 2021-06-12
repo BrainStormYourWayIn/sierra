@@ -4,7 +4,9 @@
 
 Web framework for Python 3 - Fully integrated with HTML5 and CSS
 
-**NOTE**: This project is currently under development. Please watch/star this repository for further updates on development.
+**NOTE**: This project is currently under heavy development. Please watch/star this repository for further updates on development.
+
+The first stable release will come out after `pip install sierra` is enabled.
 ________________________________
 
 ## Installation
