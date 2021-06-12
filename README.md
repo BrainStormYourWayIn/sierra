@@ -1,5 +1,7 @@
 # pyramid
 
+![pyramid logo](https://github.com/BrainStormYourWayIn/pyramid/blob/main/logo.jpg)
+
 This project is currently under development.
 Please return later/watch/star this repo for updates on development.
 
