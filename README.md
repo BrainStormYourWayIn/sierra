@@ -19,7 +19,7 @@ ________________________________
 
 To clone the repository, type:
 
-`gh repo clone BrainStormYourWayIn/pyramid`
+`git clone BrainStormYourWayIn/pyramid`
 
 in your terminal/shell.
 
@@ -31,3 +31,4 @@ ________________________________
 
 - Integration with [Flask](https://palletsprojects.com/p/flask/)
 - Official support for [brython over JS](https://brython.info)
+- Release on PyPi
