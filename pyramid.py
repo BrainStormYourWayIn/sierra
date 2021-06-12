@@ -384,28 +384,20 @@ def addInitc(box_sizing='False', margin=False, padding=False, border=False, posi
         s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')
 
 class startTable():
-    
-    with open(f'''{index}.html''', 'a') as f:
-        f.write(f'''\n<table>
+    def __init__(self, index="index"):
+        self.index = index
+
+    def createTable(self, cols, *args):
+        open(f'''{self.index}.html''', 'a').write(f'''\n<table>
 <tr>''')
+        for col in cols:
+            open(f'''{self.index}.html''', 'a').write(f'''\n<th>{col}</th>''')
+        open(f'''{self.index}.html''', 'a').write(f'''\n</tr>''')
+        for row in args:
+            open(f'''{self.index}.html''', 'a').write(f'''\n<tr>''')
+            for row_d in row:
+                open(f'''{self.index}.html''', 'a').write(f'''\n<td>{row_d}</td>''')
+            open(f'''{self.index}.html''', 'a').write(f'''\n</tr>''')
+        open(f'''{self.index}.html''', 'a').write(f'''\n</table>''')
 
-    # def __init__(self, rows:int, columns:int):
-    #     self.columns = columns
-    #     self.rows = rows
-    #     cList = [*range(1, 1+columns)]
-    #     rList = [*range(1, 1+rows)]
     
-# tHead is always a list, and len(tHead) = columns
-
-    def table(self, tHead):
-        for header in tHead:
-            with open(f'''{index}.html''', 'a') as f:
-                f.write(f'''\n<th>{header}</th>''')
-        with open(f'''{index}.html''', 'a') as f:
-            f.write(f'''\n</tr>''')
-
-    def close():
-        with open(f'''{index}.html''', 'a') as f:
-            f.write(f'''\n</table>''')
-
-    AutoPrettify()
