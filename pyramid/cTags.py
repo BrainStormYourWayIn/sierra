@@ -3,7 +3,6 @@ class cTags():
         self.tag = tag
 
     def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
-
         """
         Args:
             color (str, optional)            : CSS Color parameter. Defaults to 'black'.
@@ -19,7 +18,7 @@ class cTags():
             margin_right (str, optional)     : CSS margin-right parameter. Defaults to '0px'.
             border (str, optional)           : CSS border parameter. Defaults to '0px'.
             display (str, optional)          : CSS display parameter. Defaults to 'block'.
-            padding (str, optional)          : CSS padding parameter. Defaults to ''False.
+            padding (str, optional)          : CSS padding parameter. Defaults to False.
             height (str, optional)           : CSS height parameter. Defaults to False.
             width (str, optional)            : CSS width parameter. Defaults to False.
             line_break (str, optional)       : CSS line-break parameter. Defaults to False.
@@ -30,7 +29,8 @@ class cTags():
         """
 
         with open('style.css', 'a') as s:
-            s.write(f'''\n{str(self.tag)} {{
+            s.write(f'''
+{self.tag} {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
