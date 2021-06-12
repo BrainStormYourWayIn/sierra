@@ -43,5 +43,28 @@
                 f.write(f'''\n</tr>''')
         with open(f'''{index}.html''', 'a') as f:
             f.write(f'''\n</table>''')
-            
-            
+                
+if __name__ == "__main__":
+    #title('Test')
+    #head('This is the header', '20px', 'Arial')
+    #AutoPrettify()
+    title('nothing')
+    #addInitc()
+    head('nothing more', font_size='90px', color='blue', text_align='center', background_color='orange')
+    startBody(background_color='green', opacity=0.8)
+
+
+    a = startTable()
+    # c = ['england', 'best', 'six', 'euros']
+    # r1 = ['kane', 'grealish', 'sancho', 'sterling']
+    # r2 = ['foden', 'mount', 'bellingham', 'reece']
+    # r3 = ['trippier', 'stones', 'walker', 'coady']
+    # r = [r1, r2, r3]
+    # a.createTable(cols=c, rows=r)
+    a.getTable("E:\Dithu's Stuff\Me projects\pytohtm\england.csv")
+    
+
+    endBody()
+    closeHTML()
+    
+    # AutoPrettify()
