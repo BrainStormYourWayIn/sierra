@@ -1,3 +1,5 @@
+index = 'index'
+
 def title(Title, icon=False):
     """
     Args:
