@@ -1,23 +1,18 @@
 class startTable():     
     def createTable(self, cols:list, rows:list):
-        with open(f'''{index}.html''', 'a') as f:
-            f.write(f'''\n<table>
+        with open("index.html", 'a') as f:
+            f.write('''
+<table>
 <tr>''')
         for col in cols:
-            with open(f'''{index}.html''', 'a') as f:
-                f.write(f'''\n<th>{col}</th>''')
-        with open(f'''{index}.html''', 'a') as f:
-            f.write(f'''\n</tr>''')
+            open("index.html", 'a').write("\n<th>{col}</th>")
+        open("index.html", 'a').write("\n</tr>")
         for row in rows:
-            with open(f'''{index}.html''', 'a') as f:
-                f.write(f'''\n<tr>''')
+            open("index.html", 'a').write("\n<tr>")
             for row_d in row:
-                with open(f'''{index}.html''', 'a') as f:
-                    f.write(f'''\n<td>{row_d}</td>''')
-            with open(f'''{index}.html''', 'a') as f:
-                f.write(f'''\n</tr>''')
-        with open(f'''{index}.html''', 'a') as f:
-            f.write(f'''\n</table>''')
+                open("index.html", 'a').write(f"\n<td>{row_d}</td>")
+            open("index.html", 'a').write("\n</tr>")
+        open("index.html", 'a').write(f'''\n</table>''')
 
         
     def getTable(self, dataframe:str):
@@ -25,21 +20,16 @@ class startTable():
         cols = list(df.columns)
         rows = df.values.tolist()
 
-        with open(f'''{index}.html''', 'a') as f:
-            f.write(f'''\n<table>
+        with open("index.html", 'a') as f:
+            f.write('''
+<table>
 <tr>''')
         for col in cols:
-            with open(f'''{index}.html''', 'a') as f:
-                f.write(f'''\n<th>{col}</th>''')
-        with open(f'''{index}.html''', 'a') as f:
-            f.write(f'''\n</tr>''')
+            open("index.html", 'a').write(f'''\n<th>{col}</th>''')
+        open("index.html", 'a').write(f'''\n</tr>''')
         for row in rows:
-            with open(f'''{index}.html''', 'a') as f:
-                f.write(f'''\n<tr>''')
+            open("index.html", 'a').write(f'''\n<tr>''')
             for row_d in row:
-                with open(f'''{index}.html''', 'a') as f:
-                    f.write(f'''\n<td>{row_d}</td>''')
-            with open(f'''{index}.html''', 'a') as f:
-                f.write(f'''\n</tr>''')
-        with open(f'''{index}.html''', 'a') as f:
-            f.write(f'''\n</table>''')
+                open("index.html", 'a').write(f'''\n<td>{row_d}</td>''')
+            open("index.html", 'a').write(f'''\n</tr>''')
+        open("index.html", 'a').write(f'''\n</table>''')
