@@ -34,6 +34,20 @@ def closeHTML():
     with open(f'''{index}.html''', 'a') as f:
         f.write(f'''\n</html>''')
         
+def openBody(background='False', background_color='white', background_image=False, opacity=False, background_size='cover', background_attachment='fixed', background_position=False, background_repeat=False):
+    with open(f'''{index}.html''', 'a') as f:
+        f.write(f'''\n<body>''')
+    with open('style.css', 'a') as s:
+        s.write(f'''\nbody {{
+    background-color: {background_color};
+    background-image: {background_image};
+    opacity: {opacity};
+    background-size: {background_size};
+    background-attachment: {background_attachment};
+    background-position: {background_position};
+    background-repeat: {background_repeat};
+}}''')
+        
 def closeBody():
     with open(f'''{index}.html''', 'a') as f:
         f.write(f'''\n</body>''')
