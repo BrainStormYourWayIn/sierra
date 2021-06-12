@@ -5,7 +5,7 @@ def title(Title, icon=False):
         icon(str, optional)      : Icon to be displayed. Should be a .ico file. Defaults to no icon.
     """
 
-    with open(f'''{index}.html''', 'w') as f:
+    with open("index.html", 'w') as f:
         f.write(f'''<!doctype html>
 <html lang="en">
 <meta charset="utf-8">
@@ -19,10 +19,16 @@ def title(Title, icon=False):
 
 def addInitc(box_sizing='False', margin=False, padding=False, border=False, position='relative'):
     with open('style.css', 'a') as s:
-        s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')    
+        s.write(f'''*,*:before,*:after {{
+    box-sizing:{box_sizing};
+    margin:{margin};
+    padding:{padding};
+    border:{border};
+    position: {position};
+}}''')    
     
 def addFont(font_link):
-    with open(f'''{index}.html''', 'a') as f:
+    with open("index.html", 'a') as f:
         f.write(f'''\n<link href={font_link} rel="stylesheet">''')
 
 def head(Head, font_size=False, font_family="Arial", type='header', color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
@@ -41,6 +47,7 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
         line_break (str, optional)       : Line break. Defaults to False.
         line_height (str, optional)      : Line height. Defaults to False. 
     """
+    
     # if type == False and font_size == False:
     #     type = 'header'
     # elif type != False and len(type) != 2:
@@ -50,7 +57,7 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
     # elif type == False:
     #     type == 'header'
 
-    with open(f'''{index}.html''', 'a') as f:
+    with open(f"index.html", 'a') as f:
         f.write(f'''\n<{type}>{Head}</{type}>
 </head>''')
         with open('style.css', 'a') as s:
@@ -93,15 +100,15 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 #         pass
 #     elif openTags == False and closeTags == True:
 #         for arg in args:
-#             with open(f'''{index}.html''', 'a') as f
+#             with open("index.html", 'a') as f
 
 # Close all tags automatically
 def autoPrettify():
     warnings.showwarning(f'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further 
     development may run into issues. Please close tags manually if unsure. It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
     
-    with open(f'''{index}.html''', 'r') as f:
+    with open("index.html", 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
-        with open(f'''{index}.html''', 'w') as f:
+        with open("index.html", 'w') as f:
             f.write(f'''{auto_close_all_tags}''')
