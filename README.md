@@ -27,6 +27,8 @@ ________________________________
 
 ## Under development
 
+The documentation will be coming soon.
+
 **Upcoming:**
 
 - Integration with [Flask](https://palletsprojects.com/p/flask/)
