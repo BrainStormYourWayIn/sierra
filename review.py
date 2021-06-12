@@ -1,3 +1,5 @@
+class startTable():    
+    
     def createTable(self, cols:list, rows:list):
         with open(f'''{index}.html''', 'a') as f:
             f.write(f'''\n<table>
