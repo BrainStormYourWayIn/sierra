@@ -7,13 +7,13 @@ class tTags():
     def start_p(self, p_text):
         open("index.html", 'a+').write(f"\n<p> \n{p_text}")
 
-    #d_class = 'dummy_var'
+        
     def start_div(self, d_class):
         with open("index.html", 'a+') as f:
             f.write(f'''\n<div class="{d_class}">''')
             #f.write(f'''<div class="{d_class}">''')
-    
-    #s_class = 'dummy_var'
+ 
+
     def start_sec(self, s_class):
         open("index.html", 'a+').write(f'''\n<section class="section {s_class}">''')
             
