@@ -33,13 +33,14 @@ if __name__ == "__main__":
     writeHtm("I'm defo" + b + "sure of this")
     closeTags('section')
 
-    endBody()
-
     a = startTable()
-    tHead = ['one', 'two']
-    a.table(tHead)
-    a.close
+    c = ['england', 'best', 'six', 'euros']
+    r1 = ['kane', 'grealish', 'sancho', 'sterling']
+    r2 = ['foden', 'mount', 'bellingham', 'reece']
+    r3 = ['trippier', 'stones', 'walker', 'coady']
+    a.createTable(c, r1, r2, r3)
 
+    endBody()
     closeHTML()
     
     AutoPrettify()
