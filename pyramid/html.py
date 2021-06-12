@@ -17,7 +17,11 @@ def title(Title, icon=False):
             f.write(f'''\n<link rel="shortcut icon" href={icon}>''')
     open('style.css', 'w').write('')
 
-def add_font(font_link):
+def addInitc(box_sizing='False', margin=False, padding=False, border=False, position='relative'):
+    with open('style.css', 'a') as s:
+        s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')    
+    
+def addFont(font_link):
     with open(f'''{index}.html''', 'a') as f:
         f.write(f'''\n<link href={font_link} rel="stylesheet">''')
 
@@ -92,7 +96,7 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 #             with open(f'''{index}.html''', 'a') as f
 
 # Close all tags automatically
-def AutoPrettify():
+def autoPrettify():
     warnings.showwarning(f'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further 
     development may run into issues. Please close tags manually if unsure. It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
     
