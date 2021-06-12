@@ -1,4 +1,4 @@
-# pyramid
+# Sierra
 
 ![pyramid logo](https://github.com/BrainStormYourWayIn/pyramid/blob/main/logo.jpg)
 
@@ -19,7 +19,7 @@ ________________________________
 
 To clone the repository, type:
 
-`git clone BrainStormYourWayIn/pyramid`
+`git clone BrainStormYourWayIn/sierra`
 
 in your terminal/shell.
 
