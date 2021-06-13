@@ -129,19 +129,19 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 
 class addImg():
     def __init__(self, src:str, href="False", alt="This is an image"):
-        self.sec = src
+        self.src = src
         self.href = href
         self.alt = alt
 
     def show(self):
         with open('index.html', 'a') as f:
             if self.href != "False":
-                f.write(f'''\n<a href="{href}">''')
+                f.write(f'''\n<a href="{self.href}">''')
             f.write(f'''\n<img src="{self.src}" alt="{self.alt}">''')
-            if href != "False":
+            if self.href != "False":
                 f.write(f'''\n</a>''')
 
-    def css(self, height='False', width='False', margin='False', vertical_align='False', display='block', border='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity='False', filter='False', loading='eager'):
+    def css(self, height='False', width='False', margin='False', vertical_align='False', display='False', border='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity=False, filter='False'):
         """
         Args:
             margin_top (str, optional)       : CSS image margin-top parameter. Defaults to 'False'.
@@ -154,9 +154,8 @@ class addImg():
             width (str, optional)            : CSS image width parameter. Defaults to False.
             margin (str, optional)           : CSS image margin parameter. Defaults to False.
             vertical-align (str, optional)   : CSS image vertical-align parameter. Defaults to False.
-            opacity (str, optional)          : CSS image opacity parameter. Defaults to False.
+            opacity (int/float, optional)    : CSS image opacity parameter. Defaults to False.
             filter (str, optional)           : CSS image filter parameter. Defaults to False.
-            loading (str, optional)          : CSS image loading parameter. Defaults to 'eager'.
         """
         with open('style.css', 'a') as s:
             s.write(f'''\nimg {{
@@ -172,12 +171,11 @@ class addImg():
     vertical-align: {vertical_align};
     opacity: {opacity};
     filter: {filter};
-    loading: {loading};
 }}''')
 
 
 def autoPrettify():
-    """Close all tags automatically."""
+    """Improve overall look of code and close all tags automatically (if not already done)."""
 
     warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further development may run into issues. Please close tags manually if unsure.
     It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
