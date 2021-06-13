@@ -1,7 +1,3 @@
-# Please view sierra/test/tests.py for updated code
-
-from sierra.py
-
 if __name__ == "__main__":
     #title('Test')
     #head('This is the header', '20px', "Arial")
@@ -33,12 +29,12 @@ if __name__ == "__main__":
 
 
     a = startTable()
-    # c = ['england', 'best', 'six', 'euros']
-    # r1 = ['kane', 'grealish', 'sancho', 'sterling']
-    # r2 = ['foden', 'mount', 'bellingham', 'reece']
-    # r3 = ['trippier', 'stones', 'walker', 'coady']
-    # a.createTable(cols=c, r1, r2, r3)
-    a.getTable("E:\Dithu's Stuff\Me projects\pytohtm\england.csv")
+    c = ['england', 'best', 'six', 'euros']
+    r1 = ['kane', 'grealish', 'sancho', 'sterling']
+    r2 = ['foden', 'mount', 'bellingham', 'reece']
+    r3 = ['trippier', 'stones', 'walker', 'coady']
+    a.createTable(cols=c, r1, r2, r3)
+    # a.getTable("path\to\csv\file.csv")
     
 
     closeBody()
