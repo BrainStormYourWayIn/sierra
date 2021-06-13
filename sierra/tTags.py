@@ -62,7 +62,7 @@ class tTags():
         """
         
         with open('style.css', 'a') as s:
-            if self.p == True:
+            if self.p:
                 s.write(f'''
 p {{
     color: {color};
@@ -87,9 +87,9 @@ p {{
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
-            elif self.div_class == True:
+            elif self.div_class:
                 s.write(f'''
-.{self.div_class} {{
+.{self.d_class} {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
@@ -112,9 +112,9 @@ p {{
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
-            elif self.sec_class == True:
+            elif self.sec_class:
                 s.write(f'''
-.{self.sec_class} {{
+.{self.s_class} {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
