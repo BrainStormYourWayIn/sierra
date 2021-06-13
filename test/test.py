@@ -1,3 +1,5 @@
+# Please view sierra/test/tests.py for updated code
+
 from sierra.py
 
 if __name__ == "__main__":
