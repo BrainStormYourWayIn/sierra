@@ -21,7 +21,7 @@ ________________________________
 
 To clone the repository, type:
 
-`gh repo clone BrainStormYourWayIn/sierra`
+`git clone BrainStormYourWayIn/sierra`
 
 in your terminal/shell.
 
