@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import webbrowser
-from pyramid_nightly import *
+from sierra import *
 
 # Driver
 if __name__ == "__main__":
