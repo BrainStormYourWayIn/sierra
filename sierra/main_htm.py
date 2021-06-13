@@ -1,6 +1,8 @@
 import warnings
 from bs4 import BeautifulSoup
 
+b = ' <br> '
+
 def title(Title, icon=False):
     """
     Args:
@@ -124,6 +126,8 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 #         for arg in args:
 #             with open("index.html", 'a') as f
 
+
+
 def autoPrettify():
     """Close all tags automatically."""
 
@@ -135,3 +139,4 @@ def autoPrettify():
         auto_close_all_tags = soup.prettify()
         with open("index.html", 'w') as f:
             f.write(f'''{auto_close_all_tags}''')
+

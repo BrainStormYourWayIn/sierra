@@ -1,8 +1,10 @@
 class tTags():
-    def __init__(self, p=False, div_class=False, sec_class=False):
+    def __init__(self, p=False, div_class='False', sec_class='False'):
         self.p = p
         self.div_class = div_class
         self.sec_class = sec_class
+
+    
 
     def start_p(self, p_text: str):
         """Opens the <p> tag.
@@ -10,30 +12,27 @@ class tTags():
         Args: 
             p_text (str, compulsory): the text that has to be displayed.
         """
+        if self.p == True:
+            open("index.html", 'a+').write(f"\n<p> \n{p_text}")
 
-        open("index.html", 'a+').write(f"\n<p> \n{p_text}")
 
-    #d_class = 'dummy_var'
-    def start_div(self, d_class: str):
+
+    def start_div(self):
         """starts the <div> tag
-
-        Args:
-            d_class (str, compulsory): the class name of the <div> tag
     
         """
-        with open("index.html", 'a+') as f:
-            f.write(f'''\n<div class="{d_class}">''')
-            #f.write(f'''<div class="{d_class}">''')
+        if self.div_class != 'False':
+            with open("index.html", 'a') as f:
+                f.write(f'''\n<div class="{self.div_class}">''')
     
-    #s_class = 'dummy_var'
-    def start_sec(self, s_class):
+   
+    def start_sec(self):
         """Starts the <section> tag.
 
-        Args:
-            s_class (str, compulsory): The class name of the <section> tag.
         """
-
-        open("index.html", 'a+').write(f'''\n<section class="section {s_class}">''')
+        if self.sec_class != 'False':
+            with open('index.html', 'a') as f:
+                f.write(f'''\n<section class="section {self.sec_class}">''')
             
     def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background='False', margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
         """
@@ -63,8 +62,7 @@ class tTags():
         
         with open('style.css', 'a') as s:
             if self.p:
-                s.write(f'''
-p {{
+                s.write(f'''\np {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
@@ -87,9 +85,8 @@ p {{
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
-            elif self.div_class:
-                s.write(f'''
-.{self.d_class} {{
+            elif self.div_class !='False':
+                s.write(f'''\n.{self.div_class} {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
@@ -112,9 +109,8 @@ p {{
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
-            elif self.sec_class:
-                s.write(f'''
-.{self.s_class} {{
+            elif self.sec_class!='False':
+                s.write(f'''\n.{self.sec_class} {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
