@@ -34,7 +34,7 @@ class tTags():
             with open('index.html', 'a') as f:
                 f.write(f'''\n<section class="section {self.sec_class}">''')
             
-    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background='False', margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
+    def css(self, color='black', font_family='Arial', font_weight='False', text_align='False', font_size='False', background_color='False', background='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', border='False', display='block', padding='False', height='False', width='False', line_break='False', line_height='False', overflow='False', margin='False', box_shadow='False'):
         """
         Args:
             color (str, optional)            : CSS Color parameter. Defaults to 'black'.
@@ -133,3 +133,5 @@ class tTags():
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
+                
+                
