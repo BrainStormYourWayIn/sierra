@@ -43,6 +43,6 @@ if __name__ == "__main__":
     endBody()
     closeHTML()
     
-    AutoPrettify()
+    autoPrettify()
 
-    webbrowser.open(f'{index}.html')
+    webbrowser.open(index.html)
