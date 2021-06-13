@@ -1,3 +1,4 @@
 include sierra/*
 include README.md
 include changelog.md
+include LICENSE
