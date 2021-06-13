@@ -1,9 +1,4 @@
-from cTags import cTags
-from main_htm import *
-from tTags import tTags
-from table import startTable
-from tags import *
-from write import *
+from sierra.py
 
 if __name__ == "__main__":
     #title('Test')
