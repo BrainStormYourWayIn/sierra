@@ -127,6 +127,54 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 #             with open("index.html", 'a') as f
 
 
+class addImg():
+    def __init__(self, src:str, href="False", alt="This is an image"):
+        self.sec = src
+        self.href = href
+        self.alt = alt
+
+    def show(self):
+        with open('index.html', 'a') as f:
+            if self.href != "False":
+                f.write(f'''\n<a href="{href}">''')
+            f.write(f'''\n<img src="{self.src}" alt="{self.alt}">''')
+            if href != "False":
+                f.write(f'''\n</a>''')
+
+    def css(self, height='False', width='False', margin='False', vertical_align='False', display='block', border='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity='False', filter='False', loading='eager'):
+        """
+        Args:
+            margin_top (str, optional)       : CSS image margin-top parameter. Defaults to 'False'.
+            margin_bottom (str, optional)    : CSS image margin-bottom parameter. Defaults to 'False'.
+            margin_left (str, optional)      : CSS image margin-left parameter. Defaults to 'False'.
+            margin_right (str, optional)     : CSS image margin-right parameter. Defaults to 'False'.
+            border (str, optional)           : CSS image border parameter. Defaults to 'False'.
+            display (str, optional)          : CSS image display parameter. Defaults to 'block'.
+            height (str, optional)           : CSS image height parameter. Defaults to False.
+            width (str, optional)            : CSS image width parameter. Defaults to False.
+            margin (str, optional)           : CSS image margin parameter. Defaults to False.
+            vertical-align (str, optional)   : CSS image vertical-align parameter. Defaults to False.
+            opacity (str, optional)          : CSS image opacity parameter. Defaults to False.
+            filter (str, optional)           : CSS image filter parameter. Defaults to False.
+            loading (str, optional)          : CSS image loading parameter. Defaults to 'eager'.
+        """
+        with open('style.css', 'a') as s:
+            s.write(f'''\nimg {{
+    margin-top: {margin_top};
+    margin-bottom: {margin_bottom};
+    margin-left: {margin_left};
+    margin-right: {margin_right};
+    border: {border};
+    display: {display};
+    height: {height};
+    width: {width};
+    margin: {margin};
+    vertical-align: {vertical_align};
+    opacity: {opacity};
+    filter: {filter};
+    loading: {loading};
+}}''')
+
 
 def autoPrettify():
     """Close all tags automatically."""
