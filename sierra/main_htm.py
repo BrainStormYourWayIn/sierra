@@ -21,7 +21,7 @@ def title(Title, icon=False):
     open('style.css', 'w').write('')
 
 def addInitc(box_sizing='False', margin=False, padding=False, border=False, position='relative'):
-    """[summary]
+    """Sets the tone of CSS.
 
     Args:
         box_sizing (str, optional)  : CSS box-sizing parameter. Defaults to 'False'.
