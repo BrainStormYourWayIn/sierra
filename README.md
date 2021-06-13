@@ -2,7 +2,7 @@
 
 ![pyramid logo](https://github.com/BrainStormYourWayIn/pyramid/blob/main/logo.jpg)
 
-Web framework for Python 3 - Fully integrated with HTML5 and CSS
+A lightweight Python framework for building and integrating Web Applications.
 
 **NOTE**: This project is currently under heavy development. Please watch/star this repository for further updates on development.
 
