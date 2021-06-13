@@ -1,4 +1,5 @@
-index = 'index'
+import warnings
+from bs4 import BeautifulSoup
 
 def title(Title, icon=False):
     """
@@ -20,8 +21,19 @@ def title(Title, icon=False):
     open('style.css', 'w').write('')
 
 def addInitc(box_sizing='False', margin=False, padding=False, border=False, position='relative'):
+    """[summary]
+
+    Args:
+        box_sizing (str, optional)  : CSS box-sizing parameter. Defaults to 'False'.
+        margin (str, optional)      : CSS margin parameter. Defaults to False.
+        padding (str, optional)     : CSS padding parameter. Defaults to False.
+        border (str, optional)      : CSS border parameter. Defaults to False.
+        position (str, optional)    : CSS position parameter. Defaults to 'relative'.
+    """
+    
     with open('style.css', 'a') as s:
-        s.write(f'''*,*:before,*:after {{
+        s.write(f'''
+*,*:before,*:after {{
     box-sizing:{box_sizing};
     margin:{margin};
     padding:{padding};
@@ -30,6 +42,12 @@ def addInitc(box_sizing='False', margin=False, padding=False, border=False, posi
 }}''')    
     
 def addFont(font_link):
+    """Give the font link to add different fonts to your web page.
+    
+    Args:
+        font_link (str, compulsory): The font link
+    """
+
     with open("index.html", 'a') as f:
         f.write(f'''\n<link href={font_link} rel="stylesheet">''')
 
@@ -60,10 +78,12 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
     #     type == 'header'
 
     with open(f"index.html", 'a') as f:
-        f.write(f'''\n<{type}>{Head}</{type}>
+        f.write(f'''
+<{type}>{Head}</{type}>
 </head>''')
         with open('style.css', 'a') as s:
-                s.write(f'''\n{type} {{
+                s.write(f'''
+{type} {{
     color: {color};
     font-family: {font_family};
     text-align: {text_align};
@@ -104,10 +124,11 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 #         for arg in args:
 #             with open("index.html", 'a') as f
 
-# Close all tags automatically
 def autoPrettify():
-    warnings.showwarning(f'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further 
-    development may run into issues. Please close tags manually if unsure. It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
+    """Close all tags automatically."""
+
+    warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further development may run into issues. Please close tags manually if unsure.
+    It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
     
     with open("index.html", 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
