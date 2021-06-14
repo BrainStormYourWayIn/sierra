@@ -6,14 +6,17 @@ class tTags():
 
     
 
-    def start_p(self, p_text: str):
+    def start_p(self, p_text: str, close=False):
         """Opens the <p> tag.
         
         Args: 
             p_text (str, compulsory): the text that has to be displayed.
+            close (bool, optional)  : closes the <p> tag without using closeTags().
         """
         if self.p == True:
-            open("index.html", 'a+').write(f"\n<p> \n{p_text}")
+            open("index.html", 'a+').write(f"\n<p>\n{p_text}")
+            if close == True:
+                open("index.html", 'a').write(f"\n</p>")
 
 
 
