@@ -44,14 +44,23 @@ def addInitc(box_sizing='False', margin=False, padding=False, border=False, posi
 }}''')    
     
 def addFont(font_link):
-    """Give the font link to add different fonts to your web page.
+    """Give the font link to add different fonts to your webpage.
     
     Args:
-        font_link (str, compulsory): The font link
+        font_link (str, compulsory): The font link.
     """
 
     with open("index.html", 'a') as f:
         f.write(f'''\n<link href="{font_link}" rel="stylesheet">''')
+
+def addCode(codeblock):
+    """Give the codeblock as a text to display the code in your webpage.
+
+    Args:
+        codeblock (str, compulsory): The code block.
+    """
+    with open("index.html", 'a') as f:
+        f.write(f"<code>{codeblock}</code>")
 
 def head(Head, font_size=False, font_family="Arial", type='header', color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
     """
