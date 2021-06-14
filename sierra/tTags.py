@@ -4,8 +4,6 @@ class tTags():
         self.div_class = div_class
         self.sec_class = sec_class
 
-    
-
     def start_p(self, p_text: str, close=False):
         """Opens the <p> tag.
         
@@ -18,21 +16,16 @@ class tTags():
             if close == True:
                 open("index.html", 'a').write(f"\n</p>")
 
-
-
     def start_div(self):
-        """starts the <div> tag
-    
-        """
+        """starts the <div> tag."""
+
         if self.div_class != 'False':
             with open("index.html", 'a') as f:
                 f.write(f'''\n<div class="{self.div_class}">''')
     
-   
     def start_sec(self):
-        """Starts the <section> tag.
-
-        """
+        """Starts the <section> tag."""
+        
         if self.sec_class != 'False':
             with open('index.html', 'a') as f:
                 f.write(f'''\n<section class="section {self.sec_class}">''')
@@ -136,5 +129,3 @@ class tTags():
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
-                
-                
