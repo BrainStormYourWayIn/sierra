@@ -128,16 +128,20 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 
 
 class addImg():
-    def __init__(self, src:str, href="False", alt="This is an image"):
+    def __init__(self, src:str, href="False", alt="This is an image", img_class='False'):
         self.src = src
         self.href = href
         self.alt = alt
+        self.img_class = img_class
 
     def show(self):
         with open('index.html', 'a') as f:
             if self.href != "False":
                 f.write(f'''\n<a href="{self.href}">''')
-            f.write(f'''\n<img src="{self.src}" alt="{self.alt}">''')
+            if self.img_class != 'False':
+                f.write(f'''\n<img src="{self.src}" alt="{self.alt}" class="{self.img_class}">''')
+            else:
+                f.write(f'''\n<img src="{self.src}" alt="{self.alt}">''')
             if self.href != "False":
                 f.write(f'''\n</a>''')
 
@@ -158,7 +162,11 @@ class addImg():
             filter (str, optional)           : CSS image filter parameter. Defaults to False.
         """
         with open('style.css', 'a') as s:
-            s.write(f'''\nimg {{
+            if self.img_class != 'False':
+                s.write(f'''\n.{self.img_class} {{''')
+            else:
+                s.write(f'''\nimg {{''')
+            s.write(f'''
     margin-top: {margin_top};
     margin-bottom: {margin_bottom};
     margin-left: {margin_left};
