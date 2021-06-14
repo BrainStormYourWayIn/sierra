@@ -57,8 +57,8 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
     """
     Args:
         Head (str, compulsory)           : Caption header.
-        font_size (str, compulsory)      : Font size in any valid measure. Leave blank, if not valid.
-        font_family (str, compulsory)    : any possible Font family. Defaults to Arial.
+        font_size (str, optional)      : Font size in any valid measure. Leave blank, if not valid.
+        font_family (str, optional)    : any possible Font family. Defaults to Arial.
         type (str, optional)             : Header Size. Anything from h1 to h6. Leave blank, if not valid. Defaults to 'header'.
         color (str, optional)            : Color of Font in hex code. Defaults to 'black'.
         text_align (str, optional)       : left|right|center|justify|initial|inherit. Defaults to 'left'.
