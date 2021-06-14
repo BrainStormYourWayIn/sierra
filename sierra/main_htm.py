@@ -51,7 +51,7 @@ def addFont(font_link):
     """
 
     with open("index.html", 'a') as f:
-        f.write(f'''\n<link href={font_link} rel="stylesheet">''')
+        f.write(f'''\n<link href="{font_link}" rel="stylesheet">''')
 
 def head(Head, font_size=False, font_family="Arial", type='header', color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
     """
