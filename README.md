@@ -51,6 +51,7 @@ ________________________________
 
 ## Copyright License Used
 
+Pandas (pandas)
 Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
 All rights reserved.
 
