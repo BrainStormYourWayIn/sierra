@@ -10,7 +10,12 @@ use `pip install sierra` to download
 
 ________________________________
 
-## Check out the ![documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
+## Documentation
+
+Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
+
+_______________________________
+
 ## Installation
 
 ### Method 1: pip install
