@@ -32,16 +32,10 @@ def addInitc(box_sizing='False', margin=False, padding=False, border=False, posi
         border (str, optional)      : CSS border parameter. Defaults to False.
         position (str, optional)    : CSS position parameter. Defaults to 'relative'.
     """
-    
     with open('style.css', 'a') as s:
-        s.write(f'''
-*,*:before,*:after {{
-    box-sizing:{box_sizing};
-    margin:{margin};
-    padding:{padding};
-    border:{border};
-    position: {position};
-}}''')    
+        s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')
+    
+ 
     
 def addFont(font_link):
     """Give the font link to add different fonts to your webpage.
