@@ -58,7 +58,8 @@ class tTags():
         
         with open('style.css', 'a') as s:
             if self.p:
-                s.write(f'''\np {{
+                s.write(f'''
+p {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
@@ -81,8 +82,9 @@ class tTags():
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
-            elif self.div_class !='False':
-                s.write(f'''\n.{self.div_class} {{
+            elif self.div_class != 'False':
+                s.write(f'''
+.{self.div_class} {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
@@ -105,8 +107,9 @@ class tTags():
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
-            elif self.sec_class!='False':
-                s.write(f'''\n.{self.sec_class} {{
+            elif self.sec_class != 'False':
+                s.write(f'''
+.{self.sec_class} {{
     color: {color};
     font-family: {font_family};
     font-weight: {font_weight};
