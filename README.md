@@ -1,20 +1,12 @@
-# Sierra
+# sierra
 
-![pyramid logo](https://github.com/BrainStormYourWayIn/pyramid/blob/main/logo.jpg)
+![sierra logo](https://github.com/BrainStormYourWayIn/pyramid/blob/main/logo.jpg)
 
 A lightweight Python framework for building and Integrating Web Applications.
 
-**NOTE**: The first stable release is out! please do check it out.
-
-use `pip install sierra` to download
+**NOTE**: The first stable release is out! Do check it out.
 
 ________________________________
-
-## Documentation
-
-Check out the [Official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
-
-_______________________________
 
 ## Installation
 
@@ -39,6 +31,12 @@ To clone the repository, type:
 in your terminal/shell.
 
 ________________________________
+
+## Documentation
+
+Check out the [Official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
+
+_______________________________
 
 ## Under development
 
