@@ -1,3 +1,8 @@
+#Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
+#All rights reserved.
+
+#Copyright (c) 2011-2020, Open source contributors
+
 import pandas as pd
 
 class startTable():     
