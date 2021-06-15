@@ -4,7 +4,8 @@
 
 A lightweight Python framework for building and Integrating Web Applications.
 
-**NOTE**: This project is currently under heavy development. Please watch/star this repository for further updates on development.
+**NOTE**: The first stable release is coming soon!
+
 
 ________________________________
 
