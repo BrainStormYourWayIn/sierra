@@ -2,11 +2,10 @@
 
 ![pyramid logo](https://github.com/BrainStormYourWayIn/pyramid/blob/main/logo.jpg)
 
-A lightweight Python framework for building and integrating Web Applications.
+A lightweight Python framework for building and Integrating Web Applications.
 
 **NOTE**: This project is currently under heavy development. Please watch/star this repository for further updates on development.
 
-The first stable release will come out after `pip install sierra` is enabled. Provision for manual install of `setup.py` coming soon too.
 ________________________________
 
 ## Installation
@@ -35,4 +34,12 @@ The documentation will be coming soon.
 
 - Integration with [Flask](https://palletsprojects.com/p/flask/)
 - Official support for [brython over JS](https://brython.info)
-- Release on PyPi
+
+________________________________
+
+## Copyright License Used
+
+Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
+All rights reserved.
+
+Copyright (c) 2011-2020, Open source contributors.
