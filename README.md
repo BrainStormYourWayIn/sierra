@@ -6,9 +6,9 @@ A lightweight Python framework for building and Integrating Web Applications.
 
 **NOTE**: The first stable release is coming soon!
 
-
 ________________________________
 
+## Check out the ![documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
 ## Installation
 
 ### Method 1: Download ZIP file
