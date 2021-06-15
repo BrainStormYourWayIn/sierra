@@ -5,6 +5,11 @@
 A lightweight Python framework for building and Integrating Web Applications.
 
 **NOTE**: The first stable release and the documentation are out! Do check it out.
+________________________________
+
+## Documentation
+
+Check out the [Official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
 
 ________________________________
 
@@ -30,11 +35,6 @@ To clone the repository, type:
 
 in your terminal/shell.
 
-________________________________
-
-## Documentation
-
-Check out the [Official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
 
 _______________________________
 
