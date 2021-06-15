@@ -34,7 +34,10 @@ def addInitc(box_sizing='False', margin=False, padding=False, border=False, posi
     """
     with open('style.css', 'a') as s:
         s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')
-    
+
+def href(link:str, text:str):
+    with open('index.html', 'a') as f:
+        f.write(f'''<a href="{link}">{text}</a>''')
  
     
 def addFont(font_link):
@@ -47,7 +50,7 @@ def addFont(font_link):
     with open("index.html", 'a') as f:
         f.write(f'''\n<link href="{font_link}" rel="stylesheet">''')
 
-def addCode(codeblock):
+def code(codeblock):
     """Give the codeblock as a text to display the code in your webpage.
 
     Args:
