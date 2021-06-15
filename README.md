@@ -4,20 +4,28 @@
 
 A lightweight Python framework for building and Integrating Web Applications.
 
-**NOTE**: The first stable release is coming soon!
+**NOTE**: The first stable release is out! please do check it out.
+
+use `pip install sierra` to download
 
 ________________________________
 
 ## Check out the ![documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
 ## Installation
 
-### Method 1: Download ZIP file
+### Method 1: pip install
+
+type the below command in terminal:
+
+`pip install sierra`
+
+### Method 2: Download ZIP file
 
 **To download the zip file:** click on the `download` button and then click on the `Download ZIP` button. The zip file will get downloaded in the downloads folder.
 
 **To unzip the zip file:** open the zipped folder, then drag the file or folder from the zipped folder to a new location. To unzip all the contents of the zipped folder, press and hold (or right-click) the folder, select `Extract All`.
 
-### Method 2: Clone repository
+### Method 3: Clone repository
 
 To clone the repository, type:
 
