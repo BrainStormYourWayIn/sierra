@@ -1,4 +1,5 @@
 # Please view sierra/test/test.py for updated code
+# Please read the documentation for importing
 
 # -*- coding: utf-8 -*-
 import webbrowser
