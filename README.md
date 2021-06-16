@@ -5,6 +5,7 @@
 A lightweight Python framework for building and Integrating Web Applications.
 
 **NOTE**: The first stable release and the documentation are out! Do check it out.
+
 ________________________________
 
 ## Documentation
