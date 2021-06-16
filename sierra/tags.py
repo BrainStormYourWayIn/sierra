@@ -24,10 +24,6 @@ def closeTagBefore(tag_to_close, tag_to_close_before):
         with open("index.html", 'w') as f:
             f.write(f'''{now_closed}''')
 
-    # def css(self, tag_to_style, *args):
-    #     var = tag_to_style, *args
-    #     def css_att(lol):
-    #         print(var, lol)
             
 # x = tags()
 # x.openTags('tag3', 'tag1', 'tag2')
