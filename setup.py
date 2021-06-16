@@ -4,7 +4,7 @@ setup(
     name = "sierra",
     version = "v1.0.1",
     author = "Pranav and Siddhesh",
-    author_email = "BrainStormYourWayIn@gmail.com",
+    author_email = "brainstormyourwayin@gmail.com",
     description = "A lightweight Python framework for building and integrating Web Applications.",
     long_description = open("README.md").read(),
     long_description_content_type = "text/markdown",
