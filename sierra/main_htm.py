@@ -125,13 +125,6 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 # In head() in the argument font_family, the users MUST enter it in double quotes. Typically, it can be something like
 # check soup.a.prettify()
 
-# def tags(openTags=False, closeTags=False, *args):
-#     if openTags == False and closeTags == False:
-#         pass
-#     elif openTags == False and closeTags == True:
-#         for arg in args:
-#             with open("index.html", 'a') as f
-
 
 class addImg():
     def __init__(self, src:str, href="False", alt="This is an image", img_class='False'):
@@ -188,7 +181,8 @@ class addImg():
 }}''')
 
 
-def autoPrettify():
+def autoPrettify():                                 # Only seems to work when repo is cloned and not pip installed. Rect. coming in later versions
+    
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
     warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further development may run into issues. Please close tags manually if unsure.
