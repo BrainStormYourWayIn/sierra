@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 b = ' <br> '
 
 def title(Title, icon=False):
+    
     """
     Args:
         Title(str, compulsory)   : Title of the HTML file.
