@@ -40,7 +40,7 @@ _______________________________
 
 ## Under development
 
-The documentation will be coming soon.
+
 
 **Upcoming:**
 
