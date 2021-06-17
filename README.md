@@ -57,7 +57,7 @@ ________________________________
 
 ## License
 
-   Copyright 2021 BrainStormYourWayIn - Pranav and Siddhesh
+   Copyright 2021 BrainStormYourWayIn
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
