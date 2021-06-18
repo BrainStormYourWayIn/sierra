@@ -52,7 +52,7 @@ _______________________________
 
 **Upcoming:**
 
-- Integration with [Flask](https://palletsprojects.com/p/flask/)
+- Support for markdown
 - Official support for [brython over JS](https://brython.info)
 
 ________________________________
