@@ -7,6 +7,8 @@ Sierra is a Python3 library for building and integrating web applications with H
 
 **NOTE**: The first stable release and the documentation are out! Do check it out.
 
+Support for markdown and bullets on the next release!
+
 ________________________________
 
 ## Documentation
