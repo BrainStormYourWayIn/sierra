@@ -40,6 +40,8 @@ Check out [doc.py](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/d
 To clone the repository, type:
 
 `gh repo clone BrainStormYourWayIn/sierra`
+or
+`git clone https://github.com/BrainStormYourWayIn/sierra.git`
 
 in your terminal/shell.
 
