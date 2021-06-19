@@ -18,7 +18,7 @@ Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierr
 
 ________________________________
 
-#### Issues:
+### Issues:
 
 We're aware of issues surrounding naming of the HTML and CSS. As of now, the HTML and the CSS are named ```index.html``` and ```style.css``` by default.  
 We're also aware this can cause conflicts when creating multi-paged web applications. This is going to rectified in the next mini-release that is coming very soon
