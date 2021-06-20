@@ -23,7 +23,6 @@ def closeTagBefore(tag_to_close, tag_to_close_before):
         now_closed = f.replace(tag_to_close_before, closed_tag)
         with open("index.html", 'w') as f:
             f.write(f'''{now_closed}''')
-
             
 # x = tags()
 # x.openTags('tag3', 'tag1', 'tag2')
@@ -40,7 +39,9 @@ def openBody(background='False', background_color='white', background_image=Fals
     
     open("index.html", 'a').write(f'''\n<body>''')
     with open('style.css', 'a') as s:
-        s.write(f'''\nbody {{
+        s.write(f'''
+body {{
+    background: {background};
     background-color: {background_color};
     background-image: {background_image};
     opacity: {opacity};
