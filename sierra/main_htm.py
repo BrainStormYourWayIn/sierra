@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 b = ' <br> '
 
 def title(Title, icon=False):
-    
     """
     Args:
         Title(str, compulsory)   : Title of the HTML file.
@@ -33,6 +32,7 @@ def addInitc(box_sizing='False', margin=False, padding=False, border=False, posi
         border (str, optional)      : CSS border parameter. Defaults to False.
         position (str, optional)    : CSS position parameter. Defaults to 'relative'.
     """
+    
     with open('style.css', 'a') as s:
         s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')
 
@@ -57,34 +57,37 @@ def code(codeblock):
     Args:
         codeblock (str, compulsory): The code block.
     """
+    
     with open("index.html", 'a') as f:
         f.write(f"<code>{codeblock}</code>")
 
-def head(Head, font_size=False, font_family="Arial", type='header', color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
+def head(Head, type='header', font_size=False, font_family="Arial", color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
     """
     Args:
         Head (str, compulsory)           : Caption header.
-        font_size (str, optional)      : Font size in any valid measure. Leave blank, if not valid.
-        font_family (str, optional)    : any possible Font family. Defaults to Arial.
         type (str, optional)             : Header Size. Anything from h1 to h6. Leave blank, if not valid. Defaults to 'header'.
-        color (str, optional)            : Color of Font in hex code. Defaults to 'black'.
-        text_align (str, optional)       : left|right|center|justify|initial|inherit. Defaults to 'left'.
-        background_color (str, optional) : Background color. Defaults to 'white'.
-        padding (str, optional)          : Padding. Defaults to False.
-        height (str, optional)           : Height of text. Defaults to False.
-        width (str, optional)            : Width of text. Defaults to False.
-        line_break (str, optional)       : Line break. Defaults to False.
-        line_height (str, optional)      : Line height. Defaults to False. 
+        color (str, optional)            : CSS Color (in hex code or name). Defaults to 'black'.
+        font_family (str, optional)      : CSS font-family. Defaults to Arial.
+        text_align (str, optional)       : CSS text-align parameter. left|right|center|justify|initial|inherit. Defaults to 'left'.
+        font_size (str, optional)        : CSS font-size parameter (in any valid measure). Leave blank, if not valid.
+        background_color (str, optional) : CSS background-color parameter. Defaults to 'white'.
+        padding (str, optional)          : CSS padding parameter. Defaults to False.
+        height (str, optional)           : CSS Height parameter. Defaults to False.
+        width (str, optional)            : CSS Width parameter. Defaults to False.
+        line_break (str, optional)       : CSS Line-break parameter. Defaults to False.
+        line_height (str, optional)      : CSS line-height parameter. Defaults to False. 
+        border (str, optional)           : CSS border parameter. Defaults to False.
+        margin (str, optional)           : CSS margin parameter. Defaults to False.
     """
     
-    # if type == False and font_size == False:
-    #     type = 'header'
-    # elif type != False and len(type) != 2:
-    #     type = 'header'
-    # elif font_size and type:
-    #     warnings.showwarning("agrs 'type' and 'font_size' have been entered in head(). It is recommended to rectify or only font_size is considered", UserWarning, str(bytes), int(1))
-    # elif type == False:
-    #     type == 'header'
+    #if type == False and font_size == False:
+    #    type = 'header'
+    #elif type != False and len(type) != 2:
+    #    type = 'header'
+    #elif font_size and type:
+    #    warnings.showwarning("args 'type' and 'font_size' have been entered in head(). It is recommended to rectify or only font_size is considered", UserWarning, str(bytes), int(1))
+    #elif type == False:
+    #    type == 'header'
 
     with open(f"index.html", 'a') as f:
         f.write(f'''
@@ -126,6 +129,12 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
 # In head() in the argument font_family, the users MUST enter it in double quotes. Typically, it can be something like
 # check soup.a.prettify()
 
+# def tags(openTags=False, closeTags=False, *args):
+#     if openTags == False and closeTags == False:
+#         pass
+#     elif openTags == False and closeTags == True:
+#         for arg in args:
+#             with open("index.html", 'a') as f
 
 class addImg():
     def __init__(self, src:str, href="False", alt="This is an image", img_class='False'):
@@ -161,6 +170,7 @@ class addImg():
             opacity (int/float, optional)    : CSS image opacity parameter. Defaults to False.
             filter (str, optional)           : CSS image filter parameter. Defaults to False.
         """
+
         with open('style.css', 'a') as s:
             if self.img_class != 'False':
                 s.write(f'''\n.{self.img_class} {{''')
@@ -181,9 +191,7 @@ class addImg():
     filter: {filter};
 }}''')
 
-
-def autoPrettify():                                 # Only seems to work when repo is cloned and not pip installed. Rect. coming in later versions
-    
+def autoPrettify(): # Only seems to work when repo is cloned and not pip installed. Rectification coming in later versions
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
     warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further development may run into issues. Please close tags manually if unsure.
@@ -194,4 +202,3 @@ def autoPrettify():                                 # Only seems to work when re
         auto_close_all_tags = soup.prettify()
         with open("index.html", 'w') as f:
             f.write(f'''{auto_close_all_tags}''')
-
