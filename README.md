@@ -3,9 +3,10 @@
 ![sierra logo](https://github.com/BrainStormYourWayIn/pyramid/blob/main/logo.jpg)
 
 A lightweight Python framework for building and Integrating Web Applications.
-Sierra is a Python3 library for building and integrating web applications with HTML and CSS using simple enough syntax. You can develop your web applications with Python, taking advantage of its functionalities and integrating them to the fullest. 
+Sierra is a Python3 library for building and integrating web applications with HTML and CSS using simple enough syntax. You can develop your web applications with Python, taking advantage of its functionalities and integrating them to the fullest.
 
-### The second stable release is out!  
+## The second stable release is out
+
 Check out the documentation for added syntax and improved autocomplete  
 
 ________________________________
@@ -18,14 +19,13 @@ Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierr
 
 ________________________________
 
-### Issues:
+### Issues
 
-We're aware of issues surrounding naming of the HTML and CSS. As of now, the HTML and the CSS are named ```index.html``` and ```style.css``` by default.  
-We're also aware this can cause conflicts when creating multi-paged web applications unless pages other than the main page are in different folders.   
-We're working on this and is going to rectified in the next mini-release that is coming very soon
+- We're aware of issues surrounding naming of the HTML and CSS. As of now, the HTML and the CSS are named `index.html` and `style.css` by default.
+- We're also aware this can cause conflicts when creating multi-paged web applications unless pages other than the main page are in different folders.
+- We're working on this and is going to rectified in the next mini-release that is coming very soon
 
 ________________________________
-
 
 ## Installation
 
@@ -52,12 +52,9 @@ or
 
 in your terminal/shell.
 
-
-_______________________________
+________________________________
 
 ## Under development
-
-
 
 **Upcoming:**
 
@@ -81,9 +78,6 @@ ________________________________
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-   
-   
-
 
 Pandas (pandas)
 
