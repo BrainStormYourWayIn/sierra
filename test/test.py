@@ -1,4 +1,5 @@
 # Please read the documentation for importing
+#from sierra import *
 
 if __name__ == "__main__":
     #title('Test')
@@ -29,16 +30,14 @@ if __name__ == "__main__":
     writeHTML("I'm defo" + b + "sure of this")
     closeTags('section')
 
-
     a = startTable()
     c = ['england', 'best', 'six', 'euros']
     r1 = ['kane', 'grealish', 'sancho', 'sterling']
     r2 = ['foden', 'mount', 'bellingham', 'reece']
     r3 = ['trippier', 'stones', 'walker', 'coady']
     a.createTable(cols=c, r1, r2, r3)
-    # a.getTable("path\to\csv\file.csv")
+    #a.getTable("path\to\csv\file.csv")
     
-
     closeBody()
     closeHTML()
     
