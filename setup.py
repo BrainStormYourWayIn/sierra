@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "sierra",
-    version = "v1.0.1",
+    version = "v1.1.1",
     author = "Pranav and Siddhesh",
     author_email = "brainstormyourwayin@gmail.com",
     description = "A lightweight Python framework for building and integrating Web Applications.",
@@ -17,7 +17,7 @@ setup(
     install_requires = ['pandas', 'beautifulsoup4'],
     zip_safe = True,
     classifiers = [
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - production/stable",
         "License :: OSI Approved :: Apache Software License",
         "Natural Language :: English",
         "Operating System :: OS Independent",
