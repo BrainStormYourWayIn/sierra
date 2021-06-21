@@ -53,6 +53,7 @@ def addFont(font_link):
 
 def code(codeblock):
     """Give the codeblock as a text to display the code in your webpage.
+
     Args:
         codeblock (str, compulsory): The code block.
     """
@@ -60,21 +61,23 @@ def code(codeblock):
     with open("index.html", 'a') as f:
         f.write(f"<code>{codeblock}</code>")
 
-def head(Head, font_size=False, font_family="Arial", type='header', color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
+def head(Head, type='header', font_size=False, font_family="Arial", color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
     """
     Args:
         Head (str, compulsory)           : Caption header.
-        font_size (str, optional)      : Font size in any valid measure. Leave blank, if not valid.
-        font_family (str, optional)    : any possible Font family. Defaults to Arial.
         type (str, optional)             : Header Size. Anything from h1 to h6. Leave blank, if not valid. Defaults to 'header'.
-        color (str, optional)            : Color of Font in hex code. Defaults to 'black'.
-        text_align (str, optional)       : left|right|center|justify|initial|inherit. Defaults to 'left'.
-        background_color (str, optional) : Background color. Defaults to 'white'.
-        padding (str, optional)          : Padding. Defaults to False.
-        height (str, optional)           : Height of text. Defaults to False.
-        width (str, optional)            : Width of text. Defaults to False.
-        line_break (str, optional)       : Line break. Defaults to False.
-        line_height (str, optional)      : Line height. Defaults to False. 
+        color (str, optional)            : CSS Color (in hex code or name). Defaults to 'black'.
+        font_family (str, optional)      : CSS font-family. Defaults to Arial.
+        text_align (str, optional)       : CSS text-align parameter. left|right|center|justify|initial|inherit. Defaults to 'left'.
+        font_size (str, optional)        : CSS font-size parameter (in any valid measure). Leave blank, if not valid.
+        background_color (str, optional) : CSS background-color parameter. Defaults to 'white'.
+        padding (str, optional)          : CSS padding parameter. Defaults to False.
+        height (str, optional)           : CSS Height parameter. Defaults to False.
+        width (str, optional)            : CSS Width parameter. Defaults to False.
+        line_break (str, optional)       : CSS Line-break parameter. Defaults to False.
+        line_height (str, optional)      : CSS line-height parameter. Defaults to False. 
+        border (str, optional)           : CSS border parameter. Defaults to False.
+        margin (str, optional)           : CSS margin parameter. Defaults to False.
     """
     
     #if type == False and font_size == False:
@@ -82,7 +85,7 @@ def head(Head, font_size=False, font_family="Arial", type='header', color='black
     #elif type != False and len(type) != 2:
     #    type = 'header'
     #elif font_size and type:
-    #    warnings.showwarning("agrs 'type' and 'font_size' have been entered in head(). It is recommended to rectify or only font_size is considered", UserWarning, str(bytes), int(1))
+    #    warnings.showwarning("args 'type' and 'font_size' have been entered in head(). It is recommended to rectify or only font_size is considered", UserWarning, str(bytes), int(1))
     #elif type == False:
     #    type == 'header'
 
@@ -170,11 +173,10 @@ class addImg():
 
         with open('style.css', 'a') as s:
             if self.img_class != 'False':
-                s.write(f'''\n.{self.img_class} {{''')
+                s.write(f'''.{self.img_class} {{''')
             else:
-                s.write(f'''\nimg {{''')
-            s.write(f'''
-    margin-top: {margin_top};
+                s.write(f'''img {{''')
+            s.write(f'''    margin-top: {margin_top};
     margin-bottom: {margin_bottom};
     margin-left: {margin_left};
     margin-right: {margin_right};
@@ -188,9 +190,9 @@ class addImg():
     filter: {filter};
 }}''')
 
-def autoPrettify():
+def autoPrettify(): # Only seems to work when repo is cloned and not pip installed. Rectification coming in later versions
     """Improve overall look of code and close all tags automatically (if not already done)."""
-    
+
     warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further development may run into issues. Please close tags manually if unsure.
     It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
     
