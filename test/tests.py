@@ -13,7 +13,7 @@ if __name__ == "__main__":
     title('nothing')
     #addInitc()
     head('nothing more', font_size='90px', color='blue', text_align='center', background_color='orange')
-    startBody(background_color='green', opacity=0.8)
+    openBody(background_color='green', opacity=0.8)
     
     x = tTags(True)
     x.start_p("I'm sure about this man")
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     x.start_sec(s_class)
     x.css(color='whitesmoke', background_color='rgb(35, 51, 89)')
 
-    writeHtm("I'm defo" + b + "sure of this")
+    writeHTML("I'm defo" + b + "sure of this")
     closeTags('section')
 
     a = startTable()
@@ -43,9 +43,8 @@ if __name__ == "__main__":
     r3 = ['trippier', 'stones', 'walker', 'coady']
     a.createTable(c, r1, r2, r3)
 
-    endBody()
+    closeBody()
     closeHTML()
-    
-    autoPrettify()
+    autoPrettify()                # To close unclosed tags
 
-    webbrowser.open(index.html)
+    webbrowser.open("index.html") # To open HTML file in default browser
