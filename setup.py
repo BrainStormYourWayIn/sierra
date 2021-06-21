@@ -14,7 +14,7 @@ setup(
                     "Documentation": "https://brainstormyourwayin.github.io/sierra.github.io/"},
     packages = find_packages(where="src"),
     keywords = ["CSS", "html", "web development", "web framework", "python to HTML", "python to CSS"],
-    install_requires = ['pandas', 'beautifulsoup4'],
+    install_requires = ['pandas', 'bs4'],
     zip_safe = True,
     classifiers = [
         "Development Status :: 5 - production/stable",
