@@ -54,12 +54,127 @@ in your terminal/shell.
 
 ________________________________
 
-## Under development
+## Sierra
 
-**Upcoming:**
+```python
+from sierra import *
 
-- Support for markdown
-- Official support for [brython over JS](https://brython.info)
+title('This is how you enter the title of your web application')
+head('I love Sierra!', type='h1', color='rgb(31, 48, 92)')
+openBody(background_color='green', opacity=0.8)
+a = tTags(div_class='newClass')
+b = tTags(p=True)
+a.start_div()
+b.css(font_family='Times New Roman', color='purple')
+b.start_p('This is a paragraph under div "newClass!" CSS can be added with .css!', close=True)
+closeTags('div')
+
+abc = 'stuff!'
+c = ['This', 'is', 'easy', abc]
+
+addBullets(points=c, ul=False, type='i')
+
+openTags('XMLTag')
+b.start_p('This is an  XML tag', True)
+writeCSS('XMLTag', {"font-size": "15px", "background-color": "rgb(240, 237, 228)"})
+b.start_p('You can enter custom CSS styling arguments like this, or use cTags() to make it easy!', True)
+closeTags('XMLTag')
+
+autoPrettify()
+```
+Outputs in index.html and style.css:
+```
+<!DOCTYPE html>
+<html lang="en">
+ <meta charset="utf-8"/>
+ <head>
+  <title>
+   This is how you enter the title of your web application
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <h1>
+   I love Sierra!
+  </h1>
+ </head>
+ <body>
+  <div class="newClass">
+   <p>
+    This is a paragraph under div "newClass!" CSS can be added with .css!
+   </p>
+  </div>
+  <ol start="1" type="i">
+   <li>This</li>
+   <li>is</li>
+   <li>easy</li>
+   <li>stuff!</li>
+  </ol>
+  <xmltag>
+   <p>
+    This is an  XML tag
+   </p>
+   <p>
+    You can enter custom CSS styling arguments like this, or use cTags() to make it easy!
+   </p>
+  </xmltag>
+ </body>
+</html>
+```
+```
+
+h1 {
+    color: rgb(31, 48, 92);
+    font-family: Arial;
+    text-align: left;
+    font-size: False;
+    background-color: False;
+    padding: False;
+    height: False;
+    width: False;
+    line-break: False;
+    line-height: False;
+    border: False;
+    margin: False;
+}
+body {
+    background: False;
+    background-color: green;
+    background-image: False;
+    opacity: 0.8;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: False;
+    background-repeat: False;
+}
+p {
+    color: purple;
+    font-family: Times New Roman;
+    font-weight: False;
+    text-align: False;
+    font-size: False;
+    background-color: False;
+    background: False;
+    margin-top: False;
+    margin-bottom: False;
+    margin-left: False;
+    margin-right: False;
+    border: False;
+    display: block;
+    padding: False;
+    height: False;
+    width: False;
+    line-break: False;
+    line-height: False;
+    overflow: False;
+    margin: False;
+    box-shadow: False;
+}
+XMLTag {
+	font-size: 15px;
+	background-color: rgb(240, 237, 228);
+}
+```
+
+## See the [official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/) for more!
 
 ________________________________
 
