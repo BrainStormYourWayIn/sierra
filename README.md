@@ -5,10 +5,6 @@
 A lightweight Python framework for building and Integrating Web Applications.
 Sierra is a Python3 library for building and integrating web applications with HTML and CSS using simple enough syntax. You can develop your web applications with Python, taking advantage of its functionalities and integrating them to the fullest.
 
-## The second stable release is out (v1.1.4)
-
-Check out the documentation for added syntax and improved autocomplete  
-
 ________________________________
 
 ## Documentation
