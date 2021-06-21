@@ -83,42 +83,38 @@ closeTags('XMLTag')
 autoPrettify()
 ```
 Outputs in index.html and style.css:
-```
-<!DOCTYPE html>
-<html lang="en">
- <meta charset="utf-8"/>
- <head>
-  <title>
-   This is how you enter the title of your web application
-  </title>
-  <link href="style.css" rel="stylesheet"/>
-  <h1>
-   I love Sierra!
-  </h1>
- </head>
- <body>
-  <div class="newClass">
-   <p>
-    This is a paragraph under div "newClass!" CSS can be added with .css!
-   </p>
-  </div>
-  <ol start="1" type="i">
-   <li>This</li>
-   <li>is</li>
-   <li>easy</li>
-   <li>stuff!</li>
-  </ol>
-  <xmltag>
-   <p>
-    This is an  XML tag
-   </p>
-   <p>
-    You can enter custom CSS styling arguments like this, or use cTags() to make it easy!
-   </p>
-  </xmltag>
- </body>
-</html>
-```
+
+    <!DOCTYPE html>
+    <html lang="en">
+     <meta charset="utf-8"/>
+     <head>
+      <title> This is how you enter the title of your web application </title>
+      <link href="style.css" rel="stylesheet"/>
+      <h1>I love Sierra!</h1>
+     </head>
+     <body>
+      <div class="newClass">
+       <p>
+        This is a paragraph under div "newClass!" CSS can be added with .css!
+       </p>
+      </div>
+      <ol start="1" type="i">
+       <li>This</li>
+       <li>is</li>
+       <li>easy</li>
+       <li>stuff!</li>
+      </ol>
+      <xmltag>
+       <p>
+        This is an  XML tag
+       </p>
+       <p>
+        You can enter custom CSS styling arguments like this, or use cTags() to make it easy!
+       </p>
+      </xmltag>
+     </body>
+    </html>
+
 ```
 
 h1 {
