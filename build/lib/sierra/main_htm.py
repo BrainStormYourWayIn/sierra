@@ -190,7 +190,7 @@ class addImg():
     filter: {filter};
 }}''')
 
-def autoPrettify(): # Only seems to work when repo is cloned and not pip installed. Rectification coming in later versions
+def autoPrettify():
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
     warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further development may run into issues. Please close tags manually if unsure.

@@ -17,7 +17,7 @@ def addBullets(points, ul=False, start="1", type="False", inner=False):
                 f.write(f'''<li>{point}</li>\n''')
         if inner == False:
             with open('index.html', 'a') as f:
-                f.write(f'''</ol>''')
+                f.write("</ol>")
         else:
             pass
     
@@ -29,6 +29,6 @@ def addBullets(points, ul=False, start="1", type="False", inner=False):
                 f.write(f'''<li>{point}</li>\n''')
         if inner == False:
             with open('index.html', 'a') as f:
-                f.write(f'''</ul>''')
+                f.write("</ul>")
         else:
             pass
