@@ -5,7 +5,7 @@
 A lightweight Python framework for building and Integrating Web Applications.
 Sierra is a Python3 library for building and integrating web applications with HTML and CSS using simple enough syntax. You can develop your web applications with Python, taking advantage of its functionalities and integrating them to the fullest.
 
-[![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)    [![build](https://img.shields.io/badge/build-passing-green)
+[![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)    [!build](https://img.shields.io/badge/build-passing-green)
 
 ________________________________
 
