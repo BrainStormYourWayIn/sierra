@@ -13,4 +13,21 @@ __________________________________________________________________
 
 - improved autocomplete
 
+## v1.1.5 - 21/06
+
+- bullet lists issue rectified
+- README updated
+
+## v1.2.0 - 23/06
+
+- global and event attributes enabled out of the box on div and section
+- tTags(p=False) changed to tTags(p=True)
+- Added definition lists
+- global attributes enabled out of the box on table
+- removed compulsory `class` args for div and section
+- table `cols` renamed to `heads` for easier identification
+- removed 'All rights reserved' on table.py (copyright Pandas)
+- enabled multiple <dt>s in def_list
+
+
 
