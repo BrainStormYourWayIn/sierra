@@ -1,17 +1,28 @@
 #Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
-#All rights reserved.
 
 #Copyright (c) 2011-2020, Open source contributors
 
 import pandas as pd
 
 class startTable():     
-    def createTable(self, cols:list, rows:list):
+    def createTable(self, heads:list, rows:list, *args):
+        """
+        Creates a table out of lists
+        Args:
+        heads(list, compulsory): Adds table headers
+        rows(list, compulsory) : Takes in a list of lists, each list representing a row
+        *args: To use global and event attributes, if required. Enter all of them within quotes, not comma-separated
+
+        """
         with open("index.html", 'a') as f:
-            f.write('''
-<table>
-<tr>''')
-        for col in cols:
+            f.write('''\n<table''')
+        for arg in args:
+            b = ' ' + arg
+            with open('index.html', 'a') as f:
+                f.write(f'''{b}''')
+            open('index.html', 'a').write(">")
+        open('index.html', 'a').write("<tr>")
+        for col in heads:
             open("index.html", 'a').write("\n<th>{col}</th>")
         open("index.html", 'a').write("\n</tr>")
         for row in rows:
@@ -23,15 +34,21 @@ class startTable():
 
         
     def getTable(self, dataframe:str):
+        """
+        Displays .csv file as a HTML table
+        Args:
+        dataframe(str, compulsory): Link to the .csv file to display
+
+        """
         df = df = pd.read_csv(dataframe)
-        cols = list(df.columns)
+        heads = list(df.columns)
         rows = df.values.tolist()
 
         with open("index.html", 'a') as f:
             f.write('''
 <table>
 <tr>''')
-        for col in cols:
+        for col in heads:
             open("index.html", 'a').write(f'''\n<th>{col}</th>''')
         open("index.html", 'a').write(f'''\n</tr>''')
         for row in rows:

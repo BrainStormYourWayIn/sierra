@@ -1,5 +1,5 @@
 class tTags():
-    def __init__(self, p=False, div_class='False', sec_class='False'):
+    def __init__(self, p=True, div_class='False', sec_class='False'):
         self.p = p
         self.div_class = div_class
         self.sec_class = sec_class
@@ -16,19 +16,45 @@ class tTags():
             if close == True:
                 open("index.html", 'a').write(f"\n</p>")
 
-    def start_div(self):
-        """starts the <div> tag."""
+    def start_div(self, *args):
+        """
+        Starts the <div> tag.
+        Args:
+        *args: To use global and event attributes, if required. Enter all of them within quotes, not comma-separated
+
+        """
 
         if self.div_class != 'False':
             with open("index.html", 'a') as f:
-                f.write(f'''\n<div class="{self.div_class}">''')
+                f.write(f'''\n<div class="{self.div_class}"''')
+        else:
+            with open("index.html", 'a') as f:
+                f.write(f'''\n<div''')
+            for arg in args:
+                b = ' ' + arg
+                with open('index.html', 'a') as f:
+                    f.write(f'''{b}''')
+            open('index.html', 'a').write(">")
     
-    def start_sec(self):
-        """Starts the <section> tag."""
+    def start_sec(self, *args):
+        """
+        Starts the <section> tag.
+        Args:
+        *args: To use global and event attributes, if required. Enter all of them within quotes, not comma-separated
+
+        """
         
         if self.sec_class != 'False':
             with open('index.html', 'a') as f:
-                f.write(f'''\n<section class="section {self.sec_class}">''')
+                f.write(f'''\n<section class="section {self.sec_class}"''')
+        else:
+            with open('index.html', 'a') as f:
+                f.write(f'''\n<section''')
+            for arg in args:
+                b = ' ' + arg
+                with open('index.html', 'a') as f:
+                    f.write(f'''{b}''')
+            open('index.html', 'a').write(">")
             
     def css(self, color='black', font_family='Arial', font_weight='False', text_align='False', font_size='False', background_color='False', background='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', border='False', display='block', padding='False', height='False', width='False', line_break='False', line_height='False', overflow='False', margin='False', box_shadow='False'):
         """

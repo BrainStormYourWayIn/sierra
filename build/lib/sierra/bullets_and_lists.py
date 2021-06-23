@@ -32,3 +32,29 @@ def addBullets(points, ul=False, start="1", type="False", inner=False):
                 f.write("</ul>")
         else:
             pass
+
+
+def def_lists(def_list, *args):
+    """
+    Creates a description list from a list of lists
+    Args:
+    def_list(list, compulsory): Takes in a list of lists and creates a description list on it
+    *args: To use global, if required. Enter them within quotes, not comma-separated
+    
+    """
+    with open('index.html', 'a') as f:
+        f.write(f'''\n<dl''')
+    for arg in args:
+            b = ' ' + arg
+            with open('index.html', 'a') as f:
+                f.write(f'''{b}''')
+    open('index.html', 'a').write(">")
+    for def_listings in def_list:
+        for def_listing in def_listings[0]:
+            open('index.html', 'a').write(f'''\n<dt>{def_listing}</dt>''')
+        def_listings.remove(def_listings[0])
+        for listings in def_listings:
+            for listing in listings:
+                open('index.html', 'a').write(f'''\n<dd>{listing}</dd>''')
+    with open('index.html', 'a') as f:
+        f.write("\n</dl>")
