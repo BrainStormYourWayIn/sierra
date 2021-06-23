@@ -52,6 +52,7 @@ from sierra import *
 title('This is how you enter the title of your web application')
 head('I love Sierra!', type='h1', color='rgb(31, 48, 92)')
 openBody(background_color='green', opacity=0.8)
+
 a = tTags(div_class='newClass')
 b = tTags(p=True)
 a.start_div()
