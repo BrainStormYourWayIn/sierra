@@ -27,7 +27,7 @@ __________________________________________________________________
 - removed compulsory `class` args for div and section
 - table `cols` renamed to `heads` for easier identification
 - removed 'All rights reserved' on table.py (copyright Pandas)
-- enabled multiple <dt>s in def_list
+- enabled multiple dts in def_list
 
 
 
