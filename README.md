@@ -44,6 +44,11 @@ in your terminal/shell.
 
 ________________________________
 
+
+Use `pip install --upgrade sierra` to upgrade the library
+
+________________________________
+
 ## Sierra
 
 ```python
