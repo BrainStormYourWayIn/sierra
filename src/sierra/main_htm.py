@@ -11,7 +11,7 @@ def title(Title, icon=False):
     """
 
     with open("index.html", 'w') as f:
-        f.write(f'''<!doctype html>
+        f.write(f'''<!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
 <head>
@@ -34,11 +34,19 @@ def addInitc(box_sizing='False', margin=False, padding=False, border=False, posi
     """
     
     with open('style.css', 'a') as s:
-        s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')
+        s.write(f"*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}")
 
-def href(link:str, text:str):
+def href(link, text=None):
+    """Adds href to a text.
+    
+    Args:
+        link (str, compulsory) : link for href
+        text (str, optional)   : text for redirect. defaults to link
+    """
+    
+    if text == None: text = link
     with open('index.html', 'a') as f:
-        f.write(f'''<a href="{link}">{text}</a>''')
+        f.write(f'''<a href="{link}"> {text} </a>''')
  
     
 def addFont(font_link):
@@ -47,9 +55,7 @@ def addFont(font_link):
     Args:
         font_link (str, compulsory): The font link.
     """
-
-    with open("index.html", 'a') as f:
-        f.write(f'''\n<link href="{font_link}" rel="stylesheet">''')
+    open("index.html", 'a').write(f'''<link href="{font_link}" rel="stylesheet">''')
 
 def code(codeblock):
     """Give the codeblock as a text to display the code in your webpage.
@@ -57,9 +63,7 @@ def code(codeblock):
     Args:
         codeblock (str, compulsory): The code block.
     """
-    
-    with open("index.html", 'a') as f:
-        f.write(f"<code>{codeblock}</code>")
+    open("index.html", 'a').write(f"<code>{codeblock}</code>")
 
 def head(Head, type='header', font_size=False, font_family="Arial", color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
     """
@@ -90,7 +94,7 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
     #    type == 'header'
 
     with open(f"index.html", 'a') as f:
-        f.write(f'''
+        f.write(f'''<head>
 <{type}>{Head}</{type}>
 </head>''')
         with open('style.css', 'a') as s:
@@ -111,30 +115,21 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
 }}''')
         #elif type and font_size:
             #print("Only type or font_size accepted in head()")
-        
+      
+#! No hex accepted for color in head(). RGB and normal eng works.
+#! If arguments font_size and type are passed, font_size seems to be given preference CSS
+#NOTE: No hex accepted for color in head() if type is mentioned. RGB and normal eng works. Haven't tested other mediums.
+#! In head() in the argument font_family, the users MUST enter it in double quotes.
 
 #head('nothing more', 'h5', False, 'rgb(50, 168, 82)', 'Arial', 'center')
 #head('nothing more', False, False, False, False, False)
-# No hex accepted for color in head(). RGB and normal eng works.
-# If arguments font_size and type are passed, font_size seems to be given preference CSS
 
-
-# In head(), color must have black as default. 
-# In head(), type OR font_size are required arguments. At least one of them must be passed. 
-# Warn the users that if arguments font_size and type, both are passed, font_size seems to be given preference by CSS.
-# But, at least one argument MUST be passed.
-# No hex accepted for color in head() if type is mentioned. RGB and normal eng works. Haven't tested other mediums.
-# In title(), default value of ico and css_bool are False. 
-# Also in title(), icon argument MUST be a .ico file. Check if the last 4 letters are '.ico'
-# In head() in the argument font_family, the users MUST enter it in double quotes. Typically, it can be something like
-# check soup.a.prettify()
-
-# def tags(openTags=False, closeTags=False, *args):
-#     if openTags == False and closeTags == False:
-#         pass
-#     elif openTags == False and closeTags == True:
-#         for arg in args:
-#             with open("index.html", 'a') as f
+#def tags(openTags=False, closeTags=False, *args):
+#    if openTags == False and closeTags == False:
+#        pass
+#    elif openTags == False and closeTags == True:
+#        for arg in args:
+#            with open("index.html", 'a') as f
 
 class addImg():
     def __init__(self, src:str, href="False", alt="This is an image", img_class='False'):
@@ -154,7 +149,7 @@ class addImg():
             if self.href != "False":
                 f.write(f'''\n</a>''')
 
-    def css(self, height='False', width='False', margin='False', vertical_align='False', display='False', border='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity=False, filter='False'):
+    def css(self, height='False', width='False', margin='False', vertical_align='False', display='False', border='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity='False', filter='False'):
         """
         Args:
             margin_top (str, optional)       : CSS image margin-top parameter. Defaults to 'False'.
@@ -167,15 +162,13 @@ class addImg():
             width (str, optional)            : CSS image width parameter. Defaults to False.
             margin (str, optional)           : CSS image margin parameter. Defaults to False.
             vertical-align (str, optional)   : CSS image vertical-align parameter. Defaults to False.
-            opacity (int/float, optional)    : CSS image opacity parameter. Defaults to False.
-            filter (str, optional)           : CSS image filter parameter. Defaults to False.
+            opacity (int/float, optional)    : CSS image opacity parameter. Defaults to 'False'.
+            filter (str, optional)           : CSS image filter parameter. Defaults to 'False'.
         """
 
         with open('style.css', 'a') as s:
-            if self.img_class != 'False':
-                s.write(f'''.{self.img_class} {{''')
-            else:
-                s.write(f'''img {{''')
+            if self.img_class != 'False': s.write(f'''.{self.img_class} {{''')
+            else: s.write("img {")
             s.write(f'''    margin-top: {margin_top};
     margin-bottom: {margin_bottom};
     margin-left: {margin_left};
