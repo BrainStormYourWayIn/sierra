@@ -2,17 +2,17 @@ def openTags(any_tag, *args):
     """Opens any HTML  or XML tag."""
     
     with open("index.html", 'a') as f:
-        f.write(f'''\n<{any_tag}>''')
+        f.write(f"\n<{any_tag}>")
         for arg in args:
-            f.write(f'''\n<{arg}>''')
+            f.write(f"\n<{arg}>")
             
 def closeTags(any_tag, *args):
     """Closes any HTML or XML tag."""
     
     with open("index.html", 'a') as f:
-        f.write(f'''\n</{any_tag}>''')
+        f.write(f"\n</{any_tag}>")
         for arg in args:
-            f.write(f'''\n</{arg}>''')
+            f.write(f"\n</{arg}>")
             
 def closeTagBefore(tag_to_close, tag_to_close_before):
     with open("index.html", 'r') as f:
@@ -22,7 +22,7 @@ def closeTagBefore(tag_to_close, tag_to_close_before):
         f = f.read()
         now_closed = f.replace(tag_to_close_before, closed_tag)
         with open("index.html", 'w') as f:
-            f.write(f'''{now_closed}''')
+            f.write(f"{now_closed}")
             
 # x = tags()
 # x.openTags('tag3', 'tag1', 'tag2')
@@ -32,12 +32,12 @@ def closeTagBefore(tag_to_close, tag_to_close_before):
 def closeHTML():
     """Closes the <HTML> tag."""
     
-    open("index.html", 'a').write(f'''\n</html>''')
+    open("index.html", 'a').write(f"\n</html>")
         
 def openBody(background='False', background_color='white', background_image=False, opacity=False, background_size='cover', background_attachment='fixed', background_position=False, background_repeat=False):
     """Opens the body tag and adds the required CSS."""
     
-    open("index.html", 'a').write(f'''\n<body>''')
+    open("index.html", 'a').write(f"\n<body>")
     with open('style.css', 'a') as s:
         s.write(f'''
 body {{
@@ -54,4 +54,4 @@ body {{
 def closeBody():
     """Closes the body tag"""
     
-    open("index.html", 'a').write(f'''\n</body>''')
+    open("index.html", 'a').write(f"\n</body>")
