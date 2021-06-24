@@ -29,5 +29,9 @@ __________________________________________________________________
 - removed 'All rights reserved' on table.py (copyright Pandas)
 - enabled multiple dts in def_list
 
+## v1.2.1 - 24/06
+
+- solved issue with table {col}
+
 
 
