@@ -94,7 +94,7 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
     #    type == 'header'
 
     with open(f"index.html", 'a') as f:
-        f.write(f'''<head>
+        f.write(f'''
 <{type}>{Head}</{type}>
 </head>''')
         with open('style.css', 'a') as s:
@@ -189,7 +189,7 @@ def autoPrettify():
     warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further development may run into issues. Please close tags manually if unsure.
     It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, 186)
     
-    with open("index.html", 'r') as f:
+    with open("index.html", 'w') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
         f.write(f'''{auto_close_all_tags}''')
