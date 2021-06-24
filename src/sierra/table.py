@@ -6,20 +6,18 @@ import pandas as pd
 
 class startTable():     
     def createTable(self, heads:list, rows:list, *args):
-        """
-        Creates a table out of lists
+        """Creates a table out of lists.
+        
         Args:
-        heads(list, compulsory): Adds table headers
-        rows(list, compulsory) : Takes in a list of lists, each list representing a row
-        *args: To use global and event attributes, if required. Enter all of them within quotes, not comma-separated
-
+            heads (list, compulsory) : Adds table headers.
+            rows (list, compulsory)  : Takes in a list of lists, each list representing a row.
+            *args                    : To use global and event attributes, if required. Enter all of them within quotes, not comma-separated.
         """
-        with open("index.html", 'a') as f:
-            f.write('''\n<table''')
+        
+        open("index.html", 'a').write('''\n<table''')
         for arg in args:
             b = ' ' + arg
-            with open('index.html', 'a') as f:
-                f.write(f'''{b}''')
+            open('index.html', 'a').write(f"{b}")
             open('index.html', 'a').write(">")
         open('index.html', 'a').write("<tr>")
         for col in heads:
@@ -30,16 +28,16 @@ class startTable():
             for row_d in row:
                 open("index.html", 'a').write(f"\n<td>{row_d}</td>")
             open("index.html", 'a').write("\n</tr>")
-        open("index.html", 'a').write(f'''\n</table>''')
+        open("index.html", 'a').write(f"\n</table>")
 
         
     def getTable(self, dataframe:str):
-        """
-        Displays .csv file as a HTML table
+        """Displays .csv file as a HTML table.
+        
         Args:
-        dataframe(str, compulsory): Link to the .csv file to display
-
+            dataframe(str, compulsory): Link to the .csv file to display.
         """
+        
         df = df = pd.read_csv(dataframe)
         heads = list(df.columns)
         rows = df.values.tolist()
@@ -75,10 +73,9 @@ class startTable():
         """
         
         with open('style.css', 'a') as s:
-            if self.id == 'False':
-                s.write(f'''\ntable {{''')
-            else:
-                s.write(f'''\n#{self.id} {{''')
+            if self.id == 'False': s.write(f'''\ntable {{''')
+            else: s.write(f'''\n#{self.id} {{''')
+             
             s.write(f'''    border: {border};
     width: {width};
     height: {height};
