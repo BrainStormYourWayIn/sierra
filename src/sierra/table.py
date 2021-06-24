@@ -18,8 +18,8 @@ class startTable():
         for arg in args:
             b = ' ' + arg
             open('index.html', 'a').write(f"{b}")
-            open('index.html', 'a').write(">")
-        open('index.html', 'a').write("<tr>")
+        open('index.html', 'a').write(">")
+        open('index.html', 'a').write("\n<tr>")
         for col in heads:
             open("index.html", 'a').write(f"\n<th>{col}</th>")
         open("index.html", 'a').write("\n</tr>")
