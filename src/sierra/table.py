@@ -38,7 +38,7 @@ class startTable():
             dataframe(str, compulsory): Link to the .csv file to display.
         """
         
-        df = df = pd.read_csv(dataframe)
+        df = pd.read_csv(dataframe)
         heads = list(df.columns)
         rows = df.values.tolist()
 
