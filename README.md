@@ -3,7 +3,8 @@
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
 A lightweight Python framework for building and Integrating Web Applications.
-Sierra is a Python3 library for building and integrating web applications with HTML and CSS using simple enough syntax. You can develop your web applications purely with Python, taking advantage of its functionalities and integrating them to the fullest.
+Sierra is a Python3 library for building and integrating web applications with HTML and CSS using simple enough syntax. You can develop your web applications purely with Python, taking advantage of its functionalities and integrating them to the fullest.  
+Sierra makes integration with Flask much easier and faster! See the examples below
 
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)    [![build](https://badge.buildkite.com/sample.svg)]  
 
@@ -17,38 +18,6 @@ ________________________________
 Check out the [Official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
 
 Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use
-
-________________________________
-
-## Installation
-
-### Method 1: pip install
-
-type the below command in terminal:
-
-`pip install sierra`
-
-### Method 2: Download ZIP file
-
-**To download the zip file:** click on the `download` button and then click on the `Download ZIP` button. The zip file will get downloaded in the downloads folder.
-
-**To unzip the zip file:** open the zipped folder, then drag the file or folder from the zipped folder to a new location. To unzip all the contents of the zipped folder, press and hold (or right-click) the folder, select `Extract All`. Development can be done in `sierra-main/sierra` and not in `sierra-main/``src/sierra`
-Check out [doc.py](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) for a better view on how to start off
-
-### Method 3: Clone repository
-
-To clone the repository, type:
-
-`gh repo clone BrainStormYourWayIn/sierra`
-or
-`git clone https://github.com/BrainStormYourWayIn/sierra.git`
-
-in your terminal/shell.
-
-________________________________
-
-
-Use `pip install --upgrade sierra` to upgrade the library
 
 ________________________________
 
@@ -194,6 +163,41 @@ if __name__ = '__main__':
     app.run()
 
 ```
+
+________________________________
+
+## Installation
+
+### Method 1: pip install
+
+type the below command in terminal:
+
+`pip install sierra`
+
+### Method 2: Download ZIP file
+
+**To download the zip file:** click on the `download` button and then click on the `Download ZIP` button. The zip file will get downloaded in the downloads folder.
+
+**To unzip the zip file:** open the zipped folder, then drag the file or folder from the zipped folder to a new location. To unzip all the contents of the zipped folder, press and hold (or right-click) the folder, select `Extract All`. Development can be done in `sierra-main/sierra` and not in `sierra-main/``src/sierra`
+Check out [doc.py](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) for a better view on how to start off
+
+### Method 3: Clone repository
+
+To clone the repository, type:
+
+`gh repo clone BrainStormYourWayIn/sierra`
+or
+`git clone https://github.com/BrainStormYourWayIn/sierra.git`
+
+in your terminal/shell.
+
+________________________________
+
+
+Use `pip install --upgrade sierra` to upgrade the library
+
+________________________________
+
 
 ## See the [official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/) for more!
 
