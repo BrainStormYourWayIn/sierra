@@ -154,7 +154,7 @@ def the_template():
     
 def bulleted_list:
     the_template()
-    abc = 'stuff!
+    abc = 'stuff!'
     bullets = ['This', 'is', 'easy', abc]
     addBullets(points=bullets)
     autoPrettify()
@@ -171,7 +171,7 @@ def show_bulleted_list():
     return render_template('index.html')
     
 
-@app.route("/description_list)
+@app.route("/description_list")
 def show_description_list():
     return description_list()
     return render_template('index.html')
