@@ -73,11 +73,11 @@ ________________________________
 
 To download the library (pypi version):
 
-`pip install sierra`
+    pip install sierra
 
 To download the library (GitHub Version):
 
-`pip git+git://github.com/BrainStormYourWayIn/sierra`
+    pip git+git://github.com/BrainStormYourWayIn/sierra
 
 ________________________________
 
