@@ -6,20 +6,16 @@ Sierra is a Python3 templating library for web frameworks
 
 ### Sierra makes integration with Flask much easier and faster! See the examples below
 
-
-
-[![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)    [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
-
-### v1.2.3 is out  
-Use `pip install --upgrade sierra` to upgrade
+[![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
+[![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
 
 ________________________________
 
 ## Documentation
 
-Check out the [Official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)
+Check out the [Official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/).
 
-Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use
+Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use.
 
 ________________________________
 
@@ -29,7 +25,7 @@ Sierra can also be used standalone without Flask, if you like
 
 Using this with Flask makes life easier
 
-```python
+```python3
 from flask import Flask, render_template
 from sierra import *
 
@@ -75,21 +71,13 @@ ________________________________
 
 ## Installation
 
-### Method 1: pip install
-
-type the below command in terminal:
+To download the library (pypi version):
 
 `pip install sierra`
 
-### Method 2: Clone repository
+To download the library (GitHub Version):
 
-To clone the repository, type:
-
-`gh repo clone BrainStormYourWayIn/sierra`
-or
-`git clone https://github.com/BrainStormYourWayIn/sierra.git`
-
-in your terminal/shell.
+`pip git+git://github.com/BrainStormYourWayIn/sierra`
 
 ________________________________
 
@@ -105,7 +93,7 @@ ________________________________
 
 ## Upcoming
 
-We're working on making this a templating library for web frameworks
+We're working on making this a templating library for web frameworks.
 
 ________________________________
 
@@ -126,5 +114,6 @@ ________________________________
    limitations under the License.
 
 > Pandas (pandas)
->> Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team   
->> Copyright (c) 2011-2020, Open source contributors.
+> 
+> Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
+> Copyright (c) 2011-2020, Open source contributors.
