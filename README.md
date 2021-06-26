@@ -13,7 +13,7 @@ ________________________________
 
 ## Documentation
 
-#### Check out the [Official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/).
+#### Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/).
 
 Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use.
 
