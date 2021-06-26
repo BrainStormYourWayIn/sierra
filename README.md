@@ -147,12 +147,12 @@ from sierra import *
 app = Flask(__name__)
 
 def bulleted_list():
-title('bulleted_list')
-head('this is a bulleted list')
-abc = 'stuff!'
-bullets = ['This', 'is', 'easy', abc]
-addBullets(points=bullets)
-autoPrettify()
+    title('bulleted_list')
+    head('this is a bulleted list')
+    abc = 'stuff!'
+    bullets = ['This', 'is', 'easy', abc]
+    addBullets(points=bullets)
+    autoPrettify()
 
 @app.route("/")
 def bulleted_list():
