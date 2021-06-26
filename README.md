@@ -4,7 +4,7 @@
 
 Sierra is a Python3 templating library for web frameworks
 
-### Sierra makes integration with Flask much easier and faster! See the examples below
+### Sierra makes skeletal integration with Flask easier and faster! See the examples below
 
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
 [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
