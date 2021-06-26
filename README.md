@@ -142,19 +142,21 @@ def description_list():
 @app.route("/bulleted_list")
 def show_bulleted_list():
     return bulleted_list()
-    return render_template('index.html')
+    return render_template('index1.html')
     
 
 @app.route("/description_list")
 def show_description_list():
     return description_list()
-    return render_template('index.html')
+    return render_template('index2.html')
     
 if __name__ == '__main__':
     app.run()
 
 ```
-Of course, you can also define the functions in separate files and import it
+Of course, you can also define the functions in separate files and import it  
+
+The directory structure needs to be sorted out first before running this. Run the code in `templates/`. In Sierra, the HTML and CSS files are automatically named `index.html` and `style.css` in the working directory, which will be sorted in the next release. 
 
 ________________________________
 
