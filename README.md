@@ -91,16 +91,8 @@ h1 {
     color: rgb(31, 48, 92);
     font-family: Arial;
     text-align: left;
-    font-size: False;
-    background-color: False;
-    padding: False;
-    height: False;
-    width: False;
-    line-break: False;
-    line-height: False;
-    border: False;
-    margin: False;
 }
+
 body {
     background: False;
     background-color: green;
@@ -108,32 +100,14 @@ body {
     opacity: 0.8;
     background-size: cover;
     background-attachment: fixed;
-    background-position: False;
-    background-repeat: False;
 }
+
 p {
     color: purple;
     font-family: Times New Roman;
-    font-weight: False;
-    text-align: False;
-    font-size: False;
-    background-color: False;
-    background: False;
-    margin-top: False;
-    margin-bottom: False;
-    margin-left: False;
-    margin-right: False;
-    border: False;
     display: block;
-    padding: False;
-    height: False;
-    width: False;
-    line-break: False;
-    line-height: False;
-    overflow: False;
-    margin: False;
-    box-shadow: False;
 }
+
 XMLTag {
 	font-size: 15px;
 	background-color: rgb(240, 237, 228);
@@ -180,7 +154,7 @@ if __name__ == '__main__':
     app.run()
 
 ```
-You can also define the functions in separate files and import it
+Of course, you can also define the functions in separate files and import it
 
 ________________________________
 
