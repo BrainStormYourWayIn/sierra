@@ -25,94 +25,7 @@ ________________________________
 
 ## Sierra
 
-```python
-from sierra import *
-
-title('This is how you enter the title of your web application')
-head('I love Sierra!', type='h1', color='rgb(31, 48, 92)')
-openBody(background_color='green', opacity=0.8)
-
-a = tTags(div_class='newClass')
-b = tTags(p=True)
-a.start_div()
-b.css(font_family='Times New Roman', color='purple')
-b.start_p('This is a paragraph under div "newClass!" CSS can be added with .css!', close=True)
-closeTags('div')
-
-abc = 'stuff!'
-c = ['This', 'is', 'easy', abc]
-
-addBullets(points=c, ul=False, type='i')
-
-openTags('XMLTag')
-b.start_p('This is an  XML tag', True)
-writeCSS('XMLTag', {"font-size": "15px", "background-color": "rgb(240, 237, 228)"})
-b.start_p('You can enter custom CSS styling arguments like this, or use cTags() to make it easy!', True)
-closeTags('XMLTag')
-
-autoPrettify()                # Closes unclosed tags automatically and improves overall look of the code
-```
-Outputs in index.html and style.css:
-
-    <!DOCTYPE html>
-    <html lang="en">
-     <meta charset="utf-8"/>
-     <head>
-      <title> This is how you enter the title of your web application </title>
-      <link href="style.css" rel="stylesheet"/>
-      <h1>I love Sierra!</h1>
-     </head>
-     <body>
-      <div class="newClass">
-       <p>
-        This is a paragraph under div "newClass!" CSS can be added with .css!
-       </p>
-      </div>
-      <ol start="1" type="i">
-       <li>This</li>
-       <li>is</li>
-       <li>easy</li>
-       <li>stuff!</li>
-      </ol>
-      <xmltag>
-       <p>
-        This is an  XML tag
-       </p>
-       <p>
-        You can enter custom CSS styling arguments like this, or use cTags() to make it easy!
-       </p>
-      </xmltag>
-     </body>
-    </html>
-
-```
-
-h1 {
-    color: rgb(31, 48, 92);
-    font-family: Arial;
-    text-align: left;
-}
-
-body {
-    background: False;
-    background-color: green;
-    background-image: False;
-    opacity: 0.8;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-p {
-    color: purple;
-    font-family: Times New Roman;
-    display: block;
-}
-
-XMLTag {
-	font-size: 15px;
-	background-color: rgb(240, 237, 228);
-}
-```
+Sierra can also be used standalone without Flask, if you like
 
 Using this with Flask makes life easier
 
@@ -168,14 +81,7 @@ type the below command in terminal:
 
 `pip install sierra`
 
-### Method 2: Download ZIP file
-
-**To download the zip file:** click on the `download` button and then click on the `Download ZIP` button. The zip file will get downloaded in the downloads folder.
-
-**To unzip the zip file:** open the zipped folder and select `Extract All`. Development can be done in `sierra-main/sierra` and not in `sierra-main/src/sierra`
-Check out [doc.py](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) for a better view on how to start off
-
-### Method 3: Clone repository
+### Method 2: Clone repository
 
 To clone the repository, type:
 
@@ -199,8 +105,7 @@ ________________________________
 
 ## Upcoming
 
-- Integration with Flask (directory structure, support etc)
-- More efficient way to close tags (apart from closeTags() and autoPrettify())
+We're working on making this a templating library for web frameworks
 
 ________________________________
 
