@@ -152,14 +152,14 @@ def the_template():
     title('bulleted_and_description_lists')
     head('this is a bulleted list')
     
-def bulleted_list:
+def bulleted_list():
     the_template()
     abc = 'stuff!'
     bullets = ['This', 'is', 'easy', abc]
     addBullets(points=bullets)
     autoPrettify()
 
-def description_list:
+def description_list():
     the_template()
     a = [['coffee'], ['black coffee', 'black tea']]
     def_lists(a)
