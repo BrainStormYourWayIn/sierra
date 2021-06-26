@@ -7,7 +7,8 @@ Sierra is a Python3 library for building and integrating web applications with H
 
 Sierra makes integration with Flask much easier and faster! See the examples below
 
-[![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)    [![build](https://badge.buildkite.com/sample.svg)]  
+
+[![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)    [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
 
 ### v1.2.3 is out  
 Use `pip install --upgrade sierra` to upgrade
@@ -179,7 +180,7 @@ type the below command in terminal:
 
 **To download the zip file:** click on the `download` button and then click on the `Download ZIP` button. The zip file will get downloaded in the downloads folder.
 
-**To unzip the zip file:** open the zipped folder, then drag the file or folder from the zipped folder to a new location. To unzip all the contents of the zipped folder, press and hold (or right-click) the folder, select `Extract All`. Development can be done in `sierra-main/sierra` and not in `sierra-main/``src/sierra`
+**To unzip the zip file:** open the zipped folder and select `Extract All`. Development can be done in `sierra-main/sierra` and not in `sierra-main/src/sierra`
 Check out [doc.py](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) for a better view on how to start off
 
 ### Method 3: Clone repository
@@ -201,6 +202,12 @@ ________________________________
 
 
 ## See the [official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/) for more!
+
+________________________________
+
+## Upcoming
+
+- Integration with Flask (directory structure, automatic support with smaller funcs etc)
 
 ________________________________
 
