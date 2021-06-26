@@ -50,7 +50,7 @@ writeCSS('XMLTag', {"font-size": "15px", "background-color": "rgb(240, 237, 228)
 b.start_p('You can enter custom CSS styling arguments like this, or use cTags() to make it easy!', True)
 closeTags('XMLTag')
 
-autoPrettify()
+autoPrettify()                # Closes unclosed tags automatically and improves overall look of the code
 ```
 Outputs in index.html and style.css:
 
