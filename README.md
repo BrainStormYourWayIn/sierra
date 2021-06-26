@@ -148,17 +148,32 @@ from sierra import *
 
 app = Flask(__name__)
 
-def bulleted_list():
-    title('bulleted_list')
+def the_template():
+    title('bulleted_and_description_lists')
     head('this is a bulleted list')
-    abc = 'stuff!'
+    
+def bulleted_list:
+    the_template()
+    abc = 'stuff!
     bullets = ['This', 'is', 'easy', abc]
     addBullets(points=bullets)
     autoPrettify()
 
-@app.route("/")
-def bulleted_list():
+def description_list:
+    the_template()
+    a = [['coffee'], ['black coffee', 'black tea']]
+    def_lists(a)
+    autoPrettify()
+
+@app.route("/bulleted_list")
+def show_bulleted_list():
     return bulleted_list()
+    return render_template('index.html')
+    
+
+@app.route("/description_list)
+def show_description_list():
+    return description_list()
     return render_template('index.html')
     
 if __name__ == '__main__':
