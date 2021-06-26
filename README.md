@@ -23,7 +23,7 @@ ________________________________
 
 Sierra can also be used standalone without Flask, if you like
 
-Using this with Flask makes life easier
+Using this with Flask makes life easier if you're developing small applications with just HTML and CSS
 
 ```python3
 from flask import Flask, render_template
