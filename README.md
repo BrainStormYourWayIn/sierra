@@ -180,6 +180,7 @@ if __name__ == '__main__':
     app.run()
 
 ```
+You can also define the functions in separate files and import it
 
 ________________________________
 
