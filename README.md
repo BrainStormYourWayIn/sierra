@@ -208,6 +208,7 @@ ________________________________
 ## Upcoming
 
 - Integration with Flask (directory structure, automatic support with smaller funcs etc)
+- More efficient way to close tags (apart from autoPrettify())
 
 ________________________________
 
