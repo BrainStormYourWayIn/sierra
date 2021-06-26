@@ -169,6 +169,32 @@ XMLTag {
 }
 ```
 
+Using this with Flask makes life easier
+
+```python
+from flask import Flask, render_template
+from sierra import *
+
+app = Flask(__name__)
+
+def bulleted_list():
+title('bulleted_list')
+head('this is a bulleted list')
+abc = 'stuff!'
+bullets = ['This', 'is', 'easy', abc]
+addBullets(points=bullets)
+autoPrettify()
+
+@app.route("/")
+def bulleted_list():
+    return bulleted_list()
+    return render_template('index.html')
+    
+if __name__ = '__main__':
+    app.run()
+
+```
+
 ## See the [official documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/) for more!
 
 ________________________________
