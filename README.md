@@ -2,7 +2,7 @@
 
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
-Sierra is a Python3 library for building and integrating web applications with HTML and CSS using simple enough syntax. You can develop your web applications purely with Python, taking advantage of its functionalities and integrating them to the fullest.  
+Sierra is a Python3 templating library for web frameworks
 
 ### Sierra makes integration with Flask much easier and faster! See the examples below
 
