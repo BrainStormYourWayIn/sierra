@@ -46,7 +46,7 @@ def bulleted_list():
 
 def description_list():
     the_template()
-    a = [['coffee'], ['black coffee', 'black tea']]
+    a = [[['coffee', 'tea'], ['black coffee', 'black tea']], [['new_coffee'], ['foo', 'tea', 'green_tea']]]
     def_lists(a)
     autoPrettify()
     os.rename('index.html', 'index2.html')
