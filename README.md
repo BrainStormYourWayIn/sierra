@@ -13,9 +13,9 @@ ________________________________
 
 ## Documentation
 
-#### Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/).
+**Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/).**
 
-Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use.
+**Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use.**
 
 ________________________________
 
@@ -64,8 +64,8 @@ def show_description_list():
     
 if __name__ == '__main__':
     app.run()
-
 ```
+
 Of course, you can also define the functions in separate files and import it  
 
 The directory structure needs to be sorted out first before running this. Run the code in `templates/`. In Sierra, the HTML and CSS files are automatically named `index.html` and `style.css` in the working directory, so you need to run `os.rename()`
@@ -84,9 +84,9 @@ To download the library (GitHub Version):
 
 ________________________________
 
+## Upgrade
 
 Use `pip install --upgrade sierra` to upgrade the library
-
 
 ________________________________
 
@@ -104,7 +104,7 @@ ________________________________
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+   http://www.apache.org/licenses/LICENSE-2.0
 
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
