@@ -4,6 +4,7 @@ class tTags():
         self.div_class = div_class
         self.sec_class = sec_class
 
+
     def start_p(self, p_text: str, close=False):
         """Opens the <p> tag.
         
@@ -16,6 +17,7 @@ class tTags():
             open("index.html", 'a+').write(f"\n<p>\n{p_text}")
             if close:
                 open("index.html", 'a').write(f"\n</p>")
+
 
     def start_div(self, *args):
         """Starts the <div> tag.
@@ -33,6 +35,7 @@ class tTags():
                 open('index.html', 'a').write(b)
             open('index.html', 'a').write(">")
     
+
     def start_sec(self, *args):
         """Starts the <section> tag.
         
@@ -41,13 +44,14 @@ class tTags():
         """
         
         if not bool(self.sec_class):
-            open('index.html', 'a').write(f'''\n<section class="section {self.sec_class}"''')
+            open('index.html', 'a+').write(f'''\n<section class="section {self.sec_class}"''')
         else:
-            open('index.html', 'a').write(f"\n<section")
+            open('index.html', 'a+').write(f"\n<section")
             for arg in args:
                 b = ' ' + arg
-                open('index.html', 'a').write(b)
-            open('index.html', 'a').write(">")
+                open('index.html', 'a+').write(b)
+            open('index.html', 'a+').write(">")
+
             
     def css(self, color='black', font_family='Arial', font_weight='False', text_align='left', font_size='False', background_color='False', background='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', border='False', display='block', padding='False', height='False', width='False', line_break='False', line_height='False', overflow='False', margin='False', box_shadow='False'):
         """
@@ -75,7 +79,7 @@ class tTags():
             box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to False.
         """
         
-        with open('style.css', 'a') as s:
+        with open('style.css', 'a+') as s:
             if self.p:
                 s.write(f'''
 p {{
