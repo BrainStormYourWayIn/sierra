@@ -28,7 +28,7 @@ class cTags():
             box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to False.
         """
 
-        with open('style.css', 'a') as s:
+        with open('style.css', 'a+') as s:
             s.write(f'''
 {self.tag} {{
     color: {color};
