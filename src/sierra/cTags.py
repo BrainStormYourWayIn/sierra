@@ -2,13 +2,13 @@ class cTags():
     def __init__(self, tag):
         self.tag = tag
 
-    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
+    def css(self, color='black', font_family='Arial', font_weight=False, text_align='left', font_size=False, background_color='white', background=False, margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, margin=False, box_shadow=False):
         """
         Args:
             color (str, optional)            : CSS Color parameter. Defaults to 'black'.
             font_family (str, optional)      : CSS Font-Family parameter. Defaults to 'Arial'.
             font_weight (str, optional)      : CSS Font-weight parameter. Defaults to False.
-            text_align (str, optional)       : CSS Text-align parameter. Defaults to False.
+            text_align (str, optional)       : CSS Text-align parameter. Defaults to 'left'.
             font_size (str, optional)        : CSS Font-size parameter. Defaults to False.
             background_color (str, optional) : CSS background-color parameter. Defaults to 'white'.
             background (str, optional)       : CSS background parameter. Defaults to False.
