@@ -12,9 +12,9 @@ class tTags():
             close (bool, optional)  : closes the <p> tag without using closeTags().
         """
         
-        if self.p == True:
+        if self.p:
             open("index.html", 'a+').write(f"\n<p>\n{p_text}")
-            if close == True:
+            if close:
                 open("index.html", 'a').write(f"\n</p>")
 
     def start_div(self, *args):
@@ -24,16 +24,13 @@ class tTags():
             *args: To use global and event attributes, if required. Enter all of them within quotes, not comma-separated.
         """
 
-        if self.div_class != 'False':
-            with open("index.html", 'a') as f:
-                f.write(f'''\n<div class="{self.div_class}"''')
+        if not bool(self.div_class):
+            open("index.html", 'a').write(f'''\n<div class="{self.div_class}"''')
         else:
-            with open("index.html", 'a') as f:
-                f.write(f'''\n<div''')
+            open("index.html", 'a').write(f'''\n<div''')
             for arg in args:
                 b = ' ' + arg
-                with open('index.html', 'a') as f:
-                    f.write(f'''{b}''')
+                open('index.html', 'a').write(b)
             open('index.html', 'a').write(">")
     
     def start_sec(self, *args):
@@ -43,13 +40,13 @@ class tTags():
             *args: To use global and event attributes, if required. Enter all of them within quotes, not comma-separated.
         """
         
-        if self.sec_class != 'False':
+        if not bool(self.sec_class):
             open('index.html', 'a').write(f'''\n<section class="section {self.sec_class}"''')
         else:
             open('index.html', 'a').write(f"\n<section")
             for arg in args:
                 b = ' ' + arg
-                open('index.html', 'a').write(f'''{b}''')
+                open('index.html', 'a').write(b)
             open('index.html', 'a').write(">")
             
     def css(self, color='black', font_family='Arial', font_weight='False', text_align='left', font_size='False', background_color='False', background='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', border='False', display='block', padding='False', height='False', width='False', line_break='False', line_height='False', overflow='False', margin='False', box_shadow='False'):
@@ -104,7 +101,7 @@ p {{
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
-            elif self.div_class != 'False':
+            elif not bool(self.div_class):
                 s.write(f'''
 .{self.div_class} {{
     color: {color};
@@ -129,7 +126,7 @@ p {{
     margin: {margin};
     box-shadow: {box_shadow};
 }}''')
-            elif self.sec_class != 'False':
+            elif not bool(self.sec_class):
                 s.write(f'''
 .{self.sec_class} {{
     color: {color};
