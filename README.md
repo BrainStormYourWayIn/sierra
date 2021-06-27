@@ -86,7 +86,9 @@ ________________________________
 
 ## Upgrade
 
-Use `pip install --upgrade sierra` to upgrade the library
+Use to upgrade the library:
+
+    pip install --upgrade sierra
 
 ________________________________
 
