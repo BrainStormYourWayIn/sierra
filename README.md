@@ -28,6 +28,7 @@ Using this with Flask makes life easier if you're developing small applications 
 ```python3
 from flask import Flask, render_template
 from sierra import *
+import os
 
 app = Flask(__name__)
 
@@ -41,12 +42,14 @@ def bulleted_list():
     bullets = ['This', 'is', 'easy', abc]
     addBullets(points=bullets)
     autoPrettify()
+    os.rename('index.html', 'index1.html')
 
 def description_list():
     the_template()
     a = [['coffee'], ['black coffee', 'black tea']]
     def_lists(a)
     autoPrettify()
+    os.rename('index.html', 'index2.html')
 
 @app.route("/bulleted_list")
 def show_bulleted_list():
@@ -65,7 +68,7 @@ if __name__ == '__main__':
 ```
 Of course, you can also define the functions in separate files and import it  
 
-The directory structure needs to be sorted out first before running this. Run the code in `templates/`. In Sierra, the HTML and CSS files are automatically named `index.html` and `style.css` in the working directory, which will be sorted in the next release. 
+The directory structure needs to be sorted out first before running this. Run the code in `templates/`. In Sierra, the HTML and CSS files are automatically named `index.html` and `style.css` in the working directory, so you need to run `os.rename()`
 
 ________________________________
 
