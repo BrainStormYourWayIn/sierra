@@ -92,7 +92,7 @@ ________________________________
 
 ## Upcoming
 
-We're working on making this a templating library for web frameworks.
+We're working on making this a templating library for web frameworks. The next release will have major changes
 
 ________________________________
 
