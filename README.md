@@ -53,13 +53,13 @@ def description_list():
 
 @app.route("/bulleted_list")
 def show_bulleted_list():
-    return bulleted_list()
+    bulleted_list()
     return render_template('index1.html')
     
 
 @app.route("/description_list")
 def show_description_list():
-    return description_list()
+    description_list()
     return render_template('index2.html')
     
 if __name__ == '__main__':
