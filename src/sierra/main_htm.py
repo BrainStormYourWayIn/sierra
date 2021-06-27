@@ -1,7 +1,7 @@
 import warnings
 from bs4 import BeautifulSoup
 
-b = ' <br> '
+b = '<br>'
 
 def title(Title, icon=False):
     """
@@ -35,7 +35,7 @@ def addInitc(box_sizing='False', margin=False, padding=False, border=False, posi
         position (str, optional)    : CSS position parameter. Defaults to 'relative'.
     """
     
-    with open('style.css', 'a') as s:
+    with open('style.css', 'a+') as s:
         s.write(f"*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}")
 
 
@@ -48,7 +48,7 @@ def href(link, text=None):
     """
     
     if text == None: text = link
-    with open('index.html', 'a') as f:
+    with open('index.html', 'a+') as f:
         f.write(f'''<a href="{link}"> {text} </a>''')
  
     
@@ -58,7 +58,7 @@ def addFont(font_link):
     Args:
         font_link (str, compulsory): The font link.
     """
-    open("index.html", 'a').write(f'''<link href="{font_link}" rel="stylesheet">''')
+    open("index.html", 'a+').write(f'''<link href="{font_link}" rel="stylesheet">''')
 
 
 def code(codeblock):
@@ -67,7 +67,7 @@ def code(codeblock):
     Args:
         codeblock (str, compulsory): The code block.
     """
-    open("index.html", 'a').write(f"<code>{codeblock}</code>")
+    open("index.html", 'a+').write(f"<code>{codeblock}</code>")
 
 
 def head(Head, type='header', font_size=False, font_family="Arial", color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
@@ -94,12 +94,12 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
     if type and font_size:
         raise Exception("Only 1 of the following argument is accepted by head(): font_size or type.")
 
-    with open(f"index.html", 'a') as f:
+    with open(f"index.html", 'a+') as f:
         f.write(f'''
 <{type}>{Head}</{type}>
 </head>''')
 
-        with open('style.css', 'a') as s:
+        with open('style.css', 'a+') as s:
                 s.write(f'''
 {type} {{
     color: {color};
@@ -124,7 +124,7 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
 #        pass
 #    elif openTags == False and closeTags == True:
 #        for arg in args:
-#            with open("index.html", 'a') as f
+#            with open("index.html", 'a+'') as f
 
 class addImg():
     def __init__(self, src:str, href="False", alt="This is an image", img_class='False'):
@@ -134,10 +134,10 @@ class addImg():
         self.img_class = img_class
 
     def show(self):
-        with open('index.html', 'a') as f:
-            if not bool(self.href):
+        with open('index.html', 'a+') as f:
+            if self.href != "False":
                 f.write(f'''\n<a href="{self.href}">''')
-            if not bool(self.img_class):
+            if self.img_class != 'False':
                 f.write(f'''\n<img src="{self.src}" alt="{self.alt}" class="{self.img_class}">''')
             else:
                 f.write(f'''\n<img src="{self.src}" alt="{self.alt}">''')
@@ -161,7 +161,7 @@ class addImg():
             filter (str, optional)           : CSS image filter parameter. Defaults to 'False'.
         """
 
-        with open('style.css', 'a') as s:
+        with open('style.css', 'a+') as s:
             if self.img_class != 'False': s.write(f'''.{self.img_class} {{''')
             else: s.write("img {")
             s.write(f'''    margin-top: {margin_top};
@@ -183,7 +183,7 @@ def autoPrettify():
 
     warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended.
     Further development may run into issues. Please close tags manually if unsure. It is recommended to use after all development for best results. 
-    See "bs4 auto closing tags" for more info.''', UserWarning, str, 186)
+    See "bs4 auto closing tags" for more info.''', UserWarning, str, 181)
     
     with open("index.html", 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
