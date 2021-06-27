@@ -115,10 +115,9 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
 }}''')
         #elif type and font_size:
             #print("Only type or font_size accepted in head()")
-      
-#! No hex accepted for color in head(). RGB and normal eng works.
-#! If arguments font_size and type are passed, font_size seems to be given preference CSS
-#NOTE: No hex accepted for color in head() if type is mentioned. RGB and normal eng works. Haven't tested other mediums.
+
+#* No hex accepted for color in head() if type is mentioned. RGB and normal eng works. Haven't tested other mediums.
+#! If arguments font_size and type are passed, font_size seems to be given preference CSS.
 #! In head() in the argument font_family, the users MUST enter it in double quotes.
 
 #head('nothing more', 'h5', False, 'rgb(50, 168, 82)', 'Arial', 'center')
@@ -186,10 +185,11 @@ class addImg():
 def autoPrettify():
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
-    warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further development may run into issues. Please close tags manually if unsure.
-    It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, 186)
+    warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended.
+    Further development may run into issues. Please close tags manually if unsure. It is recommended to use after all development for best results. 
+    See "bs4 auto closing tags" for more info.''', UserWarning, str, 186)
     
     with open("index.html", 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
-        f.write(f'''{auto_close_all_tags}''')
+        f.write(auto_close_all_tags)
