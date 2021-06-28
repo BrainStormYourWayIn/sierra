@@ -4,12 +4,12 @@
 
 Sierra is a Python3 templating library for web frameworks
 
-### Sierra makes skeletal integration with Flask easier and faster! See the examples below
+**Sierra makes skeletal integration with Flask easier and faster! See the examples below.**
 
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
 [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
 
-## The next release coming very soon will have major changes in the working mechanism and syntax revamps. See 'Upcoming' 
+**The next release coming very soon will have major changes in the working mechanism and syntax revamps. See 'Upcoming'**
 
 ________________________________
 
@@ -76,7 +76,7 @@ ________________________________
 
 ## Installation
 
-To download the library (pypi version):
+To download the library (PyPi Version):
 
     pip install sierra
 
@@ -96,25 +96,25 @@ ________________________________
 
 ## Upcoming
 
-##### We're working on making this a templating library for web frameworks. The next release will have major revamps to both the syntax and the working, including efficient handling of closing and opening tags, using div section and p tags, and addition of attributes to HTML tags among others
+We're working on making this a templating library for web frameworks. The next release will have major revamps to both the syntax and the working, including efficient handling of closing and opening tags, using div section and p tags, and addition of attributes to HTML tags among others
 
 ________________________________
 
 ## License
 
-   Copyright 2021 BrainStormYourWayIn
+Copyright 2021 BrainStormYourWayIn
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 > Pandas (pandas)
 > 
