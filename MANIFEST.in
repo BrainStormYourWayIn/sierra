@@ -1,5 +1,0 @@
-include src/sierra/*
-include README.md
-include changelog.md
-include LICENSE
-include pyproject.toml
