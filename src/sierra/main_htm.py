@@ -72,21 +72,21 @@ def code(codeblock):
     open("index.html", 'a+').write(f"<code>{codeblock}</code>")
 
 
-def head(Head, type='header', font_size=False, font_family="Arial", color='black', text_align='left', background_color=False, \
-        padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
+def head(Head, type='header', font_size=False, font_family="Arial", color='#000000', text_align='left', background_color='#FFFFFF', \
+        padding=False, height=False, width=False, line_break=False, line_height=False, border='0px', margin='0px'):
     """
     Args:
         Head (str, compulsory)           : Caption header.
         type (str, optional)             : Header Size. Anything from h1 to h6. Leave blank, if not valid. Defaults to 'header'.
-        color (str, optional)            : CSS Color (in hex code or name). Defaults to 'black'.
+        color (str, optional)            : CSS color (in any Valid way). Defaults to '#000000'.
         font_family (str, optional)      : CSS font-family. Defaults to Arial.
         text_align (str, optional)       : CSS text-align parameter. left|right|center|justify|initial|inherit. Defaults to 'left'.
         font_size (str, optional)        : CSS font-size parameter (in any valid measure). Leave blank, if not valid.
-        background_color (str, optional) : CSS background-color parameter. Defaults to 'white'.
+        background_color (str, optional) : CSS background-color parameter. Defaults to '#FFFFFF'.
         padding (str, optional)          : CSS padding parameter. Defaults to False.
-        height (str, optional)           : CSS Height parameter. Defaults to False.
-        width (str, optional)            : CSS Width parameter. Defaults to False.
-        line_break (str, optional)       : CSS Line-break parameter. Defaults to False.
+        height (str, optional)           : CSS height parameter. Defaults to False.
+        width (str, optional)            : CSS width parameter. Defaults to False.
+        line_break (str, optional)       : CSS line-break parameter. Defaults to False.
         line_height (str, optional)      : CSS line-height parameter. Defaults to False. 
         border (str, optional)           : CSS border parameter. Defaults to False.
         margin (str, optional)           : CSS margin parameter. Defaults to False.
@@ -119,9 +119,6 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
     margin: {margin};
 }}''')
 
-#* No hex accepted for color in head() if type is mentioned. RGB and normal eng works. Haven't tested other mediums.
-#TODO: Test other mediums for color in head() function.
-
 #def tags(openTags=False, closeTags=False, *args):
 #    if openTags == False and closeTags == False:
 #        pass
@@ -129,7 +126,7 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
 #        for arg in args:
 #            with open("index.html", 'a+'') as f
 
-class addImg():
+class Image():
     def __init__(self, src:str, href="False", alt="This is an image", img_class='False'):
         self.src = src
         self.href = href
@@ -148,10 +145,10 @@ class addImg():
             if not bool(self.href):
                 f.write(f'''\n<a href="{self.href}">''')
 
-            if not bool(self.img_class):
-                f.write(f'''\n<img src="{self.src}" alt="{self.alt}" class="{self.img_class}">''')
+            if bool(self.img_class):
+                f.write(f'\n<img src="{self.src}" alt="{self.alt}">')
             else:
-                f.write(f'''\n<img src="{self.src}" alt="{self.alt}">''')
+                f.write(f'\n<img src="{self.src}" alt="{self.alt}" class="{self.img_class}">')
 
             if not bool(self.href):
                 f.write('\n</a>')
