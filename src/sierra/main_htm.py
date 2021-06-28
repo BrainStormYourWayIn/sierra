@@ -126,7 +126,7 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='#0000
 #        for arg in args:
 #            with open("index.html", 'a+'') as f
 
-class Image():
+class image():
     def __init__(self, src:str, href="False", alt="This is an image", img_class='False'):
         self.src = src
         self.href = href
