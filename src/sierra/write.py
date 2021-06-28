@@ -1,4 +1,4 @@
-def writeWA(text):
+def writeHTML(text):
     """Writes the given text to the html file."""
 
     open("index.html", 'a+').write("\n" + text)
@@ -14,7 +14,7 @@ def writeCSS(tag, *args):
                 s.write(f"\n\t{parameter}: {value};")
         s.write("\n}")
 
-
+        
 def writeCSS_raw(CSS_text):
     """Writes the given code to the CSS file."""
 
