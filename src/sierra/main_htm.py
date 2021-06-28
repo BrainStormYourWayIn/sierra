@@ -1,5 +1,6 @@
 import warnings
 from bs4 import BeautifulSoup
+import traceback
 
 b = '<br>'
 
@@ -18,7 +19,7 @@ def title(Title, icon=False):
 <title>{Title}</title>
 <link rel="stylesheet" href="style.css">''')
 
-        if type(icon) == str and icon.split('.')[-1] == '.ico':
+        if all([type(icon) == str, icon.split('.')[-1] == '.ico']):
             f.write(f'''\n<link rel="shortcut icon" href={icon}>''')
 
     open('style.css', 'w').write('')
@@ -47,7 +48,8 @@ def href(link, text=None):
         text (str, optional)   : text for redirect. defaults to link
     """
     
-    if text == None: text = link
+    if text == None:
+        text = link
     with open('index.html', 'a+') as f:
         f.write(f'''<a href="{link}"> {text} </a>''')
  
@@ -70,7 +72,8 @@ def code(codeblock):
     open("index.html", 'a+').write(f"<code>{codeblock}</code>")
 
 
-def head(Head, type='header', font_size=False, font_family="Arial", color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
+def head(Head, type='header', font_size=False, font_family="Arial", color='black', text_align='left', background_color=False, \
+        padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
     """
     Args:
         Head (str, compulsory)           : Caption header.
@@ -133,18 +136,28 @@ class addImg():
         self.alt = alt
         self.img_class = img_class
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, tb):
+        if exc_type is not None:
+            traceback.print_exception(exc_type, exc_value, tb)
+
     def show(self):
         with open('index.html', 'a+') as f:
-            if self.href != "False":
+            if not bool(self.href):
                 f.write(f'''\n<a href="{self.href}">''')
-            if self.img_class != 'False':
+
+            if not bool(self.img_class):
                 f.write(f'''\n<img src="{self.src}" alt="{self.alt}" class="{self.img_class}">''')
             else:
                 f.write(f'''\n<img src="{self.src}" alt="{self.alt}">''')
-            if self.href != "False":
-                f.write("\n</a>")
 
-    def css(self, height='False', width='False', margin='False', vertical_align='False', display='False', border='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity='False', filter='False'):
+            if not bool(self.href):
+                f.write('\n</a>')
+
+    def css(self, height='False', width='False', margin='False', vertical_align='False', display='False', border='False',\
+            margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity=False, filter='False'):
         """
         Args:
             margin_top (str, optional)       : CSS image margin-top parameter. Defaults to 'False'.
@@ -156,14 +169,16 @@ class addImg():
             height (str, optional)           : CSS image height parameter. Defaults to False.
             width (str, optional)            : CSS image width parameter. Defaults to False.
             margin (str, optional)           : CSS image margin parameter. Defaults to False.
-            vertical_align (str, optional)   : CSS image vertical-align parameter. Defaults to False.
-            opacity (int/float, optional)    : CSS image opacity parameter. Defaults to 'False'.
-            filter (str, optional)           : CSS image filter parameter. Defaults to 'False'.
+            vertical-align (str, optional)   : CSS image vertical-align parameter. Defaults to False.
+            opacity (int/float, optional)    : CSS image opacity parameter. Defaults to False.
+            filter (str, optional)           : CSS image filter parameter. Defaults to False.
         """
 
         with open('style.css', 'a+') as s:
-            if self.img_class != 'False': s.write(f'''.{self.img_class} {{''')
-            else: s.write("img {")
+            if not bool(self.img_class):
+                s.write(f'''.{self.img_class} {{''')
+            else:
+                s.write('img {')
             s.write(f'''    margin-top: {margin_top};
     margin-bottom: {margin_bottom};
     margin-left: {margin_left};
@@ -178,6 +193,7 @@ class addImg():
     filter: {filter};
 }}''')
 
+
 def autoPrettify():
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
@@ -188,4 +204,4 @@ def autoPrettify():
     with open("index.html", 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
-        f.write(auto_close_all_tags)
+        open('index.html', 'w').write(auto_close_all_tags)
