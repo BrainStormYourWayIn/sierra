@@ -15,7 +15,7 @@ setup(
         "Documentation": "https://brainstormyourwayin.github.io/sierra.github.io/",
     },
     packages = find_packages(where="src"),
-    keywords = ["CSS", "HTML", "Web Development", "Templating", "Web Framework", "Python to HTML", "Python to CSS"],
+    keywords = ["CSS", "html", "web Development", "templating", "web framework", "python to html", "python to css", "jinja"],
     install_requires = ['pandas', 'bs4'],
     zip_safe = True,
     classifiers = [
