@@ -9,7 +9,7 @@ Sierra is a Python3 templating library for web frameworks
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
 [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
 
-## The next release will have major changes in the working and syntax revamps. See 'Upcoming' 
+## The next release coming very soon will have major changes in the working and syntax revamps. See 'Upcoming' 
 
 ________________________________
 
