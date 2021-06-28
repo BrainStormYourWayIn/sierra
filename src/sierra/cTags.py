@@ -12,8 +12,8 @@ class cTags():
         if exc_type is not None:
             traceback.print_exception(exc_type, exc_value, tb)
 
-    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color=False, \
-            background=False, margin_top=False, margin_bottom=False, margin_left=False, margin_right=False, border=False, \
+    def css(self, color='black', font_family='Arial', font_weight=False, text_align=False, font_size=False, background_color='white', \
+            background=False, margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', \
             display='block', padding=False, height=False, width=False, line_break=False, line_height=False, overflow=False, \
             margin=False, box_shadow=False):
         """
