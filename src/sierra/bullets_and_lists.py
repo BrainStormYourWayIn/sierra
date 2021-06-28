@@ -10,23 +10,23 @@ def addBullets(points, ul=False, start="1", type="False", inner=False):
     """
     
     if ul:
-        with open('index.html', 'a') as f:
+        with open('index.html', 'a+') as f:
             f.write(f'\n<ul type="{type}">\n')
             for point in points:
-                # with open('index.html', 'a') as f:
+                # with open('index.html', 'a+'') as f:
                 f.write(f'<li>{point}</li>\n')
         if not inner:
-            with open('index.html', 'a') as f:
+            with open('index.html', 'a+') as f:
                 f.write("</ul>")
     
     elif not ul:
-        with open('index.html', 'a') as f:
+        with open('index.html', 'a+') as f:
             f.write(f'\n<ol start="{start}" type="{type}">')
             for point in points:
-                # with open('index.html', 'a') as f:
+                # with open('index.html', 'a+'') as f:
                 f.write(f'''<li>{point}</li>\n''')
         if not inner:
-            with open('index.html', 'a') as f:
+            with open('index.html', 'a+') as f:
                 f.write("</ol>")
 
 def def_lists(def_list, *args):
@@ -37,21 +37,21 @@ def def_lists(def_list, *args):
         *args (compulsory)          : To use global, if required. Enter them within quotes, not comma-separated.
     """
 
-    open('index.html', 'a').write(f'''\n<dl''')
+    open('index.html', 'a+').write("\n<dl")
     for arg in args:
             b = ' ' + arg
-            with open('index.html', 'a') as f:
+            with open('index.html', 'a+') as f:
                 f.write(b)
 
-    open('index.html', 'a').write(">")
+    open('index.html', 'a+').write(">")
     for def_listings in def_list:
         for def_listing in def_listings[0]:
-            open('index.html', 'a').write(f'''\n<dt>{def_listing}</dt>''')
+            open('index.html', 'a+').write(f"\n<dt>{def_listing}</dt>")
 
         def_listings.remove(def_listings[0])
 
         for listings in def_listings:
             for listing in listings:
-                open('index.html', 'a').write(f'''\n<dd>{listing}</dd>''')
+                open('index.html', 'a+').write(f"\n<dd>{listing}</dd>")
 
-    open('index.html', 'a').write("\n</dl>")
+    open('index.html', 'a+').write("\n</dl>")
