@@ -1,10 +1,10 @@
 #Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
-
 #Copyright (c) 2011-2020, Open source contributors
 
 import traceback
 import pandas as pd
 
+# <class 'startTable'>
 class startTable():     
     def __enter__(self):
         return self
@@ -31,7 +31,7 @@ class startTable():
         else:
             open("index.html", 'a+').write(f'\n<table {attr}>')
 
-        open('index.html', 'a+').write(f"\n<tr>")
+        open('index.html', 'a+').write("\n<tr>")
         for col in heads:
             open("index.html", 'a+').write(f"\n<th>{col}</th>")
 
@@ -53,7 +53,6 @@ class startTable():
         """
         
         self.attr = attr
-
         df = pd.read_csv(dataframe)
         heads = list(df.columns)
         rows = df.values.tolist()
