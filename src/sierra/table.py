@@ -3,8 +3,18 @@
 #Copyright (c) 2011-2020, Open source contributors
 
 import pandas as pd
+import traceback
 
-class startTable():     
+class startTable():
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, tb):
+        if exc_type is not None:
+            traceback.print_exception(exc_type, exc_value, tb)
+        else:
+            open('index.html', 'a+').write("\n</section>")
+   
     def createTable(self, heads:list, rows:list, *args):
         """Creates a table out of lists.
         
@@ -15,7 +25,6 @@ class startTable():
         """
         
         open("index.html", 'a+').write('''\n<table''')
-        
         for arg in args:
             b = ' ' + arg
             open('index.html', 'a+').write(f"{b}")
@@ -62,7 +71,8 @@ class startTable():
         open("index.html", 'a+').write(f'''\n</table>''')
 
 
-    def css(self, border=False, width=False, height=False, border_collapse=False, color='black', font_family='Arial', font_weight=False, text_align='left', font_size=False, margin=False, background_color='white'):
+    def css(self, border=False, width=False, height=False, border_collapse=False, color='black', font_family='Arial', font_weight=False,\
+            text_align='left', font_size=False, margin=False, background_color='white'):
         """
         Args:
             border (str, optional)           : CSS border parameter. Defaults to False.
