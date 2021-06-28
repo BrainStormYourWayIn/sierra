@@ -94,7 +94,7 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
     if type and font_size:
         raise Exception("Only 1 of the following argument is accepted by head(): font_size or type.")
 
-    with open(f"index.html", 'a+') as f:
+    with open("index.html", 'a+') as f:
         f.write(f'''
 <{type}>{Head}</{type}>
 </head>''')
@@ -142,7 +142,7 @@ class addImg():
             else:
                 f.write(f'''\n<img src="{self.src}" alt="{self.alt}">''')
             if self.href != "False":
-                f.write(f'''\n</a>''')
+                f.write("\n</a>")
 
     def css(self, height='False', width='False', margin='False', vertical_align='False', display='False', border='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity='False', filter='False'):
         """
