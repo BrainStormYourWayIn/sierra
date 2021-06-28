@@ -1,4 +1,4 @@
-def writeHTML(text):
+def writeWA(text):
     """Writes the given text to the html file."""
 
     open("index.html", 'a+').write("\n" + text)
