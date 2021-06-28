@@ -27,7 +27,7 @@ class startTable():
         open("index.html", 'a+').write('''\n<table''')
         for arg in args:
             b = ' ' + arg
-            open('index.html', 'a+').write(f"{b}")
+            open('index.html', 'a+').write(b)
 
         open('index.html', 'a+').write(">")
         open('index.html', 'a+').write("\n<tr>")
@@ -60,15 +60,15 @@ class startTable():
 <table>
 <tr>''')
         for col in heads:
-            open("index.html", 'a+').write(f'''\n<th>{col}</th>''')
-        open("index.html", 'a+').write(f'''\n</tr>''')
+            open("index.html", 'a+').write(f'\n<th>{col}</th>')
+        open("index.html", 'a+').write(f'\n</tr>')
 
         for row in rows:
-            open("index.html", 'a+').write(f'''\n<tr>''')
+            open("index.html", 'a+').write(f'\n<tr>')
             for row_d in row:
-                open("index.html", 'a+').write(f'''\n<td>{row_d}</td>''')
-            open("index.html", 'a+').write(f'''\n</tr>''')
-        open("index.html", 'a+').write(f'''\n</table>''')
+                open("index.html", 'a+').write(f'\n<td>{row_d}</td>')
+            open("index.html", 'a+').write(f'\n</tr>')
+        open("index.html", 'a+').write(f'\n</table>')
 
 
     def css(self, border=False, width=False, height=False, border_collapse=False, color='black', font_family='Arial', font_weight=False,\
@@ -89,8 +89,10 @@ class startTable():
         """
         
         with open('style.css', 'a+') as s:
-            if self.id == 'False': s.write(f"\ntable {{")
-            else: s.write(f"\n#{self.id} {{")
+            if not bool(self.id):
+                s.write("\ntable {")
+            else:
+                s.write(f"\n#{self.id} {{")
              
             s.write(f'''    border: {border};
     width: {width};
