@@ -40,6 +40,12 @@ with open_tag('newTag') as t:
             with bullets(ul=True, points=['pt1', 'pt2']):
                 pass
             p('THIS IS SO EASY! Lesser code and more productivity!')
+            
+    with image(src='sierra.jpg'):
+        i.show()
+        i.css(opacity=1.2)
+            
+autoPrettify() 
         
 ```
 
