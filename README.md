@@ -2,14 +2,13 @@
 
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
-Sierra is a Python3 templating library for web frameworks
+Sierra is a Python3 micro templating library that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of it's powerful functionalities.   
+You can use this as an alternative to jinja or Django or another templating engine IF you're code doesn't involve JS, since Sierra doesn't natively support JS. If you do want to use this with JS, it has to be done manually.
 
-**Sierra makes skeletal integration with Flask easier and faster! See the examples below.**
 
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
 [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
 
-**The next release coming very soon will have major changes in the working mechanism and syntax revamps. See 'Upcoming'**
 
 ________________________________
 
@@ -115,12 +114,6 @@ ________________________________
 Use to upgrade the library:
 
     pip install --upgrade sierra
-
-________________________________
-
-## Upcoming
-
-We're working on making this a templating library for web frameworks. The next release will have major revamps to both the syntax and the working, including efficient handling of closing and opening tags, using div section and p tags, and addition of attributes to HTML tags among others
 
 ________________________________
 
