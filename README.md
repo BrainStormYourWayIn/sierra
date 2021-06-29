@@ -25,12 +25,29 @@ ________________________________
 
 Sierra can also be used standalone without Flask, if you like
 
+```
+from sierra import *
+
+title('The title goes here')
+head('Sierra!', type='h2', color="#0388fc")
+openBody()
+
+with open_tag('newTag') as t:
+    with div('someClass') as d:
+        p('Some text')
+        d.css(background_color='rgb(211, 111, 121)')
+        with section('anotherClass', "id='some_id'"):
+            with bullets(ul=True, points=['pt1', 'pt2']):
+                pass
+            p('THIS IS SO EASY! Lesser code and more productivity!')
+        
+```
+
 Using this with Flask makes life easier if you're developing web applications with just HTML and CSS. Adding JS is not supported by Sierra and has to be done manually, if desired
 
 ```python3
 from flask import Flask, render_template
 from sierra import *
-import os
 
 app = Flask(__name__)
 
@@ -70,6 +87,8 @@ if __name__ == '__main__':
 Of course, you can also define the functions in separate files and import it  
 
 The directory structure needs to be sorted out first before running this. Run the code outside of `templates/`.
+
+### See the [documentation](https://brainstormyourwayin.github.io/sierra.github.io/) for more!
 
 ________________________________
 
