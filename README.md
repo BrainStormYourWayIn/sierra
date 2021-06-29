@@ -25,7 +25,7 @@ ________________________________
 
 Sierra can also be used standalone without Flask, if you like
 
-```
+```python
 from sierra import *
 
 title('The title goes here')
