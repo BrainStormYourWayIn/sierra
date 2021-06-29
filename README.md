@@ -78,7 +78,7 @@ with open_tag('newTag') as t:
         with section('anotherClass', "id='some_id'"):
             with bullets(ul=True, points=['pt1', 'pt2']):
                 pass
-            p('THIS IS SO EASY! Lesser code and more productivity!')
+            p('This is a paragrah within a section, which is within a div tag')
 
     with image(src='sierra.jpg'):
         i.show()
