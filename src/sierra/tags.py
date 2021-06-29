@@ -8,9 +8,9 @@ class open_tag():
         self.attr = attr
 
         if self.attr == None:
-            open('index.html', 'a+').write(f"<{self.tag}>")
+            open("index.html", 'a+').write(f"<{self.tag}>")
         else:
-            open('index.html', 'a+').write(f"<{self.tag} {self.attr}>")
+            open("index.html", 'a+').write(f"<{self.tag} {self.attr}>")
 
     def __enter__(self):
         return self
@@ -19,7 +19,7 @@ class open_tag():
         if exc_type is not None:
             traceback.print_exception(exc_type, exc_value, tb)
         else:
-            open('index.html', 'a+').write(f"\n</{self.tag}>")
+            open("index.html", 'a+').write(f"\n</{self.tag}>")
 
     def css(self, color='black', font_family='Arial', font_weight=False, text_align='left', font_size=False, background_color='white', \
             background=False, margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', \
@@ -49,7 +49,7 @@ class open_tag():
             box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to False.
         """
 
-        with open('style.css', 'a+') as s:
+        with open("style.css", 'a+') as s:
             s.write(f'''
 {self.tag} {{
     color: {color};
@@ -78,7 +78,8 @@ class open_tag():
 
 def closeHTML():
     """Closes the <HTML> tag."""
-    open("index.html", 'a').write("\n</html>")
+    
+    open("index.html", 'a+').write("\n</html>")
 
 
 def openBody(background='False', background_color='white', background_image=False, opacity=False, background_size='cover',\
@@ -86,7 +87,7 @@ def openBody(background='False', background_color='white', background_image=Fals
     """Opens the body tag and adds the required CSS."""
     
     open("index.html", 'a+').write('\n<body>')
-    with open('style.css', 'a+') as s:
+    with open("style.css", 'a+') as s:
         s.write(f'''
 body {{
     background: {background};
@@ -101,5 +102,6 @@ body {{
 
 
 def closeBody():
-    """Closes the body tag"""
+    """Closes the body tag."""
+
     open("index.html", 'a+').write('\n</body>')
