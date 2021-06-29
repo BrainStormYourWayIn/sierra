@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
 Of course, you can also define the functions in separate files and import it  
 
-The directory structure needs to be sorted out first before running this. Run the code in `templates/`. In Sierra, the HTML and CSS files are automatically named `index.html` and `style.css` in the working directory, so you need to run `os.rename()`
+The directory structure needs to be sorted out first before running this. Run the code outside of `templates/`.
 
 ________________________________
 
