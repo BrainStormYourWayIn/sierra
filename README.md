@@ -40,7 +40,8 @@ def the_template():
     
 def bulleted_list():
     the_template()
-    with bullets(ul=True, points=['This', 'is', 'easy', 'stuff!'])
+    with bullets(ul=True, points=['This', 'is', 'easy', 'stuff!']):
+        pass
     autoPrettify()
     write_to_template('index1.html')
 
