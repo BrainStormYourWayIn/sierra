@@ -59,6 +59,9 @@ if __name__ == '__main__':
     app.run()
 ```
 
+Of course, you can also define the functions in separate files and import it.
+The directory structure needs to be sorted out first before running this. Run the code outside of `templates/`.
+
 Sierra can also be used standalone without Flask, like this:
 
 ```python
@@ -83,9 +86,6 @@ with open_tag('newTag') as t:
 
 autoPrettify() 
 ```
-
-Of course, you can also define the functions in separate files and import it.
-The directory structure needs to be sorted out first before running this. Run the code outside of `templates/`.
 
 ### See the [documentation](https://brainstormyourwayin.github.io/sierra.github.io/) for more
 
