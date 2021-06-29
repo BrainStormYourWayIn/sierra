@@ -3,23 +3,38 @@
 #Copyright (c) 2011-2020, Open source contributors
 
 import pandas as pd
+import traceback
 
 class startTable():     
-    def createTable(self, heads:list, rows:list, *args):
-        """Creates a table out of lists.
-        
-        Args:
-            heads (list, compulsory) : Adds table headers.
-            rows (list, compulsory)  : Takes in a list of lists, each list representing a row.
-            *args                    : To use global and event attributes, if required. Enter all of them within quotes, not comma-separated.
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, tb):
+        if exc_type is not None:
+            traceback.print_exception(exc_type, exc_value, tb)
+        else:
+            open('index.html', 'a+').write("\n</section>")
+
+    def createTable(self, heads:list, rows:list, attr=None):
         """
-        
-        open("index.html", 'a').write('''\n<table''')
-        for arg in args:
-            b = ' ' + arg
-            open('index.html', 'a').write(f"{b}")
-        open('index.html', 'a').write(">")
-        open('index.html', 'a').write("\n<tr>")
+        Creates a table out of lists
+        Args:
+        heads(list, compulsory): Adds table headers
+        rows(list, compulsory) : Takes in a list of lists, each list representing a row
+        attr(str, optional)    : Adds attributes to <table>
+
+        """
+        self.attr = attr
+
+        if self.attr == None:
+            with open("index.html", 'a') as f:
+                f.write('''\n<table>''')
+        else:
+            with open("index.html", 'a') as f:
+                f.write(f'''\n<table {attr}>''')
+
+        open('index.html', 'a').write(f"\n<tr>")
         for col in heads:
             open("index.html", 'a').write(f"\n<th>{col}</th>")
         open("index.html", 'a').write("\n</tr>")
@@ -28,24 +43,30 @@ class startTable():
             for row_d in row:
                 open("index.html", 'a').write(f"\n<td>{row_d}</td>")
             open("index.html", 'a').write("\n</tr>")
-        open("index.html", 'a').write(f"\n</table>")
+        open("index.html", 'a').write(f'''\n</table>''')
 
         
-    def getTable(self, dataframe:str):
-        """Displays .csv file as a HTML table.
-        
-        Args:
-            dataframe(str, compulsory): Link to the .csv file to display.
+    def getTable(self, dataframe:str, attr=None):
         """
-        
+        Displays .csv file as a HTML table
+        Args:
+        dataframe(str, compulsory): Link to the .csv file to display
+        attr(str, optional)    : Adds attributes to <table>
+
+        """
+        self.attr = attr
+
         df = df = pd.read_csv(dataframe)
         heads = list(df.columns)
         rows = df.values.tolist()
 
-        with open("index.html", 'a') as f:
-            f.write('''
-<table>
-<tr>''')
+        if self.attr == None:
+            with open("index.html", 'a') as f:
+                f.write('''\n<table>''')
+        else:
+            with open("index.html", 'a') as f:
+                f.write(f'''\n<table {attr}>''')
+
         for col in heads:
             open("index.html", 'a').write(f'''\n<th>{col}</th>''')
         open("index.html", 'a').write(f'''\n</tr>''')
@@ -73,10 +94,8 @@ class startTable():
         """
         
         with open('style.css', 'a') as s:
-            if self.id == 'False': s.write(f'''\ntable {{''')
-            else: s.write(f'''\n#{self.id} {{''')
-             
-            s.write(f'''    border: {border};
+            s.write(f'''\ntable {{
+    border: {border};
     width: {width};
     height: {height};
     border-collapse: {border_collapse};
