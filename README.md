@@ -40,18 +40,16 @@ def the_template():
     
 def bulleted_list():
     the_template()
-    abc = 'stuff!'
-    bullets = ['This', 'is', 'easy', abc]
-    addBullets(points=bullets)
+    with bullets(ul=True, points=['This', 'is', 'easy', 'stuff!'])
     autoPrettify()
-    os.rename('index.html', 'index1.html')
+    write_to_template('index1.html')
 
 def description_list():
     the_template()
     a = [[['coffee', 'tea'], ['black coffee', 'black tea']], [['new_coffee'], ['foo', 'tea', 'green_tea']]]
     def_lists(a)
     autoPrettify()
-    os.rename('index.html', 'index2.html')
+    write_to_template('index2.html')
 
 @app.route("/bulleted_list")
 def show_bulleted_list():
