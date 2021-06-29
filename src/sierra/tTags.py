@@ -5,16 +5,16 @@ class div():
         self.div_class = div_class
 
         if div_class == None:
-            with open('index.html', 'a+') as f:
+            with open("index.html", 'a+') as f:
                 f.write("\n<div")
         else:
-            with open('index.html', 'a+') as f:
+            with open("index.html", 'a+') as f:
                 f.write(f"\n<div class='{self.div_class}'")
 
         if attr != None:
-            open('index.html', 'a+').write(attr)
+            open("index.html", 'a+').write(attr)
 
-        open('index.html', 'a+').write(">")
+        open("index.html", 'a+').write(">")
 
     def __enter__(self):
         return self
@@ -23,7 +23,7 @@ class div():
         if exc_type is not None:
             traceback.print_exception(exc_type, exc_value, tb)
         else:
-            open('index.html', 'a+').write("\n</div>")
+            open("index.html", 'a+').write("\n</div>")
 
     def css(self, color='black', font_family='Arial', font_weight=False, text_align='left', font_size=False, background_color='white', \
             background=False, margin_top='0px', margin_bottom='0px', margin_left='0px', margin_right='0px', border='0px', display='block', \
@@ -53,7 +53,7 @@ class div():
             box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to False.
         """
 
-        with open('style.css', 'a+') as s:
+        with open("style.css", 'a+') as s:
             s.write(f'''
 .{self.div_class} {{
     color: {color};
@@ -85,16 +85,16 @@ class section():
         self.sec_class = sec_class
 
         if sec_class == None:
-            with open('index.html', 'a+') as f:
+            with open("index.html", 'a+') as f:
                 f.write("\n<section")
         else:
-            with open('index.html', 'a+') as f:
+            with open("index.html", 'a+') as f:
                 f.write(f"\n<section class='section {self.sec_class}'")
 
         if attr != None:
-            open('index.html', 'a+').write(f''' {attr}''')
+            open("index.html", 'a+').write(attr)
 
-        open('index.html', 'a+').write(">")
+        open("index.html", 'a+').write(">")
 
     def __enter__(self):
         return self
@@ -103,7 +103,7 @@ class section():
         if exc_type is not None:
             traceback.print_exception(exc_type, exc_value, tb)
         else:
-            open('index.html', 'a+').write("\n</section>")
+            open("index.html", 'a+').write("\n</section>")
 
     def css(self, color='black', font_family='Arial', font_weight='False', text_align='False', font_size='False', background_color='False', \
             background='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', border='False', \
@@ -135,7 +135,7 @@ class section():
             box_shadow (str, optional)       : CSS box-shadow parameter. Defaults to False.
         """
 
-        with open('style.css', 'a+') as s:
+        with open("style.css", 'a+') as s:
             s.write(f'''
 .{self.sec_class} {{
     color: {color};
@@ -163,13 +163,13 @@ class section():
 
 def p(text, attr=None):
     if attr != None:
-        with open('index.html', 'a+') as f:
+        with open("index.html", 'a+') as f:
             f.write(f'''
 <p {attr}>
 {text}
 </p>''')
     else:
-        with open('index.html', 'a+') as f:
+        with open("index.html", 'a+') as f:
             f.write(f'''
 <p>
 {text}
