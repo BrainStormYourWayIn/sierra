@@ -1,7 +1,8 @@
 import warnings
 from bs4 import BeautifulSoup
+import traceback
 
-b = ' <br> '
+br = ' <br> '
 
 def title(Title, icon=False):
     """
@@ -22,23 +23,10 @@ def title(Title, icon=False):
             f.write(f'''\n<link rel="shortcut icon" href={icon}>''')
     open('style.css', 'w').write('')
 
-def addInitc(box_sizing='False', margin=False, padding=False, border=False, position='relative'):
-    """Sets the tone of CSS.
 
-    Args:
-        box_sizing (str, optional)  : CSS box-sizing parameter. Defaults to 'False'.
-        margin (str, optional)      : CSS margin parameter. Defaults to False.
-        padding (str, optional)     : CSS padding parameter. Defaults to False.
-        border (str, optional)      : CSS border parameter. Defaults to False.
-        position (str, optional)    : CSS position parameter. Defaults to 'relative'.
-    """
-    
-    with open('style.css', 'a') as s:
-        s.write(f'''*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}''')
-
-def href(link:str, text:str):
-    with open('index.html', 'a') as f:
-        f.write(f'''<a href="{link}">{text}</a>''')
+# def href(link:str, text:str):
+#     with open('index.html', 'a+') as f:
+#         f.write(f'''\n<a href="{link}">{text}</a>''')
  
     
 def addFont(font_link):
@@ -51,22 +39,22 @@ def addFont(font_link):
     with open("index.html", 'a') as f:
         f.write(f'''\n<link href="{font_link}" rel="stylesheet">''')
 
-def code(codeblock):
-    """Give the codeblock as a text to display the code in your webpage.
+# def code(codeblock):
+#     """Give the codeblock as a text to display the code in your webpage.
 
-    Args:
-        codeblock (str, compulsory): The code block.
-    """
+#     Args:
+#         codeblock (str, compulsory): The code block.
+#     """
     
-    with open("index.html", 'a') as f:
-        f.write(f"<code>{codeblock}</code>")
+#     with open("index.html", 'a') as f:
+#         f.write(f"\n<code>{codeblock}</code>")
 
 def head(Head, type='header', font_size=False, font_family="Arial", color='black', text_align='left', background_color=False, padding=False, height=False, width=False, line_break=False, line_height=False, border=False, margin=False):
     """
     Args:
         Head (str, compulsory)           : Caption header.
         type (str, optional)             : Header Size. Anything from h1 to h6. Leave blank, if not valid. Defaults to 'header'.
-        color (str, optional)            : CSS Color (in hex code or name). Defaults to 'black'.
+        color (str, optional)            : CSS Color (in any color code or name). Defaults to 'black'.
         font_family (str, optional)      : CSS font-family. Defaults to Arial.
         text_align (str, optional)       : CSS text-align parameter. left|right|center|justify|initial|inherit. Defaults to 'left'.
         font_size (str, optional)        : CSS font-size parameter (in any valid measure). Leave blank, if not valid.
@@ -113,48 +101,30 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='black
             #print("Only type or font_size accepted in head()")
         
 
-#head('nothing more', 'h5', False, 'rgb(50, 168, 82)', 'Arial', 'center')
-#head('nothing more', False, False, False, False, False)
-# No hex accepted for color in head(). RGB and normal eng works.
-# If arguments font_size and type are passed, font_size seems to be given preference CSS
 
-
-# In head(), color must have black as default. 
-# In head(), type OR font_size are required arguments. At least one of them must be passed. 
-# Warn the users that if arguments font_size and type, both are passed, font_size seems to be given preference by CSS.
-# But, at least one argument MUST be passed.
-# No hex accepted for color in head() if type is mentioned. RGB and normal eng works. Haven't tested other mediums.
-# In title(), default value of ico and css_bool are False. 
-# Also in title(), icon argument MUST be a .ico file. Check if the last 4 letters are '.ico'
-# In head() in the argument font_family, the users MUST enter it in double quotes. Typically, it can be something like
-# check soup.a.prettify()
-
-# def tags(openTags=False, closeTags=False, *args):
-#     if openTags == False and closeTags == False:
-#         pass
-#     elif openTags == False and closeTags == True:
-#         for arg in args:
-#             with open("index.html", 'a') as f
-
-class addImg():
-    def __init__(self, src:str, href="False", alt="This is an image", img_class='False'):
+class image():
+    def __init__(self, src:str, attr=None):
         self.src = src
-        self.href = href
-        self.alt = alt
-        self.img_class = img_class
+        self.attr = attr
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, tb):
+        if exc_type is not None:
+            traceback.print_exception(exc_type, exc_value, tb)
 
     def show(self):
+        """
+        Display the image
+        """
         with open('index.html', 'a') as f:
-            if self.href != "False":
-                f.write(f'''\n<a href="{self.href}">''')
-            if self.img_class != 'False':
-                f.write(f'''\n<img src="{self.src}" alt="{self.alt}" class="{self.img_class}">''')
+            if self.attr == None:
+                f.write(f'''\n<img src="{self.src}">''')
             else:
-                f.write(f'''\n<img src="{self.src}" alt="{self.alt}">''')
-            if self.href != "False":
-                f.write(f'''\n</a>''')
+                f.write(f'''\n<img src="{self.src}" {self.attr}>''')
 
-    def css(self, height='False', width='False', margin='False', vertical_align='False', display='False', border='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity=False, filter='False'):
+    def css(self, height='False', width='False', margin='False', vertical_align='False', display='False', border='False', margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity='False', filter='False'):
         """
         Args:
             margin_top (str, optional)       : CSS image margin-top parameter. Defaults to 'False'.
@@ -172,11 +142,8 @@ class addImg():
         """
 
         with open('style.css', 'a') as s:
-            if self.img_class != 'False':
-                s.write(f'''.{self.img_class} {{''')
-            else:
-                s.write(f'''img {{''')
-            s.write(f'''    margin-top: {margin_top};
+            s.write(f'''\nimg {{
+    margin-top: {margin_top};
     margin-bottom: {margin_bottom};
     margin-left: {margin_left};
     margin-right: {margin_right};
@@ -190,12 +157,14 @@ class addImg():
     filter: {filter};
 }}''')
 
+
+
 def autoPrettify():
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
-    warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended. Further development may run into issues. Please close tags manually if unsure.
-    It is recommended to use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(2))
-    
+    warnings.showwarning(r'''Auto prettifying also involves auto closing unclosed HTML tags which may not be accurate if not used after development is complete. 
+    Use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(186))
+    # check_unclosed()
     with open("index.html", 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
