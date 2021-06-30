@@ -59,7 +59,7 @@ def bulleted_and_des_list():
     
     with div(div_class='description_list'):       # Creating div
         a = [[['coffee', 'tea'], ['black coffee', 'black tea']], [['new_coffee'], ['foo', 'tea', 'green_tea']]]
-        def_lists(a)
+        des_lists(a)        # Displaying a description list
         
         with section(sec_class='unorder_list') as s:    # Creating section inside div
             ul_list = ['This', 'is', 'an', 'ul']        # Creating ann unordered list
