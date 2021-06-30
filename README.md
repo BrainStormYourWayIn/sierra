@@ -100,9 +100,11 @@ head('Sierra!', type='h2', color="#0388fc")
 openBody()
 
 with open_tag('newTag') as t:       # Opening a tag 'newTag'
+
     with div('someClass') as d:     # Creating a div within  'newTag'
         p('Some text')                   # Adding a paragraph
         d.css(background_color='rgb(211, 111, 121)')          # Adding CSS to the div
+        
         with section('anotherClass', "id='some_id'"):         # Creating section within the div within 'newTag'
             with bullets(ul=True, points=['pt1', 'pt2']):
                 pass
