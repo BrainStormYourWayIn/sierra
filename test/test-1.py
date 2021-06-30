@@ -1,17 +1,10 @@
-# Please view sierra/test/test.py for updated code
-# Please read the documentation for importing
-
 # -*- coding: utf-8 -*-
 import webbrowser
 from sierra import *
 
 # Driver
 if __name__ == "__main__":
-    #title('Test')
-    #head('This is the header', '20px', 'Arial')
-    #AutoPrettify()
     title('nothing')
-    #addInitc()
     head('nothing more', font_size='90px', color='blue', text_align='center', background_color='orange')
     openBody(background_color='green', opacity=0.8)
     
