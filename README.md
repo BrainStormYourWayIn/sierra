@@ -106,7 +106,7 @@ with open_tag('newTag') as t:       # Opening a tag 'newTag'
         with section('anotherClass', "id='some_id'"):         # Creating section within the div within 'newTag'
             with bullets(ul=True, points=['pt1', 'pt2']):
                 pass
-            p('This is a paragrah within a section, which is within a div tag')
+            p('This is a paragrah within a section, which is within a div tag and comes afer the ul')
 
     with image(src='sierra.jpg'):    
         i.show()                        # Displaying an image
