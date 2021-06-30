@@ -1,39 +1,26 @@
-# Please read the documentation for importing
 from sierra import *
 
-title('nothing')
-#addInitc()
-head('nothing more', font_size='90px', color='blue', text_align='center', background_color='orange')
-openBody(background_color='green', opacity=0.8)
-    
-x = tTags(True)
-x.start_p("I'm sure about this man")
-x.css(color='red', background_color='orange', line_height='25px')
-closeTags('p')
+title('The title goes here')
+head('Sierra!', type='h2', color="#0388fc")
+openBody()
 
-x = tTags(div_class='newClass')
-x.start_div()
-x.css(color='yellow', font_family='Times New Roman', background_color='blue')
+with open_tag('newTag') as t:           # Opening a tag 'newTag'
 
-writeHTML("I'm REALLY" + b + "sure of this")
-closeTags('div')
+    with div('someClass') as d:         # Creating a div within  'newTag'
+        p('Some text')                  # Adding a paragraph
+        d.css(background_color='rgb(211, 111, 121)')            # Adding CSS to the div
+        
+        with section('anotherClass', "id='some_id'"):           # Creating section within the div within 'newTag'
+            with startTable() as st:
+                st.getTable(/path/to/file.csv, attr="id='table_id'")     # Displaying a table from a CSV and giving it an id
+                
+                with cTags('#table_id') as t:                   # Adding CSS from the table id
+                    t.css(font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='20%')
+                    
+            p('This is a paragrah within a section, which is within a div tag and comes afer the table')
 
-s_class = 'anotherClass'
-x = tTags(sec_class=s_class)
-x.start_sec()
-x.css(color='whitesmoke', background_color='rgb(35, 51, 89)')
+    with image(src='sierra.jpg'):    
+        i.show()                        # Displaying an image
+        i.css(opacity=1.2)              # Adding CSS to it
 
-writeHTML("I'm defo" + b + "sure of this")
-closeTags('section')
-
-a = startTable()
-c = ['england', 'best', 'six', 'euros']
-r1 = ['kane', 'grealish', 'sancho', 'sterling']
-r2 = ['foden', 'mount', 'bellingham', 'reece']
-r3 = ['trippier', 'stones', 'walker', 'coady']
-a.createTable(cols=c, r1, r2, r3)
-#a.getTable("path\to\csv\file.csv")
-    
-closeBody()
-closeHTML()
-autoPrettify()
+autoPrettify() 
