@@ -36,11 +36,13 @@ def img_map():
     the_template()
     with div(None, attr="id='div_id'"):             # Creating a <div> with id='div_id'
     
-        with image(src='workplace.jpg', attr="usemap='#workmap'") as i:
-        i.show()
-        i.css(opacity=1.7)
+        with image(src='workplace.jpg', attr="usemap='#workmap'") as i:  # Loading an image and giving it attr usemap
+        i.show()                # Displaying the image
+        i.css(opacity=1.7)      # Adding CSS to it
 
-        with open_tag('map', attr='name="workmap"'):       # Creating an image map
+        with open_tag('map', attr='name="workmap"'):       # Creating an image map which performs different actions
+                                                           # based on where it is clicked, which is determined by
+                                                           # specific shapes and coordinates on the image
             shape = ['rect', 'rect', 'circle']
             coords = ["34,44,270,350", "290,172,333,250", "337,300,44"]
             alt = ['Computer', 'Phone', 'Coffee']
@@ -106,9 +108,13 @@ with open_tag('newTag') as t:       # Opening a tag 'newTag'
         d.css(background_color='rgb(211, 111, 121)')          # Adding CSS to the div
         
         with section('anotherClass', "id='some_id'"):         # Creating section within the div within 'newTag'
-            with bullets(ul=True, points=['pt1', 'pt2']):
-                pass
-            p('This is a paragrah within a section, which is within a div tag and comes afer the ul')
+            with startTable() as st:
+                st.getTable(/path/to/file.csv, attr="id='table_id'")     # Displaying a table from a CSV and giving it an id
+                
+                with cTags('#table_id') as t:          # Adding CSS from the table id
+                    t.css(font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='20%')
+                    
+            p('This is a paragrah within a section, which is within a div tag and comes afer the table')
 
     with image(src='sierra.jpg'):    
         i.show()                        # Displaying an image
