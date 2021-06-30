@@ -46,7 +46,9 @@ def img_map():
             alt = ['Computer', 'Phone', 'Coffee']
             href = ['computer.htm', 'phone.htm', 'coffee.htm']
 
-            for shape, coord, alt, href in zip(shapes, coords, alt, href):       # Using for loop to make things faster (see doc)
+              # Using lists and for loop to make the shape and coordinate mapping faster (see doc)
+
+            for shape, coord, alt, href in zip(shapes, coords, alt, href):       
                 with open_tag('area', attr=f'shape="{shape}" coord="{coord}" alt="{alt}" href="{href}"'):
                     pass
                     
@@ -58,11 +60,13 @@ def bulleted_and_des_list():
     the_template()
     
     with div(div_class='description_list'):       # Creating div
+    
         a = [[['coffee', 'tea'], ['black coffee', 'black tea']], [['new_coffee'], ['foo', 'tea', 'green_tea']]]
-        des_lists(a)        # Displaying a description list
+                    # Displaying a description list
+        des_lists(a)        
         
         with section(sec_class='unorder_list') as s:    # Creating section inside div
-            ul_list = ['This', 'is', 'an', 'ul']        # Creating ann unordered list
+            ul_list = ['This', 'is', 'an', 'ul']        # Creating an unordered list
             with bullets(ul=True, points=ul_list):      # Displaying it
                 pass        
         
