@@ -9,6 +9,8 @@ You can use this as an alternative to jinja or Django or another templating engi
 [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
 
+Use `pip install --upgrade sierra` to upgrade
+
 ________________________________
 
 ## Documentation
