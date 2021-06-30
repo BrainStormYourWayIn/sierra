@@ -28,32 +28,55 @@ from sierra import *
 
 app = Flask(__name__)
 
-def the_template():
+def the_template():                              # Creating a simple template
     title('bulleted_and_description_lists')
     head('this is a bulleted list')
 
-def bulleted_list():
+def img_map():
     the_template()
-    with bullets(ul=True, points=['This', 'is', 'easy', 'stuff!']):
-        pass
-    autoPrettify()
-    write_to_template('index1.html')
+    with div(None, attr="id='div_id'"):             # Creating a <div> with id='div_id'
+    
+        with image(src='workplace.jpg', attr="usemap='#workmap'") as i:
+        i.show()
+        i.css(opacity=1.7)
 
-def description_list():
+        with open_tag('map', attr='name="workmap"'):       # Creating an image map
+            shape = ['rect', 'rect', 'circle']
+            coords = ["34,44,270,350", "290,172,333,250", "337,300,44"]
+            alt = ['Computer', 'Phone', 'Coffee']
+            href = ['computer.htm', 'phone.htm', 'coffee.htm']
+
+            for shape, coord, alt, href in zip(shapes, coords, alt, href):       # Using for loop to make things faster (see doc)
+                with open_tag('area', attr=f'shape="{shape}" coord="{coord}" alt="{alt}" href="{href}"'):
+                    pass
+                    
+    autoPrettify()       
+    write_to_template('index1.html')
+    
+
+def bulleted_and_des_list():
     the_template()
-    a = [[['coffee', 'tea'], ['black coffee', 'black tea']], [['new_coffee'], ['foo', 'tea', 'green_tea']]]
-    def_lists(a)
+    
+    with div(div_class='description_list'):       # Creating div
+        a = [[['coffee', 'tea'], ['black coffee', 'black tea']], [['new_coffee'], ['foo', 'tea', 'green_tea']]]
+        def_lists(a)
+        
+        with section(sec_class='unorder_list') as s:    # Creating section inside div
+            ul_list = ['This', 'is', 'an', 'ul']        # Creating ann unordered list
+            with bullets(ul=True, points=ul_list):      # Displaying it
+                pass        
+        
     autoPrettify()
     write_to_template('index2.html')
 
-@app.route("/bulleted_list")
-def show_bulleted_list():
-    bulleted_list()
+@app.route("/img_map")
+def show_img_map():
+    img_map()
     return render_template('index1.html')
 
-@app.route("/description_list")
-def show_description_list():
-    description_list()
+@app.route("/bulleted_and_des_list")
+def show_bulleted_and_des_list()():
+    bulleted_and_des_list()()
     return render_template('index2.html')
 
 if __name__ == '__main__':
@@ -72,18 +95,18 @@ title('The title goes here')
 head('Sierra!', type='h2', color="#0388fc")
 openBody()
 
-with open_tag('newTag') as t:
-    with div('someClass') as d:
-        p('Some text')
-        d.css(background_color='rgb(211, 111, 121)')
-        with section('anotherClass', "id='some_id'"):
+with open_tag('newTag') as t:       # Opening a tag 'newTag'
+    with div('someClass') as d:     # Creating a div within  'newTag'
+        p('Some text')                   # Adding a paragraph
+        d.css(background_color='rgb(211, 111, 121)')          # Adding CSS to the div
+        with section('anotherClass', "id='some_id'"):         # Creating section within the div within 'newTag'
             with bullets(ul=True, points=['pt1', 'pt2']):
                 pass
             p('This is a paragrah within a section, which is within a div tag')
 
-    with image(src='sierra.jpg'):
-        i.show()
-        i.css(opacity=1.2)
+    with image(src='sierra.jpg'):    
+        i.show()                        # Displaying an image
+        i.css(opacity=1.2)              # Adding CSS to it
 
 autoPrettify() 
 ```
