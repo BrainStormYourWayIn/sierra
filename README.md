@@ -40,8 +40,8 @@ def img_map():
     
         with image(src='workplace.jpg', attr="usemap='#workmap'") as i:  
            # Loading an image and giving it attr usemap
-        i.show()                # Displaying the image
-        i.css(opacity=1.7)      # Adding CSS to it
+            i.show()                # Displaying the image
+            i.css(opacity=1.7)      # Adding CSS to it
 
         with open_tag('map', attr='name="workmap"'):  
         
