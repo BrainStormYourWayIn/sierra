@@ -40,9 +40,12 @@ def img_map():
         i.show()                # Displaying the image
         i.css(opacity=1.7)      # Adding CSS to it
 
-        with open_tag('map', attr='name="workmap"'):       # Creating an image map which performs different actions
-                                                           # based on where it is clicked, which is determined by
-                                                           # specific shapes and coordinates on the image
+        with open_tag('map', attr='name="workmap"'):  
+        
+          # Creating an image map which performs different actions
+          # based on where it is clicked, which is determined by
+          # specific shapes and coordinates on the image
+        
             shape = ['rect', 'rect', 'circle']
             coords = ["34,44,270,350", "290,172,333,250", "337,300,44"]
             alt = ['Computer', 'Phone', 'Coffee']
