@@ -2,7 +2,7 @@
 
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
-Sierra is a library for building web applications in HTML and CSS purely in Python, which lets to take advantage of its powerful functionalities. It is also a micro templating library that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of it's powerful functionalities.   
+Sierra is a library for building web applications in HTML and CSS purely in Python, which lets to take advantage of its powerful functionalities. It can also be used as a micro templating library that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of it's powerful functionalities.   
 
 This could be used as an alternative to Dominate
 
