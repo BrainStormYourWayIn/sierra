@@ -133,6 +133,35 @@ with open_tag('newTag') as t:       # Opening a tag 'newTag'
 autoPrettify() 
 ```
 
+Here's a function to scrape all text within the p tag from the source code of a URL using requests:
+    
+```
+
+import re
+import requests
+from sierra import *
+    
+def ExtractpText(url):
+
+    http = urllib3.PoolManager()
+    req = http.request('GET', url)
+    respData = RemoveThrashText(str(req.data))
+    regex = '<p>(.*?)</p>'
+    paragraphs = re.findall(regex, respData)
+    return paragraph
+
+# Displaying it on the web application
+
+title('Extracting text from the p tag given a URL')
+openBody()
+
+writeWA("\n"ExtractpText("http://example.com/"))
+
+autoPrettify()
+
+```
+
+
 ### See the [documentation](https://brainstormyourwayin.github.io/sierra.github.io/) for more
 
 ________________________________
