@@ -95,8 +95,8 @@ def show_img_map():
     return render_template('index1.html')
 
 @app.route("/bulleted_and_des_list")
-def show_bulleted_and_des_list()():
-    bulleted_and_des_list()()
+def show_bulleted_and_des_list():
+    bulleted_and_des_list()
     return render_template('index2.html')
 
 if __name__ == '__main__':
