@@ -2,10 +2,10 @@
 
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
-Sierra is a Python3 micro templating library that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of it's powerful functionalities.
+Sierra is a library for building web applications in HTML and CSS purely in Python, which lets to take advantage of its powerful functionalities. It is also a micro templating library that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of it's powerful functionalities.   
 You can use this as an alternative to jinja or Django or another templating engine IF you're code doesn't involve JS, since Sierra doesn't natively support JS. If you do want to use this with JS, it has to be done manually.
 
-We got features like displaying a table on the web application by loading in a .csv file, adding a bulleted list (ol/ul) by just passing in a Python list, automatic support for CSS styling arguments and more! You can use for loops, variables, functions - you name it, you have it, with Sierra. Harness the power of Python for your web applications!
+It's got features like displaying a table on the web application by loading in a .csv file, adding a bulleted list (ol/ul) by just passing in a Python list, automatic support for CSS styling arguments and more! You can use for loops, variables, functions - you name it, you have it, with Sierra. Harness the power of Python for your web applications!
 
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
 [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
