@@ -135,7 +135,7 @@ autoPrettify()
 
 Here's a function to scrape all text within the p tag from the source code of a URL using requests:
     
-```
+```python3
 
 import re
 import requests
