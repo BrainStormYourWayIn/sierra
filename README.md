@@ -146,11 +146,11 @@ import re
 import requests
 from sierra import *
     
-def ExtractpText(url):
+def extractpText(url):
 
     http = urllib3.PoolManager()
     req = http.request('GET', url)
-    respData = RemoveThrashText(str(req.data))
+    respData = remove_thrash_text(str(req.data))    # remove_thrash_text() is a func that removes certain text that is not required for use   
     regex = '<p>(.*?)</p>'
     paragraphs = re.findall(regex, respData)
     return paragraph
@@ -160,7 +160,7 @@ def ExtractpText(url):
 title('Extracting text from the p tag given a URL')
 openBody()
 
-writeWA("\n"ExtractpText("http://example.com/"))
+writeWA("\n"extractpText("http://example.com/"))
 
 autoPrettify()
 
