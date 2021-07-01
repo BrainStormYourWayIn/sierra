@@ -8,7 +8,7 @@ This could be used as an alternative to Dominate
 
 You can also use this as an alternative to jinja or Django or another templating engine IF you're code doesn't involve JS, since Sierra doesn't natively support JS. If you do want to use this with JS, it has to be done manually.
 
-It's got features like displaying a table on the web application by loading in a .csv file, adding a bulleted list (ol/ul) by just passing in a Python list, automatic support for CSS styling arguments and more! You can use for loops, variables, functions - you name it, you have it, with Sierra. Harness the power of Python for your web applications!
+It's got features like displaying a table on the web application by loading in a .csv file, adding a bulleted list (ol/ul) by just passing in a Python list, automatic support for CSS styling arguments and more! You can use for loops, variables, functions - you name it, you have it, with Sierra. Better handling of tags and improvement in the overall look of the code with `autoPrettify()`, a feature like no other. Harness the power of Python for your web applications!
 
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
 [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
