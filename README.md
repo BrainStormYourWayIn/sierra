@@ -196,11 +196,11 @@ ________________________________
 ### Contact Us at brainstormyourwayin@gmail.com
 ________________________________
 
-**It featured on the [Python Weekly Newsletter Issue 505](https://newsletterest.com/message/62517/Python-Weekly-Issue-505) just 2 weeks into the first release**
+**It featured on the [!Python Weekly Newsletter Issue 505](https://newsletterest.com/message/62517/Python-Weekly-Issue-505) just 2 weeks into the first release**
 
-**It got mentioned by [AwesomePython](https://pythonawesome.com/a-python-framework-for-building-and-integrating-web-app/)**
+**It got mentioned by [!AwesomePython](https://pythonawesome.com/a-python-framework-for-building-and-integrating-web-app/)**
 
-**...and [got tweeted out by PythonHub on Twitter](https://twitter.com/pythonhub/status/1409727123888259073), which has about 75k followers**
+**...and [!got tweeted out by PythonHub on Twitter](https://twitter.com/pythonhub/status/1409727123888259073), which has about 75k followers**
 
 All in just the first three weeks of releasing the first version of Sierra
 
