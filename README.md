@@ -193,6 +193,8 @@ To upgrade the library:
     pip install --upgrade sierra
 
 ________________________________
+### Contact Us at brainstormyourwayin@gmail.com
+________________________________
 
 ## License
 
