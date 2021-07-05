@@ -75,7 +75,7 @@ def bulleted_and_des_list():
         # Displaying a description list
         des_lists(a)
 
-        with section(sec_class='unorder_list') as s:    # Creating section inside div
+        with section(sec_class='unordered_list') as s:    # Creating section inside div
             ul_list = ['This', 'is', 'an', 'ul']        # Creating an unordered list
             with bullets(ul=True, points=ul_list):      # Displaying it
                 pass        
@@ -89,8 +89,8 @@ def show_img_map():
     return render_template('index1.html')
 
 @app.route("/bulleted_and_des_list")
-def show_bulleted_and_des_list()():
-    bulleted_and_des_list()()
+def show_bulleted_and_des_list():
+    bulleted_and_des_list()
     return render_template('index2.html')
 
 if __name__ == '__main__':
