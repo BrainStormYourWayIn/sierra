@@ -187,6 +187,15 @@ To upgrade the library:
     pip install --upgrade sierra
 
 ________________________________
+
+### Upcoming:
+
+- `get_input()` for input tags
+- Support for Close-on-Close tags (like <area>)
+- Support for HTML forms
+- Improved `write_to_template()`
+
+________________________________
 ### Contact Us at brainstormyourwayin@gmail.com
 ________________________________
 
