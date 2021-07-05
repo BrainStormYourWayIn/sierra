@@ -147,7 +147,7 @@ def extractpText(url):
 
     http = urllib3.PoolManager()
     req = http.request('GET', url)
-    respData = remove_thrash_text(str(req.data))    # remove_thrash_text() is a func that removes certain text that is not required for use   
+    respData = str(req.data)    
     regex = '<p>(.*?)</p>'
     paragraphs = re.findall(regex, respData)
     return paragraph
@@ -157,7 +157,12 @@ def extractpText(url):
 title('Extracting text from the p tag given a URL')
 openBody()
 
-writeWA("\n"extractpText("http://example.com/"))
+with open_tag('pre'):           # Showing the output within the <pre> tag
+    writeWA(f'''
+    All following text appears within the <p> tag of 'http://example.com':
+    {extractpText("http://example.com/")}
+    ''')
+
 
 autoPrettify()
 
