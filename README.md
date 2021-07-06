@@ -99,7 +99,7 @@ if __name__ == '__main__':
 Here with `write_to_template()`, you can name your HTML file and call the function which takes only that argument to write the file into the 
 `templates/` folder.    
 
-Move `style.css` manually into the `templates/` folder and voila!   
+Move `style.css` manually into the desired folder and voila!   
 
 Of course, you can also define the functions in separate files and import it.   
 The directory structure needs to be sorted out first before running this. Run the code outside of `templates/`.
