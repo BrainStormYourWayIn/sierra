@@ -54,10 +54,12 @@ def img_map():
             # Creating an image map which performs different actions
             # based on where it is clicked, which is determined by
             # specific shapes and coordinates on the image
+            
             shape = ['rect', 'rect', 'circle']
             coords = ["34,44,270,350", "290,172,333,250", "337,300,44"]
             alt = ['Computer', 'Phone', 'Coffee']
             href = ['computer.htm', 'phone.htm', 'coffee.htm']
+            
             # Using lists and for loop to make the shape and coordinate mapping faster (see doc)
 
             for shape, coord, alt, href in zip(shape, coords, alt, href):
