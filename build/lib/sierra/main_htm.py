@@ -2,7 +2,7 @@ import warnings
 from bs4 import BeautifulSoup
 import traceback
 
-b = '<br>'
+br = '<br>'
 
 def title(Title, icon=False):
     """
@@ -25,35 +25,6 @@ def title(Title, icon=False):
     open("style.css", 'w').write('')
 
 
-def addInitc(box_sizing='False', margin=False, padding=False, border=False, position='relative'):
-    """Sets the tone of CSS.
-
-    Args:
-        box_sizing (str, optional) : CSS box-sizing parameter. Defaults to 'False'.
-        margin (str, optional)     : CSS margin parameter. Defaults to False.
-        padding (str, optional)    : CSS padding parameter. Defaults to False.
-        border (str, optional)     : CSS border parameter. Defaults to False.
-        position (str, optional)   : CSS position parameter. Defaults to 'relative'.
-    """
-
-    with open("style.css", 'a+') as s:
-        s.write(f"*,*:before,*:after {{box-sizing:{box_sizing};margin:{margin}; padding:{padding}; border:{border}; position: {position};}}")
-
-
-def href(link, text=None):
-    """Adds href to a text.
-
-    Args:
-        link (str, compulsory) : link for href
-        text (str, optional)   : text for redirect. defaults to link
-    """
-
-    if text == None:
-        text = link
-    with open("index.html", 'a+') as f:
-        f.write(f'''<a href="{link}"> {text} </a>''')
-
-
 def addFont(font_link):
     """Give the font link to add different fonts to your webpage.
 
@@ -61,16 +32,6 @@ def addFont(font_link):
         font_link (str, compulsory): The font link.
     """
     open("index.html", 'a+').write(f'''<link href="{font_link}" rel="stylesheet">''')
-
-
-def code(codeblock):
-    """Give the codeblock as a text to display the code in your webpage.
-
-    Args:
-        codeblock (str, compulsory): The code block.
-    """
-
-    open("index.html", 'a+').write(f"<code>{codeblock}</code>")
 
 
 def head(Head, type='header', font_size=False, font_family="Arial", color='#000000', text_align='left', background_color='#FFFFFF', \
@@ -128,11 +89,9 @@ def head(Head, type='header', font_size=False, font_family="Arial", color='#0000
 #            with open("index.html", 'a+'') as f
 
 class image():
-    def __init__(self, src:str, href="False", alt="This is an image", img_class='False'):
+    def __init__(self, src:str, attr=None):
         self.src = src
-        self.href = href
-        self.alt = alt
-        self.img_class = img_class
+        self.attr = attr
 
     def __enter__(self):
         return self
@@ -142,20 +101,18 @@ class image():
             traceback.print_exception(exc_type, exc_value, tb)
 
     def show(self):
-        with open("index.html", 'a+') as f:
-            if not bool(self.href):
-                f.write(f'''\n<a href="{self.href}">''')
-
-            if bool(self.img_class):
-                f.write(f'\n<img src="{self.src}" alt="{self.alt}">')
+        """
+        Display the image
+        """
+        with open('index.html', 'a') as f:
+            if self.attr == None:
+                f.write(f'''\n<img src="{self.src}">''')
             else:
-                f.write(f'\n<img src="{self.src}" alt="{self.alt}" class="{self.img_class}">')
+                f.write(f'''\n<img src="{self.src}" {self.attr}>''')
 
-            if not bool(self.href):
-                f.write('\n</a>')
-
-    def css(self, height='False', width='False', margin='False', vertical_align='False', display='False', border='False',\
-            margin_top='False', margin_bottom='False', margin_left='False', margin_right='False', opacity=False, filter='False'):
+    def css(self, 
+            height='False', width='False', margin='False', vertical_align='False', display='False', border='False', margin_top='False', margin_bottom='False', 
+            margin_left='False', margin_right='False', opacity='False', filter='False'):
         """
         Args:
             margin_top (str, optional)       : CSS image margin-top parameter. Defaults to 'False'.
@@ -172,12 +129,9 @@ class image():
             filter (str, optional)           : CSS image filter parameter. Defaults to False.
         """
 
-        with open("style.css", 'a+') as s:
-            if not bool(self.img_class):
-                s.write(f'''.{self.img_class} {{''')
-            else:
-                s.write('img {')
-            s.write(f'''    margin-top: {margin_top};
+        with open('style.css', 'a') as s:
+            s.write(f'''\nimg {{
+    margin-top: {margin_top};
     margin-bottom: {margin_bottom};
     margin-left: {margin_left};
     margin-right: {margin_right};
@@ -191,15 +145,14 @@ class image():
     filter: {filter};
 }}''')
 
-
 def autoPrettify():
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
-    warnings.showwarning(r'''Auto prettifying also involves auto closing HTML tags which may not be accurate if not already closed and are not recommended.
-    Further development may run into issues. Please close tags manually if unsure. It is recommended to use after all development for best results. 
-    See "bs4 auto closing tags" for more info.''', UserWarning, str, 194)
-
+    warnings.showwarning(r'''Auto prettifying also involves auto closing unclosed HTML tags which may not be accurate if not used after development is complete. 
+    Use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, str, int(186))
+    # check_unclosed()
     with open("index.html", 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
         auto_close_all_tags = soup.prettify()
-        open("index.html", 'w').write(auto_close_all_tags)
+        with open("index.html", 'w') as f:
+            f.write(f"{auto_close_all_tags}")
