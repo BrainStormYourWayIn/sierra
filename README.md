@@ -143,7 +143,7 @@ with open_tag('newTag') as t:       # Opening a tag 'newTag'
 autoPrettify() 
 ```
 
-Here's a function to scrape all text within the p tag from the source code of a URL using requests:
+Here's another example of using it standalone - a function to scrape all text within the p tag from the source code of a URL using requests:
     
 ```python3
 
