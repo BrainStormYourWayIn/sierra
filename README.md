@@ -6,8 +6,6 @@ Sierra is a Python micro templating engine that makes skeletal integration with 
 
 It can also be used standalone in developing web applications
 
-
-
 You can also use this as an alternative to jinja or Django or another templating engine, or use it along with one
 
 It's got features like displaying a table on the web application by loading in a .csv file, adding a bulleted list (ol/ul) by just passing in a Python list, automatic support for CSS styling arguments and more! You can use for loops, variables, functions - you name it, you have it, with Sierra. Improvement in the overall look of the code and better handling of tags with `autoPrettify()`, a feature like no other. Harness the power of Python for your web applications!
@@ -32,7 +30,7 @@ ________________________________
 
 Using this with Flask makes life easier if you're developing web applications with just HTML and CSS. Adding JS is not supported by Sierra and has to be done manually (if desired).
 
-Here's a fairly advance-use example for this:
+Here's a (fairly) advance-use example for this:
 
 ```python
 from flask import Flask, render_template
@@ -135,7 +133,9 @@ with open_tag('newTag') as t:       # Opening a tag 'newTag'
     with image(src='sierra.jpg'):    
         i.show()                        # Displaying an image
         i.css(opacity=1.2)              # Adding CSS to it
-
+         
+    p('This is a paragraph that doesn't come under any div or a section, but comes under <newTag>. Simple stuff, really!')
+    
 autoPrettify() 
 ```
 
@@ -162,8 +162,9 @@ title('Extracting text from the p tag given a URL')
 openBody()
 
 with open_tag('pre'):           # Showing the output within the <pre> tag
+
     writeWA(f'''
-    All following text appears within the <p> tag of 'http://example.com':
+    All following text appears within the &lt;p> tag of 'http://example.com':
     {extractpText("http://example.com/")}
     ''')
 
@@ -171,6 +172,7 @@ with open_tag('pre'):           # Showing the output within the <pre> tag
 autoPrettify()
 
 ```
+Notice that while '&lt;' was used as an escape sequence for the '<' of the paragraph tag, '&gt;' was not used. Why? Well that's because of the power of `autoPrettify()` at the end! It detects a starting escape sequence and detects that while there's a closing tag, an escape sequence was intended. So it fills the gap in when you use the function at the end of development. Huh! How cool is that?!
 
 
 ### See the [documentation](https://brainstormyourwayin.github.io/sierra.github.io/) for more
