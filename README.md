@@ -71,6 +71,7 @@ def img_map():
 
 def bulleted_and_des_list():
     the_template()
+    
     with div(div_class='description_list'):       # Creating div
 
         a = [[['coffee', 'tea'], ['black coffee', 'black tea']], [['new_coffee'], ['foo', 'tea', 'green_tea']]]
