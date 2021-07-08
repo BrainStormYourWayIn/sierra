@@ -4,7 +4,6 @@
 import traceback
 import pandas as pd
 
-# <class 'startTable'>
 class startTable():     
     def __enter__(self):
         return self
@@ -13,7 +12,8 @@ class startTable():
         if exc_type is not None:
             traceback.print_exception(exc_type, exc_value, tb)
         else:
-            open("index.html", 'a+').write("\n</section>")
+            # open("index.html", 'a+').write("\n</section>")
+            pass
 
     def createTable(self, heads:list, rows:list, attr=None):
         """Creates a table out of lists.
