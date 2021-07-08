@@ -2,9 +2,11 @@
 
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
-Sierra is a Python micro templating engine that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities. It can also be used standalone.  
+Sierra is a Python micro templating engine that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities. 
 
-This could be used as an alternative to Dominate
+It can also be used standalone in developing web applications
+
+
 
 You can also use this as an alternative to jinja or Django or another templating engine, or use it along with one
 
