@@ -205,10 +205,12 @@ ________________________________
 - Support for HTML forms
 - `get_input()` for input tags
 - Support for Close-on-Close tags (like <area>. While this is covered by `autoPrettify()` when you use `open_tag('area/any other tag')`, we think it's probably better to have a separate function dedicated to this to improve the look of the Python code)
+- Support to make a web application mobile-friendly
 
 
 ________________________________
 ### Contact Us at brainstormyourwayin@gmail.com
+**Or you can contact us individually if you like. See our individual GitHub profiles for information**
 ________________________________
 
 **It featured on the [Python Weekly Newsletter Issue 505](https://newsletterest.com/message/62517/Python-Weekly-Issue-505) just 2 weeks into the first release**
