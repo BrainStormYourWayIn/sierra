@@ -14,6 +14,8 @@ It's got features like displaying a table on the web application by loading in a
 [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
 
+This is a relatively new project, so we're developing at a fast pace. If you have any suggestions or issue or just want to open a discussion, feel free to do so!
+
 Download using `pip install sierra`   
 Use `pip install --upgrade sierra` to upgrade
 
