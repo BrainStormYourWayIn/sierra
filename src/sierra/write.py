@@ -1,11 +1,11 @@
-def writeHTML(text):
+def writeWA(text):
     """Writes the given text to the html file.
     
     Args:
         text (str, compulsory): HTML code snippet.
     """
 
-    open("index.html", 'a+').write("\n" + text)
+    open("index.html", 'a+').write(text)
 
 
 def writeCSS(tag, *args):
@@ -31,4 +31,4 @@ def writeCSS_raw(text):
         text (str, compulsory): CSS style sheet.
     """
 
-    open("style.css", 'a+').write('\n' + text)
+    open("style.css", 'a+').write(text)
