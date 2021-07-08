@@ -185,13 +185,9 @@ ________________________________
 
 ## Installation
 
-To download the library (PyPi Version):
+To download the library:
 
     pip install sierra
-
-To download the library (GitHub Version):
-
-    pip git+git://github.com/BrainStormYourWayIn/sierra
 
 ________________________________
 
