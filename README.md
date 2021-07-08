@@ -25,7 +25,7 @@ ________________________________
 
 - **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)**
 - **Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use**
-> The example mentioned above is the documentation of Sierra, which was written with Sierra standalone
+> The example mentioned above is the documentation of Sierra, which was written with Sierra - standalone
 
 ________________________________
 
