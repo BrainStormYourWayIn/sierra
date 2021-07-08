@@ -12,7 +12,7 @@ class div():
                 f.write(f"\n<div class='{self.div_class}'")
 
         if attr != None:
-            open("index.html", 'a+').write(attr)
+            open("index.html", 'a+').write(f" {attr}")
 
         open("index.html", 'a+').write(">")
 
@@ -92,7 +92,7 @@ class section():
                 f.write(f"\n<section class='section {self.sec_class}'")
 
         if attr != None:
-            open("index.html", 'a+').write(attr)
+            open("index.html", 'a+').write(f" {attr}")
 
         open("index.html", 'a+').write(">")
 
