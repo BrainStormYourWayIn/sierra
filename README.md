@@ -25,6 +25,7 @@ ________________________________
 
 - **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)**
 - **Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use**
+> The example mentioned above is the documentation of Sierra, which was written with Sierra standalone
 
 ________________________________
 
@@ -32,7 +33,7 @@ ________________________________
 
 Using this with Flask makes life easier if you're developing web applications with just HTML and CSS. Adding JS is not supported by Sierra and has to be done manually (if desired).
 
-Here's a (fairly) advance-use example for this:
+Here's a little advance-use example for this:
 
 ```python
 from flask import Flask, render_template
@@ -109,6 +110,7 @@ Here with `write_to_template()`, you can name your HTML file and call the functi
 Move `style.css` manually into the `static/`. On `<link rel=stylesheet href=style.css>`, change the `href` attribute and voila!   
 
 Of course, you can also define the functions in separate files and import it.   
+
 
 Sierra can also be used standalone without Flask, like this:
 
