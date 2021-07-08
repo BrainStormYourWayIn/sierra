@@ -172,7 +172,7 @@ with open_tag('pre'):           # Showing the output within the <pre> tag
 autoPrettify()
 
 ```
-Notice that while '&lt' was used as an escape sequence for the '<' of the paragraph tag, '&gt' was not used. Why? Well that's because of the power of `autoPrettify()` at the end! It detects a starting escape sequence and detects that while there's a closing tag, an escape sequence was intended. So it fills the gap in when you use the function at the end of development. Huh! How cool is that?!
+Notice that while `&lt;` was used as an escape sequence for the '<' of the paragraph tag, `&gt;` was not used. Why? Well that's because of the power of `autoPrettify()` at the end! It detects a starting escape sequence and detects that while there's a closing tag, an escape sequence was intended. So it fills the gap in when you use the function at the end of development. Huh! How cool is that?!
 
 
 ### See the [documentation](https://brainstormyourwayin.github.io/sierra.github.io/) for more
