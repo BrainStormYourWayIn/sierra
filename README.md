@@ -14,10 +14,7 @@ It's got features like displaying a table on the web application by loading in a
 [![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
 
-This is a relatively new project, so we're developing at a fast pace. If you have any suggestions or issue or just want to open a discussion, feel free to do so!
-
-Download using `pip install sierra`   
-Use `pip install --upgrade sierra` to upgrade
+This is a relatively new project, so we're developing at a fast pace. If you have any **suggestions or issue** or just want to open a discussion, feel free to do so!
 
 ________________________________
 
@@ -25,6 +22,7 @@ ________________________________
 
 - **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)**
 - **Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use**
+
 > The example mentioned above is the documentation of Sierra, which was written with Sierra - standalone
 
 ________________________________
@@ -102,6 +100,7 @@ def show_bulleted_and_des_list():
 if __name__ == '__main__':
     app.run()
 ```
+
 First, the directory structure needs to get sorted before running this. Run the code outside of `templates/`.
 
 Here with `write_to_template()`, you can name your HTML file and call the function which takes only that argument to write the file into the 
@@ -110,7 +109,6 @@ Here with `write_to_template()`, you can name your HTML file and call the functi
 Move `style.css` manually into the `static/`. On `<link rel=stylesheet href=style.css>`, change the `href` attribute and voila!   
 
 Of course, you can also define the functions in separate files and import it.   
-
 
 Sierra can also be used standalone without Flask, like this:
 
@@ -209,19 +207,24 @@ ________________________________
 - Support for Close-on-Close tags (like <area>. While this is covered by `autoPrettify()` when you use `open_tag('area/any other tag')`, we think it's probably better to have a separate function dedicated to this to improve the look of the Python code)
 - Support to make a web application mobile-friendly
 
-
-________________________________
-### Contact Us at brainstormyourwayin@gmail.com
-**Or you can contact us individually if you like. See our individual GitHub profiles for information**
 ________________________________
 
-**It featured on the [Python Weekly Newsletter Issue 505](https://newsletterest.com/message/62517/Python-Weekly-Issue-505) just 2 weeks into the first release**
+### Contact Us
 
-**It got mentioned by [AwesomePython](https://pythonawesome.com/a-python-framework-for-building-and-integrating-web-app/)**
+Email: brainstormyourwayin@gmail.com
 
-**...and [got tweeted out by PythonHub on Twitter](https://twitter.com/pythonhub/status/1409727123888259073), which has about 75k followers**
+**Or you can contact either of us individually if you like. See our individual GitHub profiles for information**.
 
-All in just the first three weeks of releasing the first version of Sierra
+________________________________
+
+
+**It featured on the [Python Weekly Newsletter Issue 505](https://newsletterest.com/message/62517/Python-Weekly-Issue-505) just 2 weeks into the first release.**
+
+**It got mentioned by [AwesomePython](https://pythonawesome.com/a-python-framework-for-building-and-integrating-web-app/).**
+
+**...and [got tweeted out by PythonHub on Twitter](https://twitter.com/pythonhub/status/1409727123888259073), which has about 75k followers.**
+
+All in just the first three weeks of releasing the first version of Sierra!
 
 ________________________________
 
