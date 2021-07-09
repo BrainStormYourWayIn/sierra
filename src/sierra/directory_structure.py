@@ -16,6 +16,3 @@ def write_to_template(name_of_file):
 
     os.remove("index.html")
     os.remove('style.css')
-
-    
-    
