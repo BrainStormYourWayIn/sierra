@@ -11,7 +11,6 @@ def write_to_template(name_of_file):
                 style.write(str(s.read()))
    
     except FileNotFoundError:
-        #print('FileNotFoundError')
         pass                
 
     os.remove("index.html")
