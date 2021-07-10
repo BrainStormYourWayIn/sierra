@@ -29,7 +29,7 @@ ________________________________
 
 Using this with Flask makes life easier if you're developing web applications with just HTML and CSS. Adding JS is not supported by Sierra and has to be done manually (if desired).
 
-Here's a little advance-use example for this:
+Here's a little example for this:
 
 ```python
 from flask import Flask, render_template
