@@ -192,6 +192,8 @@ ________________________________
 - Support for Close-on-Close tags (like <area>. While this is covered by `autoPrettify()` when you use `open_tag('area/any other tag')`, we think it's probably better to have a separate function dedicated to this to improve the look of the Python code)
 - Support to make a web application mobile-friendly
 
+**See `release_prots.py`**
+
 ________________________________
 
 ### Contact Us
