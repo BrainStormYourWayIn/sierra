@@ -46,11 +46,6 @@ def the_template():                              # Creating a simple template
 def adding_table():
     the_template()
     with div(None, attr="id='div_id'"):             # Creating a <div> with id='div_id'
-    
-        with image(src='workplace.jpg', attr="class='workplace'") as i:  
-            # Loading an image and giving it a class
-            i.show()                # Displaying the image
-            i.css(opacity=1.7)      # Adding CSS to it
 
         with startTable() as st:                    # Creating a table within the <div> tag
         
