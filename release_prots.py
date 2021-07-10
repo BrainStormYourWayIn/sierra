@@ -24,3 +24,5 @@ head('test', font_size='30px', color='blue', background_color='yellowgreen')
 font-size: 30px;
 color: blue;
 background-color: yellowgreen;
+  
+# This is wayy more efficient
