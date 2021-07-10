@@ -10,8 +10,6 @@ You can also use this as an alternative to jinja or Django or another templating
 
 It's got features like displaying a table on the web application by loading in a .csv file, adding a bulleted list (ol/ul) by just passing in a Python list, automatic support for CSS styling arguments and more! You can use for loops, variables, functions - you name it, you have it, with Sierra. Improvement in the overall look of the code and intelligent handling of tags with `autoPrettify()`, a feature like no other. Harness the power of Python for your web applications!
 
-[![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
-[![Downloads](https://pepy.tech/badge/sierra/month)](https://pepy.tech/project/sierra)
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
 
 This is a relatively new project, so we're developing at a fast pace. If you have any **suggestions or issue** or just want to open a discussion, feel free to do so!
@@ -20,7 +18,7 @@ ________________________________
 
 ## Documentation
 
-- **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/Documentation.html)**
+- **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)**
 - **Check out a [comprehensive example](https://github.com/BrainStormYourWayIn/sierra_doc/blob/main/doc.py) of its use**
 
 > The example mentioned above is the documentation of Sierra, which was written with Sierra - standalone
