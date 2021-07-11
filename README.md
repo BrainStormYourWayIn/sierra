@@ -122,7 +122,7 @@ with open_tag('newTag') as t:       # Opening a tag 'newTag'
         i.show()                        # Displaying an image
         i.css(opacity=1.2)              # Adding CSS to it
          
-    p('This is a paragraph that doesn't come under any div or a section, but comes under <newTag>. Simple stuff, really!')
+    p("This is a paragraph that doesn't come under any div or a section, but comes under <newTag>. Simple stuff, really!")
     
 autoPrettify() 
 ```
