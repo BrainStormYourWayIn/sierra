@@ -87,10 +87,7 @@ if __name__ == '__main__':
 
 First, the directory structure needs to get sorted before running this. Run the code outside of `templates/`.
 
-Here with `write_to_template()`, you can name your HTML file and call the function which takes only that argument to write the file into the 
-`templates/` folder.    
-
-Move `style.css` manually into the `static/`. On `<link rel=stylesheet href=style.css>`, change the `href` attribute (this will not be required from the next release on) and voila!   
+Here with `write_to_template()`, you can name your HTML file and call the function which takes only that argument to write the file into the `templates/` folder. `style.css` is automatically put into `static/` when this function is called.   
 
 Of course, you can also define the functions in separate files and import it.   
 
@@ -185,8 +182,6 @@ ________________________________
 
 ### Upcoming (in order of priority):
 
-- Improved `write_to_template()` to provide for stylesheets
-- Deprecation of automatic styling arguments, better handling will be done (possibly using `**kwargs`)
 - Support for HTML forms
 - `get_input()` for input tags
 - Support for Close-on-Close tags (like <area>. While this is covered by `autoPrettify()` when you use `open_tag('area/any other tag')`, we think it's probably better to have a separate function dedicated to this to improve the look of the Python code)
