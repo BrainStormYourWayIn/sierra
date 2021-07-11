@@ -102,7 +102,7 @@ class image():
         """
         with open('index.html', 'a') as f:
             if self.attr == None:
-                f.write(f"\n<img src="{self.src}">")
+                f.write(f'''\n<img src="{self.src}">''')
             else:
                 f.write(f"\n<img src="{self.src}" {self.attr}>")
 
