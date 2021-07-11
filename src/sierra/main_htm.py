@@ -65,14 +65,17 @@ def head(Head, type='header', **kwargs):
     with open(f"index.html", 'a') as f:
         f.write(f'''
 <{type}>{Head}</{type}>''')
+        
+    if kwargs:
 
-    for key, value in kwargs.items():
-        add_to_css = f"{key}: {value};"
-        add_to_css = add_to_css.replace('_', '-')
-        # print(add_to_css)
+        for key, value in kwargs.items():
+            add_to_css = f"{key}: {value};"
+            add_to_css = add_to_css.replace('_', '-')
+            # print(add_to_css)
 
-        with open('style.css', 'w') as s:
-            s.write(f"\n{type} {{")
+            with open('style.css', 'w') as s:
+                s.write(f"\n{type} {{")
+                
             for key, value in kwargs.items():
                 add_to_css = f"{key}: {value};"
                 add_to_css = add_to_css.replace('_', '-')
