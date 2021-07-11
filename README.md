@@ -48,7 +48,7 @@ def adding_table():
         with startTable() as st:                    # Creating a table within the <div> tag
         
             st.getTable('path/to/file.csv')    # Dislaying the table from a csv file
-            st.css('font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='20%')     
+            st.css(font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='20%')     
                
             
     autoPrettify()
