@@ -90,7 +90,7 @@ First, the directory structure needs to get sorted before running this. Run the 
 Here with `write_to_template()`, you can name your HTML file and call the function which takes only that argument to write the file into the 
 `templates/` folder.    
 
-Move `style.css` manually into the `static/`. On `<link rel=stylesheet href=style.css>`, change the `href` attribute and voila!   
+Move `style.css` manually into the `static/`. On `<link rel=stylesheet href=style.css>`, change the `href` attribute (this will not be required from the next release on) and voila!   
 
 Of course, you can also define the functions in separate files and import it.   
 
