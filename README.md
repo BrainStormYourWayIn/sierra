@@ -38,7 +38,7 @@ from sierra import *
 app = Flask(__name__)
 
 def the_template():                              # Creating a simple template
-    title('Some title', templating=True)
+    title('Some title', templating=True)         # Set templating to True if you're using Flask 
     head('this is a bulleted list')
 
 def adding_table():
@@ -87,7 +87,9 @@ if __name__ == '__main__':
 
 First, the directory structure needs to get sorted before running this. Run the code outside of `templates/`.
 
-Here with `write_to_template()`, you can name your HTML file and call the function which takes only that argument to write the file into the `templates/` folder. `style.css` is automatically put into `static/` when this function is called.   
+Here with `write_to_template()`, you can name your HTML file and call the function which takes only that argument to write the file into the `templates/` folder. `style.css` is automatically put into `static/` when this function is called. 
+
+In `title()`, set the argument `templating` to True, if Sierra is being used to template with Flask
 
 Of course, you can also define the functions in separate files and import it.   
 
