@@ -38,7 +38,7 @@ from sierra import *
 app = Flask(__name__)
 
 def the_template():                              # Creating a simple template
-    title('bulleted_and_description_lists')
+    title('Some title')
     head('this is a bulleted list')
 
 def adding_table():
