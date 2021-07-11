@@ -1,34 +1,25 @@
 def writeWA(text):
-    """Writes the given text to the html file.
-    
-    Args:
-        text (str, compulsory): HTML code snippet.
-    """
+    """Writes the given text to the html file."""
 
-    open("index.html", 'a+').write(text)
-
+    with open('index.html', 'a+') as f:
+        f.write(text)
 
 def writeCSS(tag, *args):
-    """Writes the given parameters to the CSS file.
-    
-    Args:
-        tag (str, compulsory)    : CSS tag name for styling.
-        *args (dict, compulsory) : CSS styling in {parameter: desc.} format.
+    """
+    Writes the given code to the CSS file.
+    Enter in a dictionary
     """
 
-    with open("style.css", 'a+') as s:
-        s.write(f"\n{tag} {{")
+    with open('style.css', 'a+') as s:
+        s.write(f"""\n{tag} {{""")
         for arg in args:
             for parameter, value in arg.items():
-                s.write(f"\n\t{parameter}: {value};")
+                s.write(f"""\n\t{parameter}: {value};""")
         s.write("\n}")
 
-
-def writeCSS_raw(text):
-    """Writes the given code to the CSS file.
-    
-    Args:
-        text (str, compulsory): CSS style sheet.
+def writeCSS_raw(tag, text):
     """
-
-    open("style.css", 'a+').write(text)
+    Writes the given code to the CSS file.
+    """
+    with open('style.css', 'a+') as s:
+        s.write(text)
