@@ -64,7 +64,7 @@ def bulleted_and_des_list():
         des_lists(a)
 
         with section(sec_class='unordered_list') as s:    # Creating section inside div
-            ul_list = ['This', 'is', 'an', 'ul']        # Creating an unordered list
+            ul_list = ['This', 'is', 'an', 'unordered', 'list']        # Creating an unordered list
             with bullets(ul=True, points=ul_list):      # Displaying it
                 pass        
 
