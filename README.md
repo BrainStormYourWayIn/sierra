@@ -116,7 +116,7 @@ with open_tag('newTag') as t:       # Opening a tag 'newTag'
                 with cTags('#table_id') as t:          # Adding CSS from the table id
                     t.css(font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='20%')     
                     
-            p('This is a paragrah within a section, which is within a div tag and comes afer the table')
+            p("This is a paragrah within a section, which is within a div tag and comes afer the table")
 
     with image(src='sierra.jpg'):    
         i.show()                        # Displaying an image
