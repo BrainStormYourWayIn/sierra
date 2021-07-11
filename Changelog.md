@@ -73,6 +73,7 @@ __________________________________________________________________
 ## 11 July 2021 - v2.2.0
 
 - Added support for stylesheet in `write_to_template()`
+- Added arg `templating` to `title()` to provide for Flask templating
 - Managed newlines on `autoPrettify()` UserWarning
 - Deprecated global variable `br`
 - The head tag now closes with the start of `openBody()` and not with the end of `head()`
