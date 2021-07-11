@@ -12,7 +12,7 @@ It's got features like displaying a table on the web application by loading in a
 
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
 
-This is a relatively new project, so we're developing at a fast pace. If you have any **suggestions or issue** or just want to open a discussion, feel free to do so!
+This is a relatively new project, so we're developing at a fast pace. If you have any suggestions or issues or just want to open a discussion, feel free to do so!
 
 ________________________________
 
