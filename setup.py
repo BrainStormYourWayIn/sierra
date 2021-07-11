@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 
 setup(
     name = "sierra",
-    version = "v1.1.1",
+    version = "v2.2.0",
     author = "Pranav and Siddhesh",
     author_email = "BrainStormYourWayIn@gmail.com",
-    description = "Sierra is a skeletal micro templating library for web frameworks in Python.",
+    description = "Sierra is a micro templating library for web frameworks in Python.",
     long_description = open("README.md").read(),
     long_description_content_type = "text/markdown",
     license = "Apache Software License",
