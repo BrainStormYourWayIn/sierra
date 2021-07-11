@@ -67,3 +67,21 @@ __________________________________________________________________
 - added write_to_template()
 - addImg() changed to image(), context manager
 - image() tag attributes added
+
+__________________________________________________________________
+
+## 11 July 2021 - v2.2.0
+
+- Added support for stylesheet in `write_to_template()`
+- Managed newlines on `autoPrettify()` UserWarning
+- Deprecated global variable `br`
+- The head tag now closes with the start of `openBody()` and not with the end of `head()`
+- Solved issue with false CSS when `div_class` and `sec_class` is `None`
+- Deprecated automatic styling arguments
+- Styling method for `head()` changed to `**kwargs`
+- Styling method for `openBody()` changed to `**kwargs`
+- Styling method `.css()` for `open_tag()` changed to `**kwargs`
+- Styling method `.css()` for `cTags()` changed to `**kwargs`
+- Styling method `.css()` for `image()` changed to `**kwargs`
+- Styling method `.css()` for `startTable()` changed to `**kwargs`
+
