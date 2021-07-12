@@ -29,14 +29,15 @@ class div:
         Args:
             **kwargs (optional) : CSS parameters.
         """
+        if div_class != None:
+            with open("style.css", 'a+') as s:
+                s.write(f"\n\n{self.div_class} {{")
+                for key, value in kwargs:
+                    s.write(f"\n\t{key.replace('_', '-')}: {value};")
+                s.write("\n}")
 
-        with open("style.css", 'a+') as s:
-            for key, value in kwargs:
-                s.write(f"\n\t{key.replace('_', '-')}: {value};")
-            s.write("\n}")
 
-
-class Section:
+class section:
     def __init__(self, sec_class=None, attr=None):
         self.sec_class = sec_class
 
@@ -64,11 +65,11 @@ class Section:
         Args:
             **kwargs (optional) : CSS parameters.
         """
-
-        with open("style.css", 'a+') as s:
-            for key, value in kwargs:
-                s.write(f"\n\t{key.replace('_', '-')}: {value};")
-            s.write("\n}")
+        if sec_class != None:
+            with open("style.css", 'a+') as s:
+                for key, value in kwargs:
+                    s.write(f"\n\t{key.replace('_', '-')}: {value};")
+                s.write("\n}")
 
 def p(text, attr=None):
     if attr != None:
