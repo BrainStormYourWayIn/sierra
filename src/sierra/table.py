@@ -4,7 +4,7 @@
 import traceback
 import pandas as pd
 
-class Table():
+class Table:
     def __enter__(self):
         return self
 
@@ -44,7 +44,7 @@ class Table():
         open("index.html", 'a+').write("\n</table>")
 
 
-    def getTable(self, dataframe:str, attr=None):
+    def getTable(self, dataframe, attr=None):
         """Displays .csv file as a HTML table.
 
         Args:
@@ -84,4 +84,3 @@ class Table():
             for key, value in kwargs:
                 s.write(f"\n\t{key.replace('_', '-')}: {value};")
             s.write("\n}")
- 
