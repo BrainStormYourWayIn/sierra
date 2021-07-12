@@ -2,7 +2,7 @@
 
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
-Sierra is a Python micro templating engine that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities. 
+Sierra is a Python micro templating engine that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities.
 
 It can also be used standalone in developing web applications
 
@@ -13,6 +13,22 @@ It's got features like displaying a table on the web application by loading in a
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
 
 This is a relatively new project, so we're developing at a fast pace. If you have any suggestions or issues or just want to open a discussion, feel free to do so!
+
+________________________________
+
+## Installation
+
+To download the library:
+
+    pip install sierra
+
+________________________________
+
+## Upgrade
+
+To upgrade the library:
+
+    pip install --upgrade sierra
 
 ________________________________
 
@@ -31,16 +47,15 @@ Using this with Flask makes life easier if you're developing web applications wi
 
 Here's a little example for this:
 
-```python
+```py
 from flask import Flask, render_template
 from sierra import *
 
 app = Flask(__name__)
 
 def the_template():                              # Creating a simple template
-    title('Some title', templating=True)         # Set templating to True if you're using Flask 
+    title('bulleted_and_description_lists')
     head('this is a bulleted list')
-    openBody()
 
 def adding_table():
     the_template()
@@ -49,7 +64,7 @@ def adding_table():
         with startTable() as st:                    # Creating a table within the <div> tag
         
             st.getTable('path/to/file.csv')    # Dislaying the table from a csv file
-            st.css(font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='20%')     
+            st.css('font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='20%')     
                
             
     autoPrettify()
@@ -65,7 +80,7 @@ def bulleted_and_des_list():
         des_lists(a)
 
         with section(sec_class='unordered_list') as s:    # Creating section inside div
-            ul_list = ['This', 'is', 'an', 'unordered', 'list']        # Creating an unordered list
+            ul_list = ['This', 'is', 'an', 'ul']        # Creating an unordered list
             with bullets(ul=True, points=ul_list):      # Displaying it
                 pass        
 
@@ -88,15 +103,16 @@ if __name__ == '__main__':
 
 First, the directory structure needs to get sorted before running this. Run the code outside of `templates/`.
 
-Here with `write_to_template()`, you can name your HTML file and call the function which takes only that argument to write the file into the `templates/` folder. `style.css` is automatically put into `static/` when this function is called. 
+Here with `write_to_template()`, you can name your HTML file and call the function which takes only that argument to write the file into the 
+`templates/` folder.
 
-In `title()`, set the argument `templating` to True, if Sierra is being used to template with Flask
+Move `style.css` manually into the `static/`. On `<link rel=stylesheet href=style.css>`, change the `href` attribute (this will not be required from the next release on) and voila!
 
-Of course, you can also define the functions in separate files and import it.   
+Of course, you can also define the functions in separate files and import it.
 
 Sierra can also be used standalone without Flask, like this:
 
-```python
+```py
 from sierra import *
 
 title('The title goes here')
@@ -128,15 +144,13 @@ autoPrettify()
 ```
 
 Here's another example of using it standalone - a function to scrape all text within the p tag from the source code of a URL using requests:
-    
-```python3
 
+```py
 import re
 import requests
 from sierra import *
     
 def extractpText(url):
-
     http = urllib3.PoolManager()
     req = http.request('GET', url)
     respData = str(req.data)    
@@ -152,50 +166,32 @@ openBody()
 with open_tag('pre'):           # Showing the output within the <pre> tag
 
     writeWA(f'''
-    All following text appears within the &lt;p> tag of 'http://example.com':
-    {extractpText("http://example.com/")}
+    All following text appears within the &lt;p> tag of 'http://example.com': {extractpText("http://example.com/")}
     ''')
 
-
 autoPrettify()
-
 ```
-Notice that while `&lt;` was used as an escape sequence for the '<' of the paragraph tag, `&gt;` was not used. Why? Well that's because of the power of `autoPrettify()` at the end! It detects a starting escape sequence and detects that where there's a closing tag, an escape sequence was intended. So it fills the gap in when you use the function at the end of development. Huh! How cool is that?!
 
+Notice that while `&lt;` was used as an escape sequence for the '<' of the paragraph tag, `&gt;` was not used. Why? Well that's because of the power of `autoPrettify()` at the end! It detects a starting escape sequence and detects that where there's a closing tag, an escape sequence was intended. So it fills the gap in when you use the function at the end of development. Huh! How cool is that?!
 
 ### See the [documentation](https://brainstormyourwayin.github.io/sierra.github.io/) for more
 
 ________________________________
 
-## Installation
+## Upcoming (in order of priority)
 
-To download the library:
-
-    pip install sierra
-
-________________________________
-
-## Upgrade
-
-To upgrade the library:
-
-    pip install --upgrade sierra
-
-________________________________
-
-### Upcoming (in order of priority):
-
-- In-memory storage for the HTML and CSS file (See `release_prots.py`)
-- Support for HTML forms (it is possible right now too - dedicated funcs to come for this)
+- Improved `write_to_template()` to provide for stylesheets
+- Deprecation of automatic styling arguments, better handling will be done (possibly using `**kwargs`)
+- Support for HTML forms
 - `get_input()` for input tags
-- Support for Close-on-Close tags (like <area>. While this is covered by `autoPrettify()` when you use `open_tag('area/any other tag')`, we think it's probably better to have a separate function dedicated to this to improve the look of the Python code)
+- Support for Close-on-Close tags (like `<area>`. While this is covered by `autoPrettify()` when you use `open_tag('area/any other tag')`, we think it's probably better to have a separate function dedicated to this to improve the look of the Python code)
 - Support to make a web application mobile-friendly
 
 **See `release_prots.py`**
 
 ________________________________
 
-### Contact Us
+## Contact Us
 
 Email: brainstormyourwayin@gmail.com
 
@@ -203,12 +199,11 @@ Email: brainstormyourwayin@gmail.com
 
 ________________________________
 
-
 **It featured on the [Python Weekly Newsletter Issue 505](https://newsletterest.com/message/62517/Python-Weekly-Issue-505) just 2 weeks into the first release.**
 
 **It got mentioned by [AwesomePython](https://pythonawesome.com/a-python-framework-for-building-and-integrating-web-app/).**
 
-**...and [got tweeted out by PythonHub on Twitter](https://twitter.com/pythonhub/status/1409727123888259073), which has about 75k followers.**
+**...and [got tweeted out by PythonHub on Twitter](https://twitter.com/pythonhub/status/1409727123888259073).**
 
 All in just the first three weeks of releasing the first version of Sierra!
 
@@ -222,7 +217,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -232,5 +227,6 @@ limitations under the License.
 
 > Pandas (pandas)
 >
->> Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team.    
->> Copyright (c) 2011-2020, Open source contributors.
+> Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team.
+>
+> Copyright (c) 2011-2020, Open source contributors.
