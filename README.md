@@ -185,7 +185,8 @@ ________________________________
 
 ### Upcoming (in order of priority):
 
-- Support for HTML forms
+- In-memory storage for the HTML and CSS file (See `release_prots.py`)
+- Support for HTML forms (it is possible right now too - dedicated funcs to come for this)
 - `get_input()` for input tags
 - Support for Close-on-Close tags (like <area>. While this is covered by `autoPrettify()` when you use `open_tag('area/any other tag')`, we think it's probably better to have a separate function dedicated to this to improve the look of the Python code)
 - Support to make a web application mobile-friendly
