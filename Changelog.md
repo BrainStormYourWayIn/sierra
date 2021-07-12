@@ -30,7 +30,7 @@ __________________________________________________________________
 ## 23 June 2021 - v1.2.0
 
 - global and event attributes enabled out of the box on div and section.
-- tTags(p=False) changed to tTags(p=True).
+- `tTags(p=False)` changed to `tTags(p=True)`.
 - Added definition lists.
 - global attributes enabled out of the box on table.
 - removed compulsory `class` args for div and section.
@@ -72,17 +72,16 @@ __________________________________________________________________
 
 ## 11 July 2021 - v2.2.0
 
-- Added support for stylesheet in `write_to_template()`
-- Added arg `templating` to `title()` to provide for Flask templating
-- Managed newlines on `autoPrettify()` UserWarning
-- Deprecated global variable `br`
-- The head tag now closes with the start of `openBody()` and not with the end of `head()`
-- Solved issue with false CSS when `div_class` and `sec_class` is `None`
-- Deprecated automatic styling arguments
-- Styling method for `head()` changed to `**kwargs`
-- Styling method for `openBody()` changed to `**kwargs`
-- Styling method `.css()` for `open_tag()` changed to `**kwargs`
-- Styling method `.css()` for `cTags()` changed to `**kwargs`
-- Styling method `.css()` for `image()` changed to `**kwargs`
-- Styling method `.css()` for `startTable()` changed to `**kwargs`
-
+- Added support for stylesheet in `write_to_template()`.
+- Added arg `templating` to `title()` to provide for Flask templating.
+- Managed newlines on `autoPrettify()` UserWarning.
+- Deprecated global variable `br`.
+- The head tag now closes with the start of `openBody()` and not with the end of `head()`.
+- Solved issue with false CSS when `div_class` and `sec_class` is `None`.
+- Deprecated automatic styling arguments.
+- Styling method for `head()` changed to `**kwargs`.
+- Styling method for `openBody()` changed to `**kwargs`.
+- Styling method `.css()` for `open_tag()` changed to `**kwargs`.
+- Styling method `.css()` for `cTags()` changed to `**kwargs`.
+- Styling method `.css()` for `image()` changed to `**kwargs`.
+- Styling method `.css()` for `startTable()` changed to `**kwargs`.
