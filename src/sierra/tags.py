@@ -29,6 +29,7 @@ class Tag:
         """
 
         with open("style.css", 'a+') as s:
+            s.write("\n\nbody {{")
             for key, value in kwargs:
                 s.write(f"\n\t{key.replace('_', '-')}: {value};")
             s.write("\n}")
