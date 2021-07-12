@@ -1,4 +1,4 @@
-def writeHTML(text):
+def writeWA(text):
     """Writes the given text to the html file.
     
     Args:
@@ -8,7 +8,7 @@ def writeHTML(text):
     open("index.html", 'a+').write(text)
 
 
-def css(**kwargs):
+def css(tag, **kwargs):
     """Writes the given parameters to the CSS file.
     
     Args:
@@ -16,6 +16,7 @@ def css(**kwargs):
     """
 
     with open("style.css", 'a+') as s:
+            s.write(f"\n\n{tag} {{")
         for key, value in kwargs:
             s.write(f"\n\t{key.replace('_', '-')}: {value};")
         s.write("\n}")
