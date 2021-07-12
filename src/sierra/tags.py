@@ -1,19 +1,16 @@
 import traceback
 
-class open_tag():
-
+class Tag:
     def __init__(self, tag, attr=None):
-        """
-        Opens a tag
-        """
+        """Opens any tag."""
 
         self.tag = tag
         self.attr = attr
 
         if self.attr == None:
-            open('index.html', 'a+').write(f"<{self.tag}>")
+            open("index.html", 'a+').write(f"<{self.tag}>")
         else:
-            open('index.html', 'a+').write(f"<{self.tag} {self.attr}>")
+            open("index.html", 'a+').write(f"<{self.tag} {self.attr}>")
 
     def __enter__(self):
         return self
@@ -22,70 +19,36 @@ class open_tag():
         if exc_type is not None:
             traceback.print_exception(exc_type, exc_value, tb)
         else:
-            open('index.html', 'a+').write(f"\n</{self.tag}>")
+            open("index.html", 'a+').write(f"\n</{self.tag}>")
 
     def css(self, **kwargs):
-        """
+        """Writes the given parameters to the CSS file.
+
         Args:
-
-            **kwargs (optional)              : CSS styling arguments
-
+            **kwargs (optional) : CSS parameters.
         """
 
-        for key, value in kwargs.items():
-            add_to_css = f"{key}: {value};"
-            add_to_css = add_to_css.replace('_', '-')
-            # print(add_to_css)
-
-        with open('style.css', 'a+') as s:
-            s.write(f"\n\n{self.tag} {{")
-            for key, value in kwargs.items():
-                add_to_css = f"{key}: {value};"
-                add_to_css = add_to_css.replace('_', '-')
-
-                s.write(f'''
-    {add_to_css}''')
-
+        with open("style.css", 'a+') as s:
+            for key, value in kwargs:
+                s.write(f"\n\t{key.replace('_', '-')}: {value};")
             s.write("\n}")
-            
 
-def closeHTML():
-    """Closes the <HTML> tag. Use autoPrettify() instead"""
-    
-    open("index.html", 'a').write("\n</html>")
-        
 def openBody(**kwargs):
-    
-    """
-    Opens the body tag and adds CSS, if applicable
+    """Opens the body tag and adds the required CSS.
 
     Args:
-
-        **kwargs (optional)              : CSS styling arguments
-
+        **kwargs (optional) : CSS parameters.
     """
-    
-    open("index.html", 'a').write("\n</head>\n<body>")
 
+    open("index.html", 'a+').write('\n<body>')
+    with open("style.css", 'a+') as s:
+        for key, value in kwargs:
+            s.write(f"\n\t{key.replace('_', '-')}: {value};")
 
-    for key, value in kwargs.items():
-            add_to_css = f"{key}: {value};"
-            add_to_css = add_to_css.replace('_', '-')
-            # print(add_to_css)
+def closeHTML():
+    """Closes the <HTML> tag."""
+    open("index.html", 'a+').write("\n</html>")
 
-    with open('style.css', 'a+') as s:
-        s.write("\n\nbody {")
-
-        for key, value in kwargs.items():
-            add_to_css = f"{key}: {value};"
-            add_to_css = add_to_css.replace('_', '-')
-
-            s.write(f'''
-    {add_to_css}''')
-
-        s.write("\n}")
-        
 def closeBody():
-    """Closes the body tag. Use autoPrettify() instead"""
-    
-    open("index.html", 'a').write("\n</body>")
+    """Closes the body tag."""
+    open("index.html", 'a+').write('\n</body>')
