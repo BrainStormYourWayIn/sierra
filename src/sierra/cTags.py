@@ -20,6 +20,7 @@ class cTags:
         """
 
         with open("style.css", 'a+') as s:
+            s.write(f"\n\n{self.tag} {{")
             for key, value in kwargs:
                 s.write(f"\n\t{key.replace('_', '-')}: {value};")
             s.write("\n}")
