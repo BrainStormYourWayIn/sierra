@@ -19,7 +19,7 @@ def autoPrettify(in_mem=False):
     if in_mem is False:
         # Auto Prettify's working code
     if in_mem == True:
-        autoPrettify(in_mem=True)
+        autoPrettify(in_mem=False)
         
         with open('index.html', 'a+') as f:
             f.write("\n\n<style>")
