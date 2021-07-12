@@ -35,7 +35,7 @@ def autoPrettify(in_mem=False):
 app = Flask(__name__)
 
 @app.route("/some_route")
-def some_func:
+def some_func():
   return index_html
 
 # This way, Sierra can also be used with other web frameworks in an easier way
