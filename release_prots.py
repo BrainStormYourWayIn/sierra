@@ -13,7 +13,7 @@
 
 import io
 import os
-from flask imprt Flask
+from flask import Flask
 
 def autoPrettify(in_mem=False):
     if in_mem is False:
