@@ -39,7 +39,7 @@ app = Flask(__name__)
 
 def the_template():                              # Creating a simple template
     title('Some title', templating=True)         # Set templating to True if you're using Flask 
-    head('this is a bulleted list')
+    head('Just a heads up', 'h2')
     openBody()
 
 def adding_table():
