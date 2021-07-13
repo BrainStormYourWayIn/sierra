@@ -4,6 +4,8 @@
 
 Sierra is a Python micro templating engine that makes skeletal integration with web frameworks faster. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities. 
 
+This is similar to Dominate, but has support for CSS styling attributes, a slightly better syntax and many more functionalities
+
 It can also be used standalone in developing web applications
 
 You can also use this as an alternative to jinja or Django or another templating engine, or use it along with one
