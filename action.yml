@@ -2,3 +2,5 @@
   uses: actions/first-interaction@v1.1.0
 - name: Auto-add contributors
   uses: BobAnkh/add-contributors@v0.0.8
+- name: contributor_list
+  uses: cjdenio/contributor_list@1.0
