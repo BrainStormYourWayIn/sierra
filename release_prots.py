@@ -9,7 +9,7 @@
 # In-mem storage uses StringIO to save the contents of `index.html` and `style.css` into variables.
 # This will be useful when using Sierra with frameworks other than Flask.
 
-# So something like:
+# So something like this:
 
 import io
 import os
