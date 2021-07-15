@@ -8,17 +8,17 @@ def writeWA(text):
     open("index.html", 'a+').write(text)
 
 
-def css(tag, **kwargs):
-    """Writes the given parameters to the CSS file.
-    
-    Args:
-        **kwargs (optional) : CSS parameters.
+def writeCSS(tag, *args):
+    """
+    Writes the given code to the CSS file.
+    Enter in a dictionary
     """
 
-    with open("style.css", 'a+') as s:
-            s.write(f"\n\n{tag} {{")
-        for key, value in kwargs:
-            s.write(f"\n\t{key.replace('_', '-')}: {value};")
+    with open('style.css', 'a+') as s:
+        s.write(f"""\n{tag} {{""")
+        for arg in args:
+            for parameter, value in arg.items():
+                s.write(f"""\n\t{parameter}: {value};""")
         s.write("\n}")
 
 
