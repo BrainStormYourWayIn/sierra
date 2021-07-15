@@ -30,3 +30,4 @@ def writeCSS_raw(text):
     """
 
     open("style.css", 'a+').write(text)
+    
