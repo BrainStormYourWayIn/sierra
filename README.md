@@ -2,7 +2,7 @@
 
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
-Sierra is a Python native engine for Web Development, which makes integration with the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities . 
+Sierra is a Python native engine for Web Development, which makes integration with the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities with simple and elegant syntax. 
 
 This was in part inspired by Dominate, but has support for CSS styling attributes, better syntax and many more functionalities
 with simple, and elegant syntax.
