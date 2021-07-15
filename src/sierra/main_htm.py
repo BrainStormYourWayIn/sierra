@@ -79,10 +79,10 @@ def head(Head, type='header', **kwargs):
                 add_to_css = f"{key}: {value};"
                 add_to_css = add_to_css.replace('_', '-')
 
-                s.write(f'''
+                open('style.css', 'a+').write(f'''
     {add_to_css}''')
 
-            s.write("\n}")
+            open('style.css', 'a+').write("\n}")
         
 
 
@@ -106,7 +106,7 @@ class image():
             if self.attr == None:
                 f.write(f'''\n<img src="{self.src}">''')
             else:
-                f.write(f"\n<img src="{self.src}" {self.attr}>")
+                f.write(f"\n<img src='{self.src}' {self.attr}>")
 
     def css(self, **kwargs):
         """
