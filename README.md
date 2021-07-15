@@ -217,6 +217,10 @@ All in just the first three weeks of releasing the first version of Sierra!
 
 ________________________________
 
+![Open on GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)
+
+________________________________
+
 ## License
 
 Copyright 2021 BrainStormYourWayIn
