@@ -23,7 +23,7 @@ ________________________________
 - **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)**
 - **Check out a [few examples](https://github.com/BrainStormYourWayIn/sierra_examples/) of its use**
 
-> The examples mentioned above is a simple book search engine created with Flask and Sierra, and the documentation of Sierra, which was written with Sierra standalone
+> The examples mentioned above is a simple book search engine created with requests, bs4, Flask and Sierra, and the documentation of Sierra, which was written with Sierra standalone
 
 ________________________________
 
