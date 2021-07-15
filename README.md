@@ -28,6 +28,10 @@ ________________________________
 
 ________________________________
 
+![GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)
+
+________________________________
+
 ## Example
 
 Using this with Flask makes life easier if you're developing web applications with just HTML and CSS. Adding JS is not supported by Sierra and has to be done manually (if desired).
@@ -214,10 +218,6 @@ ________________________________
 **...and [got tweeted out by PythonHub on Twitter](https://twitter.com/pythonhub/status/1409727123888259073), which has about 75k followers.**
 
 All in just the first three weeks of releasing the first version of Sierra!
-
-________________________________
-
-![Open on GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)
 
 ________________________________
 
