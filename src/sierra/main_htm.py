@@ -114,7 +114,7 @@ def autoPrettify():
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
     warnings.showwarning(r'''Auto prettifying also involves auto closing unclosed HTML tags which may not be accurate if not used after development is complete.
-Use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, 'main_htm.py')
+Use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, 'main_htm.py', None)
     # check_unclosed()
     with open("index.html", 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
