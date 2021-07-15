@@ -1,7 +1,6 @@
 import warnings
 from bs4 import BeautifulSoup
 import traceback
-from flask import url_for
 
 def title(Title, icon=False, templating=False):
     """
