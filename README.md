@@ -4,7 +4,7 @@
 
 Sierra is a Python native engine for Web Development, which makes integration with the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities . 
 
-This was in part inspired by Dominate, but has support for CSS styling attributes, a slightly better syntax and many more functionalities
+This was in part inspired by Dominate, but has support for CSS styling attributes, better syntax and many more functionalities
 with simple, and elegant syntax.
 
 It can be used standalone in developing web applications
