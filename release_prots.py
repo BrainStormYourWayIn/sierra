@@ -43,3 +43,11 @@ def some_func():
 
 # This way, Sierra can also be used with other web frameworks in an easier way.
 # This is still just a prototype, yet to test and run.
+
+## Other stuff that can be done ##
+
+with Tag('p'):
+    with div()...
+    span()
+    a()
+    

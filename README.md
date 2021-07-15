@@ -2,7 +2,7 @@
 
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
-Sierra is a Python native engine for Web Development, which makes integration with the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities . 
+Sierra is a Python native engine for Web Development, which makes integration with the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities with simple and elegant syntax. 
 
 This was in part inspired by Dominate, but has support for CSS styling attributes, better syntax and many more functionalities
 with simple, and elegant syntax.
@@ -25,6 +25,12 @@ ________________________________
 - **Check out a [few examples](https://github.com/BrainStormYourWayIn/sierra_examples/) of its use**
 
 > The examples mentioned above is a simple book search engine created with requests, bs4, Flask and Sierra, and the documentation of Sierra, which was written with Sierra standalone
+
+________________________________
+
+**We work exclusively on GitPod**
+
+![GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)
 
 ________________________________
 
@@ -130,9 +136,9 @@ with open_tag('newTag') as t:       # Opening a tag 'newTag'
 autoPrettify() 
 ```
 
-Here's another example of using it standalone - a function to scrape all text within the p tag from the source code of a URL using requests:
+Here's another example of using it standalone - a function to scrape all text within the `<p>` tag from the source code of a URL using requests:
     
-```python3
+```python
 
 import re
 import requests
@@ -189,10 +195,12 @@ ________________________________
 ### Upcoming (in order of priority):
 
 - In-memory storage for the HTML and CSS file (See `release_prots.py`)
-- Support for HTML forms (it is possible right now too - dedicated funcs to come for this)
-- `get_input()` for input tags
+- Deprecate cTags() and just introduce a new function called css(), since adding CSS with a class is longer than simply doing css('.some_class', color='blue',           font_size='20px')
+- Deprecate the attr argument and instead use **kwargs to add tag attributes
+- Add an option for in-memory storage, see release_prots.py
+- Add new functions for meta(), script(), label(), span(), get_input(), a(), and use `kwargs` to add tag attributes
+- Change startTable and createTable to start_table and create_table
 - Support for Close-on-Close tags (like <area>. While this is covered by `autoPrettify()` when you use `open_tag('area/any other tag')`, we think it's probably better to have a separate function dedicated to this to improve the look of the Python code)
-- Support to make a web application mobile-friendly
 
 **See `release_prots.py`**
 
