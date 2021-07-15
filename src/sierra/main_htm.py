@@ -67,22 +67,11 @@ def head(Head, type='header', **kwargs):
         
     if kwargs:
 
-        for key, value in kwargs.items():
-            add_to_css = f"{key}: {value};"
-            add_to_css = add_to_css.replace('_', '-')
-            # print(add_to_css)
-
-            with open('style.css', 'w') as s:
-                s.write(f"\n{type} {{")
-                
+        with open("style.css", 'a+') as s:
+            s.write(f"\n\n{type} {{")
             for key, value in kwargs.items():
-                add_to_css = f"{key}: {value};"
-                add_to_css = add_to_css.replace('_', '-')
-
-                open('style.css', 'a+').write(f'''
-    {add_to_css}''')
-
-            open('style.css', 'a+').write("\n}")
+                s.write(f"\n\t{key.replace('_', '-')}: {value};")
+            s.write("\n}")
         
 
 
