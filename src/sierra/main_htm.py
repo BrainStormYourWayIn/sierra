@@ -98,35 +98,23 @@ class image():
                 f.write(f"\n<img src='{self.src}' {self.attr}>")
 
     def css(self, **kwargs):
-        """
+        """Writes the given parameters to the CSS file.
         Args:
-
-            **kwargs (optional)              : CSS styling arguments
-
+            **kwargs (optional) : CSS parameters.
         """
 
-        for key, value in kwargs.items():
-            add_to_css = f"{key}: {value};"
-            add_to_css = add_to_css.replace('_', '-')
-            # print(add_to_css)
-
-        with open('style.css', 'a+') as s:
-            s.write(f"\n\nimg {{")
+        with open("style.css", 'a+') as s:
+            s.write("\n\nimg {")
             for key, value in kwargs.items():
-                add_to_css = f"{key}: {value};"
-                add_to_css = add_to_css.replace('_', '-')
-
-                s.write(f'''
-    {add_to_css}''')
-
+                s.write(f"\n\t{key.replace('_', '-')}: {value};")
             s.write("\n}")
 
 
 def autoPrettify():
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
-    warnings.showwarning(r'''Auto prettifying also involves auto closing unclosed HTML tags which may not be accurate if not used after development is complete. 
-    Use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, 'main_htm.py', 110)
+    warnings.showwarning(r'''Auto prettifying also involves auto closing unclosed HTML tags which may not be accurate if not used after development is complete.
+Use after all development for best results. See "bs4 auto closing tags" for more info.''', UserWarning, 'main_htm.py', 110)
     # check_unclosed()
     with open("index.html", 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
