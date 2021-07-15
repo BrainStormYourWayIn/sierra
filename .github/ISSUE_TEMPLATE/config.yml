@@ -5,3 +5,7 @@
 - name: contributor_list
   uses: cjdenio/contributor_list@1.0
 blank_issues_enabled: false
+contact_links:
+- name: BrainStormYourWayIn gmail ID
+  url: brainstormyourwayin@gmail.com
+  about: Contact us here for any query/idea.
