@@ -32,7 +32,7 @@ class div:
         if self.div_class != None:
             with open("style.css", 'a+') as s:
                 s.write(f"\n\n{self.div_class} {{")
-                for key, value in kwargs:
+                for key, value in kwargs.items():
                     s.write(f"\n\t{key.replace('_', '-')}: {value};")
                 s.write("\n}")
 
@@ -67,7 +67,7 @@ class section:
         """
         if self.sec_class != None:
             with open("style.css", 'a+') as s:
-                for key, value in kwargs:
+                for key, value in kwargs.items():
                     s.write(f"\n\t{key.replace('_', '-')}: {value};")
                 s.write("\n}")
 
