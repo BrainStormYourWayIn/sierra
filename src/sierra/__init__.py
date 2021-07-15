@@ -1,6 +1,6 @@
 from bullets_and_lists import *
 from cTags import *
-from directory_structure import *
+from directory_structure import *             # Import these if you're cloning the repo to test/work with Sierra
 from main_htm import *
 from table import *
 from tags import *
