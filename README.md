@@ -2,14 +2,14 @@
 
 ![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
 
-Sierra is a Python native engine for Web Development, which makes integration with the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities with simple and elegant syntax. 
+Sierra is a Python native engine for frontend development, which makes integration with the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities with simple and elegant syntax. 
 
 This was in part inspired by Dominate, but has support for CSS styling attributes, better syntax and many more functionalities
 with simple, and elegant syntax.
 
 It can be used standalone in developing web applications
 
-You can also use this as an alternative to jinja or Django's templating or another templating engine, or use it along with one
+You can also use this as an alternative to jinja or Django's templating or any other templating engine, or also use it along with one
 
 It's got features like displaying a table on the web application by loading in a .csv file, adding a bulleted list (ol/ul) by just passing in a Python list, automatic support for CSS styling arguments and more! You can use for loops, variables, functions - you name it, you have it, with Sierra. Improvement in the overall look of the code and intelligent handling of tags with `autoPrettify()`, a feature like no other. Harness the power of Python for your web applications!
 
@@ -24,7 +24,7 @@ ________________________________
 - **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/)**
 - **Check out a [few examples](https://github.com/BrainStormYourWayIn/sierra_examples/) of its use**
 
-> The examples mentioned above is a simple book search engine created with requests, bs4, Flask and Sierra, and the documentation of Sierra, which was written with Sierra standalone
+> The examples mentioned above is a simple bare-boned book search engine created with requests, bs4, Flask and Sierra; and the documentation of Sierra, which was written with Sierra standalone
 
 ________________________________
 
@@ -189,13 +189,13 @@ ________________________________
 
 ### Upcoming (in order of priority):
 
+- Enable automatic introduction of tags like `span`, `label`, `input` or anything with decorators (See `release_prots.py`)
 - In-memory storage for the HTML and CSS file (See `release_prots.py`)
 - Deprecate cTags() and just introduce a new function called css(), since adding CSS with a class is longer than simply doing css('.some_class', color='blue',           font_size='20px')
 - Deprecate the attr argument and instead use **kwargs to add tag attributes
 - Add an option for in-memory storage, see release_prots.py
-- Add new functions for meta(), script(), label(), span(), get_input(), a(), and use `kwargs` to add tag attributes
+- Use `kwargs` to add tag attributes
 - Change startTable and createTable to start_table and create_table
-- Support for Close-on-Close tags (like <area>. While this is covered by `autoPrettify()` when you use `open_tag('area/any other tag')`, we think it's probably better to have a separate function dedicated to this to improve the look of the Python code)
 
 **See `release_prots.py`**
 
