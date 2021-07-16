@@ -30,7 +30,7 @@ ________________________________
 
 ## Example
 
-Using this with Flask makes life easier if you're developing web applications with just HTML and CSS. Adding JS is not supported by Sierra and has to be done manually (if desired).
+Using this with Flask makes life easier if you're developing web applications with just HTML and CSS. Adding JS with manual functions will be supported by Sierra in the coming release(s)
 
 Here's a little example for this:
 
