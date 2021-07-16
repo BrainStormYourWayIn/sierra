@@ -108,17 +108,17 @@ title('The title goes here')
 head('Sierra!', type='h2', color="#0388fc")
 openBody()
 
-with open_tag('newTag') as t:       # Opening a tag 'newTag'
+with open_tag('newTag'):      
 
-    with div('someClass') as d:     # Creating a div within  'newTag'
-        p('Some text')                   # Adding a paragraph
+    with div('someClass') as d:     
+        p('Some text within the div')                   
         d.css(background_color='rgb(211, 111, 121)')          # Adding CSS to the div
         
         with section('anotherClass', "id='some_id'"):         # Creating section within the div within 'newTag'
             with startTable() as st:
-                st.getTable(/path/to/file.csv, attr="id='table_id'")     # Displaying a table from a CSV and giving it an id
+                st.getTable(/path/to/file.csv, attr="id='table_id'")   
                 
-                with cTags('#table_id') as t:          # Adding CSS from the table id
+                with cTags('#table_id') as t:
                     t.css(font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='20%')     
                     
             p("This is a paragrah within a section, which is within a div tag and comes afer the table")
