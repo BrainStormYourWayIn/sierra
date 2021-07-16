@@ -26,7 +26,7 @@ ________________________________
 > The examples mentioned above is a simple bare-boned book search engine created with requests, bs4, Flask and Sierra; and the documentation of Sierra, which was written with Sierra standalone
 
 ________________________________
-**Have a look at `src/custom_tags.py` and `release_prots.py` for a sneak-peek on the next release updates. We got some things going on there!**
+**Have a look at `src/sierra/custom_tags.py` and `release_prots.py` for a sneak-peek on the next release updates. We got some things going on there!**
 ________________________________
 
 
