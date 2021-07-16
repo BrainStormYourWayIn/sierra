@@ -1,24 +1,36 @@
 # Still work in progress
 
+common_attr = [
+    '_async',  
+    '_reversed', 
+    '_class', 
+    '_for'
+]
+
 def tag(func):
 
-    def wrapper(*args, **kwargs):
+    def wrapper(**kwargs):
 
         name = func.__name__
 
+        # for key in kwargs.items():
+        #     if key = 'some':
+        #         print('')
+
         if kwargs:
 
-            print(args, *(f"{key}={value}" for key, value in kwargs.items()))
+            # print(kwargs['fodo'])
+            print(*(f"{key.replace('_', '')}={value}" for key, value in kwargs.items()))
 
         print(name)
 
-        func(*args, **kwargs)
+        func(**kwargs)
         
     return wrapper
 
 
 @tag
-def test(**kwargs):
+def test(some, **kwargs):
     pass
 
-test(foo='bar', haha='lol')
+test(some='loz', foo='bar', _class='some_class')
