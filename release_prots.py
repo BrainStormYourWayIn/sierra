@@ -44,6 +44,8 @@ def some_func():
 # This way, Sierra can also be used with other web frameworks in an easier way.
 # This is still just a prototype, yet to test and run.
 
+
+
 # Creating tags with decorator
 
 @tag
@@ -52,5 +54,5 @@ def label(**kwargs):
 
 label(_class='someClass', _for='someInput')
 
-
+# See `src/sierra/custom_tags.py` for more
     
