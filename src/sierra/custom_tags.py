@@ -1,3 +1,4 @@
+# Enables the user to create custom tags based on their use cases
 # Still work in progress
 import functools
 import traceback
@@ -29,9 +30,6 @@ def tag(func):
 
         name = func.__name__
 
-        # for key in kwargs.items():
-        #     if key = 'some':
-        #         print('')
 
         if kwargs:
             
@@ -103,11 +101,11 @@ class CmTag(ContextDecorator):
 
 
 @tag
-def test(**kwargs):
+def meta(**kwargs):
     pass
 
-test(_class='some_class', some='loz', foo='bar')
-# <test class='some_class' some='loz' foo='bar'/>
+meta(name="viewport", content="width=device-width, initial-scale=1.0")
+# <meta name="viewport" content="width=device-width initial-scale=1.0"/>
 
 @tag
 def script(text, **kwargs):
