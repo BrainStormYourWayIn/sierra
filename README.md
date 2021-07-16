@@ -29,10 +29,6 @@ ________________________________
 ________________________________
 
 
-![GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)
-
-________________________________
-
 ## Example
 
 Using this with Flask makes life easier if you're developing web applications with just HTML and CSS. Adding JS is not supported by Sierra and has to be done manually (if desired).
@@ -214,13 +210,7 @@ Email: brainstormyourwayin@gmail.com
 ________________________________
 
 
-**It featured on the [Python Weekly Newsletter Issue 505](https://newsletterest.com/message/62517/Python-Weekly-Issue-505) just 2 weeks into the first release.**
-
-**It got mentioned by [AwesomePython](https://pythonawesome.com/a-python-framework-for-building-and-integrating-web-app/).**
-
-**...and [got tweeted out by PythonHub on Twitter](https://twitter.com/pythonhub/status/1409727123888259073), which has about 75k followers.**
-
-All in just the first three weeks of releasing the first version of Sierra!
+![GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)
 
 ________________________________
 
