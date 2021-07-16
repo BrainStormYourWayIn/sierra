@@ -1,4 +1,8 @@
 # Still work in progress
+import functools
+import traceback
+from contextlib import ContextDecorator
+import warnings
 
 common_attr = [
     '_async',  
@@ -7,8 +11,20 @@ common_attr = [
     '_for'
 ]
 
-def tag(func):
+def join_attr(tup):
+    string = ''
+    for item in tup:
+        string = string + item
+        string = string.replace('  ', ' ')
+    return string
 
+def tag(func):
+    """
+    Decorator to create short tags like &lt;area>, &lt;label>, &lt;script> or any other similar tag
+    \nUse text as a `**kwargs` argument if you want to add some short text within the tag. If you want to create a tag that takes in no text but closes immediately after opening, then enter text as `text=''`   
+    \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to entered in as `_class` and `_for`
+    """
+    @functools.wraps(func)
     def wrapper(**kwargs):
 
         name = func.__name__
@@ -18,19 +34,80 @@ def tag(func):
         #         print('')
 
         if kwargs:
+            
+            try:
+                check_text = kwargs['text']
+                del kwargs['text']
 
-            # print(kwargs['fodo'])
-            print(*(f"{key.replace('_', '')}={value}" for key, value in kwargs.items()))
+                all_attr = f"<{name}  ", *(f"  {key.replace('_', '')}={value}" for key, value in kwargs.items()), ">"
+                # print(a)
+                print(join_attr(all_attr))
+                print(check_text)
+                print(f"</{name}>")
 
-        print(name)
+            except KeyError:
+
+                all_attr = f"<{name}  ", *(f"  {key.replace('_', '')}={value}" for key, value in kwargs.items()), ">"
+                print(join_attr(all_attr))
+
+        else:
+
+            warnings.showwarning(r'''
+Execution not possible if you're not using **kwargs, please use Tag() or decorator CmTag() instead of 
+decorator tag()''', 
+            UserWarning, 'custom_tags.py', 'decorator tag()')
+
+
 
         func(**kwargs)
         
     return wrapper
 
 
+
+
+
+class CmTag(ContextDecorator):
+    """
+    Decorator to create a tag with a context-manager behavior
+    \nUse `kwargs` to add tag attributes.
+    \nPython-conflicting attribute names like `class` and `for` to entered in as `_class` and `_for` 
+    """
+
+    def __init__(self, cm_tag_func):
+
+        self.cm_tag_func = cm_tag_func
+        
+
+    def __enter__(self):        
+        return self
+
+    def __exit__(self, exc_type, exc_value, tb):
+        if exc_type is not None:
+            traceback.print_exception(exc_type, exc_value, tb)
+        else:
+            name = self.cm_tag_func.__name__
+            print(name)
+
+    def __call__(self, **kwargs):
+
+        name = self.cm_tag_func.__name__
+        print(name)
+        print(kwargs)
+        self.cm_tag_func(**kwargs)
+        return self
+
+# @CmTag
+# def testingg(**kwargs):
+#     pass
+
+# with testingg(foo='bar') as a:
+#     print('a test')
+
+
 @tag
-def test(some, **kwargs):
+def test(**kwargs):
     pass
 
-test(some='loz', foo='bar', _class='some_class')
+# test(some='loz', foo='bar', _class='some_class')
+test()
