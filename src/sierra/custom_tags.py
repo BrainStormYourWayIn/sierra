@@ -58,12 +58,9 @@ decorator tag()''',
             UserWarning, 'custom_tags.py', 'decorator tag()')
 
 
-
         func(**kwargs)
         
     return wrapper
-
-
 
 
 
