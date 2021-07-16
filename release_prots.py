@@ -2,7 +2,7 @@
 
 # See the history for previous prototypes. 
 # 1/1 implemented
-# 1/1 todo
+# 2/2 todo
 
 # In memory storage of HTML and CSS files.
 # Right now, an `index.html` and `style.css` is created in the working directory when Sierra's title() is executed.
@@ -44,10 +44,13 @@ def some_func():
 # This way, Sierra can also be used with other web frameworks in an easier way.
 # This is still just a prototype, yet to test and run.
 
-## Other stuff that can be done ##
+# Creating tags with decorator
 
-with Tag('p'):
-    with div()...
-    span()
-    a()
+@tag
+def label(**kwargs):
+    pass
+
+label(_class='someClass', _for='someInput')
+
+
     

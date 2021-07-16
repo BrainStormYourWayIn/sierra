@@ -110,6 +110,7 @@ class image():
             s.write("\n}")
 
 
+
 def autoPrettify():
     """Improve overall look of code and close all tags automatically (if not already done)."""
 
