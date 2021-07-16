@@ -4,13 +4,13 @@
 
 Sierra is a Python native engine for frontend development, which makes templating for the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities with simple and elegant syntax. 
 
-This was in part inspired by Dominate, but has support for CSS styling attributes, better syntax, more use cases and many more functionalities
+This was in part inspired by [Dominate](https://github.com/Knio/dominate), but has support for CSS styling attributes, better syntax, more use cases and many more functionalities
 
 It can be used standalone in developing web applications
 
 You can also use this as an alternative to jinja or Django's templating or any other templating engine, or also use it along with one
 
-It's got features like displaying a table on the web application by loading in a .csv file, adding a bulleted list (ol/ul) by just passing in a Python list, automatic support for CSS styling arguments and more! You can use for loops, variables, functions - you name it, you have it, with Sierra. Improvement in the overall look of the code and intelligent handling of tags with `autoPrettify()`, a feature like no other. Harness the power of Python for your web applications!
+It's got features like displaying a table on the web application by loading in a .csv file, adding a bulleted list (ol/ul) by just passing in a list, automatic support for CSS styling arguments and more! You can use for loops, variables, functions - you name it, you have it, with Sierra. Improvement in the overall look of the code and intelligent handling of tags with `autoPrettify()`, a feature like no other. Harness the power of Python for your web applications!
 
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
 
