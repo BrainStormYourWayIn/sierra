@@ -122,5 +122,19 @@ script(text=someJStext, _async="", src="some_src")
 #     someJStext
 # </script>
 
+# OR use @CmTag (work-in-progress)
+
+@CmTag
+def script(**kwargs):
+    pass
+
+with script(_async="", src="some_src"):
+    writeWA(someJStext)
+
+# <script async="", src="some_src">
+#     someJStext
+# </script>
+    
+
 
 
