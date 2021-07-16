@@ -106,5 +106,21 @@ class CmTag(ContextDecorator):
 def test(**kwargs):
     pass
 
-# test(some='loz', foo='bar', _class='some_class')
-test()
+test(_class='some_class', some='loz', foo='bar')
+# <test class='some_class' some='loz' foo='bar'/>
+
+@tag
+def script(text, **kwargs):
+    pass
+
+someJStext = f'''
+      # JS text
+      '''
+script(text=someJStext, _async="", src="some_src")
+
+# <script async="", src="some_src">
+#     someJStext
+# </script>
+
+
+
