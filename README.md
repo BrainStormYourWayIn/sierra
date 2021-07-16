@@ -1,6 +1,8 @@
 # sierra
 
-![sierra logo](https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg)
+<p align='center'>
+<img src="https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg" alt="Sierra"/>
+</p>
 
 Sierra is a Python native engine for frontend development, which makes templating for the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities with simple and elegant syntax. 
 
