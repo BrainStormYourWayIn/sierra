@@ -41,36 +41,37 @@ from sierra import *
 
 app = Flask(__name__)
 
-def the_template():                              # Creating a simple template
+def the_template():                              
     title('Some title', templating=True)         # Set templating to True if you're using Flask 
     head('Just a heads up', 'h2')
     openBody()
 
 def adding_table():
+
     the_template()
-    with div(None, attr="id='div_id'"):             # Creating a <div> with id='div_id'
+    with div(None, attr="id='div_id'"):           
 
         with startTable() as st:                    # Creating a table within the <div> tag
         
-            st.getTable('path/to/file.csv')    # Dislaying the table from a csv file
+            st.getTable('path/to/file.csv')    
             st.css(font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='20%')     
                
             
     autoPrettify()
     write_to_template('index1.html')
 
-def bulleted_and_des_list():
-    the_template()
-    
-    with div(div_class='description_list'):       # Creating div
+def pre_and_unordered_list():
 
-        a = [[['coffee', 'tea'], ['black coffee', 'black tea']], [['new_coffee'], ['foo', 'tea', 'green_tea']]]
-        # Displaying a description list
-        des_lists(a)
+    the_template() 
+    with div(div_class='description_list'):       
 
-        with section(sec_class='unordered_list') as s:    # Creating section inside div
-            ul_list = ['This', 'is', 'an', 'unordered', 'list']        # Creating an unordered list
-            with bullets(ul=True, points=ul_list):      # Displaying it
+        with open_tag('pre') as pr:
+            writeWA("Some text within the <pre> tag")
+            pr.css(background_color="#e1e8e3")
+
+        with section(sec_class='unordered_list') as s:                 # Creating section inside div
+            ul_list = ['This', 'is', 'an', 'unordered', 'list']        
+            with bullets(ul=True, points=ul_list):      
                 pass        
 
     autoPrettify()
@@ -81,9 +82,9 @@ def show_adding_table():
     adding_table()
     return render_template('index1.html')
 
-@app.route("/bulleted_and_des_list")
-def show_bulleted_and_des_list():
-    bulleted_and_des_list()
+@app.route("/pre_and_unordered_list")
+def show_pre_and_unordered_list():
+    pre_and_unordered_list()
     return render_template('index2.html')
 
 if __name__ == '__main__':
