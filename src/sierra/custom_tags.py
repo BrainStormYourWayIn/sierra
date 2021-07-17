@@ -44,7 +44,7 @@ def tag(func):
                 k.replace("__", "").replace("_", "-"): v for k, v in kwargs.items()
                 }
 
-                all_attr = f"<{name} ", *(f"  {key}='{value}'" for key, value in kwargs.items()), ">"
+                all_attr = f"<{name} ", *(f'  {key}="{value}"' for key, value in kwargs.items()), ">"
                 print(join_attr(all_attr))
 
                 print(check_text)
