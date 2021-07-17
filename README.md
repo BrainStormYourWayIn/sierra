@@ -26,6 +26,12 @@ ________________________________
 > The examples mentioned above is a simple bare-boned book search engine created with requests, bs4, Flask and Sierra; and the documentation of Sierra, which was written with Sierra standalone
 
 ________________________________
+
+This is intended for used in developing less resource-heavy web applications which involve a good amount of Python code, and if you want to work exclusively on Python without using another templating engine (jinja, Django's templating), although you may use this with them if the use case suits you.   
+The first run/execution may take upto 4 seconds.   
+Note that the runtime may vary depending on the amount of Python code involved on the application. Maximum tested runtime was close to 2.0 secs after the first run.
+
+________________________________
 **Have a look at `src/sierra/custom_tags.py` and `release_prots.py` for a sneak-peek on the next release updates. We got some things going on there!**
 ________________________________
 
