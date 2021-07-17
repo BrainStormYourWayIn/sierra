@@ -220,7 +220,7 @@ Email: brainstormyourwayin@gmail.com
 ________________________________
 
 
-<img src="https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg" href="https://gitpod.io/#https://github.com/BrainStormYourWayIn/sierra/" alt="GitPod"/>
+[![GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)](https://gitpod.io/#https://github.com/BrainStormYourWayIn/sierra/)
 
 ________________________________
 
