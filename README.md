@@ -191,7 +191,7 @@ ________________________________
 
 ### Upcoming (in order of priority):
 
-- Enable automatic introduction of tags like `span`, `label`, `input` or anything with decorators (See `release_prots.py`)
+- Enable auto-introduction of custom tags tags like `span`, `label`, `input` or anything, with decorators (See `release_prots.py`)
 - In-memory storage for the HTML and CSS file (See `release_prots.py`)
 - Deprecate cTags() and just introduce a new function called css(), since adding CSS with a class is longer than simply doing css('.some_class', color='blue',           font_size='20px')
 - Deprecate the attr argument and instead use **kwargs to add tag attributes
