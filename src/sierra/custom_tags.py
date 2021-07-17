@@ -143,6 +143,10 @@ script(text=someJStext, __async="", src="some_src")
 
 # </script>
 
+script(__async='something', text='')
+
+# <script async="something"></script>
+
 # OR use @CmTag
 
 @CmTag
