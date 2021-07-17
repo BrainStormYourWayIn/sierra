@@ -31,7 +31,7 @@ This is intended for used in developing less resource-heavy web applications whi
 
 The first run/execution may take upto 4 seconds since this involves file system calls (which will no longer be required starting v2.4.0) 
 
-Note that the runtime may vary depending on the amount of Python code involved on the application. Maximum tested runtime was close to 2.0 secs after the first run.
+Note that the runtime may vary depending on the amount of Python code involved on the application. Maximum tested runtime (after `autoPrettify()`) was close to 2.0 secs after the first run.
 
 ________________________________
 **Have a look at `src/sierra/custom_tags.py` and `release_prots.py` for a sneak-peek on the next release updates. We got some things going on there!**
