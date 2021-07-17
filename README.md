@@ -6,7 +6,7 @@
 
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
 
-Sierra is a Python native engine for frontend development, which makes templating for the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities with simple and elegant syntax. 
+Sierra is a Python native engine for web development, which makes templating for the backend faster, as well as have full control on your frontend. You can now develop your web application purely in Python, taking full advantage of its powerful functionalities with simple and elegant syntax. 
 
 This was in part inspired by [Dominate](https://github.com/Knio/dominate), but has support for CSS styling attributes, better syntax, more use cases and many more functionalities
 
