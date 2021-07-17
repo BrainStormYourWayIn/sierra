@@ -211,6 +211,7 @@ Email: brainstormyourwayin@gmail.com
 
 ________________________________
 
+**We work exclusively on GitPod**
 
 ![GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)
 
