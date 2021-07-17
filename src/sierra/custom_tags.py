@@ -22,7 +22,7 @@ def join_attr(tup):
 def tag(func):
     """
     Decorator to create short tags like &lt;area>, &lt;label>, &lt;script> or any other similar tag
-    \nUse text as a `**kwargs` argument if you want to add some short text within the tag. If you want to create a tag that takes in no text but closes immediately after opening, then enter text as `text=''`   
+    \nUse `text` as a `**kwargs` argument if you want to add some short text within the tag. If you want to create a tag that takes in no text but closes immediately after the attributes, do not use `text` as an argument  
     \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to entered in as `_class` and `_for`
     """
     @functools.wraps(func)
@@ -55,7 +55,7 @@ def tag(func):
                 kwargs = {
                 k.replace("__", "").replace("_", "-"): v for k, v in kwargs.items()
                 }
-                
+
                 all_attr = f"<{name}  ", *(f'  {key}="{value}"' for key, value in kwargs.items()), ">"
                 print(join_attr(all_attr))
 
