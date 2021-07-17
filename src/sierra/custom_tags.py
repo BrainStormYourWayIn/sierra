@@ -118,6 +118,7 @@ class CmTag(ContextDecorator):
         self.cm_tag_func(**kwargs)
         return self
 
+
 ### Some tests
 
 @tag
