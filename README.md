@@ -219,9 +219,8 @@ Email: brainstormyourwayin@gmail.com
 
 ________________________________
 
-**We work exclusively on GitPod**
 
-![GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)
+<img src="https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg" href="https://gitpod.io/#https://github.com/BrainStormYourWayIn/sierra/" alt="GitPod"/>
 
 ________________________________
 
