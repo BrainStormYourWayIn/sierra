@@ -26,7 +26,7 @@ def tag(func):
     \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to entered in as `_class` and `_for`
     """
     @functools.wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(**kwargs):
 
         name = func.__name__
 
@@ -45,10 +45,10 @@ def tag(func):
                 }
 
                 all_attr = f"<{name} ", *(f'  {key}="{value}"' for key, value in kwargs.items()), ">"
-                print(join_attr(all_attr))
+                open('index.html', 'a+').write(f"\n{join_attr(all_attr)}")
 
-                print(check_text)
-                print(f"</{name}>")
+                open('index.html', 'a+').write(f"\n{check_text}")
+                open('index.html', 'a+').write(f"\n</{name}>")
 
             except KeyError:
 
@@ -57,17 +57,19 @@ def tag(func):
                 }
 
                 all_attr = f"<{name}  ", *(f'  {key}="{value}"' for key, value in kwargs.items()), ">"
-                print(join_attr(all_attr))
+                open('index.html', 'a+').write(f"\n{join_attr(all_attr)}")
 
         else:
 
+            open('index.html', 'a+').write(f"\n<{name}>")
+
             warnings.showwarning(r'''
-Execution not possible if you're not using **kwargs. please use Tag() or @CmTag() instead of 
-@tag()''', 
+Execution not viable if you're not using **kwargs. Use this only if you're using a tag like <br/>. 
+Please use Tag() or @CmTag() instead of @tag()''', 
             UserWarning, 'custom_tags.py', '@tag')
 
 
-        func(*args, **kwargs)
+        func(**kwargs)
         
     return wrapper
 
@@ -93,23 +95,30 @@ class CmTag(ContextDecorator):
             traceback.print_exception(exc_type, exc_value, tb)
         else:
             name = self.cm_tag_func.__name__
-            print(name)
+            open('index.html', 'a+').write(f"\n</{name}>")
 
     def __call__(self, **kwargs):
 
         name = self.cm_tag_func.__name__
-        print(name)
-        print(kwargs)
+
+        if kwargs:
+
+            kwargs = {
+                    k.replace("__", "").replace("_", "-"): v for k, v in kwargs.items()
+                    }
+
+
+            all_attr = f"<{name}  ", *(f'  {key}="{value}"' for key, value in kwargs.items()), ">"
+            open('index.html', 'a+').write(f"\n{join_attr(all_attr)}")
+
+        else:
+
+            open('index.html', 'a+').write(f"\n<{name}>")
+
         self.cm_tag_func(**kwargs)
         return self
 
-# @CmTag
-# def testingg(**kwargs):
-#     pass
-
-# with testingg(foo='bar') as a:
-#     print('a test')
-
+### Some tests
 
 @tag
 def meta(**kwargs):
@@ -128,22 +137,42 @@ someJStext = f'''
 script(text=someJStext, __async="", src="some_src")
 
 # <script async="", src="some_src">
+
 #     someJStext
+
 # </script>
 
-# OR use @CmTag (work-in-progress)
+# OR use @CmTag
 
-# @CmTag
-# def script(**kwargs):
-#     pass
+@CmTag
+def script(**kwargs):
+    pass
 
-# with script(_async="", src="some_src"):
-#     print(someJStext)
+with script():
+    open('index.html', 'a+').write(someJStext)
 
 # <script async="", src="some_src">
+
 #     someJStext
+
 # </script>
-print('haha')
+
+@tag
+def br():
+    pass
+br()
+
+# <br/>
+
+@CmTag
+def test(**kwargs):
+    pass
+
+with test(some='attr'):
+    pass
+
+# <test some="attr">
+# </test>
     
 
 
