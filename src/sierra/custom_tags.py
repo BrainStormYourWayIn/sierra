@@ -6,10 +6,10 @@ from contextlib import ContextDecorator
 import warnings
 
 common_attr = [
-    '_async',  
-    '_reversed', 
-    '_class', 
-    '_for'
+    '__async',  
+    '__reversed', 
+    '__class', 
+    '__for'
 ]
 
 def join_attr(tup):
@@ -26,37 +26,48 @@ def tag(func):
     \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to entered in as `_class` and `_for`
     """
     @functools.wraps(func)
-    def wrapper(**kwargs):
+    def wrapper(*args, **kwargs):
 
         name = func.__name__
-
 
         if kwargs:
             
             try:
+
+                # part_of_key_to_replace = {'__': '', '_': '-'}
+
                 check_text = kwargs['text']
                 del kwargs['text']
+                
+                    
+                kwargs = {
+                k.replace("__", "").replace("_", "-"): v for k, v in kwargs.items()
+                }
 
-                all_attr = f"<{name}  ", *(f"  {key.replace('_', '')}={value}" for key, value in kwargs.items()), ">"
-                # print(a)
+                all_attr = f"<{name} ", *(f"  {key}='{value}'" for key, value in kwargs.items()), ">"
                 print(join_attr(all_attr))
+
                 print(check_text)
                 print(f"</{name}>")
 
             except KeyError:
 
-                all_attr = f"<{name}  ", *(f"  {key.replace('_', '')}={value}" for key, value in kwargs.items()), ">"
+                kwargs = {
+                k.replace("__", "").replace("_", "-"): v for k, v in kwargs.items()
+                }
+                
+                all_attr = f"<{name}  ", *(f'  {key}="{value}"' for key, value in kwargs.items()), ">"
                 print(join_attr(all_attr))
 
         else:
 
             warnings.showwarning(r'''
-Execution not possible if you're not using **kwargs, please use Tag() or decorator CmTag() instead of 
-decorator tag()''', 
-            UserWarning, 'custom_tags.py', 'decorator tag()')
+Execution not possible if you're not using **kwargs. please use Tag() or @CmTag() instead of 
+@tag()''', 
+            UserWarning, 'custom_tags.py', '@tag')
 
 
-        func(**kwargs)
+        func(*args, **kwargs)
         
     return wrapper
 
@@ -104,17 +115,17 @@ class CmTag(ContextDecorator):
 def meta(**kwargs):
     pass
 
-meta(name="viewport", content="width=device-width, initial-scale=1.0")
+meta(name="viewport", content="width=device-width", initial_scale='1.0')
 # <meta name="viewport" content="width=device-width initial-scale=1.0"/>
 
 @tag
-def script(text, **kwargs):
+def script(**kwargs):
     pass
 
 someJStext = f'''
       # JS text
       '''
-script(text=someJStext, _async="", src="some_src")
+script(text=someJStext, __async="", src="some_src")
 
 # <script async="", src="some_src">
 #     someJStext
@@ -122,16 +133,17 @@ script(text=someJStext, _async="", src="some_src")
 
 # OR use @CmTag (work-in-progress)
 
-@CmTag
-def script(**kwargs):
-    pass
+# @CmTag
+# def script(**kwargs):
+#     pass
 
-with script(_async="", src="some_src"):
-    writeWA(someJStext)
+# with script(_async="", src="some_src"):
+#     print(someJStext)
 
 # <script async="", src="some_src">
 #     someJStext
 # </script>
+print('haha')
     
 
 
