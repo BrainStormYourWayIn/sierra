@@ -1,5 +1,5 @@
 # Enables the user to create custom tags based on their use cases
-# Still work in progress
+
 import functools
 import traceback
 from contextlib import ContextDecorator
