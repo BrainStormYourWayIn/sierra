@@ -27,9 +27,9 @@ ________________________________
 
 ________________________________
 
-This is intended for used in developing less resource-heavy web applications which involve a good amount of Python code, and if you want to work exclusively on Python without using another templating engine (jinja, Django's templating), although you may use this with them if the use case suits you.   
+This is intended for used in developing less resource-heavy web applications (since this hasn't been tested with any resource-heavy ones) which involve a good amount of Python code, and if you want to work exclusively on Python without using another templating engine (jinja, Django's templating). Although you may use this with them if the use case suits you.   
 
-The first run/execution may take upto 4 seconds since this involves file system calls (which will no longer be required starting v2.4.0) 
+The first run/execution may take upto 2-4 seconds since this involves file system calls (which will no longer be required starting v2.4.0) 
 
 Note that the runtime may vary depending on the amount of Python code involved on the application. Maximum tested runtime (after `autoPrettify()`) was close to 2.0 secs after the first run.
 
