@@ -65,7 +65,7 @@ def tag(func):
 
             warnings.showwarning(r'''
 Execution not viable if you're not using **kwargs. Use this only if you're using a tag like <br/>. 
-Please use Tag() or @CmTag() instead of @tag()''', 
+Else use Tag() or @CmTag instead of @tag''', 
             UserWarning, 'custom_tags.py', '@tag')
 
 
