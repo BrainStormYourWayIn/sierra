@@ -35,6 +35,7 @@ class div:
             traceback.print_exception(exc_type, exc_value, tb)
         else:
             open("index.html", 'a+').write("\n</div>")
+            
 
     def css(self, **kwargs):
         """Writes the given parameters to the CSS file.
@@ -97,6 +98,7 @@ class section:
             traceback.print_exception(exc_type, exc_value, tb)
         else:
             open("index.html", 'a+').write("\n</section>")
+
 
     def css(self, **kwargs):
         """Writes the given parameters to the CSS file.
