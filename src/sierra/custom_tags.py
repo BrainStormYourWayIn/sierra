@@ -23,7 +23,8 @@ def tag(func):
     """
     Decorator to create short tags like &lt;area>, &lt;label>, &lt;script> or any other similar tag
     \nUse `text` as a `**kwargs` argument if you want to add some short text within the tag. If you want to create a tag that takes in no text but closes immediately after the attributes, do not use `text` as an argument  
-    \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to entered in as `_class` and `_for`
+    \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to be prefixed by a double underscore, that is, to be entered in as `__class` and `__for`
+    \nUse a single underscore in place of a hyphen in the `key` of `kwargs`, which is the tag atrribute name. Tag attribute `initial-scale` must be `initial_scale` as the `key`
     """
     @functools.wraps(func)
     def wrapper(**kwargs):
@@ -78,8 +79,9 @@ Else use Tag() or @CmTag instead of @tag''',
 class CmTag(ContextDecorator):
     """
     Decorator to create a tag with a context-manager behavior
-    \nUse `kwargs` to add tag attributes.
-    \nPython-conflicting attribute names like `class` and `for` to entered in as `_class` and `_for` 
+    \nUse `kwargs` to add tag attributes
+    \nPython-conflicting attribute names like `class` and `for` to be prefixed by a double underscore, that is, to be entered in as `__class` and `__for`
+    \nUse a single underscore in place of a hyphen in the `key` of `kwargs`, which is the tag atrribute name. Tag attribute `initial-scale` must be `initial_scale` as the `key`
     """
 
     def __init__(self, cm_tag_func):
