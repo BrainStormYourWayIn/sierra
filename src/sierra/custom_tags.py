@@ -3,7 +3,6 @@
 import functools
 import traceback
 from contextlib import ContextDecorator
-import warnings
 
 common_attr = [
     '__async',  
@@ -47,8 +46,8 @@ def tag(func):
                 all_attr = f"<{name} ", *(f'  {key}="{value}"' for key, value in kwargs.items()), ">"
                 open('index.html', 'a+').write(f"\n{join_attr(all_attr)}")
 
-                open('index.html', 'a+').write(f"\n{check_text}")
-                open('index.html', 'a+').write(f"\n</{name}>")
+                open('index.html', 'a+').write(f"{check_text}")
+                open('index.html', 'a+').write(f"</{name}>")
 
             except KeyError:
 
@@ -62,11 +61,6 @@ def tag(func):
         else:
 
             open('index.html', 'a+').write(f"\n<{name}>")
-
-            warnings.showwarning(r'''
-Execution not viable if you're not using **kwargs. Use this only if you're using a tag like <br/>. 
-Else use Tag() or @CmTag instead of @tag''', 
-            UserWarning, 'custom_tags.py', '@tag')
 
 
         func(**kwargs)
@@ -108,7 +102,7 @@ class CmTag(ContextDecorator):
                     }
 
             all_attr = f"<{name}  ", *(f'  {key}="{value}"' for key, value in kwargs.items()), ">"
-            open('index.html', 'a+').write(f"\n{join_attr(all_attr)}")
+            open('index.html', 'a+').write(f"\n{join_attr(all_attr)}\n")
 
         else:
 
@@ -116,4 +110,4 @@ class CmTag(ContextDecorator):
 
         self.cm_tag_func(**kwargs)
         return self
-    
+   
