@@ -24,7 +24,8 @@ def tag(func):
     Decorator to create short tags like &lt;area>, &lt;label>, &lt;script> or any other similar tag
     \nUse `text` as a `**kwargs` argument if you want to add some short text within the tag. If you want to create a tag that takes in no text but closes immediately after the attributes, do not use `text` as an argument  
     \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to be prefixed by a double underscore, that is, to be entered in as `__class` and `__for`
-    \nUse a single underscore in place of a hyphen in the `key` of `kwargs`, which is the tag atrribute name. Tag attribute `initial-scale` must be `initial_scale` as the `key`
+    \nUse a single underscore in place of a hyphen in the `key` of `kwargs`, which is the tag atrribute name. 
+    \neg. Tag attribute `initial-scale` must be `initial_scale` as the `key`
     """
     @functools.wraps(func)
     def wrapper(**kwargs):
@@ -34,8 +35,6 @@ def tag(func):
         if kwargs:
             
             try:
-
-                # part_of_key_to_replace = {'__': '', '_': '-'}
 
                 check_text = kwargs['text']
                 del kwargs['text']
@@ -75,7 +74,6 @@ Else use Tag() or @CmTag instead of @tag''',
     return wrapper
 
 
-
 class CmTag(ContextDecorator):
     """
     Decorator to create a tag with a context-manager behavior
@@ -109,7 +107,6 @@ class CmTag(ContextDecorator):
                     k.replace("__", "").replace("_", "-"): v for k, v in kwargs.items()
                     }
 
-
             all_attr = f"<{name}  ", *(f'  {key}="{value}"' for key, value in kwargs.items()), ">"
             open('index.html', 'a+').write(f"\n{join_attr(all_attr)}")
 
@@ -119,68 +116,4 @@ class CmTag(ContextDecorator):
 
         self.cm_tag_func(**kwargs)
         return self
-
-
-### Some tests
-
-@tag
-def meta(**kwargs):
-    pass
-
-meta(name="viewport", content="width=device-width", initial_scale='1.0')
-# <meta name="viewport" content="width=device-width initial-scale=1.0"/>
-
-@tag
-def script(**kwargs):
-    pass
-
-someJStext = f'''
-      # JS text
-      '''
-script(text=someJStext, __async="", src="some_src")
-
-# <script async="", src="some_src">
-
-#     someJStext
-
-# </script>
-
-script(__async='something', text='')
-
-# <script async="something"></script>
-
-# OR use @CmTag
-
-@CmTag
-def script(**kwargs):
-    pass
-
-with script():
-    open('index.html', 'a+').write(someJStext)
-
-# <script async="", src="some_src">
-
-#     someJStext
-
-# </script>
-
-@tag
-def br():
-    pass
-br()
-
-# <br/>
-
-@CmTag
-def test(**kwargs):
-    pass
-
-with test(some='attr'):
-    pass
-
-# <test some="attr">
-# </test>
     
-
-
-

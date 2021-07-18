@@ -73,12 +73,17 @@ def head(Head, type='header', **kwargs):
                 s.write(f"\n\t{key.replace('_', '-')}: {value};")
             s.write("\n}")
         
-
+def join_attr(tup):
+    string = ''
+    for item in tup:
+        string = string + item
+        string = string.replace('  ', ' ')
+    return string
 
 class image():
-    def __init__(self, src:str, attr=None):
+    def __init__(self, src:str, **kwargs):
         self.src = src
-        self.attr = attr
+        self.kwargs = kwargs
 
     def __enter__(self):
         return self
@@ -90,12 +95,22 @@ class image():
     def show(self):
         """
         Display the image
+        \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to be prefixed by a double underscore, that is, to be entered in as `__class` and `__for`
+        \nUse a single underscore in place of a hyphen in the `key` of `kwargs`, which is the tag atrribute name. 
+        \neg. Tag attribute `initial-scale` must be `initial_scale` as the `key`
         """
-        with open('index.html', 'a') as f:
-            if self.attr == None:
-                f.write(f'''\n<img src="{self.src}">''')
+
+        with open('index.html', 'a+') as f:
+            if self.kwargs:
+
+                all_attr = f'<img src="{self.src}"  ', *(f'  {key.replace("__", "").replace("_", "-")}="{value}"' for key, value in self.kwargs.items()), ">"
+                f.write(f"\n{join_attr(all_attr)}")
+
             else:
-                f.write(f"\n<img src='{self.src}' {self.attr}>")
+                f.write(f'\n<img src="{self.src}">')
+
+            return self.kwargs
+
 
     def css(self, **kwargs):
         """Writes the given parameters to the CSS file.
