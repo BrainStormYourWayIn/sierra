@@ -158,9 +158,11 @@ autoPrettify()
 ```
 It takes in no arguments, but provides SO much to the code.
 
-Try running this WITHOUT `autoPrettify()` at first and see `index.html`, and then WITH it, and see `index.html` again:
-
+Have a look at this example to see just how `autoPrettify()` works:
+   
+<p align=center>
 <a href="https://colab.research.google.com/github/pranavr2003/hvejbvfn/blob/main/sierra_interactive.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+</p>
 
 ________________________________
 
