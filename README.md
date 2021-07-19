@@ -137,42 +137,6 @@ with open_tag('newTag'):
 autoPrettify() 
 ```
 
-Here's another example of using it standalone - a function to scrape all text within the `<p>` tag from the source code of a URL using requests:
-    
-```python
-
-import re
-import requests
-from sierra import *
-    
-def extractpText(url):
-
-    http = urllib3.PoolManager()
-    req = http.request('GET', url)
-    respData = str(req.data)    
-    regex = '<p>(.*?)</p>'
-    paragraphs = re.findall(regex, respData)
-    return paragraph
-
-# Displaying it on the web application
-
-title('Extracting text from the p tag given a URL')
-openBody()
-
-with open_tag('pre'):           # Showing the output within the <pre> tag
-
-    writeWA(f'''
-    All following text appears within the &lt;p> tag of 'http://example.com':
-    {extractpText("http://example.com/")}
-    ''')
-
-
-autoPrettify()
-
-```
-Notice that while `&lt;` was used as an escape sequence for the '<' of the paragraph tag, `&gt;` was not used. Why? Well that's because of the power of `autoPrettify()` at the end! It detects a starting escape sequence and detects that where there's a closing tag, an escape sequence was intended. So it fills the gap in when you use the function at the end of development. Huh! How cool is that?!
-
-
 ### See the [documentation](https://brainstormyourwayin.github.io/sierra.github.io/) for more
 
 ________________________________
