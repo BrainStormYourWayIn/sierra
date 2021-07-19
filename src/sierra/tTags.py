@@ -132,16 +132,15 @@ class section:
         open("style.css", 'a+').write("\n}")
 
 
-def p(text, attr=None):
-    if attr != None:
-        with open("index.html", 'a+') as f:
-            f.write(f'''\n<p {attr}>
-{text}
-</p>''')
-    else:
-        with open("index.html", 'a+') as f:
-            f.write(f'''\n<p>
-{text}
-</p>''')
+def p(text, **kwargs):
 
+    if not kwargs:
+        open('index.html', 'a+').write(f"\n<p>\n{text}\n</p>")
+
+    else:
+        all_attr = "<p ", *(f'  {key.replace("__", "").replace("_", "-")}="{value}"' for key, value in kwargs.items()), ">"
+        
+        with open('index.html', 'a+') as f:
+            f.write(f"\n{join_attr(all_attr)}")
+            f.write(f"\n{text}\n</p>")
 
