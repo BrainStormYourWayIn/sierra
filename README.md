@@ -15,7 +15,7 @@ Here are a few advantages of using Sierra over other Python libraries that use t
 - Display a table by simply putting in a CSV file
 - Create your own tag functions with absolute ease using `@tag` and `@CmTag`. You can decide their behavior and use them within content-managers too
 - Improvement in the arrangement look of the code and intelligent handling of tags with    
-`autoPrettify()` - Powered by bs4 and a feature like no other (See [this](https://github.com/BrainStormYourWayIn/sierra/edit/main/README.md#L161))
+`autoPrettify()` - Powered by bs4 and a feature like no other (See <a href="https://colab.research.google.com/github/pranavr2003/hvejbvfn/blob/main/sierra_interactive.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="autoPrettify()"/></a>)
 
 You may also use this as a templating engine, although jinja and Django's templating engine is strongly recommended over this 
 
