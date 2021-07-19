@@ -85,3 +85,19 @@ __________________________________________________________________
 - Styling method `.css()` for `cTags()` changed to `**kwargs`.
 - Styling method `.css()` for `image()` changed to `**kwargs`.
 - Styling method `.css()` for `startTable()` changed to `**kwargs`.
+
+__________________________________________________________________
+
+## 19 July 2021 - v2.4.0
+
+- Replaced all `attr` with `kwargs`
+- Changed `startTable` to `start_table`
+- Changed `getTable` to `get_table`
+- Removed arg `templating` on `title()`
+- Deprecated `write_to_template()`
+- Deprecated `cTags()`
+- Introduced `@tag` and `@CmTag`
+- CSS for `div()` and `section()` takes in priorities
+- `writeCSS()` mechanism changed from `args` to `kwargs`
+- Docstrings updated and introduced for many functions
+
