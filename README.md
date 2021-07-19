@@ -161,6 +161,8 @@ It takes in no arguments, but provides SO much to the code.
 Try running this WITHOUT `autoPrettify()` at first and see `index.html`, and then WITH it, and see `index.html` again:
 
 ```python
+from sierra import *
+
 title('Some title')
 head('Some header', 'h2')
 
