@@ -1,18 +1,35 @@
 import traceback
 
+def join_attr(tup):
+    string = ''
+    for item in tup:
+        string = string + item
+        string = string.replace('  ', ' ')
+    return string
+
 class Tag:
-    def __init__(self, tag, attr=None):
-        """Opens any tag."""
+
+    def __init__(self, tag, **kwargs):
+        """Opens any tag.
+        
+        \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to be prefixed by a double underscore, that is, to be entered in as `__class` and `__for`
+        \nUse a single underscore in place of a hyphen in the `key` of `kwargs`, which is the tag atrribute name. 
+        \neg. Tag attribute `initial-scale` must be `initial_scale` as the `key`
+        """
 
         self.tag = tag
-        self.attr = attr
-
-        if self.attr == None:
-            open("index.html", 'a+').write(f"<{self.tag}>")
-        else:
-            open("index.html", 'a+').write(f"<{self.tag} {self.attr}>")
+        self.kwargs = kwargs
 
     def __enter__(self):
+
+        if self.kwargs:
+            # open("index.html", 'a+').write(f"\n<{self.tag}>")
+            all_attr = f"<{self.tag} ", *(f'  {key.replace("__", "").replace("_", "-")}="{value}"' for key, value in self.kwargs.items()), ">"
+            open('index.html', 'a+').write(f"\n{join_attr(all_attr)}")
+
+        else:
+            open("index.html", 'a+').write(f"\n<{self.tag}>")
+
         return self
 
     def __exit__(self, exc_type, exc_value, tb):
@@ -22,34 +39,40 @@ class Tag:
             open("index.html", 'a+').write(f"\n</{self.tag}>")
 
     def css(self, **kwargs):
-        """Writes the given parameters to the CSS file.
+        """Adds the given styling attributes to the `Tag` mentioned
 
-        Args:
-            **kwargs (optional) : CSS parameters.
+        \nUse `kwargs` to add styling attributes to the `Tag` mentioned
+        \nThis adds CSS directly to the tag mentioned, irrespective of any `__class` or `id` mentioned
+
+        \nUse `writeCSS()` instead to add CSS to a specific `class` or `id`
+
+        \nUse underscores instead of hyphens when adding styling attributes
+        \nFor example, the attribute `font-size` must be entered in as `font_size`
+
+        \nArgs:
+        \n    **kwargs (optional) : CSS parameters.
         """
 
         with open("style.css", 'a+') as s:
-            s.write("\n\nbody {{")
-            for key, value in kwargs:
+            s.write(f"\n\n{self.tag} {{")
+
+            for key, value in kwargs.items():
                 s.write(f"\n\t{key.replace('_', '-')}: {value};")
+
             s.write("\n}")
 
 def openBody(**kwargs):
     """Opens the body tag and adds the required CSS.
 
-    Args:
-        **kwargs (optional) : CSS parameters.
+    \nArgs:
+    **kwargs (optional) : CSS parameters.
     """
 
     open("index.html", 'a+').write('\n<body>')
     with open("style.css", 'a+') as s:
-        for key, value in kwargs:
+        s.write("\nbody {")
+
+        for key, value in kwargs.items():
             s.write(f"\n\t{key.replace('_', '-')}: {value};")
 
-def closeHTML():
-    """Closes the <HTML> tag."""
-    open("index.html", 'a+').write("\n</html>")
-
-def closeBody():
-    """Closes the body tag."""
-    open("index.html", 'a+').write('\n</body>')
+        s.write("\n}")

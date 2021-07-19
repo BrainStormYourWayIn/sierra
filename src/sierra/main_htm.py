@@ -2,8 +2,12 @@ import warnings
 from bs4 import BeautifulSoup
 import traceback
 
-def title(Title, icon=False, templating=False):
-    """
+def title(Title, icon=False):
+    """Adds a title to the webpage, an icon (if entered)
+
+    \nThis must be the first function called after `from sierr import *`
+    \nCalling it initiates the HTML and CSS (already linked) file that is created in the working directory upon running of the code
+
     Args:
         Title(str, compulsory)   : Title of the HTML file.
         icon(str, optional)      : Icon to be displayed. Should be a .ico file. Defaults to no icon.
@@ -14,25 +18,18 @@ def title(Title, icon=False, templating=False):
 <html lang="en">
 <meta charset="utf-8">
 <head>
-<title>{Title}</title>''')
+<title>{Title}</title>
+<link rel="stylesheet" href="style.css">''')
 
-        if templating == False:
-            f.write(f'\n<link rel="stylesheet" href="style.css">')
-        else:
-            f.write(f'''\n<link rel="stylesheet" href="/static/style.css">''')
-
-        if type(icon) == str and icon.split('.')[-1] == '.ico':
-            f.write(f'''\n<link rel="shortcut icon" href={icon}>''')
+        if type(icon) == str and icon.split('.')[-1] == 'ico':
+            f.write(f'\n<link rel="shortcut icon" href={icon}>')
     open('style.css', 'w').write('')
-
-
-# def href(link:str, text:str):
-#     with open('index.html', 'a+') as f:
-#         f.write(f'''\n<a href="{link}">{text}</a>''')
  
     
 def addFont(font_link):
     """Give the font link to add different fonts to your webpage.
+
+    \nAdd only the `href` attribute to `font_link`
     
     Args:
         font_link (str, compulsory): The font link.
@@ -41,22 +38,18 @@ def addFont(font_link):
     with open("index.html", 'a') as f:
         f.write(f'\n<link href="{font_link}" rel="stylesheet">')
 
-# def code(codeblock):
-#     """Give the codeblock as a text to display the code in your webpage.
-
-#     Args:
-#         codeblock (str, compulsory): The code block.
-#     """
-    
-#     with open("index.html", 'a') as f:
-#         f.write(f"\n<code>{codeblock}</code>")
 
 def head(Head, type='header', **kwargs):
-    """
-    Args:
-        Head (str, compulsory)           : Caption header.
-        type (str, optional)             : Header type. Anything from 'h1' to 'h6'
-        **kwargs (optional)              : CSS styling arguments
+    """Adds a header
+
+    \n`kwargs` is used to add CSS styling attributes to the `type` mentioned
+    \nUse underscores instead of hyphens when adding arguments
+    \nFor example, the styling attribute `font-size` must be entered in as `font_size`
+
+    \nArgs:
+        Head (str, compulsory)   : Caption header.
+        type (str, optional)     : Header type. Anything from 'h1' to 'h6'
+        **kwargs (optional)      : CSS styling arguments
     """
     
     # Use underscores for hyphens in **kwags for styling args
@@ -81,7 +74,20 @@ def join_attr(tup):
     return string
 
 class image():
+
     def __init__(self, src:str, **kwargs):
+        """Adds an image to the webpage. Use `kwargs` to add tag attributes
+
+        \nUse `.show()` to display the image and `.css()` to style it
+
+        \nUse `kwargs` to add tag attributes. Python-conflicting attribute names like `class` and `for` to be prefixed by a double underscore, that is, to be entered in as `__class` and `__for`
+        \nUse a single underscore in place of a hyphen in the `key` of `kwargs`, which is the tag atrribute name. 
+        \neg. Tag attribute `initial-scale` must be `initial_scale` as the `key`
+
+        \nArgs:
+        \nsrc (str, compulsory) : The location of the image file
+        \nkwargs (optional)     : Add tag attributes to `<img>` 
+        """
         self.src = src
         self.kwargs = kwargs
 
@@ -114,7 +120,14 @@ class image():
 
     def css(self, **kwargs):
         """Writes the given parameters to the CSS file.
-        Args:
+
+        \nUse underscores instead of hyphens
+        \nFor example, styling attribute `font-size` must be entered in as `font_size`
+        
+        \nUsing this adds CSS directly to `<img>` irrespective of an image `class` or `id` mentioned
+        \nUse `writeCSS()` to add CSS to a specific `class` or `id`
+
+        \nArgs:
             **kwargs (optional) : CSS parameters.
         """
 
