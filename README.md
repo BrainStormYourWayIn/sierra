@@ -160,29 +160,7 @@ It takes in no arguments, but provides SO much to the code.
 
 Try running this WITHOUT `autoPrettify()` at first and see `index.html`, and then WITH it, and see `index.html` again:
 
-```python
-from sierra import *
-
-title('Some title')
-head('Some header', 'h2')
-
-openBody()
-
-with div(__class='some_class') as d:
-    p('Some text that falls inside the division')
-    d.css(background_color='black')
-    
-    with section(id='some_id') as sec:
-        p('Some text within a section within a div')
-        sec.css(background_color='red')
-        
-    with bullets(ul=True, points=['foo', 'bar', 'baz']):
-        pass
-
-writeCSS('p', color='white')
-
-autoPrettify()         # --> Try without this and see index.html, then with this and have a look at index.html again
-```
+<a href="https://colab.research.google.com/github/pranavr2003/hvejbvfn/blob/main/sierra_interactive.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ________________________________
 
