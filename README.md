@@ -31,16 +31,16 @@ ________________________________
 
 ________________________________
 
-**Installation and Upgrade**
-```python
+### Installation
 
-pip install sierra
+    pip install sierra
 
-# Upgrade
+### Upgrade
 
-pip install --upgrade sierra
-```
+    pip install --upgrade sierra
     
+________________________________
+
 Starting off is pretty simple and straightforward:
 
 ```python
