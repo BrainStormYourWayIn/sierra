@@ -30,7 +30,7 @@ __________________________________________________________________
 ## 23 June 2021 - v1.2.0
 
 - global and event attributes enabled out of the box on div and section.
-- `tTags(p=False)` changed to `tTags(p=True)`.
+- `tTags(p=False)` changed to `tTags(p=True)`
 - Added definition lists.
 - global attributes enabled out of the box on table.
 - removed compulsory `class` args for div and section.
