@@ -50,23 +50,23 @@ __________________________________________________________________
 
 ## 29 June 2021 - v2.0.0
 
-- openTags to open_tags context-manager
-- open_tags added css, attributes
-- removed closeTags, closeTagBefore
-- added tag attributes to img
-- added tag attributes to table
-- added tag attributes to bullets
-- addBullets to bullets(), changed to context-manager
+- `openTags` to `open_tags` context-manager
+- `open_tags` added css, attributes
+- removed `closeTags`, `closeTagBefore`
+- added `tag` attributes to `img`
+- added `tag` attributes to `table`
+- added `tag` attributes to `bullets`
+- `addBullets` to `bullets()`, changed to context-manager
 - css default display from 'block' to False
-- cTags() default color from 'black' to False to provide for img css
-- removed tTags()
-- div(), section() added as context-manager
-- p() added as func, attributes added
-- def_lists renamed to des_lists
-- arg def_list renamed to arg des_list
-- added write_to_template()
-- addImg() changed to image(), context manager
-- image() tag attributes added
+- `cTags()` default color from 'black' to False to provide for img css
+- removed `tTags()`
+- `div()`, `section()` added as context-manager
+- `p()` added as func, attributes added
+- `def_lists` renamed to `des_lists`
+- arg `def_list` renamed to arg `des_list`
+- added `write_to_template()`
+- `addImg()` changed to `image()`, context manager
+- `image()` tag attributes added
 
 __________________________________________________________________
 
