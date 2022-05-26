@@ -129,8 +129,8 @@ with div(__class="some_class") as d:
     p('This is a paragraph!')
     d.css(background_color="#5886d1")
 ```
-Let's break this down but-by-bit:  
-First, we start a `div` with a context manager behavior and give it an attribute `__class`, which is essentially the tag attribute `class` (remember Python-conflicting) arguments are prefixed by a double underscore.
+Let's break this down bit-by-bit:  
+First, we start a `div` with a context manager behavior and give it an attribute `__class`, which is essentially the tag attribute `class` (remember Python-conflicting arguments are prefixed by a double underscore).
 
 `p()` is a function, as the name suggests, to add a `<p>` tag. You can give the tag attributes with `**kwargs`, if you like.   
 `p('Hello World!', __class='p_class')` is the same as `<p class="p_class">Hello World!</p>`
