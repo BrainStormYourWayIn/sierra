@@ -1,11 +1,8 @@
 # sierra
 
-<p align='center'>
-<img src="https://github.com/BrainStormYourWayIn/sierra/blob/main/logo.jpg" alt="Sierra" style="width:100%;"/>
-</p>
+<img src="https://github.com/BrainStormYourWayIn/sierra/blob/71aa3597f04846a99f03f22c8d54160bff6fa961/logo.jpg" alt="Sierra" style="width:100%;"/>
 
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
-
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
 
 Sierra is a Python library to write HTML and CSS in pure Python using the DOM API in a simple yet elegant manner. Take advantage of Python's powerful 
