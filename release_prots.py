@@ -1,6 +1,6 @@
 # These are release prototypes, a good view of what you can expect in the coming release(s)
 
-# See the history for previous prototypes. 
+# See the history for previous prototypes.
 # 1/1 implemented
 # 2/2 todo
 
@@ -13,7 +13,9 @@
 
 import io
 import os
+
 from flask import Flask
+
 
 def autoPrettify(in_mem=False):
     if in_mem is False:
@@ -21,38 +23,41 @@ def autoPrettify(in_mem=False):
         pass
     if in_mem == True:
         autoPrettify(in_mem=False)
-        
-        with open("index.html", 'a+') as f:
+
+        with open("index.html", "a+") as f:
             f.write("\n\n<style>")
-            styling = open("style.css", 'r').read()
+            styling = open("style.css", "r").read()
             f.write(f"\n{styling}")
             f.write("\n\n</style>")
-            
+
         os.remove("style.css")
 
         global index_html
-        index_html = open("index.html", 'r').read()
+        index_html = open("index.html", "r").read()
         index_html = io.StringIO(index_html)
 
+
 app = Flask(__name__)
+
 
 @app.route("/some_route")
 def some_func():
     autoPrettify()
     return index_html
 
+
 # This way, Sierra can also be used with other web frameworks in an easier way.
 # This is still just a prototype, yet to test and run.
 
 
-
 # Creating tags with decorator
+
 
 @tag
 def label(**kwargs):
     pass
 
-label(_class='someClass', _for='someInput')
+
+label(_class="someClass", _for="someInput")
 
 # See `src/sierra/custom_tags.py` for more
-    

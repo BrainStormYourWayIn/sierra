@@ -1,5 +1,5 @@
-from sierra.custom_tags import *
 from sierra.bullets_and_lists import *
+from sierra.custom_tags import *
 from sierra.main_htm import *
 from sierra.table import *
 from sierra.tags import *
@@ -13,8 +13,3 @@ from sierra.write import *
 # from tags import *
 # from tTags import *
 # from write import *
-
-
-
-
-

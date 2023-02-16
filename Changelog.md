@@ -99,5 +99,5 @@ __________________________________________________________________
 - Introduced `@tag` and `@CmTag`
 - CSS for `div()` and `section()` takes in priorities
 - `writeCSS()` mechanism changed from `args` to `kwargs`
-- Docstrings updated and introduced for many functions
+- Doc strings updated and introduced for many functions
 
