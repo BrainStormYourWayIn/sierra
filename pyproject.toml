@@ -1,8 +1,51 @@
-[build-system]
-requires = [
-    "setuptools>=42",
-    "wheel",
-    "pandas",
-    "bs4",
+[tool.poetry]
+name = "sierra"
+version = "2.4.0rc1"
+description = "Sierra is a micro templating library for web frameworks in Python"
+authors = [
+    "Pranav R <rsaipranav2003@gmail.com>",
+    "Siddhesh Agarwal <siddhesh.agarwal@gmail.com>",
 ]
-build-backend = "setuptools.build_meta"
+license = "Apache Software License"
+readme = "README.md"
+repository = "https://github.com/BrainStormYourWayIn/sierra"
+documentation = "https://brainstormyourwayin.github.io/sierra-documentation"
+keywords = [
+    "css",
+    "html",
+    "web development",
+    "web framework",
+    "templating",
+    "python to HTML",
+    "python to CSS",
+    "jinja",
+    "django",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+pandas = "^1.5.3"
+bs4 = "^0.0.1"
+
+[tool.poetry.dev-dependencies]
+black = "^23.1.0"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
