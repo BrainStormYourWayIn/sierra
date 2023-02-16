@@ -29,7 +29,7 @@ ________________________________
 
 ## Documentation
 
-- **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra.github.io/Documentation.html)**
+- **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra-documentation/)**
 
 ________________________________
 
