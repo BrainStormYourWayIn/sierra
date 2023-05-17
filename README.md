@@ -51,6 +51,7 @@ title('Hello World!')
 The `title()` function at the start is mandatory, since it commences the HTML and the CSS file, which is created in the working directory upon execution on the code.
 
 You can create custom tag functions with @tag and @CmTag with just three lines of code. Say you want to create a function for &lt;meta&gt;:
+
 ```python
 @tag
 def meta(**kwargs):
@@ -65,6 +66,7 @@ meta(name="viewport", content="width=device-width", initial_scale=1.0)
 Underscores are used for hyphens (same applies to CSS) and Python-conficting arguments are prefixed with a double underscore.
 
 Using argument `text` inside of a function defined in `@tag` will create a tag that opens, enters text, and closes. Something like this:
+
 ```python
 @tag
 def script(**kwargs):
@@ -76,6 +78,7 @@ Is the equivalent of:
 <script async="" src="some_src">some_text</script>
 ```
 Want to add some JS? Simple enough. Just create a function for the &lt;script&gt; tag with a context manager behavior using `@CmTag` and you're golden.   
+
 ```python
 @CmTag
 def script(**kwargs):
