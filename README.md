@@ -26,7 +26,7 @@ ________________________________
 
 ## Documentation
 
-- **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra-documentation/)**
+- **Check out the [documentation of Sierra](https://brainstormyourwayin.github.io/sierra-documentation/Documentation.html)**
 
 ________________________________
 
