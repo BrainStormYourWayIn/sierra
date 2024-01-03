@@ -1,7 +1,8 @@
 import traceback
+from typing import List
 
 
-def join_attr(tup):
+def join_attr(tup: List[str]):
     string = ""
     for item in tup:
         string = string + item
@@ -24,13 +25,11 @@ class bullets:
     """
 
     def __init__(self, ul: bool, points: list, **kwargs):
-
         self.ul = ul
         self.points = points
         self.kwargs = kwargs
 
     def __enter__(self):
-
         if self.ul == True:
             if self.kwargs:
                 all_attr = (
@@ -95,11 +94,9 @@ def des_lists(des_list, **kwargs):
     eg. Tag attribute `initial-scale` must be `initial_scale` as the `key`
     """
     if not kwargs:
-
         open("index.html", "a+").write("\n<dl>")
 
     else:
-
         all_attr = (
             "<dl ",
             *(
