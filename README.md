@@ -1,6 +1,6 @@
 # sierra
 
-<img src="https://github.com/BrainStormYourWayIn/sierra/blob/71aa3597f04846a99f03f22c8d54160bff6fa961/logo.jpg" alt="Sierra" style="width:100%;"/>
+<img src="./assets/cover.jpg" alt="Sierra" style="width:100%;"/>
 
 ![GitHub](https://img.shields.io/github/license/BrainStormYourWayIn/sierra?color=blue)
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
