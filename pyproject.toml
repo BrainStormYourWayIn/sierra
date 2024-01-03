@@ -1,51 +1,34 @@
 [tool.poetry]
 name = "sierra"
-version = "2.4.0rc1"
-description = "Sierra is a micro templating library for web frameworks in Python"
-authors = [
-    "Pranav R <rsaipranav2003@gmail.com>",
-    "Siddhesh Agarwal <siddhesh.agarwal@gmail.com>",
-]
-license = "Apache Software License"
+version = "3.0.0"
+description = "A Python library for Document Object Model (DOM), in Python."
+authors = ["Siddhesh Agarwal <siddhesh.agarwal@gmail.com>", "Sai Pranav <>"]
+license = "Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/BrainStormYourWayIn/sierra"
-documentation = "https://brainstormyourwayin.github.io/sierra-documentation"
-keywords = [
-    "css",
-    "html",
-    "web development",
-    "web framework",
-    "templating",
-    "python to HTML",
-    "python to CSS",
-    "jinja",
-    "django",
-]
+keywords = ["dom", "html", "xml", "parser", "parsing", "document", "object", "model", "tree", "bs4", "beautifulsoup", "lxml", "html5lib", "html.parser", "html5"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
-    "Natural Language :: English",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: Implementation",
-    "Topic :: Software Development :: Libraries :: Application Frameworks",
     "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Markup :: HTML",
+    "Topic :: Text Processing :: Markup :: XML",
+    "Topic :: Utilities",
 ]
+
+
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
-pandas = "^1.5.3"
+pydantic = "^2.5.3"
 bs4 = "^0.0.1"
 
-[tool.poetry.dev-dependencies]
-black = "^23.1.0"
-isort = "^5.12.0"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
