@@ -6,7 +6,7 @@
 [![Downloads](https://pepy.tech/badge/sierra)](https://pepy.tech/project/sierra)
 
 Sierra is a Python library to write HTML and CSS in pure Python using the DOM API in a simple yet elegant manner. Take advantage of Python's powerful 
-functionalities with ease. Loops, variables, functions, libraries - you name it, you have it.
+functionalities with ease. Loops, variables, functions, libraries.
 
 Here are a few advantages of using Sierra over other Python libraries that use the DOM API:
 
@@ -14,11 +14,9 @@ Here are a few advantages of using Sierra over other Python libraries that use t
 - Display a table by simply putting in a CSV file
 - Create your own tag functions with absolute ease using `@tag` and `@CmTag`. You can decide their behavior and use them within content-managers too
 - Improvement in the arrangement look of the code and intelligent handling of tags with    
-`autoPrettify()` - Powered by bs4 and a feature like no other 
+`autoPrettify()`
 
 <a href="https://colab.research.google.com/github/pranavr2003/hvejbvfn/blob/main/sierra_interactive.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="autoPrettify()"/></a>
-
-See the power of `autoPrettify()`
 
 You may also use this as a templating engine, although jinja and Django's templating engine is strongly recommended over this 
 
@@ -77,7 +75,7 @@ Is the equivalent of:
 ```html
 <script async="" src="some_src">some_text</script>
 ```
-Want to add some JS? Simple enough. Just create a function for the &lt;script&gt; tag with a context manager behavior using `@CmTag` and you're golden.   
+To add JS, just create a function for the &lt;script&gt; tag with a context manager behavior using `@CmTag`.   
 
 ```python
 @CmTag
@@ -161,15 +159,15 @@ with Table() as t:
     t.get_table("path/to/file.csv")   # Add attributes with **kwargs here
     t.css(border="1px solid black")   # Use writeCSS to add CSS to a specific attribute
 ```
-There are MANY more functionalities to Sierra that you can see from the [documentation](https://brainstormyourwayin.github.io/sierra.github.io/)
+Here are all of Sierra's functionalities - [Documentation](https://brainstormyourwayin.github.io/sierra.github.io/)
 
 At the end of all development with Sierra, use
 ```python
 autoPrettify()
 ```
-It takes in no arguments, but provides SO much to the code.
+It takes in no arguments, but closes unclosed togs, and aligns the code in the output files.
 
-Have a look at this example to see just how `autoPrettify()` works:
+The working of `autoPrettify()`:
    
 <p align=center>
 <a href="https://colab.research.google.com/github/pranavr2003/hvejbvfn/blob/main/sierra_interactive.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
@@ -192,8 +190,6 @@ ________________________________
 ________________________________
 
 ## License
-
-Copyright 2021 BrainStormYourWayIn
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
