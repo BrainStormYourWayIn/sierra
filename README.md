@@ -45,7 +45,7 @@ from sierra import *
 title('Hello World!')
 ```
     
-The `title()` function at the start is mandatory, since it commences the HTML and the CSS file, which is created in the working directory upon execution on the code.
+The `title()` function at the start is mandatory, since it commences the HTML and the CSS file, which is created in the working directory upon execution.
 
 You can create custom tag functions with @tag and @CmTag with just three lines of code. Say you want to create a function for &lt;meta&gt;:
 
