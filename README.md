@@ -156,7 +156,7 @@ with Table() as t:
     t.get_table("path/to/file.csv")   # Add attributes with **kwargs here
     t.css(border="1px solid black")   # Use writeCSS to add CSS to a specific attribute
 ```
-Here are all of Sierra's functionalities - [Documentation](https://brainstormyourwayin.github.io/sierra.github.io/)
+Here are all of Sierra's functionalities - [documentation](https://brainstormyourwayin.github.io/sierra-documentation/Documentation.html)
 
 At the end of all development with Sierra, use
 ```python
