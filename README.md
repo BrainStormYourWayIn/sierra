@@ -60,9 +60,7 @@ meta(name="description", content="This is some description")
 meta(name="viewport", content="width=device-width", initial_scale=1.0)
 ```
 
-Underscores are used for hyphens (same applies to CSS) and Python-conficting arguments are prefixed with a double underscore.
-
-Using argument `text` inside of a function defined in `@tag` will create a tag that opens, enters text, and closes. Something like this:
+Underscores are used for hyphens (same applies to CSS) and Python-conficting arguments are prefixed with a double underscore Take `async`, for instance. This is demonstared below. Also is shown the implementation of the argument `text` inside of a function defined in `@tag`, which will create a tag that opens, enters text, and closes.  See how using `text` and `async` within `<script>` works:
 
 ```python
 @tag
