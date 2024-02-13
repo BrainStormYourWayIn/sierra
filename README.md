@@ -47,7 +47,7 @@ title('Hello World!')
     
 The `title()` function at the start is mandatory, since it commences the HTML and the CSS file, which is created in the working directory upon execution.
 
-You can create custom tag functions with @tag and @CmTag with just three lines of code. Say you want to create a function for &lt;meta&gt;:
+You can create custom tag functions with @tag and @CmTag. Say you want to create a function for &lt;meta&gt;:
 
 ```python
 @tag
@@ -72,7 +72,7 @@ Is the equivalent of:
 ```html
 <script async="" src="some_src">some_text</script>
 ```
-To add JS, just create a function for the &lt;script&gt; tag with a context manager behavior using `@CmTag`.   
+To add JS, create a function for the &lt;script&gt; tag with a context manager behavior using `@CmTag`.   
 
 ```python
 @CmTag
@@ -162,7 +162,7 @@ At the end of all development with Sierra, use
 ```python
 autoPrettify()
 ```
-It takes in no arguments, but closes unclosed togs, and aligns the code in the output files.
+It takes in no arguments, but closes unclosed togs and aligns the code in the output files.
 
 The working of `autoPrettify()`:
    
