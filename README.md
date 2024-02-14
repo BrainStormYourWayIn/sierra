@@ -17,8 +17,6 @@ Here are a few advantages of using Sierra over other Python libraries that use t
 
 <a href="https://colab.research.google.com/github/pranavr2003/hvejbvfn/blob/main/sierra_interactive.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="autoPrettify()"/></a>
 
-You may also use this as a templating engine, although jinja and Django's templating engine is strongly recommended over this 
-
 ________________________________
 
 ## Documentation
