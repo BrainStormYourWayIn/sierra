@@ -72,7 +72,9 @@ script(__async="", src="some_src", text="some_text")
 Is the equivalent of:
 
 ```html
-<script async="" src="some_src">some_text</script>
+<script async="" src="some_src">
+  some_text
+</script>
 ```
 
 Want to add some JS? Simple enough. Just create a function for the `<script>` tag with a context manager behavior using `@CmTag` and you're golden.
@@ -87,7 +89,7 @@ def script(**kwargs):
 with script(__aync="", src="https://www.googletagmanager.com/gtag/js?id=UA—XXXXXXXX-X"):
     pass
 
-with script():  
+with script():
     writeWA('''
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -98,13 +100,18 @@ with script():
 This is the equivalent of:
 
 ```html
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA—XXXXXXXX-X"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA—XXXXXXXX-X"
+></script>
 
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA—XXXXXXXX-X');
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "UA—XXXXXXXX-X");
 </script>
 ```
 

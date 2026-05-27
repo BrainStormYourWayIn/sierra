@@ -56,7 +56,7 @@ head(Head, type='header', **kwargs)
 #    Head (str, compulsory)           : Caption header.
 #    type (str, optional)             : Header type. Anything from 'h1' to 'h6'
 #    **kwargs (optional)              : CSS styling arguments
-        
+
 openBody(**kwargs)
 # openBody(background_color='blue', opacity=1.8)
 ```
@@ -72,11 +72,11 @@ Fonts can be added with `addFont()` which takes only one argument, which is the 
 ```python
 addFont(font_link)
 # If you're using Google Fonts, take only the href attribute.
-# If <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+# If <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 # is the the font tag to Roboto, take only the href attribute, then use.
 
-# addFont("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap") 
-            
+# addFont("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap")
+
 # You can then add "'Roboto', sans-serif" to the CSS as the font_family argument/font-family attribute,
 # depending on the method of CSS used (See 'Using CSS').
 ```
@@ -92,7 +92,7 @@ Any inline within that tag can be entered with a context manager approach under 
 with open_tag('tag_name', attr=None) as t:
     t.css(font_color='rgb(11, 176, 89)')
 
-    #  ---  Any content  ---  
+    #  ---  Any content  ---
 ```
 
 Coming out of `with` automatically closes the tag. The `**kwargs` method, in `Tag()` enables the user to add attributes to their HTML tag.
@@ -101,7 +101,7 @@ Coming out of `with` automatically closes the tag. The `**kwargs` method, in `Ta
 with open_tag('tag_name', attr="class='someClass' id='some_id'") as t:
     t.css(font_color='rgb(11, 176, 89)')
 
-    #  ---  Any content  ---  
+    #  ---  Any content  ---
 ```
 
 This is the equivalent of `<tag_name class='someClass' id='some_id'>`.
@@ -123,8 +123,8 @@ meta(name="viewport", content="width=device-width", initial_scale=1.0)
 This is equivalent to:
 
 ```html
-<meta name="description" content="This is some description">
-<meta name="viewport" content="width=device-width" initial-scale=1.0>
+<meta name="description" content="This is some description" />
+<meta name="viewport" content="width=device-width" initial-scale="1.0" />
 ```
 
 **Using argument `text=""` makes the tag close after the opening of the tag**, causing it to behave differently than tags like meta, which don't need
@@ -135,8 +135,8 @@ a closing. Remember that `__` is the equivalent of a single underscore and `_` i
 def script(**kwargs):
     pass
 
-script(__async="", src="some_src", text="")            
-# You can get any text to appear within the tag. 
+script(__async="", src="some_src", text="")
+# You can get any text to appear within the tag.
 # Not using 'text' creates a tag similar to the <meta> tag
 # This is the equivalent of <script _async= src=some-src></script>
 ```
@@ -248,7 +248,7 @@ As mentioned, you can also add a table with `create_table()`. Make sure the arg 
 createTable(self, heads:list, rows:list, **kwargs)
 # heads(list, compulsory): Adds table headers
 # rows(list, compulsory) : Takes in a list of lists, each list representing a row
-# kwargs(optional)       : Adds tag attributes to 
+# kwargs(optional)       : Adds tag attributes to
 
 with Table() as t:
     c = ['foo', 'foo1', 'foo2']
@@ -259,17 +259,17 @@ with Table() as t:
 
     t.create_table(heads=c, rows=r, id='table_id')
 
-# Adding CSS        
+# Adding CSS
 writeCSS(font_family="Arial, Helvetica, sans-serif", border="1px solid #d1d5e8", padding='8px', width='30%')
 ```
 
 Output:
 
-| foo | foo1 | foo2 |
-|-----|------|------|
-| United States | Croatia | Austria |
-| Czech | Denmark | Canada |
-| Netherlands | Scotland | England |
+| foo           | foo1     | foo2    |
+| ------------- | -------- | ------- |
+| United States | Croatia  | Austria |
+| Czech         | Denmark  | Canada  |
+| Netherlands   | Scotland | England |
 
 ---
 
@@ -384,9 +384,9 @@ p('HTML <a href="some_link">tag</a> within a paragraph <br> This sentence comes 
 
 autoPrettify()
 # It handles tags beautifully, closes unclosed tags, and improves overall look of the HTML inline.
-# Use this at the end of all development outside all context managers. 
-# Using it inside or at a working stage will not work well. 
-# However if you want to add inline to the HTML after </html>, use autoPrettify(), add inline, 
+# Use this at the end of all development outside all context managers.
+# Using it inside or at a working stage will not work well.
+# However if you want to add inline to the HTML after </html>, use autoPrettify(), add inline,
 # and THEN use autoPrettify() AGAIN
 
 # Go to this to see the beauty of autoPrettify()

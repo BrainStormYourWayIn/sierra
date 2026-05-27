@@ -1,8 +1,6 @@
 # Working with Python Loops, Functions, Variables and Conditions
 
-Displaying Python outputs on your web applications are actually pretty simple with Sierra.
-To work with this, you can use `writeWA()` or `p()`, which has been covered on the main page of the documentation.
-You can print variables, output functions, use loops, conditions or anything.
+Displaying Python outputs on your web applications are actually pretty simple with Sierra. To work with this, you can use `writeWA()` or `p()`, which has been covered on the main page of the documentation. You can print variables, output functions, use loops, conditions or anything.
 
 Say you've loaded in a `.csv` file with pandas and write some quick code for displaying each row as a list:
 
@@ -35,9 +33,7 @@ for i in range(0, 3):
 
 ## Image Maps
 
-Say you want to create an image map, with which you can perform different actions by clicking on shape and subsequently coordinate-secified parts of the shape on the image.
-See [image map](https://www.w3schools.com/html/html_images_imagemap.asp).
-You can use f-strings and for loop to make it easy:
+Say you want to create an image map, with which you can perform different actions by clicking on shape and subsequently coordinate-secified parts of the shape on the image. See [image map](https://www.w3schools.com/html/html_images_imagemap.asp). You can use f-strings and for loop to make it easy:
 
 ```python
 with image(src='workplace.jpg', attr="usemap='#workmap'") as i:
@@ -56,14 +52,11 @@ with open_tag('map', attr='name="workmap"'):
 autoPrettify()
 ```
 
-Here, you first display the image and give it an attribute `usemap`, then you enter in four lists that contain the attributes of the three areas to be covered, open the `<map>` tag and map it to the attribute `usemap` given to the image.
-Then you do a simple for loop and unpack each item in the lists with `zip()`, open the `<area>` tag and simply use f-strings to enter in four different attributes to three different `<area>` tags which all come under `<map>`!
-So instead of manually entering in every single tag and attribute, you've used Python's list and for loop to get the job done.
+Here, you first display the image and give it an attribute `usemap`, then you enter in four lists that contain the attributes of the three areas to be covered, open the `<map>` tag and map it to the attribute `usemap` given to the image. Then you do a simple for loop and unpack each item in the lists with `zip()`, open the `<area>` tag and simply use f-strings to enter in four different attributes to three different `<area>` tags which all come under `<map>`! So instead of manually entering in every single tag and attribute, you've used Python's list and for loop to get the job done.
 
 ## Python Functions
 
-With Sierra, using and displaying outputs of Python functions on your web application is made easy as cake
-Here's an example of scraping a webpage with requests, given it's URL, and displaying all text within the `<p>` tag:
+With Sierra, using and displaying outputs of Python functions on your web application is made easy as cake. Here's an example of scraping a webpage with requests, given it's URL, and displaying all text within the `<p>` tag:
 
 ```python
 from sierra import *
@@ -99,8 +92,7 @@ with cTags('.p_class') as p_class:
 autoPrettify()
 ```
 
-Simple as that! You just use `writeWA()` for getting the job done!
-Or you could just do `p(ExtractpText("http://example.com/"))`, both work.
+Simple as that! You just use `writeWA()` for getting the job done! Or you could just do `p(ExtractpText("http://example.com/"))`, both work.
 
 Similarly, variables and conditional statements can be added too.
 
