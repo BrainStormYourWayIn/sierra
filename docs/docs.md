@@ -325,7 +325,7 @@ Output:
     <dd>- foo1</dd>
     <dd>- foo2</dd>
     <dt>py</dt>
-    <dt>py1</dd>
+    <dt>py1</dt>
     <dd>- PEP</dd>
     <dd>- PEP8</dd>
 </dl>
