@@ -15,8 +15,7 @@ Here are a few advantages of using Sierra over other Python libraries that use t
 - Improvement in the arrangement look of the code and intelligent handling of tags with    
 `autoPrettify()`
 
-<a href="https://colab.research.google.com/github/pranavr2003/hvejbvfn/blob/main/sierra_interactive.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="autoPrettify()"/></a>
-
+<a href="https://colab.research.google.com/github/pranavr2003/hvejbvfn/blob/main/sierra_interactive.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 ________________________________
 
 ## Documentation
@@ -163,10 +162,6 @@ autoPrettify()
 It takes in no arguments, but closes unclosed togs and aligns the code in the output files.
 
 The working of `autoPrettify()`:
-   
-<p align=center>
-<a href="https://colab.research.google.com/github/pranavr2003/hvejbvfn/blob/main/sierra_interactive.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-</p>
 
 ________________________________
 
@@ -178,14 +173,9 @@ Email: brainstormyourwayin@gmail.com
 
 ________________________________
 
-**Open with GitPod**
-
-[![GitPod](https://www.gitpod.io/svg/media-kit/logo-dark-theme.svg)](https://gitpod.io/#https://github.com/BrainStormYourWayIn/sierra/)
-
-________________________________
-
 ## License
 
+```
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -202,3 +192,4 @@ limitations under the License.
 >
 >> Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team.    
 >> Copyright (c) 2011-2020, Open source contributors.
+```
